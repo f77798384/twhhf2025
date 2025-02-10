@@ -691,14 +691,14 @@ Scene_Map.prototype.updateDestination = function () {
 Scene_Map.prototype.isMapTouchOk = function () {
     return this.isActive() && $gamePlayer.canMove();
 };
-
+// 自定義修改
 Scene_Map.prototype.processMapTouch = function () {
     if (TouchInput.isTriggered() || this._touchCount > 0) {
         if (TouchInput.isPressed()) {
             if (this._touchCount === 0 || this._touchCount >= 15) {
-                var x = $gameMap.canvasToMapX(TouchInput.x);
-                var y = $gameMap.canvasToMapY(TouchInput.y);
-                $gameTemp.setDestination(x, y);
+                // var x = $gameMap.canvasToMapX(TouchInput.x);
+                // var y = $gameMap.canvasToMapY(TouchInput.y);
+                // $gameTemp.setDestination(x, y);
             }
             this._touchCount++;
         } else {
