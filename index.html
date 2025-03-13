@@ -242,7 +242,7 @@
             myAudio.addEventListener("ended", playEndedHandler, false);
             //播放当前音乐
             myAudio.play();
-            // document.getElementById("music").appendChild(myAudio);
+            document.getElementById("music").appendChild(myAudio);
             //将循环播放关闭，如果开启，将不能触发playEndedHandler方法，只能进行单曲循环
             myAudio.loop = true;
             function playEndedHandler() {
