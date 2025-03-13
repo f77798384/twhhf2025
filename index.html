@@ -112,12 +112,12 @@
             }
         }
 
-        .bgfadeout{
+        .bgfadeout {
             animation: bgfadeout 3s linear forwards;
         }
 
-        @keyframes bgfadeout{
-            to{
+        @keyframes bgfadeout {
+            to {
                 opacity: 0;
                 z-index: 0;
                 background: transparent;
@@ -127,7 +127,7 @@
 </head>
 
 <body>
-    <div id="music"></div>
+    <audio id="music" preload="false" controls="" hidden="" src="./audio/それから５ヶ月.ogg" loop=""></audio>
     <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-1 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
@@ -228,7 +228,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         // function playAudio() {
-        //     const audio = document.createElement("audio");
+        //     document.getElementById("music").appendChild(myAudio)
         //     audio.src = './audio/それから５ヶ月.ogg';
         //     audio.play();
         // }
