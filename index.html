@@ -5,34 +5,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./stylesheet/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         * {
-            box-sizing: border-box;
+            font-family: "LXGW WenKai Mono TC", monospace;
+        }
+
+        body {
+            background-image: url(./img/bg-1.jpg);
+            background-repeat: no-repeat;
+            background-size: inherit;
+        }
+
+        .container {
+            height: calc(98vh - 60px);
+        }
+
+        .intro-anime {}
+
+        .main {
+            max-height: 700px;
+            min-height: 350px;
+            height: calc(95vh - 60px);
+            width: min(95vw, 375px);
+            border: black 1px solid;
+            position: relative;
+            margin: 0 auto;
+            /* margin-top: 20px; */
+            background-color: #725555;
+
+            .bg {
+                position: absolute;
+                background-image: url(./img/introbg.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                opacity: 0.7;
+            }
+        }
+
+        .test {
+            width: 100px;
+            height: 50px;
+            overflow: hidden;
+        }
+
+        .gradient {
+            width: 500px;
+            height: 300px;
+            background-color: #67eb2a;
+        }
+
+        body {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100svh;
+        }
+
+        main {
+            width: 300px;
+            height: 300px;
+            background: #03bafc;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            outline: 5px solid #03bafc;
+            position: relative;
+        }
+
+        div {
+            width: 450px;
+            height: 450px;
+            background: #52bdff;
+            border-radius: 43%;
+            animation: spin 5s linear infinite;
+            position: absolute;
+            bottom: 100px;
+            left: -75px;
+        }
+
+        .second {
+            animation-delay: 0.5s;
+            background: #fff;
+            border-radius: 45%;
+        }
+
+        h2 {
+            position: absolute;
+            font-family: system-ui;
+            font-size: 30px;
+            color: #0369ad;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            from {}
+
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
 
-<body style="background-image: url(./img/bg-1.jpg);background-repeat: no-repeat;background-size: inherit;">
-    <div style="
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 80px);
-    overflow: hidden;
-    ">
-        <div class="main" style="
-        max-height: 700px;
-            border: black 1px solid;
-            position: relative;
-            height: calc(95vh - 80px);
-            width: min(95vw, 375px);
-            margin: 0 auto;
-            background-image: url(./img/introbg.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            ">
+<body>
+    <main>
+        <div></div>
+        <div class="second" style="bottom: 0px;"></div>
+        <h2 class="num">40%</h2>
+    </main>
+
+    <script>
+        let rad = '';
+        for (var i = 0; i < 2001; i++) {
+
+            // 為了凸顯差異，我們將傳入後的參數改名為 x
+            // 當然由於 scope 的不同，要繼續在內部沿用 i 這個變數名也是可以的。
+            (function (x) {
+                window.setTimeout(function () {
+                    $('.second').attr('style', `bottom:${300 * x / 2000}px`)
+                    if (x % 20 == 0) {
+                        $('.num').text(`${100 * x / 2000}%`)
+                    }
+                    rad = Math.random() * 100000;
+                    if (x >= '2000') {
+                        console.log('done')
+                    }
+                }, 5 * (x + Math.random()));
+            })(i);
+        }
+        function test() {
+
+        }
+    </script>
+    <!--     
+    <div
+        class="top-0 bottom-0 end-0 start-0 z-3 intro position-absolute d-flex justify-content-center align-items-center">
+        <div class="main intro-anime">
+            <div class="test">
+                <div class="gradient">
+
+                </div>
+            </div>
         </div>
     </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fs-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="tp-0" src="./img/logo.png" alt="" width="120">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">認識關愛</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">服務內容</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">愛心捐款</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">聯絡我們</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container align-content-center">
+        <div class="main">
+            <div class="bg top-0 bottom-0 start-0 end-0">
+
+            </div>
+        </div>
+    </div> -->
+
+
+    <!--     
+    <div class="bg">
+        <div class="main">
+            <div class="bg">
+
+            </div>
+        </div>
+    </div> -->
 
 
 
@@ -71,7 +242,7 @@
             myAudio.addEventListener("ended", playEndedHandler, false);
             //播放当前音乐
             myAudio.play();
-            document.getElementById("music").appendChild(myAudio);
+            // document.getElementById("music").appendChild(myAudio);
             //将循环播放关闭，如果开启，将不能触发playEndedHandler方法，只能进行单曲循环
             myAudio.loop = true;
             function playEndedHandler() {
@@ -82,6 +253,8 @@
             }
         }
     </script>
+
+
 
 </body>
 
