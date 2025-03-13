@@ -156,7 +156,6 @@
                     if (x >= '2000') {
                         $('.loadframe').addClass('loadover')
                         $('#intrologo').addClass('animate__animated animate__fadeIn animate__delay-3s')
-                        $('#music')[0].play()
                     }
                 }, 0.1 * (x + Math.random()));
             })(i);
@@ -200,7 +199,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="on-off">
-                            <i class="bi bi-volume-up-fill"></i>
+                            <i class="bi bi-volume-mute-fill"></i>
                         </a>
                     </li>
                 </ul>
@@ -234,10 +233,19 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         let bgmstatus = false;
+        let audio = $('#music')[0];
+        let sw = $('#on-off i')[0];
         $('#on-off').on('click',function(){
+            $(sw).toggleClass('bi-volume-mute-fill')
+            $(sw).toggleClass('bi-volume-up-fill')
             if(bgmstatus == false){
-                $('#music')[0].play()
-                
+                audio.play();
+                bgmstatus = true;
+                return;
+            }else{
+                audio.pause();
+                bgmstatus = false;
+                return;
             }
         })
     </script>
