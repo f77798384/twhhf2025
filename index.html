@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         * {
@@ -26,7 +27,6 @@
             height: calc(98vh - 60px);
         }
 
-        .intro-anime {}
 
         .main {
             max-height: 700px;
@@ -48,26 +48,6 @@
             }
         }
 
-        .test {
-            width: 100px;
-            height: 50px;
-            overflow: hidden;
-        }
-
-        .gradient {
-            width: 500px;
-            height: 300px;
-            background-color: #67eb2a;
-        }
-
-        body {
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100svh;
-        }
-
         main {
             width: 300px;
             height: 300px;
@@ -79,7 +59,7 @@
             position: relative;
         }
 
-        div {
+        .loading {
             width: 450px;
             height: 450px;
             background: #52bdff;
@@ -96,7 +76,7 @@
             border-radius: 45%;
         }
 
-        h2 {
+        .num {
             position: absolute;
             font-family: system-ui;
             font-size: 30px;
@@ -113,15 +93,52 @@
                 transform: rotate(360deg);
             }
         }
+
+        .loadover {
+            animation: loadover 5s linear forwards;
+        }
+
+        @keyframes loadover {
+            form {
+                transform: rotate(0deg);
+                opacity: 0;
+                scale: 1;
+            }
+
+            to {
+                transform: rotate(1440deg);
+                opacity: 0;
+                scale: 0;
+            }
+        }
+
+        .bgfadeout{
+            animation: bgfadeout 3s linear forwards;
+        }
+
+        @keyframes bgfadeout{
+            to{
+                opacity: 0;
+                z-index: 0;
+                background: transparent;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <main>
-        <div></div>
-        <div class="second" style="bottom: 0px;"></div>
-        <h2 class="num">40%</h2>
-    </main>
+    <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-1 bg-black">
+        <div class="outframe position-absolute "
+            style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
+            <main class="loadframe">
+                <div class="loading"></div>
+                <div class="loading second" style="bottom: 0px;"></div>
+                <h2 class="num">0%</h2>
+            </main>
+        </div>
+        <img id="intrologo" src="./img/關愛LOGO.png" alt=""
+            class="w-25 top-50 start-50 position-absolute translate-middle" style="opacity: 0;">
+    </div>
 
     <script>
         let rad = '';
@@ -135,31 +152,27 @@
                     if (x % 20 == 0) {
                         $('.num').text(`${100 * x / 2000}%`)
                     }
-                    rad = Math.random() * 100000;
                     if (x >= '2000') {
-                        console.log('done')
+                        $('.loadframe').addClass('loadover')
+                        $('#intrologo').addClass('animate__animated animate__fadeIn animate__delay-3s')
                     }
-                }, 5 * (x + Math.random()));
+                }, 0.1 * (x + Math.random()));
             })(i);
+            setTimeout(() => {
+                $('#intrologo').removeClass('animate__delay-3s')
+                $('#intrologo').addClass('animate__fadeOut')
+                $('#introbg').addClass('bgfadeout')
+            }, 6000);
+            // setTimeout(() => {
+            //     $('#introbg').remove()
+            // }, 6800);
         }
         function test() {
 
         }
     </script>
-    <!--     
-    <div
-        class="top-0 bottom-0 end-0 start-0 z-3 intro position-absolute d-flex justify-content-center align-items-center">
-        <div class="main intro-anime">
-            <div class="test">
-                <div class="gradient">
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fs-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fs-4 z-1">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img class="tp-0" src="./img/logo.png" alt="" width="120">
@@ -193,11 +206,10 @@
 
             </div>
         </div>
-    </div> -->
+    </div>
 
 
-    <!--     
-    <div class="bg">
+    <!-- <div class="bg">
         <div class="main">
             <div class="bg">
 
