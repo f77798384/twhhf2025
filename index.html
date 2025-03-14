@@ -31,7 +31,9 @@
             right: 0;
             padding: 0; */
             padding: 0;
-            height: calc(100vh - 80px);
+            height: 100vh;
+            /*給 Safari 以外的瀏覽器讀取*/
+            height: calc(var(--vh, 1vh) * 100);
             width: min(100vw, 375px);
 
             @media (min-width: 1200px) {
@@ -283,6 +285,18 @@
         function test() {
 
         }
+    </script>
+
+    <script>
+        function safariHacks() {
+            let windowsVH = window.innerHeight / 100;
+            document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
+            window.addEventListener('resize', function () {
+                document.querySelector('.wrap').style.setProperty('--vh', windowsVH + 'px');
+            });
+        }
+
+        safariHacks();
     </script>
 
 
