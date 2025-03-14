@@ -189,8 +189,10 @@
         </div>
     </nav>
     <div class="container align-content-center">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fs-4 z-1 d-lg-none position-absolute p-0 rounded rounded-1 m-1">
-            <div class="container-fluid p-0 rounded rounded-1 p-1" style="background-color: rgba(192, 192, 192, 0.705);">
+        <nav
+            class="navbar navbar-expand-lg navbar-light bg-light fs-4 z-1 d-lg-none position-absolute p-0 rounded rounded-1 m-1">
+            <div class="container-fluid p-0 rounded rounded-1 p-1"
+                style="background-color: rgba(192, 192, 192, 0.705);">
                 <a class="navbar-brand d-none d-lg-block" href="#">
                     <img class="tp-0" src="./img/logo.png" alt="" width="120">
                 </a>
@@ -220,8 +222,10 @@
         <div class="main z-0">
             <div class="bg top-0 bottom-0 start-0 end-0 z-n1">
             </div>
-            <a style="font-size: 40px;width: 50px;height: 50px;" class="text-black position-absolute border border-1 border-black rounded-1 m-1 d-flex justify-content-center align-content-center end-0" href="#" id="on-off">
-                <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
+            <a style="font-size: 40px;width: 50px;height: 50px;"
+                class="text-black position-absolute border border-1 border-black rounded-1 m-1 d-flex justify-content-center align-content-center end-0"
+                href="#" id="on-off">
+                <i style="margin-top: -3px;" class="bi bi-volume-up-fill"></i>
             </a>
         </div>
     </div>
@@ -232,19 +236,41 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
-        let bgmstatus = false;
-        let audio = $('#music')[0];
+        let bgmstatus = true;
+        // let audio = $('#music')[0];
         let sw = $('#on-off i')[0];
-        audio.load();
+        // audio.load();
+        // $('#on-off').on('click', function () {
+        //     $(sw).toggleClass('bi-volume-mute-fill')
+        //     $(sw).toggleClass('bi-volume-up-fill')
+        //     if (bgmstatus == false) {
+        //         audio.play();
+        //         bgmstatus = true;
+        //         return;
+        //     } else {
+        //         audio.pause();
+        //         bgmstatus = false;
+        //         return;
+        //     }
+        // })
+        const soundEffect = new Audio();
+        soundEffect.autoplay = true;
+        
+        // onClick of first interaction on page before I need the sounds
+        // (This is a tiny MP3 file that is silent and extremely short - retrieved from https://bigsoundbank.com and then modified)
+        soundEffect.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
+        
+        // later on when you actually want to play a sound at any point without user interaction
+        soundEffect.src = './audio/それから５ヶ月.ogg';
         $('#on-off').on('click', function () {
             $(sw).toggleClass('bi-volume-mute-fill')
             $(sw).toggleClass('bi-volume-up-fill')
             if (bgmstatus == false) {
-                audio.play();
+                soundEffect.play();
                 bgmstatus = true;
                 return;
             } else {
-                audio.pause();
+                soundEffect.pause();
                 bgmstatus = false;
                 return;
             }
