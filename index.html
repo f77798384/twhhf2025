@@ -24,7 +24,7 @@
         }
 
         .container {
-            height: calc(98vh - 60px);
+            height: calc(95vh - 60px);
         }
 
 
@@ -95,7 +95,7 @@
         }
 
         .loadover {
-            animation: loadover 5s linear forwards;
+            animation: loadover 3s linear forwards;
         }
 
         @keyframes loadover {
@@ -108,7 +108,7 @@
             to {
                 transform: rotate(1440deg);
                 opacity: 0;
-                scale: 0;
+                scale: 0.5;
             }
         }
 
@@ -141,34 +141,7 @@
             class="w-25 top-50 start-50 position-absolute translate-middle" style="opacity: 0;">
     </div>
 
-    <script>
-        let rad = '';
-        for (var i = 0; i < 2001; i++) {
 
-            // 為了凸顯差異，我們將傳入後的參數改名為 x
-            // 當然由於 scope 的不同，要繼續在內部沿用 i 這個變數名也是可以的。
-            (function (x) {
-                window.setTimeout(function () {
-                    $('.second').attr('style', `bottom:${300 * x / 2000}px`)
-                    if (x % 20 == 0) {
-                        $('.num').text(`${100 * x / 2000}%`)
-                    }
-                    if (x >= '2000') {
-                        $('.loadframe').addClass('loadover')
-                        $('#intrologo').addClass('animate__animated animate__fadeIn ')
-                    }
-                }, 3 * (x + Math.random()));
-            })(i);
-            setTimeout(() => {
-                $('#intrologo').removeClass('animate__fadeOut')
-                $('#intrologo').addClass('animate__fadeOut')
-                $('#introbg').addClass('bgfadeout')
-            }, 8500);
-        }
-        function test() {
-
-        }
-    </script>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fs-4 z-1">
         <div class="container-fluid">
@@ -194,20 +167,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">聯絡我們</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#" id="on-off">
                             <i class="bi bi-volume-mute-fill"></i>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container align-content-center">
-        <div class="main">
-            <div class="bg top-0 bottom-0 start-0 end-0">
-
+        <div class="main z-0">
+            <div class="bg top-0 bottom-0 start-0 end-0 z-n1">
             </div>
+            <a class="fs-1 text-black position-absolute mt-n1 end-0" href="#" id="on-off">
+                <i class="bi bi-volume-mute-fill"></i>
+            </a>
         </div>
     </div>
 
@@ -232,14 +207,14 @@
         let bgmstatus = false;
         let audio = $('#music')[0];
         let sw = $('#on-off i')[0];
-        $('#on-off').on('click',function(){
+        $('#on-off').on('click', function () {
             $(sw).toggleClass('bi-volume-mute-fill')
             $(sw).toggleClass('bi-volume-up-fill')
-            if(bgmstatus == false){
+            if (bgmstatus == false) {
                 audio.play();
                 bgmstatus = true;
                 return;
-            }else{
+            } else {
                 audio.pause();
                 bgmstatus = false;
                 return;
@@ -247,44 +222,37 @@
         })
     </script>
     <script>
-        // function playAudio() {
-        //     document.getElementById("music").appendChild(myAudio)
-        //     audio.src = './audio/それから５ヶ月.ogg';
-        //     audio.play();
-        // }
-        // playAudio()
+        let rad = '';
+        for (var i = 0; i < 2001; i++) {
 
-        // window.onload = function () {
-        //     //存放音乐列表，根据音乐文件路径，进行填写
-        //     var musicList = ["./audio/それから５ヶ月.ogg"]
-        //     playMusic(musicList);
-        // }
-        // function playMusic(musicList) {
-        //     var myAudio = new Audio();
-        //     //是否进行预加载
-        //     myAudio.preload = false;
-        //     //是否显示隐藏按钮
-        //     myAudio.controls = true;
-        //     myAudio.hidden = true;
-        //     //从音乐列表中，获取最后一个音乐（并删除）
-        //     var src = musicList.pop();
-        //     myAudio.src = src;
-        //     //将最后一个音乐添加到数组的开头，这样实现循环
-        //     musicList.unshift(src);
-        //     //绑定音乐结束事件，当音乐播放完成后，将会触发playEndedHandler方法
-        //     myAudio.addEventListener("ended", playEndedHandler, false);
-        //     //播放当前音乐
-        //     myAudio.play();
-        //     document.getElementById("music").appendChild(myAudio);
-        //     //将循环播放关闭，如果开启，将不能触发playEndedHandler方法，只能进行单曲循环
-        //     myAudio.loop = true;
-        //     function playEndedHandler() {
-        //         src = musicList.pop();
-        //         myAudio.src = src;
-        //         musicList.unshift(src);
-        //         myAudio.play();
-        //     }
-        // }
+            // 為了凸顯差異，我們將傳入後的參數改名為 x
+            // 當然由於 scope 的不同，要繼續在內部沿用 i 這個變數名也是可以的。
+            (function (x) {
+                window.setTimeout(function () {
+                    $('.second').attr('style', `bottom:${300 * x / 2000}px`)
+                    if (x % 20 == 0) {
+                        $('.num').text(`${100 * x / 2000}%`)
+                    }
+                    if (x >= '2000') {
+                        setTimeout(() => {
+                            $('.loadframe').addClass('loadover')
+                            $('#intrologo').addClass('animate__animated animate__fadeIn ')
+                        }, 1500);
+                    }
+                }, 3 * (x + Math.random() * 10));
+            })(i);
+            setTimeout(() => {
+                $('#intrologo').removeClass('animate__fadeOut')
+                $('#intrologo').addClass('animate__fadeOut')
+                $('#introbg').addClass('bgfadeout')
+                setTimeout(() => {
+                    $('#introbg').remove()
+                }, 0);
+            }, 0);
+        }
+        function test() {
+
+        }
     </script>
 
 
