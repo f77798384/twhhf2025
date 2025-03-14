@@ -231,31 +231,33 @@
         </div>
     </div>
 
+    <div id='root'/>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    <script>
+    <!-- <script>
         function play() {
             let audio = new Audio('./audio/それから５ヶ月.ogg')
             audio.play()
             alert('123')
         }
-    </script>
+    </script> -->
 
     <script>
         const btn = document.createElement('BUTTON');
         const textLabel = document.createTextNode('Play');
-        const audio = new window.Audio();
-        audio.src = './audio/それから５ヶ月.ogg';
-        audio.autoplay = true;
-        // audio.controls = true
+        const audio1 = new window.Audio();
+        audio1.src = './audio/それから５ヶ月.ogg';
+        audio1.autoplay = true;
+        // audio1.controls = true
 
         btn.appendChild(textLabel)
         document.getElementById('root').appendChild(btn);
-        document.getElementById('root').appendChild(audio);
+        document.getElementById('root').appendChild(audio1);
 
         const mockedPromise = new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -266,8 +268,8 @@
 
         btn.onclick = (e) => {
             mockedPromise.then(src => {
-                audio.src = src;
-                audio.play();
+                audio1.src = src;
+                audio1.play();
             })
         }
     </script>
@@ -292,6 +294,7 @@
             }
         })
     </script>
+
     <script>
         let rad = '';
         for (var i = 0; i < 2001; i++) {
