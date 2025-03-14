@@ -144,7 +144,7 @@
 </head>
 
 <body>
-    <audio id="music" preload="false" controls="" hidden="" src="./audio/それから５ヶ月.ogg" loop=""></audio>
+    <audio id="music" preload="auto" src="./audio/それから５ヶ月.ogg" loop=""></audio>
     <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-1 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
@@ -246,33 +246,6 @@
             alert('123')
         }
     </script> -->
-
-    <script>
-        const btn = document.createElement('BUTTON');
-        const textLabel = document.createTextNode('Play');
-        const audio1 = new window.Audio();
-        audio1.src = './audio/それから５ヶ月.ogg';
-        audio1.autoplay = true;
-        // audio1.controls = true
-
-        btn.appendChild(textLabel)
-        document.getElementById('root').appendChild(btn);
-        document.getElementById('root').appendChild(audio1);
-
-        const mockedPromise = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                const src = './audio/それから５ヶ月.ogg';
-                return resolve(src);
-            }, 500);
-        })
-
-        btn.onclick = (e) => {
-            mockedPromise.then(src => {
-                audio1.src = src;
-                audio1.play();
-            })
-        }
-    </script>
 
     <script>
         let bgmstatus = false;
