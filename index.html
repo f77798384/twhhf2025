@@ -129,13 +129,13 @@
         }
 
         .bgfadeout {
-            animation: bgfadeout 3s linear forwards;
+            animation: bgfadeout 1.5s linear forwards;
         }
 
         @keyframes bgfadeout {
             to {
                 opacity: 0;
-                z-index: 0;
+                z-index: -1;
                 background: transparent;
             }
         }
@@ -278,7 +278,7 @@
                             setTimeout(() => {
                                 console.log(5)
                                 $('#introbg').remove()
-                            }, 3000);
+                            }, 1500);
                         }, 3000);
                     }
                 }, 3 * (x + Math.random() * 10));
