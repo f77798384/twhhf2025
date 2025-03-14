@@ -144,8 +144,7 @@
 </head>
 
 <body>
-    <audio id="music" onclick="playAudio()" src="./audio/123.ogg" ></audio>
-    <!-- <audio id="music" preload="false" controls="" hidden="" src="./audio/それから５ヶ月.ogg" loop=""></audio> -->
+    <audio id="music" preload="false" controls="" hidden="" src="./audio/それから５ヶ月.ogg" loop=""></audio>
     <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-1 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
@@ -226,8 +225,9 @@
             <a style="font-size: 40px;width: 50px;height: 50px;"
                 class="text-black position-absolute border border-1 border-black rounded-1 m-1 d-flex justify-content-center align-content-center end-0"
                 href="#" id="on-off">
-                <i style="margin-top: -3px;" class="bi bi-volume-mute-fill" onclick="playAudio()" ></i>
+                <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
             </a>
+            <button onclick="play()">123123123</button>
         </div>
     </div>
 
@@ -238,54 +238,31 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <script>
-        function playAudio() {
-            var selectedplayer = document.getElementById("music");
-            selectedplayer.play();
-            console.log(123)
+        function play() {
+            let audio = new Audio('./audio/それから５ヶ月.ogg')
+            audio.play()
         }
     </script>
 
     <script>
-        // let bgmstatus = false;
-        // let audio = $('#music')[0];
-        // let sw = $('#on-off i')[0];
+        let bgmstatus = false;
+        let audio = $('#music')[0];
+        let sw = $('#on-off i')[0];
 
-        // $('#on-off').on('click', function () {
-        //     $(sw).toggleClass('bi-volume-mute-fill')
-        //     $(sw).toggleClass('bi-volume-up-fill')
-        //     if (bgmstatus == false) {
-        //         audio.play();
-        //         bgmstatus = true;
-        //         return;
-        //     } else {
-        //         audio.pause();
-        //         bgmstatus = false;
-        //         return;
-        //     }
-        // })
-        // const soundEffect = new Audio();
-        // soundEffect.autoplay = true;
-        
-        // onClick of first interaction on page before I need the sounds
-        // (This is a tiny MP3 file that is silent and extremely short - retrieved from https://bigsoundbank.com and then modified)
-        // soundEffect.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
-        
-        // later on when you actually want to play a sound at any point without user interaction
-        // soundEffect.src = './audio/123.ogg';
-        // soundEffect.src = './audio/それから５ヶ月.ogg';
-        // $('#on-off').on('click', function () {
-        //     $(sw).toggleClass('bi-volume-mute-fill')
-        //     $(sw).toggleClass('bi-volume-up-fill')
-        //     if (bgmstatus == false) {
-        //         soundEffect.play();
-        //         bgmstatus = true;
-        //         return;
-        //     } else {
-        //         soundEffect.pause();
-        //         bgmstatus = false;
-        //         return;
-        //     }
-        // })
+        $('#on-off').on('click', function () {
+            e.preventDefault();
+            $(sw).toggleClass('bi-volume-mute-fill')
+            $(sw).toggleClass('bi-volume-up-fill')
+            if (bgmstatus == false) {
+                audio.play();
+                bgmstatus = true;
+                return;
+            } else {
+                audio.pause();
+                bgmstatus = false;
+                return;
+            }
+        })
     </script>
     <script>
         let rad = '';
