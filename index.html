@@ -265,17 +265,18 @@
         soundEffect.src = './audio/123.ogg';
         // soundEffect.src = './audio/それから５ヶ月.ogg';
         $('#on-off').on('click', function () {
-            $(sw).toggleClass('bi-volume-mute-fill')
-            $(sw).toggleClass('bi-volume-up-fill')
-            if (bgmstatus == false) {
-                soundEffect.play();
-                bgmstatus = true;
-                return;
-            } else {
-                soundEffect.pause();
-                bgmstatus = false;
-                return;
-            }
+            soundEffect.play();
+            // $(sw).toggleClass('bi-volume-mute-fill')
+            // $(sw).toggleClass('bi-volume-up-fill')
+            // if (bgmstatus == false) {
+            //     soundEffect.play();
+            //     bgmstatus = true;
+            //     return;
+            // } else {
+            //     soundEffect.pause();
+            //     bgmstatus = false;
+            //     return;
+            // }
         })
     </script>
     <script>
