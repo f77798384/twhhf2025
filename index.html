@@ -235,6 +235,7 @@
         let bgmstatus = false;
         let audio = $('#music')[0];
         let sw = $('#on-off i')[0];
+        audio.load();
         $('#on-off').on('click', function () {
             $(sw).toggleClass('bi-volume-mute-fill')
             $(sw).toggleClass('bi-volume-up-fill')
