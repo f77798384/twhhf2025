@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="author" content="不吃貓的魚">
+    <meta name="description" content="財團法人台灣關愛基金會（關愛之家）於2011年成立。創辦人楊婕妤女士從1986年開始投入愛滋感染者社區臨床照顧工作，提供愛滋感染者安心養病的環境，亦提供愛滋寶寶的照顧服務。隨著醫學技術的發展，目前台灣已沒有愛滋寶寶的降生，而因緣際會展開了弱勢移工婦女及其子女的照顧服務，也接受社會局轉介本國籍孩童，將服務擴大成不分國籍的兒童">
+
+
+    <title>給「移」樣的孩子，一樣的愛</title>
     <link rel="stylesheet" href="./stylesheet/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,10 +32,11 @@
             padding: 0;
             margin: 0;
             height: calc(var(--vh, 1vh) * 100);
+            place-self: center;
             max-height: -webkit-fill-available;
             width: 100vw;
 
-            @media (min-width: 1200px) {
+            @media (min-width: 768px) {
                 height: calc(95vh - 60px);
                 margin: 0 auto;
             }
@@ -56,7 +61,7 @@
                 opacity: 0.7;
             }
 
-            @media (min-width: 1200px) {
+            @media (min-width: 768px) {
                 max-height: 700px;
                 min-height: 350px;
                 height: calc(95vh - 60px);
@@ -159,7 +164,7 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fs-4 z-1 d-none d-lg-block">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
         <div class="container-fluid ">
             <a class="navbar-brand" href="#">
                 <img class="tp-0" src="./img/logo.png" alt="" width="120">
@@ -189,10 +194,10 @@
     </nav>
     <div class="container align-content-center">
         <nav
-            class="navbar navbar-expand-lg navbar-light bg-light fs-4 z-1 d-lg-none position-absolute p-0 rounded rounded-1 m-1">
+            class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-md-none position-absolute p-0 rounded rounded-1 m-1">
             <div class="container-fluid p-0 rounded rounded-1 p-1"
                 style="background-color: rgba(192, 192, 192, 0.705);">
-                <a class="navbar-brand d-none d-lg-block" href="#">
+                <a class="navbar-brand d-none d-md-block" href="#">
                     <img class="tp-0" src="./img/logo.png" alt="" width="120">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -201,7 +206,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-1">
+                    <ul class="navbar-nav me-auto ps-1 pt-2">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">認識關愛</a>
                         </li>
@@ -279,9 +284,9 @@
                                 console.log(5)
                                 $('#introbg').remove()
                             }, 1500);
-                        }, 3000);
+                        }, 0);
                     }
-                }, 3 * (x + Math.random() * 10));
+                }, 0.1 * (x + Math.random() * 10));
             })(i);
         }
     </script>
@@ -292,9 +297,6 @@
             document.querySelector('.container').style.setProperty('--vh', windowsVH + 'px');
             window.addEventListener('resize', function () {
                 document.querySelector('.container').style.setProperty('--vh', windowsVH + 'px');
-            });
-            document.querySelector('.main').style.setProperty('--vh', windowsVH + 'px');
-            window.addEventListener('resize', function () {
                 document.querySelector('.main').style.setProperty('--vh', windowsVH + 'px');
             });
         }
