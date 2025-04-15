@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="不吃貓的魚">
-    <meta name="description" content="財團法人台灣關愛基金會（關愛之家）於2011年成立。創辦人楊婕妤女士從1986年開始投入愛滋感染者社區臨床照顧工作，提供愛滋感染者安心養病的環境，亦提供愛滋寶寶的照顧服務。隨著醫學技術的發展，目前台灣已沒有愛滋寶寶的降生，而因緣際會展開了弱勢移工婦女及其子女的照顧服務，也接受社會局轉介本國籍孩童，將服務擴大成不分國籍的兒童">
+    <meta name="description"
+        content="財團法人台灣關愛基金會（關愛之家）於2011年成立。創辦人楊婕妤女士從1986年開始投入愛滋感染者社區臨床照顧工作，提供愛滋感染者安心養病的環境，亦提供愛滋寶寶的照顧服務。隨著醫學技術的發展，目前台灣已沒有愛滋寶寶的降生，而因緣際會展開了弱勢移工婦女及其子女的照顧服務，也接受社會局轉介本國籍孩童，將服務擴大成不分國籍的兒童">
 
 
     <title>給「移」樣的孩子，一樣的愛</title>
@@ -127,7 +128,7 @@
             }
 
             to {
-                transform: rotate(1440deg);
+                transform: rotate(1080deg);
                 opacity: 0;
                 scale: 0.5;
             }
@@ -144,12 +145,23 @@
                 background: transparent;
             }
         }
+
+        .bi-caret-down-fill{
+            animation: floating 0.8s ease-out infinite alternate;
+        }
+
+        @keyframes floating{
+            to{
+                margin-bottom: -5px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <audio id="music" preload="auto" src="./audio/それから５ヶ月.mp3" loop=""></audio>
-    <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
+
+    <!-- <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
             <main class="loadframe">
@@ -160,9 +172,9 @@
         </div>
         <img id="intrologo" src="./img/關愛LOGO.png" alt=""
             class="w-50 top-50 start-50 position-absolute translate-middle" style="opacity: 0;max-width: 375px;">
-    </div>
 
 
+    </div> -->
 
     <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
         <div class="container-fluid ">
@@ -223,7 +235,7 @@
                 </div>
             </div>
         </nav>
-        <div class="main z-0">
+        <div class="main z-0 position-relative">
             <div class="bg top-0 bottom-0 start-0 end-0 z-n1">
             </div>
             <a style="font-size: 40px;width: 50px;height: 50px;"
@@ -231,10 +243,17 @@
                 href="#" id="on-off">
                 <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
             </a>
+            <div class="position-relative translate-middle top-50 start-50 rounded-1 border bg-body"
+                style="width: 80%;height: 65%;">
+                <h2 class="text-center lh-lg">關愛童樂園</h2>
+                <p class="px-2">
+                    　　歡迎您來到 給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。
+                </p>
+                <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i>
+            </div>
         </div>
     </div>
-
-    <div id='root' />
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -264,7 +283,7 @@
     </script>
 
     <script>
-        let rad = '';
+        let rad;
         for (var i = 0; i < 2001; i++) {
             (function (x) {
                 window.setTimeout(function () {
@@ -273,20 +292,18 @@
                         $('.num').text(`${100 * x / 2000}%`)
                     }
                     if (x >= '2000') {
-                        console.log(1)
-                        $('.loadframe').addClass('loadover')
                         $('#intrologo').addClass('animate__animated animate__fadeIn ')
                         setTimeout(() => {
-                            $('#intrologo').removeClass('animate__fadeOut')
+                            $('.loadframe').addClass('loadover')
+                            $('#intrologo').removeClass('animate__fadeIn')
                             $('#intrologo').addClass('animate__fadeOut')
                             $('#introbg').addClass('bgfadeout')
                             setTimeout(() => {
-                                console.log(5)
                                 $('#introbg').remove()
-                            }, 1500);
-                        }, 0);
+                            }, 2500);
+                        }, 1000);
                     }
-                }, 0.1 * (x + Math.random() * 10));
+                }, 1000 + 2 * (x + Math.random() * 10));
             })(i);
         }
     </script>
@@ -295,17 +312,17 @@
         function safariHacks() {
             let windowsVH = window.innerHeight / 100;
             document.querySelector('.container').style.setProperty('--vh', windowsVH + 'px');
+            document.querySelector('.main').style.setProperty('--vh', windowsVH + 'px');
             window.addEventListener('resize', function () {
                 document.querySelector('.container').style.setProperty('--vh', windowsVH + 'px');
                 document.querySelector('.main').style.setProperty('--vh', windowsVH + 'px');
             });
         }
-
         safariHacks();
     </script>
 
-
-
+    <script>
+    </script>
 </body>
 
 </html>
