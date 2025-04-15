@@ -146,22 +146,81 @@
             }
         }
 
-        .bi-caret-down-fill{
+        .bi-caret-down-fill {
             animation: floating 0.8s ease-out infinite alternate;
         }
 
-        @keyframes floating{
-            to{
+        @keyframes floating {
+            to {
                 margin-bottom: -5px;
             }
+        }
+
+        .razo {
+            animation: rotateandzoomout 3s ease-out infinite alternate;
+        }
+
+        #razo {
+            animation: rotateandzoomout 3s ease-out infinite alternate;
+        }
+
+        @keyframes rotateandzoomout {
+            0% {
+                font-size: 20px;
+            }
+
+            100% {
+                height: 0%;
+                width: 0%;
+                opacity: 0;
+                font-size: 0;
+            }
+        }
+
+        .card {
+            width: 15rem;
+            height: 20rem;
+            margin: auto;
+            border: 1px solid #000;
+            position: relative;
+            perspective: 150rem;
+        }
+
+        .font,
+        .back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            color: #fff;
+            padding: 8rem 5rem;
+            box-sizing: border-box;
+            transition: all 0.5s;
+            backface-visibility: hidden;
+        }
+
+        .font {
+            background: red;
+        }
+
+        .back {
+            background: blue;
+            transform: rotateY(-180deg);
+        }
+
+        .card:hover .font {
+            transform: rotateY(180deg);
+        }
+
+        .card:hover .back {
+            transform: rotateY(0);
         }
     </style>
 </head>
 
 <body>
     <audio id="music" preload="auto" src="./audio/それから５ヶ月.mp3" loop=""></audio>
-
-    <!-- <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
+    <!-- 
+    <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
             <main class="loadframe">
@@ -205,9 +264,9 @@
         </div>
     </nav>
     <div class="container align-content-center">
-        <nav
-            class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-md-none position-absolute p-0 rounded rounded-1 m-1">
-            <div class="container-fluid p-0 rounded rounded-1 p-1"
+        <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-md-none position-absolute p-0 rounded rounded-1 m-1"
+            style="width: 80px;">
+            <div class="container-fluid p-0 rounded rounded-1 p-1 justify-content-center"
                 style="background-color: rgba(192, 192, 192, 0.705);">
                 <a class="navbar-brand d-none d-md-block" href="#">
                     <img class="tp-0" src="./img/logo.png" alt="" width="120">
@@ -218,7 +277,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto ps-1 pt-2">
+                    <ul class="navbar-nav me-auto ps-1 pt-2 fs-6">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">認識關愛</a>
                         </li>
@@ -243,13 +302,22 @@
                 href="#" id="on-off">
                 <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
             </a>
-            <div class="position-relative translate-middle top-50 start-50 rounded-1 border bg-body"
-                style="width: 80%;height: 65%;">
-                <h2 class="text-center lh-lg">關愛童樂園</h2>
-                <p class="px-2">
-                    　　歡迎您來到 給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。
-                </p>
-                <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i>
+            <div style="width: 85%;height: 65%;" class="position-relative translate-middle top-50 start-50 ">
+                <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
+                    style="height: 100%;">
+                    <h2 class="align-content-center text-center lh-lg m-0 h2" style="height: 20%;">關愛童LOVE園</h2>
+                    <p class="m-0 px-2 align-content-center " style="text-align: justify; height: 60%;">
+                        歡迎您來到給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。
+                    </p>
+                    <button id="start" type="button" class="w-50 border-1 rounded-3" style="height: 10%;">開始遊戲</button>
+                    <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
+                </div>
+
+                <div class='card d-none animate__animated animate__slow bg-transparent'>
+                    <div class='font'>Font</div>
+                    <div class='back'>Back</div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -280,6 +348,17 @@
                 return;
             }
         })
+
+        $('#start').on('click', function (e) {
+            e.preventDefault();
+            $('#on-off').click()
+            $('#stframe').addClass('animate__fadeOutTopRight')
+            setTimeout(function () {
+                $('#stframe').remove()
+                $('.card').removeClass('d-none')
+                $('.card').addClass('animate__fadeIn')
+            }, 2500)
+        })
     </script>
 
     <script>
@@ -300,7 +379,7 @@
                             $('#introbg').addClass('bgfadeout')
                             setTimeout(() => {
                                 $('#introbg').remove()
-                            }, 2500);
+                            }, 1500);
                         }, 1000);
                     }
                 }, 1000 + 2 * (x + Math.random() * 10));
