@@ -182,7 +182,7 @@
             }
         }
 
-        .card {
+        .lotto {
             margin: auto;
             /* border: 1px solid #000; */
             position: relative;
@@ -232,11 +232,11 @@
             }
         }
 
-        /* .card:hover .font {
+        /* .lotto:hover .font {
             transform: rotateY(180deg);
         }
 
-        .card:hover .back {
+        .lotto:hover .back {
             transform: rotateY(0);
         } */
     </style>
@@ -244,7 +244,7 @@
 
 <body>
     <audio id="music" preload="auto" src="./audio/それから５ヶ月.mp3" loop=""></audio>
-    <!-- 
+    
     <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
@@ -258,7 +258,7 @@
             class="w-50 top-50 start-50 position-absolute translate-middle" style="opacity: 0;max-width: 375px;">
 
 
-    </div> -->
+    </div>
 
     <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
         <div class="container-fluid ">
@@ -328,7 +328,7 @@
                 <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
             </a>
             <div style="width: 85%;height: 75%;" class="position-relative translate-middle top-50 start-50 ">
-                <!-- <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
+                <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
                     style="height: 100%;">
                     <h2 class="align-content-center text-center lh-lg m-0 h2" style="height: 20%;">關愛童LOVE園</h2>
                     <p class="m-0 px-2 align-content-center " style="text-align: justify; height: 60%;">
@@ -338,24 +338,10 @@
                         點選「開始遊戲」後，將會隨機決定您出生時的身分，請依照您所取得的身分體驗接下來您的人生。
                     </p>
                     <button id="start" type="button" class="w-50 border-1 rounded-3" style="height: 10%;">開始遊戲</button>
-                </div> -->
+                </div>
                 <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
 
-                <!-- <div class='h-100 card d-none animate__animated animate__slow bg-transparent'>
-                    <div class='front'>
-                        <p class="fs-1"
-                        style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
-                        Front
-                    </p>
-                </div>
-                <div class='back'>
-                    <p class="fs-1"
-                    style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
-                    Back
-                </p>
-            </div>
-        </div> -->
-                <div class="w-100 card animate__animated animate__slow bg-transparent animate__fadeIn"
+                <div class="w-100 d-none lotto animate__animated animate__slow bg-transparent animate__fadeIn"
                     style="aspect-ratio: 3/5;">
                     <div class="front animate__delay-2s">
                         <img class="mw-100" style="aspect-ratio: 3/5;"
@@ -366,7 +352,7 @@
                             src="https://i.pinimg.com/736x/7b/bd/32/7bbd32bb2cdfd281bc0b47a45f94779a.jpg">
                         <div class="d-none w-100 bottom-0 text-black dialog text-center m-0 mt-1 border-1 rounded-1 py-1 position-absolute animate__animated animate__fadeIn"
                             style="background-color: rgba(255,255,255,0.8)">
-                            <p class="m-0 pb-3">
+                            <p class="m-0 pb-3 fs-5">
                                 您的身分為「<span class="identity"></span>」
                                 <br>
                                 若想更改身分可以再次點擊畫面。
@@ -415,21 +401,21 @@
             $('#stframe').addClass('animate__fadeOutTopRight')
             setTimeout(function () {
                 $('#stframe').remove()
-                $('.card').removeClass('d-none')
-                $('.card').addClass('animate__fadeIn')
+                $('.lotto').removeClass('d-none')
+                $('.lotto').addClass('animate__fadeIn')
             }, 2500)
         })
 
-        $('.card').on('click', function (e) {
+        $('.lotto').on('click', function (e) {
             if (!flip) {
                 e.preventDefault();
                 flip = true
                 $('.dialog').addClass('d-none')
-                $('.card .front').removeClass('ryp')
-                $('.card .back').removeClass('ryn')
+                $('.lotto .front').removeClass('ryp')
+                $('.lotto .back').removeClass('ryn')
                 setTimeout(function () {
-                    $('.card .front').addClass('ryp')
-                    $('.card .back').addClass('ryn')
+                    $('.lotto .front').addClass('ryp')
+                    $('.lotto .back').addClass('ryn')
                     $('.identity').text(`${initialid % 2 > 0 ? '合法移工之子' : '非法移工之子'}`)
                     $('.identity').attr('data-id', `${initialid % 2 > 0 ? 'legal' : 'illegal'}`)
                     initialid += 1
