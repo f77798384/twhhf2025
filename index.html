@@ -192,18 +192,12 @@
             height: 100%;
             position: absolute;
             color: #fff;
-            padding: 8rem 5rem;
             box-sizing: border-box;
             transition: all 0.5s;
             backface-visibility: hidden;
         }
 
-        .front {
-            background: red;
-        }
-
         .back {
-            background: blue;
             transform: rotateY(-180deg);
         }
 
@@ -341,19 +335,28 @@
                 </div>
                 <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
 
-                <div class='h-100 card d-none animate__animated animate__slow bg-transparent'>
+                <!-- <div class='h-100 card d-none animate__animated animate__slow bg-transparent'>
                     <div class='front'>
-                        <p class="fs-1" style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
+                        <p class="fs-1"
+                            style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
                             Front
                         </p>
                     </div>
                     <div class='back'>
-                        <p class="fs-1" style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
+                        <p class="fs-1"
+                            style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
                             Back
                         </p>
                     </div>
+                </div> -->
+                <div class="h-100 d-none card animate__animated animate__slow bg-transparent animate__fadeIn">
+                    <div class="front ryp animate__delay-2s">
+                        <img src="https://i.pinimg.com/736x/7f/0f/bf/7f0fbf4ace73b111283f9c0a937c8d45.jpg" style="width: 100%;height: 422.95px;">
+                    </div>
+                    <div class="back ryn animate__delay-2s">
+                        <img src="https://i.pinimg.com/736x/7b/bd/32/7bbd32bb2cdfd281bc0b47a45f94779a.jpg" style="width: 100%;">
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -397,6 +400,8 @@
         })
 
         $('.card').on('click', function (e) {
+            $('.card .front').removeClass('ryp')
+            $('.card .back').removeClass('ryn')
             $('.card .front').addClass('ryp')
             $('.card .back').addClass('ryn')
             e.preventDefault();
