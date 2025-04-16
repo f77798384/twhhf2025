@@ -10,16 +10,17 @@
 
 
     <title>給「移」樣的孩子，一樣的愛</title>
-    <link rel="stylesheet" href="./stylesheet/all.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./stylesheet/all.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         * {
-            font-family: "LXGW WenKai Mono TC", monospace;
+            font-family: "LXGW WenKai Mono TC", monospace !important;
             --vh: 10px;
         }
 
@@ -151,8 +152,12 @@
         }
 
         @keyframes floating {
-            to {
-                margin-bottom: -5px;
+            0% {
+                margin-bottom: -10px;
+            }
+
+            100% {
+                margin-bottom: -15px;
             }
         }
 
@@ -178,10 +183,8 @@
         }
 
         .card {
-            width: 15rem;
-            height: 20rem;
             margin: auto;
-            border: 1px solid #000;
+            /* border: 1px solid #000; */
             position: relative;
             perspective: 150rem;
         }
@@ -241,7 +244,7 @@
 
 <body>
     <audio id="music" preload="auto" src="./audio/それから５ヶ月.mp3" loop=""></audio>
-
+    <!-- 
     <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
@@ -255,7 +258,7 @@
             class="w-50 top-50 start-50 position-absolute translate-middle" style="opacity: 0;max-width: 375px;">
 
 
-    </div>
+    </div> -->
 
     <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
         <div class="container-fluid ">
@@ -324,38 +327,54 @@
                 href="#" id="on-off">
                 <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
             </a>
-            <div style="width: 85%;height: 65%;" class="position-relative translate-middle top-50 start-50 ">
-                <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
+            <div style="width: 85%;height: 75%;" class="position-relative translate-middle top-50 start-50 ">
+                <!-- <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
                     style="height: 100%;">
                     <h2 class="align-content-center text-center lh-lg m-0 h2" style="height: 20%;">關愛童LOVE園</h2>
                     <p class="m-0 px-2 align-content-center " style="text-align: justify; height: 60%;">
                         歡迎您來到給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。
+                        <br>
+                        <br>
+                        點選「開始遊戲」後，將會隨機決定您出生時的身分，請依照您所取得的身分體驗接下來您的人生。
                     </p>
                     <button id="start" type="button" class="w-50 border-1 rounded-3" style="height: 10%;">開始遊戲</button>
-                </div>
+                </div> -->
                 <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
 
                 <!-- <div class='h-100 card d-none animate__animated animate__slow bg-transparent'>
                     <div class='front'>
                         <p class="fs-1"
-                            style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
-                            Front
-                        </p>
-                    </div>
-                    <div class='back'>
-                        <p class="fs-1"
-                            style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
-                            Back
-                        </p>
-                    </div>
-                </div> -->
-                <div class="h-100 d-none card animate__animated animate__slow bg-transparent animate__fadeIn">
+                        style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
+                        Front
+                    </p>
+                </div>
+                <div class='back'>
+                    <p class="fs-1"
+                    style="margin: 0;height: 100%;width: 100%;position: absolute;top: 0;left: 0;align-content: center;text-align: center;">
+                    Back
+                </p>
+            </div>
+        </div> -->
+                <div class="w-100 card animate__animated animate__slow bg-transparent animate__fadeIn"
+                    style="aspect-ratio: 3/5;">
                     <div class="front animate__delay-2s">
-                        <img src="https://i.pinimg.com/736x/7f/0f/bf/7f0fbf4ace73b111283f9c0a937c8d45.jpg" style="width: 100%;height: 422.95px;">
+                        <img class="mw-100" style="aspect-ratio: 3/5;"
+                            src="https://i.pinimg.com/736x/7f/0f/bf/7f0fbf4ace73b111283f9c0a937c8d45.jpg">
                     </div>
                     <div class="back animate__delay-2s">
-                        <img src="https://i.pinimg.com/736x/7b/bd/32/7bbd32bb2cdfd281bc0b47a45f94779a.jpg" style="width: 100%;">
+                        <img class="mw-100" style="aspect-ratio: 3/5;"
+                            src="https://i.pinimg.com/736x/7b/bd/32/7bbd32bb2cdfd281bc0b47a45f94779a.jpg">
                     </div>
+                </div>
+                <div
+                    class="dialog text-center m-0 mt-1 border-1 rounded-1 bg-light py-1 position-relative d-none animate__animated animate__fadeIn">
+                    <p class="m-0 pb-3">
+                        您的身分為「<span class="identity"></span>」
+                        <br>
+                        若想更改身分可以再次點擊畫面。
+                    </p>
+                    <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"
+                        style="margin-bottom: -10px;"></i>
                 </div>
             </div>
         </div>
@@ -372,6 +391,8 @@
         let bgmstatus = false;
         let audio = $('#music')[0];
         let sw = $('#on-off i')[0];
+        let initialid = Math.floor(Math.random() * 10)
+        let flip = false
 
         $('#on-off').on('click', function (e) {
             e.preventDefault();
@@ -400,11 +421,26 @@
         })
 
         $('.card').on('click', function (e) {
-            $('.card .front').removeClass('ryp')
-            $('.card .back').removeClass('ryn')
-            $('.card .front').addClass('ryp')
-            $('.card .back').addClass('ryn')
-            e.preventDefault();
+            if (!flip) {
+                e.preventDefault();
+                flip = true
+                $('.dialog').addClass('d-none')
+                $('.card .front').removeClass('ryp')
+                $('.card .back').removeClass('ryn')
+                setTimeout(function () {
+                    $('.card .front').addClass('ryp')
+                    $('.card .back').addClass('ryn')
+                    $('.identity').text(`${initialid % 2 > 0 ? '合法移工之子' : '非法移工之子'}`)
+                    $('.identity').attr('data-id', `${initialid % 2 > 0 ? 'legal' : 'illegal'}`)
+                    initialid += 1
+                }, 1)
+                setTimeout(() => {
+                    $('.dialog').removeClass('d-none')
+                }, 3500);
+                setTimeout(() => {
+                    flip = false
+                }, 4000);
+            }
         })
     </script>
 
