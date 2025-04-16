@@ -200,20 +200,47 @@
 
         .font {
             background: red;
+            animation: t1 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
+        
         .back {
             background: blue;
             transform: rotateY(-180deg);
+            animation: t2 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .card:hover .font {
+        .ryp {
+            transform: rotateY(180deg);
+        }
+
+        .ryn {
+            transform: rotateY(0deg);
+        }
+
+        @keyframes t1 {
+            0%{
+                transform: rotateY(0deg);
+            }
+            100%{
+                transform: rotateY(3600deg);
+            }
+        }
+        @keyframes t2 {
+            0%{
+                transform: rotateY(-180deg);
+            }
+            100%{
+                transform: rotateY(3420deg);
+            }
+        }
+
+        /* .card:hover .font {
             transform: rotateY(180deg);
         }
 
         .card:hover .back {
             transform: rotateY(0);
-        }
+        } */
     </style>
 </head>
 
@@ -303,17 +330,17 @@
                 <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
             </a>
             <div style="width: 85%;height: 65%;" class="position-relative translate-middle top-50 start-50 ">
-                <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
+                <!-- <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
                     style="height: 100%;">
                     <h2 class="align-content-center text-center lh-lg m-0 h2" style="height: 20%;">關愛童LOVE園</h2>
                     <p class="m-0 px-2 align-content-center " style="text-align: justify; height: 60%;">
                         歡迎您來到給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。
                     </p>
                     <button id="start" type="button" class="w-50 border-1 rounded-3" style="height: 10%;">開始遊戲</button>
-                    <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
-                </div>
+                </div> -->
+                <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
 
-                <div class='card d-none animate__animated animate__slow bg-transparent'>
+                <div class='card animate__animated animate__slow bg-transparent'>
                     <div class='font'>Font</div>
                     <div class='back'>Back</div>
                 </div>
@@ -358,6 +385,12 @@
                 $('.card').removeClass('d-none')
                 $('.card').addClass('animate__fadeIn')
             }, 2500)
+        })
+
+        $('.card').on('click', function (e) {
+            $('.card .font').addClass('ryp')
+            $('.card .back').addClass('ryn')
+            e.preventDefault();
         })
     </script>
 
