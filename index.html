@@ -216,11 +216,13 @@
         @keyframes t1 {
             0% {
                 transform:scale(1) rotateY(0deg);
+                animation-timing-function: linear;
             }
-
+            
             50% {
                 transform:scale(1.5) rotateY(1890deg);
                 /* scale: 1.5; */
+                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
             
             100% {
@@ -231,11 +233,13 @@
         @keyframes t2 {
             0% {
                 transform:scale(1) rotateY(-180deg);
+                animation-timing-function: linear;
             }
             
             50% {
                 transform:scale(1.5) rotateY(1710deg);
                 /* scale: 1.5; */
+                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
             
             100% {
