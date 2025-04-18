@@ -232,6 +232,33 @@
             }
         }
 
+        .optionlist{
+            list-style: none;
+            padding: 0;
+            place-items: center;
+            line-height: 1.5;
+            padding: 0 55px;
+            .option{
+                background-color: gold;
+                margin: 2rem 0;
+                padding: 10px;
+                text-align: center;
+                position: relative;
+                &:before{
+                    width: 100%;
+                    height: 100%;
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    background-color: black;
+                    z-index: -1;
+                    transform: rotate(-7deg);
+                    left: -6px;
+                    top: 3px;
+                }
+            }
+        }
+
         /* .lotto:hover .font {
             transform: rotateY(180deg);
         }
@@ -244,7 +271,7 @@
 
 <body>
     <audio id="music" preload="auto" src="./audio/それから５ヶ月.mp3" loop=""></audio>
-    
+    <!-- intro animation -->
     <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
@@ -260,6 +287,7 @@
 
     </div>
 
+    <!-- PC navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
         <div class="container-fluid ">
             <a class="navbar-brand" href="#">
@@ -288,7 +316,10 @@
             </div>
         </div>
     </nav>
+
+    <!-- container -->
     <div class="container align-content-center">
+        <!-- mobile navbar -->
         <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-md-none position-absolute p-0 rounded rounded-1 m-1"
             style="width: 80px;">
             <div class="container-fluid p-0 rounded rounded-1 p-1 justify-content-center"
@@ -319,15 +350,23 @@
                 </div>
             </div>
         </nav>
+
+        <!-- float sign -->
+        <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
+        
+        <!-- main frame -->
         <div class="main z-0 position-relative">
-            <div class="bg top-0 bottom-0 start-0 end-0 z-n1">
-            </div>
+            <!-- background -->
+            <div class="bg top-0 bottom-0 start-0 end-0 z-n1"></div>
+            <!-- music -->
             <a style="font-size: 40px;width: 50px;height: 50px;"
                 class="text-light position-absolute border border-1 border-light rounded-1 m-1 d-flex justify-content-center align-content-center end-0"
                 href="#" id="on-off">
                 <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
             </a>
+            <!-- window -->
             <div style="width: 85%;height: 75%;" class="position-relative translate-middle top-50 start-50 ">
+                <!-- start -->
                 <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
                     style="height: 100%;">
                     <h2 class="align-content-center text-center lh-lg m-0 h2" style="height: 20%;">關愛童LOVE園</h2>
@@ -335,33 +374,51 @@
                         歡迎您來到給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。
                         <br>
                         <br>
-                        點選「開始遊戲」後，將會隨機決定您出生時的身分，請依照您所取得的身分體驗接下來您的人生。
+                        點選「開始遊戲」後，將會依照隨機決定您出生時的身分，請依照您所取得的身分體驗接下來您的人生。
+                        <br>
+                        <br>
+                        備註：依照個案數據統計，合法與非法移工之子的比例約為1：9。
                     </p>
                     <button id="start" type="button" class="w-50 border-1 rounded-3" style="height: 10%;">開始遊戲</button>
                 </div>
-                <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
-
-                <div class="w-100 d-none lotto animate__animated animate__slow bg-transparent animate__fadeIn"
-                    style="aspect-ratio: 3/5;">
-                    <div class="front animate__delay-2s">
+                
+                <!-- lotto -->
+                <div class="w-100 d-none lotto animate__animated animate__slow bg-transparent animate__fadeIn" style="aspect-ratio: 3/5;">
+                <!-- <div class="w-100 lotto animate__animated animate__slow bg-transparent animate__fadeIn" style="aspect-ratio: 3/5;"> -->
+                    <div class="idcard front animate__delay-2s">
                         <img class="mw-100" style="aspect-ratio: 3/5;"
                             src="https://i.pinimg.com/736x/7f/0f/bf/7f0fbf4ace73b111283f9c0a937c8d45.jpg">
                     </div>
-                    <div class="back animate__delay-2s position-relative">
+                    <div class="idcard back animate__delay-2s position-relative">
                         <img class="mw-100" style="aspect-ratio: 3/5;"
                             src="https://i.pinimg.com/736x/7b/bd/32/7bbd32bb2cdfd281bc0b47a45f94779a.jpg">
-                        <div class="d-none w-100 bottom-0 text-black dialog text-center m-0 mt-1 border-1 rounded-1 py-1 position-absolute animate__animated animate__fadeIn"
-                            style="background-color: rgba(255,255,255,0.8)">
-                            <p class="m-0 pb-3 fs-5">
-                                您的身分為「<span class="identity"></span>」
-                                <br>
-                                若想更改身分可以再次點擊畫面
-                            </p>
-                            <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"
-                                style="margin-bottom: -10px;"></i>
-                        </div>
+                    </div>
+                    <div class="d-none w-100 bottom-0 text-black dialog text-center m-0 mt-1 border-1 rounded-1 py-1 position-absolute animate__animated animate__fadeIn"
+                        style="background-color: rgba(255,255,255,0.8)">
+                        <p class="m-0 pb-3 fs-5">
+                            您的身分為「<span class="identity"></span>」
+                            <br>
+                            若想更改身分可以再次點擊畫面
+                            <button id="checkid" style="margin: 3px 0;">確定身分並開始人生</button>
+                        </p>
+                        <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"
+                            style="margin-bottom: -10px;"></i>
                     </div>
                 </div>
+
+                <div class="question d-none h-100 w-100 animate__animated animate__slow animate__fadeIn border-1 rounded-2" style="background-color: rgba(255,255,255,0.5);">
+                    <h3 class="p-3" style="text-align: justify;">剛出生的你感受到了環境中各種聲音，你所聽到的是？</h3>
+                    <ol class="optionlist">
+                        <li class="option">蟲鳴與蛙鳴</li>
+                        <li class="option">各國語言的對話<br>聲音中充滿著激勵的能量</li>
+                        <li class="option">有著穩定且規律的儀器聲響</li>
+                    </ol>
+                    <div class="option border-1 bg-warning">
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -406,7 +463,7 @@
             }, 2500)
         })
 
-        $('.lotto').on('click', function (e) {
+        $('.idcard').on('click', function (e) {
             if (!flip) {
                 e.preventDefault();
                 flip = true
@@ -427,6 +484,15 @@
                     flip = false
                 }, 4000);
             }
+        })
+
+        $('#checkid').on('click', function (e) {
+            $('.lotto').removeClass('animate__fadeIn')
+            $('.lotto').addClass('animate__fadeOut')
+            setTimeout(() => {
+                $('.lotto').remove()
+                $('.question').removeClass('d-none')
+            }, 2000);
         })
     </script>
 
