@@ -1,0 +1,143 @@
+{
+    "start": {
+        "type": "info-btn",
+        "dialog": {
+            "head": "關愛童LOVE園",
+            "description": "歡迎您來到給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。\n\n點選「開始遊戲」後，將會依照隨機決定您出生時的身分，請依照您所取得的身分體驗接下來您的人生。\n\n備註：依照個案數據統計，合法與非法移工之子的比例約為1：9。",
+            "btn": "開始遊戲"
+        },
+        "goto": "idflip"
+    },
+    "idflip": {
+        "type": "info-down-btn",
+        "dialog": {
+            "description": "您的身分為「<span class='identity'>${identity}</span>\n若想更改身分可以再次點擊畫面",
+            "btn": "確定身分並開始人生"
+        },
+        "goto": "where"
+    },
+    "where": {
+        "type": "question",
+        "dialog": {
+            "head": "剛出生的你感受到了環境中各種聲音，你所聽到的是？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "蟲鳴與蛙鳴",
+                    "goto": "status"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "周圍充滿著各國語言\n且飽含激勵的聲音",
+                    "goto": "status"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "有著穩定且規律的儀器聲響",
+                    "goto": "status"
+                },
+                "o4": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "時不時出現沖水、洗手的水聲",
+                    "goto": "status"
+                }
+            }
+        }
+    },
+    "status": {
+        "type": "question",
+        "dialog": {
+            "head": "你的母親抱起了你，而此時你的狀況是？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "由於胚胎發育時養分不足\n你的狀況十分不穩定",
+                    "goto": "sick"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "胚胎發育時有定期做產檢\n你非常的健康",
+                    "goto": ""
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "雖然環境極度惡劣\n但你依然頭好壯壯",
+                    "goto": ""
+                }
+            }
+        }
+    },
+    "sick": {
+        "type": "question",
+        "dialog": {
+            "head": "隨著時間過去你逐漸成長，很不幸的遇到了各種病菌入侵體內，此時的你已經間斷地高燒三天三夜，這時你的母親選擇？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "不顧非法的身分\n將你送網了醫院進行治療",
+                    "goto": "hospital"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "細心照料著你\n過去施打的疫苗發揮作用",
+                    "goto": "recovery"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "害怕被遣返\n只能拿各種成藥給你服用",
+                    "goto": ""
+                },
+                "o4": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "趕緊向雇主請假\n將你送往了醫院進行治療",
+                    "goto": "hospital"
+                }
+            }
+        }
+    },
+    "hospital": {
+        "type": "question",
+        "dialog": {
+            "head": "由於已經燒了三天三夜你的意識逐漸模糊，依稀聽到了周圍的人在談話，你聽到的是？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "專勤隊的人討論著\n要將你們母子遣返回國",
+                    "goto": "repatriate"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "還好可以使用健保\n不然這筆醫藥費完全無法負擔",
+                    "goto": ""
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "護理人員啜泣著說\n已經太遲了",
+                    "goto": ""
+                }
+            }
+        }
+    },
+    "recovery-end-legal": {
+        "type": "info",
+        "dialog": {
+            "head": "結局-順利地成長",
+            "description": "經歷了一系列的過程你順利地活了下來 ，在與母親回國以前的這段日子裡，你將嬰幼兒該施打的疫苗都完成接種，且沒有任何的阻礙在附近的幼稚園中上課，在接近小學的時候和母親一同回到了家鄉。"
+        },
+        "goto": ""
+    }
+}

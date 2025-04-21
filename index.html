@@ -27,11 +27,9 @@
             font-family: "Noto Serif TC", serif !important;
             --vh: 10px;
             user-select: none;
-            transform: translateZ(0);
         }
 
         body {
-            height: 100vh;
             background-image: url(./img/bg-1.jpg);
             background-repeat: no-repeat;
             background-size: inherit;
@@ -47,7 +45,7 @@
             width: 100vw;
 
             @media (min-width: 768px) {
-                height: calc(95vh - 60px);
+                height: calc(95vh);
                 margin: 0 auto;
             }
         }
@@ -325,10 +323,11 @@
             text-align: center;
             text-decoration: none;
             text-transform: uppercase;
-            transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+            /* transition: transform ease-in 0.1s, box-shadow ease-in 0.25s; */
+            transition: transform ease-in 0.1s;
             margin: 1rem 0;
             width: 65%;
-            box-shadow: 0px 5px 1px 1px rgba(0, 0, 0, 1);
+            box-shadow: 0px 3px 1px 1px rgba(0, 0, 0, 1);
         }
 
         .option2:before,
@@ -362,15 +361,16 @@
 
 
         .option2:hover {
-            background-color: rgba(151, 151, 151, 0.9);
+            /* background-color: rgba(151, 151, 151, 0.9); */
+            background-color: rgba(146, 209, 252, 0.7);
         }
 
         /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2); */
 
         .option2:active {
-            transform: translateZ(0) scale(0.95);
+            transform: translateY(5px) scale(1);
             background-color: rgba(146, 209, 252, 0.7);
-            box-shadow: inset 0px -2px 1px 1px rgba(0, 0, 0, 1);
+            box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
         }
 
         @keyframes anim-top {
@@ -410,7 +410,7 @@
     <audio id="cardflip" preload="auto" src="./audio/Twinkle Bright Up.wav"></audio>
     <audio id="flipme" preload="auto" src="./audio/Page Flip.mp3" loop="0"></audio>
     <!-- intro animation -->
-    <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
+    <!-- <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
             <main class="loadframe">
@@ -421,9 +421,7 @@
         </div>
         <img id="intrologo" src="./img/關愛LOGO.png" alt=""
             class="w-50 top-50 start-50 position-absolute translate-middle" style="opacity: 0;max-width: 375px;">
-
-
-    </div>
+    </div> -->
 
     <!-- PC navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
@@ -500,12 +498,15 @@
             <a style="font-size: 40px;width: 50px;height: 50px;"
                 class="text-light position-absolute border border-1 border-light rounded-1 m-1 d-flex justify-content-center align-content-center end-0"
                 href="#" id="on-off">
-                <i style="margin-top: -3px;" class="bi bi-volume-mute-fill"></i>
+                <i style="margin-top: -7px;" class="bi bi-volume-mute-fill"></i>
             </a>
             <!-- window -->
             <div style="width: 85%;height: 75%;" class="position-relative translate-middle top-50 start-50 ">
+                <div id="game" class="position-absolute top-0 start-0 w-100 h-100 z-3 d-none"
+                    style="background-color: rgba(255,255,255,0.9); overflow-y: auto; padding: 20px;"></div>
+
                 <!-- start -->
-                <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
+                <!-- <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
                     style="height: 100%;">
                     <h2 class="align-content-center text-center lh-lg m-0 h2" style="height: 20%;">關愛童LOVE園</h2>
                     <p class="m-0 p-2" style="text-align: justify; height: 60%;">
@@ -518,7 +519,7 @@
                         備註：依照個案數據統計，合法與非法移工之子的比例約為1：9。
                     </p>
                     <button id="start" type="button" class="w-50 border-1 rounded-3" style="height: 10%;">開始遊戲</button>
-                </div>
+                </div> -->
 
                 <!-- lotto -->
                 <div class="w-100 d-none lotto animate__animated animate__slow bg-transparent animate__fadeIn"
@@ -566,6 +567,7 @@
                 </div>
 
 
+
             </div>
         </div>
     </div>
@@ -590,6 +592,7 @@
         cardflip.loop = false
 
         let initialid = Math.floor(Math.random() * 10)
+        let identity = 'legal'
         let flip = false
 
         $('#on-off').on('click', function (e) {
@@ -634,6 +637,7 @@
                     $('.lotto .back').addClass('ryn')
                     $('.identity').text(`${initialid % 2 > 0 ? '合法移工之子' : '非法移工之子'}`)
                     $('.identity').attr('data-id', `${initialid % 2 > 0 ? 'legal' : 'illegal'}`)
+                    $('.identity').attr('data-id', `${initialid % 2 > 0 ? identity = 'legal' : identity = 'illegal'}`)
                     initialid += 1
                 }, 1)
                 setTimeout(() => {
@@ -654,6 +658,7 @@
         })
 
         $('#checkid').on('click', function (e) {
+            flip = true
             $('.lotto').removeClass('animate__fadeIn')
             $('.lotto').addClass('animate__fadeOut')
             setTimeout(() => {
@@ -705,6 +710,77 @@
     </script>
 
     <script>
+        let story = "";
+        $.ajax({
+            url: './text/story.json',
+            method: 'GET',
+            dataType: 'json',
+            data: '',
+            async: true,
+
+            success: res => {
+                story = res;
+                currentNode = "start";
+                $("#game").removeClass("d-none");  // 顯示遊戲對話區
+                renderNode(currentNode);           // 執行顯示第一節點
+            },
+            error: err => {
+                console.log(err)
+            },
+        });
+
+        let currentNode = "";
+        function renderNode(nodeKey) {
+            const node = story[nodeKey];
+            if (!node) return;
+
+            const container = $("#game");
+            container.empty();  // 清空舊內容
+
+            const dialog = node.dialog;
+
+            // 顯示標題
+            if (dialog.head) {
+                container.append(`<h3 class="mb-3">${dialog.head}</h3>`);
+            }
+
+            // 顯示內容
+            if (dialog.description) {
+                container.append(`<p class="mb-4">${dialog.description.replace(/\n/g, "<br>")}</p>`);
+            }
+
+            // 顯示按鈕或選項
+            if (node.type === "question") {
+                const options = dialog.options;
+                for (const key in options) {
+                    const opt = options[key];
+                    if (opt.condition === "none" || opt.condition === identity) {
+                        container.append(`
+                    <button class="d-block mb-2 option2" style="width: 100%;" onclick="gotoNode('${opt.goto}')">
+                        ${opt.description.replace(/\n/g, "<br>")}
+                    </button>
+                `);
+                    }
+                }
+            } else {
+                const btnText = dialog.btn || "繼續";
+                container.append(`
+            <button class="d-block option2" style="width: 100%;" onclick="gotoNode('${node.goto}')">${btnText}</button>
+        `);
+            }
+        }
+
+        // 切換節點
+        function gotoNode(nextKey) {
+            if (!nextKey) {
+                $("#game").html("<h3 class='text-center'>遊戲結束，謝謝參與！</h3>");
+                return;
+            }
+            currentNode = nextKey;
+            renderNode(currentNode);
+        }
+
+
     </script>
 </body>
 
