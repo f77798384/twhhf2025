@@ -15,20 +15,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Noto+Serif+TC:wght@200..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="./stylesheet/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <style>
         * {
-            /* font-family: "LXGW WenKai Mono TC", monospace !important; */
+            font-family: "Noto Serif TC", serif !important;
             --vh: 10px;
             user-select: none;
+            transform: translateZ(0);
         }
 
         body {
+            height: 100vh;
             background-image: url(./img/bg-1.jpg);
             background-repeat: no-repeat;
             background-size: inherit;
+            overflow: hidden;
         }
 
         .container {
@@ -215,35 +222,33 @@
 
         @keyframes t1 {
             0% {
-                transform:scale(1) rotateY(0deg);
+                transform: scale(1) rotateY(0deg);
                 animation-timing-function: linear;
             }
-            
+
             50% {
-                transform:scale(1.5) rotateY(1890deg);
-                /* scale: 1.5; */
+                transform: scale(1.5) rotateY(1890deg);
                 animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
-            
+
             100% {
-                transform:scale(1) rotateY(2700deg);
+                transform: scale(1) rotateY(2700deg);
             }
         }
-        
+
         @keyframes t2 {
             0% {
-                transform:scale(1) rotateY(-180deg);
+                transform: scale(1) rotateY(-180deg);
                 animation-timing-function: linear;
             }
-            
+
             50% {
-                transform:scale(1.5) rotateY(1710deg);
-                /* scale: 1.5; */
+                transform: scale(1.5) rotateY(1710deg);
                 animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             }
-            
+
             100% {
-                transform:scale(1) rotateY(2520deg);
+                transform: scale(1) rotateY(2520deg);
             }
         }
 
@@ -313,17 +318,17 @@
             position: relative;
             border: none;
             border-radius: 4px;
-            background-color: #ff0081;
+            background-color: #92a5fc;
             color: #fff;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 500;
             text-align: center;
             text-decoration: none;
             text-transform: uppercase;
-            box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
             transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-            margin: 0.5rem 0;
+            margin: 1rem 0;
             width: 65%;
+            box-shadow: 0px 5px 1px 1px rgba(0, 0, 0, 1);
         }
 
         .option2:before,
@@ -339,34 +344,33 @@
             background-repeat: no-repeat;
         }
 
-        .option2:before {
-            display: none;
-            top: -75%;
-            background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
-            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
-        }
-
-        .option2:after {
-            display: none;
-            bottom: -75%;
-            background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
-            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-        }
-
-        .option2:active {
-            transform: scale(0.9);
-            background-color: #e60074;
-            box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-        }
-
-        .option2:active:before {
+        .option2a:before {
             display: block;
+            top: -75%;
+            background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 20%, rgba(98, 157, 203, 0.7) 20%, transparent 30%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
             animation: anim-top ease-in-out 0.75s forwards;
         }
 
-        .option2:active:after {
+        .option2a:after {
             display: block;
+            bottom: -75%;
+            background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
             animation: anim-bottom ease-in-out 0.75s forwards;
+        }
+
+
+        .option2:hover {
+            background-color: rgba(151, 151, 151, 0.9);
+        }
+
+        /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2); */
+
+        .option2:active {
+            transform: translateZ(0) scale(0.95);
+            background-color: rgba(146, 209, 252, 0.7);
+            box-shadow: inset 0px -2px 1px 1px rgba(0, 0, 0, 1);
         }
 
         @keyframes anim-top {
@@ -398,15 +402,6 @@
                 background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
             }
         }
-
-
-        /* .lotto:hover .font {
-            transform: rotateY(180deg);
-        }
-
-        .lotto:hover .back {
-            transform: rotateY(0);
-        } */
     </style>
 </head>
 
@@ -415,7 +410,7 @@
     <audio id="cardflip" preload="auto" src="./audio/Twinkle Bright Up.wav"></audio>
     <audio id="flipme" preload="auto" src="./audio/Page Flip.mp3" loop="0"></audio>
     <!-- intro animation -->
-    <!-- <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
+    <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
         <div class="outframe position-absolute "
             style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
             <main class="loadframe">
@@ -428,7 +423,7 @@
             class="w-50 top-50 start-50 position-absolute translate-middle" style="opacity: 0;max-width: 375px;">
 
 
-    </div> -->
+    </div>
 
     <!-- PC navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
@@ -650,14 +645,24 @@
             }
         })
 
+        $('.option2').on('click', function (e) {
+            e.preventDefault();
+            $(this).addClass('option2a');
+            setTimeout(() => {
+                $(this).removeClass('option2a');
+            }, 500);
+        })
+
         $('#checkid').on('click', function (e) {
             $('.lotto').removeClass('animate__fadeIn')
             $('.lotto').addClass('animate__fadeOut')
             setTimeout(() => {
                 $('.lotto').remove()
-                $('.stage1').removeClass('d-none')
+                $('.stage2').removeClass('d-none')
             }, 2000);
         })
+
+
     </script>
 
     <script>
