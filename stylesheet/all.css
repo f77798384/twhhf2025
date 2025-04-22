@@ -12761,6 +12761,7 @@ body {
   justify-content: center;
   align-content: center;
   right: 0;
+  text-decoration: none;
 }
 #on-off .bi {
   margin-top: -7px;
@@ -12983,9 +12984,11 @@ body {
 #game h3, #game .h3 {
   padding: 1rem;
   text-align: justify;
+  transform: translateZ(0);
 }
 
 .dialog {
+  transform: translateZ(0);
   width: 100%;
   bottom: 0;
   color: #000;

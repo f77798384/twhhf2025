@@ -7,10 +7,12 @@
             h3 {
                 padding: 1rem;
                 text-align: justify;
+                transform: translateZ(0);
             }
         }
-
+        
         .dialog {
+            transform: translateZ(0);
             width: 100%;
             bottom: 0;
             color: #000;

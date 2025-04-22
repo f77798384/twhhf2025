@@ -1,21 +1,4 @@
 {
-    "start": {
-        "type": "info-btn",
-        "dialog": {
-            "head": "關愛童LOVE園",
-            "description": "歡迎您來到給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。\n\n點選「開始遊戲」後，將會依照隨機決定您出生時的身分，請依照您所取得的身分體驗接下來您的人生。\n\n備註：依照個案數據統計，合法與非法移工之子的比例約為1：9。",
-            "btn": "開始遊戲"
-        },
-        "goto": "idflip"
-    },
-    "idflip": {
-        "type": "info-down-btn",
-        "dialog": {
-            "head": "您的身分為「<span class='identity'>${identity}</span>\n若想更改身分可以再次點擊畫面",
-            "btn": "確定身分並開始人生"
-        },
-        "goto": "where"
-    },
     "where": {
         "type": "question",
         "dialog": {
