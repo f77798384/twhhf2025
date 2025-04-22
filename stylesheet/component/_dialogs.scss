@@ -1,0 +1,175 @@
+        #game {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.5);
+
+            h3 {
+                padding: 1rem;
+                text-align: justify;
+            }
+        }
+
+        .dialog {
+            width: 100%;
+            bottom: 0;
+            color: #000;
+            text-align: center;
+            margin: 0;
+            margin-top: 0.25rem;
+            padding: 0.25rem 0;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 3;
+        }
+
+        #checkid {
+            margin: 3px 0;
+        }
+
+        .optionlist {
+            list-style: none;
+            padding: 0;
+            place-items: center;
+            line-height: 1.5;
+            padding: 0 55px;
+
+            .option1 {
+                background-color: gold;
+                margin: 2rem 0;
+                padding: 10px;
+                text-align: center;
+                position: relative;
+                cursor: pointer;
+
+                &:before {
+                    width: 100%;
+                    height: 100%;
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    background-color: black;
+                    z-index: -10;
+                    transform: rotate(-7deg);
+                    left: -6px;
+                    top: 3px;
+                }
+
+                &:hover {
+                    background-color: #fff;
+                    scale: 1.05;
+
+                    &:before {
+                        width: 100%;
+                        height: 100%;
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        background-color: gold;
+                        z-index: -10;
+                        transform: rotate(-7deg);
+                        left: -6px;
+                        top: 3px;
+                    }
+                }
+
+                &:active {
+                    background-color: #414141;
+                    box-shadow: 1px 0px 25px 12px rgba(252, 255, 109, 0.27);
+                }
+            }
+        }
+
+        .option2,
+        .option2:focus,
+        .option2:hover {
+            align-content: center;
+            line-height: 1.5;
+            padding: 10px 0;
+            display: inline-block;
+            position: relative;
+            border: none;
+            border-radius: 4px;
+            background-color: #92a5fc;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: transform ease-in 0.1s;
+            margin: 1rem 0;
+            width: 65%;
+            box-shadow: 0px 3px 1px 1px rgba(0, 0, 0, 1);
+        }
+
+        .option2:before,
+        .option2:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 140%;
+            height: 100%;
+            left: -20%;
+            z-index: -1000;
+            transition: all ease-in-out 0.5s;
+            background-repeat: no-repeat;
+        }
+
+        .option2a:before {
+            display: block;
+            top: -75%;
+            background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 20%, rgba(98, 157, 203, 0.7) 20%, transparent 30%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+            animation: anim-top ease-in-out 0.75s forwards;
+        }
+
+        .option2a:after {
+            display: block;
+            bottom: -75%;
+            background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+            animation: anim-bottom ease-in-out 0.75s forwards;
+        }
+
+
+        .option2:hover {
+            /* background-color: rgba(151, 151, 151, 0.9); */
+            background-color: rgba(146, 209, 252, 0.7);
+        }
+
+        /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2); */
+
+        .option2:active {
+            transform: translateY(5px) scale(1);
+            background-color: rgba(146, 209, 252, 0.7);
+            box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
+        }
+
+        @keyframes anim-top {
+            0% {
+                background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+            }
+
+            50% {
+                background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+            }
+
+            100% {
+                background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+        @keyframes anim-bottom {
+            0% {
+                background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+            }
+
+            50% {
+                background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+            }
+
+            100% {
+                background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }

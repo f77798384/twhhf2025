@@ -22,387 +22,6 @@
     <link rel="stylesheet" href="./stylesheet/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <style>
-        * {
-            font-family: "Noto Serif TC", serif !important;
-            --vh: 10px;
-            user-select: none;
-        }
-
-        body {
-            background-image: url(./img/bg-1.jpg);
-            background-repeat: no-repeat;
-            background-size: inherit;
-            overflow: hidden;
-        }
-
-        .container {
-            padding: 0;
-            margin: 0;
-            height: calc(var(--vh, 1vh) * 100);
-            place-self: center;
-            max-height: -webkit-fill-available;
-            width: 100vw;
-
-            @media (min-width: 768px) {
-                height: calc(95vh);
-                margin: 0 auto;
-            }
-        }
-
-
-        .main {
-            height: 100vh;
-            height: calc(var(--vh, 1vh) * 100);
-            max-height: -webkit-fill-available;
-
-            border: black 1px solid;
-            position: relative;
-            margin: 0 auto;
-            background-color: #725555;
-
-            .bg {
-                position: absolute;
-                background-image: url(./img/introbg.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
-                opacity: 0.7;
-            }
-
-            @media (min-width: 768px) {
-                max-height: 700px;
-                min-height: 350px;
-                height: calc(95vh - 60px);
-                width: min(95vw, 375px);
-            }
-        }
-
-        main {
-            width: 300px;
-            height: 300px;
-            background: #03bafc;
-            overflow: hidden;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            outline: 5px solid #03bafc;
-            position: relative;
-        }
-
-        .loading {
-            width: 450px;
-            height: 450px;
-            background: #52bdff;
-            border-radius: 43%;
-            animation: spin 5s linear infinite;
-            position: absolute;
-            bottom: 100px;
-            left: -75px;
-        }
-
-        .second {
-            animation-delay: 0.5s;
-            background: #fff;
-            border-radius: 45%;
-        }
-
-        .num {
-            position: absolute;
-            font-family: system-ui;
-            font-size: 30px;
-            color: #0369ad;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        @keyframes spin {
-            from {}
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .loadover {
-            animation: loadover 3s linear forwards;
-        }
-
-        @keyframes loadover {
-            form {
-                transform: rotate(0deg);
-                opacity: 0;
-                scale: 1;
-            }
-
-            to {
-                transform: rotate(1080deg);
-                opacity: 0;
-                scale: 0.5;
-            }
-        }
-
-        .bgfadeout {
-            animation: bgfadeout 1.5s linear forwards;
-        }
-
-        @keyframes bgfadeout {
-            to {
-                opacity: 0;
-                z-index: -1;
-                background: transparent;
-            }
-        }
-
-        .bi-caret-down-fill {
-            animation: floating 0.8s ease-out infinite alternate;
-        }
-
-        @keyframes floating {
-            0% {
-                margin-bottom: -10px;
-            }
-
-            100% {
-                margin-bottom: -15px;
-            }
-        }
-
-        .razo {
-            animation: rotateandzoomout 3s ease-out infinite alternate;
-        }
-
-        #razo {
-            animation: rotateandzoomout 3s ease-out infinite alternate;
-        }
-
-        @keyframes rotateandzoomout {
-            0% {
-                font-size: 20px;
-            }
-
-            100% {
-                height: 0%;
-                width: 0%;
-                opacity: 0;
-                font-size: 0;
-            }
-        }
-
-        .lotto {
-            margin: auto;
-            /* border: 1px solid #000; */
-            position: relative;
-            perspective: 150rem;
-        }
-
-        .front,
-        .back {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            color: #fff;
-            box-sizing: border-box;
-            transition: all 0.5s;
-            backface-visibility: hidden;
-        }
-
-        .back {
-            transform: rotateY(-180deg);
-        }
-
-        .ryp {
-            animation: t1 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        .ryn {
-            animation: t2 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        @keyframes t1 {
-            0% {
-                transform: scale(1) rotateY(0deg);
-                animation-timing-function: linear;
-            }
-
-            50% {
-                transform: scale(1.5) rotateY(1890deg);
-                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            }
-
-            100% {
-                transform: scale(1) rotateY(2700deg);
-            }
-        }
-
-        @keyframes t2 {
-            0% {
-                transform: scale(1) rotateY(-180deg);
-                animation-timing-function: linear;
-            }
-
-            50% {
-                transform: scale(1.5) rotateY(1710deg);
-                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            }
-
-            100% {
-                transform: scale(1) rotateY(2520deg);
-            }
-        }
-
-        .optionlist {
-            list-style: none;
-            padding: 0;
-            place-items: center;
-            line-height: 1.5;
-            padding: 0 55px;
-
-            .option1 {
-                background-color: gold;
-                margin: 2rem 0;
-                padding: 10px;
-                text-align: center;
-                position: relative;
-                cursor: pointer;
-
-                &:before {
-                    width: 100%;
-                    height: 100%;
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    background-color: black;
-                    z-index: -10;
-                    transform: rotate(-7deg);
-                    left: -6px;
-                    top: 3px;
-                }
-
-                &:hover {
-                    background-color: #fff;
-                    scale: 1.05;
-
-                    &:before {
-                        width: 100%;
-                        height: 100%;
-                        content: "";
-                        display: block;
-                        position: absolute;
-                        background-color: gold;
-                        z-index: -10;
-                        transform: rotate(-7deg);
-                        left: -6px;
-                        top: 3px;
-                    }
-                }
-
-                &:active {
-                    background-color: #414141;
-                    box-shadow: 1px 0px 25px 12px rgba(252, 255, 109, 0.27);
-
-                }
-
-
-
-            }
-        }
-
-        .option2,
-        .option2:focus,
-        .option2:hover {
-            align-content: center;
-            height: 2.5lh;
-            display: inline-block;
-            position: relative;
-            border: none;
-            border-radius: 4px;
-            background-color: #92a5fc;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 500;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-            /* transition: transform ease-in 0.1s, box-shadow ease-in 0.25s; */
-            transition: transform ease-in 0.1s;
-            margin: 1rem 0;
-            width: 65%;
-            box-shadow: 0px 3px 1px 1px rgba(0, 0, 0, 1);
-        }
-
-        .option2:before,
-        .option2:after {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 140%;
-            height: 100%;
-            left: -20%;
-            z-index: -1000;
-            transition: all ease-in-out 0.5s;
-            background-repeat: no-repeat;
-        }
-
-        .option2a:before {
-            display: block;
-            top: -75%;
-            background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 20%, rgba(98, 157, 203, 0.7) 20%, transparent 30%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
-            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
-            animation: anim-top ease-in-out 0.75s forwards;
-        }
-
-        .option2a:after {
-            display: block;
-            bottom: -75%;
-            background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
-            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-            animation: anim-bottom ease-in-out 0.75s forwards;
-        }
-
-
-        .option2:hover {
-            /* background-color: rgba(151, 151, 151, 0.9); */
-            background-color: rgba(146, 209, 252, 0.7);
-        }
-
-        /* box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2); */
-
-        .option2:active {
-            transform: translateY(5px) scale(1);
-            background-color: rgba(146, 209, 252, 0.7);
-            box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
-        }
-
-        @keyframes anim-top {
-            0% {
-                background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-            }
-
-            50% {
-                background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
-            }
-
-            100% {
-                background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
-                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-            }
-        }
-
-        @keyframes anim-bottom {
-            0% {
-                background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
-            }
-
-            50% {
-                background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
-            }
-
-            100% {
-                background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
-                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -410,17 +29,15 @@
     <audio id="cardflip" preload="auto" src="./audio/Twinkle Bright Up.wav"></audio>
     <audio id="flipme" preload="auto" src="./audio/Page Flip.mp3" loop="0"></audio>
     <!-- intro animation -->
-    <!-- <div id="introbg" class="position-absolute top-0 bottom-0 start-0 end-0 z-2 bg-black">
-        <div class="outframe position-absolute "
-            style="top: 50%;left: 50%;transform: translate(-50%,-50%);width: 300px;height: 300px;">
+    <!-- <div id="introbg">
+        <div class="outframe">
             <main class="loadframe">
                 <div class="loading"></div>
-                <div class="loading second" style="bottom: 0px;"></div>
+                <div class="loading second"></div>
                 <h2 class="num">0%</h2>
             </main>
         </div>
-        <img id="intrologo" src="./img/關愛LOGO.png" alt=""
-            class="w-50 top-50 start-50 position-absolute translate-middle" style="opacity: 0;max-width: 375px;">
+        <img id="intrologo" src="./img/關愛LOGO.png" alt="" style="opacity: 0;max-width: 375px;">
     </div> -->
 
     <!-- PC navbar -->
@@ -491,25 +108,20 @@
         <!-- <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"></i> -->
 
         <!-- main frame -->
-        <div class="main z-0 position-relative">
+        <div class="main">
             <!-- background -->
-            <div class="bg top-0 bottom-0 start-0 end-0 z-n1"></div>
+            <div class="bg"></div>
             <!-- music -->
-            <a style="font-size: 40px;width: 50px;height: 50px;"
-                class="text-light position-absolute border border-1 border-light rounded-1 m-1 d-flex justify-content-center align-content-center end-0"
-                href="#" id="on-off">
-                <i style="margin-top: -7px;" class="bi bi-volume-mute-fill"></i>
+            <a class="text-light border-light rounded-1 m-1" href="#" id="on-off">
+                <i class="bi bi-volume-mute-fill"></i>
             </a>
             <!-- window -->
-            <div style="width: 85%;height: 75%;" class="position-relative translate-middle top-50 start-50 ">
-                <div id="game" class="position-absolute top-0 start-0 w-100 h-100 z-3 d-none"
-                    style="background-color: rgba(255,255,255,0.9); overflow-y: auto; padding: 20px;"></div>
-
+            <div id="window">
                 <!-- start -->
-                <!-- <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
+                <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
                     style="height: 100%;">
-                    <h2 class="align-content-center text-center lh-lg m-0 h2" style="height: 20%;">關愛童LOVE園</h2>
-                    <p class="m-0 p-2" style="text-align: justify; height: 60%;">
+                    <h2>關愛童LOVE園</h2>
+                    <p>
                         歡迎您來到給「移」樣的孩子一樣的愛，在這個遊戲中您將扮演一位將要出生的寶寶，依照您的每一個選擇，將會迎來不同的未來。
                         <br>
                         <br>
@@ -518,35 +130,39 @@
                         <br>
                         備註：依照個案數據統計，合法與非法移工之子的比例約為1：9。
                     </p>
-                    <button id="start" type="button" class="w-50 border-1 rounded-3" style="height: 10%;">開始遊戲</button>
-                </div> -->
+                    <button id="start" type="button" class="border-1 rounded-3">開始遊戲</button>
+                </div>
 
                 <!-- lotto -->
-                <div class="w-100 d-none lotto animate__animated animate__slow bg-transparent animate__fadeIn"
-                    style="aspect-ratio: 3/5;">
+                <div class="lotto animate__animated animate__slow animate__fadeIn d-none">
                     <!-- <div class="w-100 lotto animate__animated animate__slow bg-transparent animate__fadeIn" style="aspect-ratio: 3/5;"> -->
                     <div class="idcard front animate__delay-2s">
-                        <img class="mw-100" style="aspect-ratio: 3/5;"
-                            src="https://i.pinimg.com/736x/7f/0f/bf/7f0fbf4ace73b111283f9c0a937c8d45.jpg">
+                        <img src="https://i.pinimg.com/736x/7f/0f/bf/7f0fbf4ace73b111283f9c0a937c8d45.jpg">
                     </div>
-                    <div class="idcard back animate__delay-2s position-relative">
-                        <img class="mw-100" style="aspect-ratio: 3/5;"
-                            src="https://i.pinimg.com/736x/7b/bd/32/7bbd32bb2cdfd281bc0b47a45f94779a.jpg">
+                    <div class="idcard back animate__delay-2s">
+                        <img src="https://i.pinimg.com/736x/7b/bd/32/7bbd32bb2cdfd281bc0b47a45f94779a.jpg">
                     </div>
-                    <div class="d-none w-100 bottom-0 text-black dialog text-center m-0 mt-1 border-1 rounded-1 py-1 position-absolute animate__animated animate__fadeIn"
-                        style="background-color: rgba(255,255,255,0.8)">
+                    <div class="dialog border-1 rounded-1 animate__animated animate__fadeIn d-none">
                         <p class="m-0 pb-3 fs-5">
                             您的身分為「<span class="identity"></span>」
                             <br>
                             若想更改身分可以再次點擊畫面
-                            <button id="checkid" style="margin: 3px 0;">確定身分並開始人生</button>
+                            <button id="checkid">確定身分並開始人生</button>
                         </p>
-                        <i class="bi bi-caret-down-fill bottom-0 start-50 translate-middle position-absolute"
-                            style="margin-bottom: -10px;"></i>
+                        <i class="bi bi-caret-down-fill"></i>
                     </div>
                 </div>
 
-                <div class="question stage1 d-none h-100 w-100 animate__animated animate__slow animate__fadeIn border-1 rounded-2"
+                <div id="game"
+                    class="question d-none animate__animated animate__slow animate__fadeIn border-1 rounded-2"
+                    style="background-color: rgba(255,255,255,0.5);">
+                    <!-- <h3 class="p-3" style="text-align: justify;">剛出生的你感受到了環境中各種聲音，你所聽到的是？</h3>
+                    <a class="option2">蟲鳴與蛙鳴</a>
+                    <a class="option2">各國語言的對話<br>聲音中充滿著激勵的能量</a>
+                    <a class="option2">有著穩定且規律的儀器聲響</a> -->
+                </div>
+
+                <!-- <div class="question stage1 d-none h-100 w-100 animate__animated animate__slow animate__fadeIn border-1 rounded-2"
                     style="background-color: rgba(255,255,255,0.5);">
                     <h3 class="p-3" style="text-align: justify;">剛出生的你感受到了環境中各種聲音，你所聽到的是？</h3>
                     <ol class="optionlist">
@@ -556,15 +172,8 @@
                     </ol>
                     <div class="option border-1 bg-warning">
                     </div>
-                </div>
+                </div> -->
 
-                <div class="question stage2 d-none h-100 w-100 animate__animated animate__slow animate__fadeIn border-1 rounded-2 text-center"
-                    style="background-color: rgba(255,255,255,0.5);">
-                    <h3 class="p-3" style="text-align: justify;">剛出生的你感受到了環境中各種聲音，你所聽到的是？</h3>
-                    <a class="option2">蟲鳴與蛙鳴</a>
-                    <a class="option2">各國語言的對話<br>聲音中充滿著激勵的能量</a>
-                    <a class="option2">有著穩定且規律的儀器聲響</a>
-                </div>
 
 
 
@@ -591,7 +200,7 @@
         cardflip.volume = 0.6
         cardflip.loop = false
 
-        let initialid = Math.floor(Math.random() * 10)
+
         let identity = 'legal'
         let flip = false
 
@@ -633,12 +242,12 @@
                 $('.lotto .back').removeClass('ryn')
                 cardflip.play()
                 setTimeout(function () {
+                    let random = Math.floor(Math.random() * 10)
                     $('.lotto .front').addClass('ryp')
                     $('.lotto .back').addClass('ryn')
-                    $('.identity').text(`${initialid % 2 > 0 ? '合法移工之子' : '非法移工之子'}`)
-                    $('.identity').attr('data-id', `${initialid % 2 > 0 ? 'legal' : 'illegal'}`)
-                    $('.identity').attr('data-id', `${initialid % 2 > 0 ? identity = 'legal' : identity = 'illegal'}`)
-                    initialid += 1
+                    $('.identity').text(`${random < 1 ? '合法移工之子' : '非法移工之子'}`)
+                    $('.identity').attr('data-id', `${random < 1 ? 'legal' : 'illegal'}`)
+                    $('.identity').attr('data-id', `${random < 1 ? identity = 'legal' : identity = 'illegal'}`)
                 }, 1)
                 setTimeout(() => {
                     $('.dialog').removeClass('d-none')
@@ -663,7 +272,8 @@
             $('.lotto').addClass('animate__fadeOut')
             setTimeout(() => {
                 $('.lotto').remove()
-                $('.stage2').removeClass('d-none')
+                $("#game").removeClass("d-none");  // 顯示遊戲對話區
+                renderNode(currentNode);           // 執行顯示第一節點
             }, 2000);
         })
 
@@ -710,6 +320,7 @@
     </script>
 
     <script>
+        let currentNode = "";
         let story = "";
         $.ajax({
             url: './text/story.json',
@@ -720,16 +331,13 @@
 
             success: res => {
                 story = res;
-                currentNode = "start";
-                $("#game").removeClass("d-none");  // 顯示遊戲對話區
-                renderNode(currentNode);           // 執行顯示第一節點
+                currentNode = "where";
             },
             error: err => {
                 console.log(err)
             },
         });
 
-        let currentNode = "";
         function renderNode(nodeKey) {
             const node = story[nodeKey];
             if (!node) return;
@@ -756,29 +364,33 @@
                     const opt = options[key];
                     if (opt.condition === "none" || opt.condition === identity) {
                         container.append(`
-                    <button class="d-block mb-2 option2" style="width: 100%;" onclick="gotoNode('${opt.goto}')">
+                    <a class="option2" data-goto="${opt.goto}">
                         ${opt.description.replace(/\n/g, "<br>")}
-                    </button>
+                    </a>
                 `);
                     }
                 }
             } else {
                 const btnText = dialog.btn || "繼續";
                 container.append(`
-            <button class="d-block option2" style="width: 100%;" onclick="gotoNode('${node.goto}')">${btnText}</button>
-        `);
+            <a class="option2" data-goto="${node.goto}" ">${btnText}</a>
+            `);
             }
         }
 
-        // 切換節點
-        function gotoNode(nextKey) {
-            if (!nextKey) {
-                $("#game").html("<h3 class='text-center'>遊戲結束，謝謝參與！</h3>");
-                return;
+        $(document).on('click', function (e) {
+            // console.log($(e.target)[0].nodeName == "A")
+            // console.log($(e.target).hasClass('option2'))
+            if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2')) {
+                $(e.target).addClass('option2a');
+                setTimeout(() => {
+                    $(e.target).removeClass('option2a');
+                    console.log($(e.target).data('goto'))
+                    let currentNode = $(e.target).data('goto')
+                    renderNode(currentNode)
+                }, 500);
             }
-            currentNode = nextKey;
-            renderNode(currentNode);
-        }
+        })
 
 
     </script>

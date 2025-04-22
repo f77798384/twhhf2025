@@ -11,7 +11,7 @@
     "idflip": {
         "type": "info-down-btn",
         "dialog": {
-            "description": "您的身分為「<span class='identity'>${identity}</span>\n若想更改身分可以再次點擊畫面",
+            "head": "您的身分為「<span class='identity'>${identity}</span>\n若想更改身分可以再次點擊畫面",
             "btn": "確定身分並開始人生"
         },
         "goto": "where"
@@ -42,7 +42,7 @@
                 "o4": {
                     "type": "1",
                     "condition": "legal",
-                    "description": "時不時出現沖水、洗手的水聲",
+                    "description": "時不時出現\n沖水、洗手的水聲",
                     "goto": "status"
                 }
             }

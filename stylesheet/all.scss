@@ -4,5 +4,12 @@
 // Include any default variable overrides here (though functions won't be available)
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "./component/all";
+@import "./component/frame";
+@import "./component/loading";
+@import "./component/start";
+@import "./component/floatingicon";
+@import "./component/lotto";
+@import "./component/dialogs";
 
 // Then add additional custom code here
