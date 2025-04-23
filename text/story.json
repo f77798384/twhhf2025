@@ -89,7 +89,7 @@
                 "o5": {
                     "type": "1",
                     "condition": "illegal",
-                    "description": "母親得知有「關愛之家」可協助，\n決定尋求幫助",
+                    "description": "得知有「關愛之家」可協助\n決定尋求幫忙",
                     "goto": "twhhf"
                 }
             }

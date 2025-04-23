@@ -13,7 +13,7 @@ audio.volume = 0.8
 audio.loop = true
 flipme.volume = 0.5
 flipme.loop = false
-cardflip.volume = 0.5
+cardflip.volume = 0.3
 cardflip.loop = false
 press.volume = 0.5
 press.loop = false
@@ -187,6 +187,7 @@ $(document).on('click', function (e) {
     // console.log($(e.target).hasClass('option2'))
     if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2') && $(e.target).data('goto') != '') {
         $('#press')[0].play()
+        $('.bg').click()
         $(e.target).addClass('option2a');
         $('#game').removeClass('animate__fadeIn')
         $('#game').addClass('animate__fadeOut')
