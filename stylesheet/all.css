@@ -12990,6 +12990,12 @@ body {
 #game p {
   text-align: left;
   padding: 0 1rem;
+  transform: translateZ(0);
+}
+#game h3.end, #game .end.h3 {
+  font-size: 2rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .dialog {

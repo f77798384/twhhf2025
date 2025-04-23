@@ -41,7 +41,8 @@ $('#start').on('click', function (e) {
         $('#stframe').addClass('animate__fadeOutTopRight')
     }, 200);
     setTimeout(function () {
-        $('#stframe').remove()
+        // $('#stframe').remove()
+        $('#stframe').addClass('d-none')
         $('.lotto').removeClass('d-none')
         $('.lotto').addClass('animate__fadeIn')
     }, 2500)
@@ -85,7 +86,8 @@ $('#checkid').on('click', function (e) {
     $('.lotto').removeClass('animate__fadeIn')
     $('.lotto').addClass('animate__fadeOut')
     setTimeout(() => {
-        $('.lotto').remove()
+        // $('.lotto').remove()
+        $('.lotto').addClass('d-none')
         $("#game").removeClass("d-none");  // 顯示遊戲對話區
         renderNode(currentNode);           // 執行顯示第一節點
     }, 2000);
@@ -153,12 +155,12 @@ function renderNode(nodeKey) {
 
     // 顯示標題
     if (dialog.head) {
-        container.append(`<h3 class="mb-3">${dialog.head}</h3>`);
+        container.append(`<h3 class="mb-3 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h3>`);
     }
 
     // 顯示內容
     if (dialog.description) {
-        container.append(`<p class="mb-4">${dialog.description.replace(/\n/g, "<br>")}</p>`);
+        container.append(`<p class="mb-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>")}</p>`);
     }
 
     // 顯示按鈕或選項
@@ -175,7 +177,7 @@ function renderNode(nodeKey) {
             }
         }
     } else {
-        const btnText = dialog.btn || "繼續";
+        const btnText = dialog.btn || "再次開始新的人生";
         container.append(`
             <a class="option2" data-goto="${node.goto}" ">${btnText}</a>
             `);
@@ -197,7 +199,20 @@ $(document).on('click', function (e) {
             $(e.target).removeClass('option2a');
             console.log($(e.target).data('goto'))
             let currentNode = $(e.target).data('goto')
-            renderNode(currentNode)
+            if (currentNode == 'start') {
+                flip = false
+                $('.lotto .front').removeClass('ryp')
+                $('.lotto .back').removeClass('ryn')
+                $('.dialog').addClass('d-none')
+                $('#stframe').removeClass('animate__fadeOutTopRight')
+                $('#stframe').addClass('animate__fadeIn')
+                $('.lotto').addClass('animate__fadeIn')
+                $('.lotto').removeClass('animate__fadeOut')
+                $('#game').addClass('d-none')
+                $('#stframe').removeClass('d-none')
+            } else {
+                renderNode(currentNode)
+            }
         }, 2000);
     }
 })

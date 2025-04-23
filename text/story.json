@@ -27,6 +27,12 @@
                     "condition": "legal",
                     "description": "時不時出現\n沖水、洗手的水聲",
                     "goto": "status"
+                },
+                "o5": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "test",
+                    "goto": "twhhf"
                 }
             }
         }
@@ -135,14 +141,6 @@
             }
         }
     },
-    "twhhf": {
-        "type": "info",
-        "dialog": {
-            "head": "轉機\n關愛之家提供協助",
-            "description": "你母親在困境中尋求關愛之家協助，獲得妥善安置與照護資源，讓你擁有接種疫苗與成長學習的機會，健康平安地成長。",
-            "goto": "start"
-        }
-    },
     "hospital": {
         "type": "question",
         "dialog": {
@@ -152,7 +150,7 @@
                     "type": "1",
                     "condition": "illegal",
                     "description": "專勤隊的人討論著\n要將你們母子遣返回國",
-                    "goto": "repatriate"
+                    "goto": "repatriate-end-illegal"
                 },
                 "o2": {
                     "type": "1",
@@ -170,32 +168,48 @@
                     "type": "1",
                     "condition": "illegal",
                     "description": "母親因身分壓力逃離\n你被人發現送往社會局",
-                    "goto": "socialcare"
+                    "goto": "socialcare-end-illegal"
                 }
             }
         }
     },
-    "socialcare": {
-        "type": "info",
+    "socialcare-end-illegal": {
+        "type": "end",
         "dialog": {
             "head": "結局\n社會局轉介照護",
-            "description": "你被發現後由社會局安置，並轉介至台灣關愛基金會。雖然人生一開始便面臨挑戰，但在關愛機構照料下，你重新獲得生長的希望。",
-            "goto": "start"
-        }
+            "description": "你被發現後由社會局安置，並轉介至台灣關愛基金會。雖然人生一開始便面臨挑戰，但在關愛機構照料下，你重新獲得生長的希望。"
+        },
+        "goto": "start"
     },
     "recovery-end-legal": {
-        "type": "info",
+        "type": "end",
         "dialog": {
             "head": "結局\n順利地成長",
-            "description": "經歷了一系列的過程你順利地活了下來 ，在與母親回國以前的這段日子裡，你將嬰幼兒該施打的疫苗都完成接種，且沒有任何的阻礙在附近的幼稚園中上課，在接近小學的時候和母親一同回到了家鄉。"
+            "description": "你順利康復並健康成長。憑藉合法身份，你接受完善照護並完成疫苗接種，能在幼稚園安心就學，最終與母親一同平安返鄉，迎向新的未來。"
         },
         "goto": "start"
     },
     "die-end-illegal": {
-        "type": "info",
+        "type": "end",
         "dialog": {
             "head": "結局\n還沒來得及長大",
-            "description": ""
+            "description": "因無法及時獲得醫療協助，你的生命止步於嬰幼兒階段。這段短暫的生命訴說著許多無聲的遺憾。"
+        },
+        "goto": "start"
+    },
+    "repatriate-end-illegal": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n被遣返回國",
+            "description": "你與母親被送回原生國。在陌生語言與有限資源的環境中，生活變得艱辛。儘管如此，母親努力讓你走出困境，盼望未來依舊充滿希望。"
+        },
+        "goto": "start"
+    },
+    "twhhf": {
+        "type": "end",
+        "dialog": {
+            "head": "轉機\n關愛之家提供協助",
+            "description": "你母親在困境中尋求關愛之家協助，獲得妥善安置與照護資源，讓你擁有接種疫苗與成長學習的機會，健康平安地成長。"
         },
         "goto": "start"
     },
