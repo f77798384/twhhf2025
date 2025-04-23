@@ -177,7 +177,8 @@ function renderNode(nodeKey) {
             }
         }
     } else {
-        const btnText = dialog.btn || "再次開始新的人生";
+        // const btnText = dialog.btn || "再次開始新的人生";
+        const btnText = node.type == 'end' ? "再次開始新的人生" : '繼續'
         container.append(`
             <a class="option2" data-goto="${node.goto}" ">${btnText}</a>
             `);

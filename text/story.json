@@ -52,16 +52,24 @@
                     "type": "1",
                     "condition": "legal",
                     "description": "胚胎發育時有定期做產檢\n你非常的健康",
-                    "goto": ""
+                    "goto": "healthy-end-legal"
                 },
                 "o3": {
                     "type": "1",
                     "condition": "illegal",
                     "description": "雖然環境極度惡劣\n但你依然頭好壯壯",
-                    "goto": ""
+                    "goto": "no-vaccine-illegal"
                 }
             }
         }
+    },
+    "no-vaccine-illegal": {
+        "type": "info",
+        "dialog": {
+            "head": "你沒有健保無法施打疫苗",
+            "description": "雖然你出生時相對健康，但由於身分非法無法申請健保，導致無法施打預防疫苗，健康風險逐漸增加。"
+        },
+        "goto": "sick"
     },
     "sick": {
         "type": "question",
@@ -156,7 +164,7 @@
                     "type": "1",
                     "condition": "legal",
                     "description": "還好可以使用健保\n不然這筆醫藥費完全無法負擔",
-                    "goto": ""
+                    "goto": "recovery-end-legal"
                 },
                 "o3": {
                     "type": "1",
@@ -213,11 +221,12 @@
         },
         "goto": "start"
     },
-    "start": {
-        "type": "info",
+    "healthy-end-legal": {
+        "type": "end",
         "dialog": {
-            "head": "回到開頭",
-            "description": "待製作跳轉流程"
-        }
+            "head": "結局\n健康寶寶的未來",
+            "description": "你擁有良好的醫療照護與成長資源，開心地學習、成長。身為合法身分的孩子，你將擁有更多平等的起點。"
+        },
+        "goto": "start"
     }
 }
