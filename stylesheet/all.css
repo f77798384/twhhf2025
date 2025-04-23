@@ -12987,6 +12987,10 @@ body {
   text-align: justify;
   transform: translateZ(0);
 }
+#game p {
+  text-align: left;
+  padding: 0 1rem;
+}
 
 .dialog {
   transform: translateZ(0);
@@ -13073,6 +13077,7 @@ body {
   margin: 1rem 0;
   width: 65%;
   box-shadow: 0px 3px 1px 1px rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .option2:before,
