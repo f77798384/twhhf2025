@@ -12715,7 +12715,7 @@ body {
 }
 @media (min-width: 768px) {
   .container {
-    height: 95vh;
+    height: 100vh;
     margin: 0 auto;
   }
 }
@@ -12760,8 +12760,15 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-  right: 0;
   text-decoration: none;
+  background-color: gray;
+  border-radius: 15px;
+  right: 0px;
+}
+@media (min-width: 768px) {
+  #on-off {
+    right: -60px;
+  }
 }
 #on-off .bi {
   margin-top: -7px;

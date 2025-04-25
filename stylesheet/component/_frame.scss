@@ -7,7 +7,7 @@
     width: 100vw;
 
     @media (min-width: 768px) {
-        height: calc(95vh);
+        height: 100vh;
         margin: 0 auto;
     }
 }
@@ -52,9 +52,13 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    right: 0;
     text-decoration: none;
-
+    background-color: gray;
+    border-radius: 15px;
+    right: 0px;
+    @media (min-width: 768px) {
+        right: -60px;
+    }
     .bi {
         margin-top: -7px;
     }

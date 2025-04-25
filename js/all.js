@@ -217,3 +217,13 @@ $(document).on('click', function (e) {
         }, 2000);
     }
 })
+
+let t = window.devicePixelRatio
+let r = window.innerHeight
+if (t > 1 && t < 2) {
+    $('body').attr('style', `zoom:${1 / t};height:${r * t}px;`)
+    $('.container').css('height', `${r * t}px`)
+    $('.container').css('margin-bottom', '75px')
+    $('.main').css('height', `${r * t}px`)
+    console.log('resize')
+}

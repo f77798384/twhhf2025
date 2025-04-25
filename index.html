@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Noto+Serif+TC:wght@200..900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="./stylesheet/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,6 @@
 <body>
     <audio id="music" preload="auto" src="./audio/bgs/それから５ヶ月.mp3"></audio>
     <audio id="cardflip" preload="auto" src="./audio/me/Twinkle Bright Up.wav"></audio>
-    <audio id="flipme" preload="auto" src="./audio/me/Page Flip.mp3" loop="0"></audio>
     <audio id="flipme" preload="auto" src="./audio/me/Page Flip.mp3" loop="0"></audio>
     <audio id="press" preload="auto" src="./audio/me/Button Press.mp3" loop="0"></audio>
     <!-- intro animation -->
@@ -43,16 +42,11 @@
     </div> -->
 
     <!-- PC navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
+    <!-- <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-none d-md-block">
         <div class="container-fluid ">
             <a class="navbar-brand" href="#">
                 <img class="tp-0" src="./img/logo.png" alt="" width="120">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -70,7 +64,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <!-- container -->
     <div class="container align-content-center">
@@ -81,7 +75,7 @@
         <!-- main frame -->
         <div class="main">
             <!-- mobile navbar -->
-            <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-1 d-md-none position-absolute p-0 rounded rounded-1 m-1"
+            <nav class="navbar navbar-expand-md navbar-light bg-light fs-4 z-4 d-md-none position-absolute p-0 rounded rounded-1 m-1"
                 style="width: 80px;">
                 <div class="container-fluid p-0 rounded rounded-1 p-1 justify-content-center"
                     style="background-color: rgba(192, 192, 192, 0.705);">
@@ -114,7 +108,7 @@
             <!-- background -->
             <div class="bg"></div>
             <!-- music -->
-            <a class="text-light border-light rounded-1 m-1" href="#" id="on-off">
+            <a class="text-light border-light m-1 z-4" href="#" id="on-off">
                 <i class="bi bi-volume-mute-fill"></i>
             </a>
             <!-- window -->
@@ -158,7 +152,7 @@
                 <div id="game" class="d-none animate__animated animate__slow animate__fadeIn border-1 rounded-2"></div>
 
 
-
+                
 
             </div>
         </div>

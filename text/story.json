@@ -116,13 +116,13 @@
             "options": {
                 "o1": {
                     "type": "1",
-                    "condition": "none",
+                    "condition": "illegal",
                     "description": "幸運地慢慢恢復了健康",
-                    "goto": "recovery-end-legal"
+                    "goto": "recovery-end-illegal"
                 },
                 "o2": {
                     "type": "1",
-                    "condition": "none",
+                    "condition": "illegal",
                     "description": "不幸的病情越來越嚴重",
                     "goto": "worsening"
                 }
@@ -170,7 +170,7 @@
                     "type": "1",
                     "condition": "none",
                     "description": "護理人員啜泣著說\n已經太遲了",
-                    "goto": "die-end-illegal"
+                    "goto": "die-end"
                 },
                 "o4": {
                     "type": "1",
@@ -189,6 +189,14 @@
         },
         "goto": "start"
     },
+    "recovery": {
+        "type": "info",
+        "dialog": {
+            "head": "你好轉了！",
+            "description": "在媽媽細心照料與過去疫苗的幫助下，你的病終於好了起來。"
+        },
+        "goto": "recovery-end-legal"
+    },
     "recovery-end-legal": {
         "type": "end",
         "dialog": {
@@ -197,7 +205,15 @@
         },
         "goto": "start"
     },
-    "die-end-illegal": {
+    "recovery-end-illegal": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n重獲健康但挑戰仍在",
+            "description": "你雖靠成藥幸運恢復，但身分仍未解決，日後成長缺乏健保與教育資源，母親努力地讓你接受生活與語言教育，希望未來能突破困境。"
+        },
+        "goto": "start"
+    },
+    "die-end": {
         "type": "end",
         "dialog": {
             "head": "結局\n還沒來得及長大",
