@@ -5,7 +5,7 @@ let audio = $('#music')[0];
 let flipme = $('#flipme')[0];
 let cardflip = $('#cardflip')[0];
 let press = $('#press')[0];
-let sw = $('#on-off i')[0];
+let sw = $('#on-off .bi');
 let identity = 'legal'
 let flip = false
 
@@ -20,8 +20,9 @@ press.loop = false
 
 $('#on-off').on('click', function (e) {
     e.preventDefault();
-    $(sw).toggleClass('bi-volume-mute-fill')
-    $(sw).toggleClass('bi-volume-up-fill')
+    $(sw).each((a, b) => {
+        $(b).toggleClass('d-none');
+    })
     if (bgmstatus == false) {
         audio.play();
         bgmstatus = true;
@@ -32,6 +33,16 @@ $('#on-off').on('click', function (e) {
         return;
     }
 })
+
+$('#list').on('click', function (e) {
+    e.preventDefault();
+    $('.more').removeClass('d-none')
+})
+// $('.more').removeClass('d-none')
+$('#close-more').on('click', function (e) {
+    e.preventDefault();
+    $('.more').addClass('d-none')
+});
 
 $('#start').on('click', function (e) {
     e.preventDefault();
