@@ -12699,10 +12699,12 @@ textarea.form-control-lg {
 }
 
 body {
-  background-image: url(../img/bg-2.png);
+  background-image: url(../img/bg-2.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 120%;
   overflow: hidden;
+  background-color: #e8ddcb;
+  background-position: center;
 }
 
 .container {
@@ -13142,46 +13144,6 @@ body {
   line-height: 1.5;
   padding: 0 55px;
 }
-.optionlist .option1 {
-  background-color: gold;
-  margin: 2rem 0;
-  padding: 10px;
-  text-align: center;
-  position: relative;
-  cursor: pointer;
-}
-.optionlist .option1:before {
-  width: 100%;
-  height: 100%;
-  content: "";
-  display: block;
-  position: absolute;
-  background-color: black;
-  z-index: -10;
-  transform: rotate(-7deg);
-  left: -6px;
-  top: 3px;
-}
-.optionlist .option1:hover {
-  background-color: #fff;
-  scale: 1.05;
-}
-.optionlist .option1:hover:before {
-  width: 100%;
-  height: 100%;
-  content: "";
-  display: block;
-  position: absolute;
-  background-color: gold;
-  z-index: -10;
-  transform: rotate(-7deg);
-  left: -6px;
-  top: 3px;
-}
-.optionlist .option1:active {
-  background-color: #414141;
-  box-shadow: 1px 0px 25px 12px rgba(252, 255, 109, 0.27);
-}
 
 .option2,
 .option2:focus,
@@ -13269,4 +13231,66 @@ body {
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
+}
+.option1,
+.option1:focus {
+  align-content: center;
+  line-height: 1.5;
+  padding: 10px 0;
+  display: inline-block;
+  position: relative;
+  border: none;
+  border-radius: 4px;
+  background-color: #92a5fc;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform ease-in 0.1s;
+  margin: 1rem 0;
+  width: 65%;
+  box-shadow: 0px 3px 1px 1px rgb(0, 0, 0);
+  cursor: pointer;
+  position: relative;
+  min-width: 200px;
+  background-color: black;
+  border-radius: 4em;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition-duration: 0.4s;
+  padding: 10px 20px;
+}
+
+.option1:hover {
+  background-color: #3A3A3A;
+  color: white;
+  transition-duration: 0.1s;
+}
+
+.option1:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px white;
+  border-radius: 4em;
+}
+
+.option1:active:after {
+  opacity: 1;
+  transition: 0s;
+  box-shadow: 0 0 0 0 white;
+}
+
+.option1:active {
+  top: 1px;
 }/*# sourceMappingURL=all.css.map */

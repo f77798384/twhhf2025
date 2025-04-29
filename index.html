@@ -58,7 +58,7 @@
             </div>
             <ul class="icon-links list-unstyled d-flex flex-row">
                 <li>
-                    <a target="_blank" class="p-3 d-inline-block" href="https://www.facebook.com/twhhf/?locale=zh_TW">
+                    <a target="_blank" class="p-3 d-inline-block text-decoration-none" href="https://www.facebook.com/twhhf/?locale=zh_TW">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                             class="text-secondary bi bi-facebook" viewBox="0 0 16 16">
                             <path
@@ -98,6 +98,12 @@
 
         <!-- main frame -->
         <div class="main">
+            <!-- switch style -->
+            <div class="stylechoose d-flex position-absolute w-100 justify-content-around" style="top:-50px">
+                <a href="" class="d-inline-block text-decoration-none border border-1 border-black link-dark p-2 rounded-3 bg-body" id="option1">Style 1</a>
+                <a href="" class="d-inline-block text-decoration-none border border-1 border-black link-dark p-2 rounded-3 bg-body" id="option2">Style 2</a>
+                <a href="" class="d-inline-block text-decoration-none border border-1 border-black link-dark p-2 rounded-3 bg-body" id="option3">Style 3</a>
+            </div>
             <!-- background -->
             <div class="bg"></div>
             <!-- list -->
@@ -128,7 +134,7 @@
             <!-- window -->
             <div id="window">
                 <!-- start -->
-                <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
+                <!-- <div id="stframe" class="rounded-1 border bg-body text-center animate__animated animate__slow"
                     style="height: 100%;">
                     <h2>關愛童LOVE園</h2>
                     <p>
@@ -141,11 +147,10 @@
                         備註：依照個案數據統計，合法與非法移工之子的比例約為1：9。
                     </p>
                     <button id="start" type="button" class="border-1 rounded-3">開始遊戲</button>
-                </div>
+                </div> -->
 
                 <!-- lotto -->
-                <div class="lotto animate__animated animate__slow animate__fadeIn d-none">
-                    <!-- <div class="w-100 lotto animate__animated animate__slow bg-transparent animate__fadeIn" style="aspect-ratio: 3/5;"> -->
+                <!-- <div class="lotto animate__animated animate__slow animate__fadeIn d-none">
                     <div class="idcard front animate__delay-2s">
                         <img src="https://i.pinimg.com/736x/7f/0f/bf/7f0fbf4ace73b111283f9c0a937c8d45.jpg">
                     </div>
@@ -161,9 +166,25 @@
                         </p>
                         <i class="bi bi-caret-down-fill"></i>
                     </div>
-                </div>
+                </div> -->
 
-                <div id="game" class="d-none animate__animated animate__slow animate__fadeIn border-1 rounded-2"></div>
+                <!-- <div id="game" class="d-none animate__animated animate__slow animate__fadeIn border-1 rounded-2"></div> -->
+
+                <div id="game" class="animate__animated animate__slow animate__fadeIn border-1 rounded-2">
+                    
+                    <h3 class="mb-3 question">剛出生的你感受到了環境中各種聲音，你所聽到的是？</h3>
+                    <a class="option1">
+                        蟲鳴與蛙鳴
+                    </a>
+
+                    <a class="option1">
+                        周圍充滿著各國語言<br>且飽含激勵的聲音
+                    </a>
+
+                    <a class="option1">
+                        test
+                    </a>
+                </div>
 
 
 

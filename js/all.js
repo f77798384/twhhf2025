@@ -1,7 +1,7 @@
 let currentNode = "";
 let story = "";
-let bgmstatus = false;
-let audio = $('#music')[0];
+let audio = false;
+let bgm = $('#music')[0];
 let flipme = $('#flipme')[0];
 let cardflip = $('#cardflip')[0];
 let press = $('#press')[0];
@@ -9,8 +9,8 @@ let sw = $('#on-off .bi');
 let identity = 'legal'
 let flip = false
 
-audio.volume = 0.8
-audio.loop = true
+bgm.volume = 0.8
+bgm.loop = true
 flipme.volume = 0.5
 flipme.loop = false
 cardflip.volume = 0.3
@@ -23,13 +23,13 @@ $('#on-off').on('click', function (e) {
     $(sw).each((a, b) => {
         $(b).toggleClass('d-none');
     })
-    if (bgmstatus == false) {
-        audio.play();
-        bgmstatus = true;
+    if (audio == false) {
+        bgm.play();
+        audio = true;
         return;
     } else {
-        audio.pause();
-        bgmstatus = false;
+        bgm.pause();
+        audio = false;
         return;
     }
 })
@@ -72,7 +72,10 @@ $('.idcard').on('click', function (e) {
         $('.dialog').addClass('d-none')
         $('.lotto .front').removeClass('ryp')
         $('.lotto .back').removeClass('ryn')
-        cardflip.play()
+        if (audio) {
+            console.log(audio)
+            cardflip.play()
+        }
         setTimeout(function () {
             let random = Math.floor(Math.random() * 10)
             $('.lotto .front').addClass('ryp')
@@ -96,6 +99,7 @@ $('.option2').on('click', function (e) {
     setTimeout(() => {
         $(this).removeClass('option2a');
     }, 500);
+    $('.bg').click()
 })
 
 $('#checkid').on('click', function (e) {
@@ -205,8 +209,10 @@ function renderNode(nodeKey) {
 $(document).on('click', function (e) {
     // console.log($(e.target)[0].nodeName == "A")
     // console.log($(e.target).hasClass('option2'))
-    if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2') && $(e.target).data('goto') != '') {
-        $('#press')[0].play()
+    if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2') && $(e.target).data('goto') != undefined) {
+        if (audio) {
+            $('#press')[0].play()
+        }
         $('.bg').click()
         $(e.target).addClass('option2a');
         $('#game').removeClass('animate__fadeIn')
@@ -245,9 +251,29 @@ if (t > 1 && t < 2) {
     console.log('resize')
 }
 
-$('body').click(function (e) { 
+$('body').click(function (e) {
     e.preventDefault();
-    if($(e.target).hasClass('more')){
+    if ($(e.target).hasClass('more')) {
         $('#close-more').click()
     }
 });
+
+$('.stylechoose').on('click', function (e) {
+    e.preventDefault();
+    let style = $(e.target).attr('id');
+    // remove
+    // $('#game a').each((a,b)=>{
+    //     console.log(b)
+    //     $(b).removeClass($($('#game a')[0]).attr('class'))
+    //     console.log($($('#game a')[0]).attr('class'))
+    //     $(b).addClass(style)
+    //     console.log(b)
+    // })
+    $('#game a').each((a, b) => {
+        console.log(b)
+        $(b).removeClass($($('#game a')[a]).attr('class'))
+        console.log($($('#game a')[a]).attr('class'))
+        $(b).addClass(style)
+        console.log(b)
+    })
+})
