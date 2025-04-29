@@ -12742,7 +12742,7 @@ body {
   left: 0;
   z-index: -1;
 }
-.main a {
+.main > a {
   position: absolute;
   color: rgb(250, 250, 250);
   top: 5px;
@@ -12839,10 +12839,40 @@ body {
   border-radius: 5px;
   background-color: rgb(250, 250, 250);
 }
+.fadein {
+  animation: fadein ease-in-out 0.75s forwards;
+  animation-direction: normal;
+}
+
+.fadeout {
+  animation: fadeout ease-in-out 0.75s forwards;
+  animation-direction: normal;
+}
+
 .transX0 {
   animation: transX0 ease-in-out 0.75s forwards;
 }
 
+@keyframes fadein {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+}
 @keyframes transX0 {
   100% {
     transform: translateX(0);

@@ -36,12 +36,18 @@ $('#on-off').on('click', function (e) {
 
 $('#list').on('click', function (e) {
     e.preventDefault();
-    $('.more').removeClass('d-none')
+    // $('.more').fadeToggle()
+    $('.more').toggleClass('fadein')
+    $('.more').toggleClass('fadeout')
+    $('.more').css('display', 'flex')
 })
-// $('.more').removeClass('d-none')
 $('#close-more').on('click', function (e) {
     e.preventDefault();
-    $('.more').addClass('d-none')
+    $('.more').toggleClass('fadein')
+    $('.more').toggleClass('fadeout')
+    setTimeout(() => {
+        $('.more').css('display', 'none')
+    }, 800);
 });
 
 $('#start').on('click', function (e) {
@@ -238,3 +244,10 @@ if (t > 1 && t < 2) {
     $('.main').css('height', `${r * t}px`)
     console.log('resize')
 }
+
+$('body').click(function (e) { 
+    e.preventDefault();
+    if($(e.target).hasClass('more')){
+        $('#close-more').click()
+    }
+});
