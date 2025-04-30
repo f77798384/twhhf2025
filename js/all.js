@@ -209,12 +209,13 @@ function renderNode(nodeKey) {
 $(document).on('click', function (e) {
     // console.log($(e.target)[0].nodeName == "A")
     // console.log($(e.target).hasClass('option2'))
-    if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2') && $(e.target).data('goto') != undefined) {
+    if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2')) {
         if (audio) {
             $('#press')[0].play()
         }
         $('.bg').click()
         $(e.target).addClass('option2a');
+
         $('#game').removeClass('animate__fadeIn')
         $('#game').addClass('animate__fadeOut')
         setTimeout(() => {
@@ -234,12 +235,23 @@ $(document).on('click', function (e) {
                 $('.lotto').removeClass('animate__fadeOut')
                 $('#game').addClass('d-none')
                 $('#stframe').removeClass('d-none')
-            } else {
+            } else if ($(e.target).data('goto') != undefined) {
                 renderNode(currentNode)
             }
         }, 2000);
+    } else if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option3')) {
+        //reset animation
+        e.target.classList.remove('animate');
+
+        e.target.classList.add('animate');
+        setTimeout(function () {
+            e.target.classList.remove('animate');
+        }, 700);
     }
 })
+
+
+
 
 let t = window.devicePixelRatio
 let r = window.innerHeight
@@ -270,10 +282,7 @@ $('.stylechoose').on('click', function (e) {
     //     console.log(b)
     // })
     $('#game a').each((a, b) => {
-        console.log(b)
         $(b).removeClass($($('#game a')[a]).attr('class'))
-        console.log($($('#game a')[a]).attr('class'))
         $(b).addClass(style)
-        console.log(b)
     })
 })
