@@ -273,16 +273,10 @@ $('body').click(function (e) {
 $('.stylechoose').on('click', function (e) {
     e.preventDefault();
     let style = $(e.target).attr('id');
-    // remove
-    // $('#game a').each((a,b)=>{
-    //     console.log(b)
-    //     $(b).removeClass($($('#game a')[0]).attr('class'))
-    //     console.log($($('#game a')[0]).attr('class'))
-    //     $(b).addClass(style)
-    //     console.log(b)
-    // })
-    $('#game a').each((a, b) => {
-        $(b).removeClass($($('#game a')[a]).attr('class'))
-        $(b).addClass(style)
-    })
+    if(style){
+        $('#game a').each((a, b) => {
+            $(b).removeClass($($('#game a')[a]).attr('class'))
+            $(b).addClass(style)
+        })
+    }
 })
