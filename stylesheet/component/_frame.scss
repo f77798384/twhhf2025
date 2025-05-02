@@ -102,17 +102,23 @@
 
         .links{
             padding-bottom: 30px;
+            a{
+                animation: transX0 ease-in-out 1.0s forwards;
+            }
             :nth-child(1){
                 transform: translateX(-120px);
-                animation: transX0 ease-in-out 0.75s forwards;
             }
             :nth-child(2){
-                transform: translateX(-180px);
-                animation: transX0 ease-in-out 0.75s forwards;
+                transform: translateX(-140px);
+                // animation: transX0 ease-in-out 1.5s forwards;
+                animation-duration: 1.1s;
+                animation-delay: 0.1s;
             }
             :nth-child(3){
-                transform: translateX(-240px);
-                animation: transX0 ease-in-out 0.75s forwards;
+                transform: translateX(-160px);
+                animation-duration: 1.2s;
+                animation-delay: 0.2s;
+                // animation: transX0 ease-in-out 1.5s forwards;
             }
         }
         .icon-links{
@@ -171,6 +177,9 @@
 }
 
 @keyframes transX0{
+    80%{
+        transform: translateX(50px);
+    }
     100%{
         transform: translateX(0);
     }

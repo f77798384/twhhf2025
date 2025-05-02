@@ -12816,17 +12816,21 @@ body {
 .more .inner .links {
   padding-bottom: 30px;
 }
+.more .inner .links a {
+  animation: transX0 ease-in-out 1s forwards;
+}
 .more .inner .links :nth-child(1) {
   transform: translateX(-120px);
-  animation: transX0 ease-in-out 0.75s forwards;
 }
 .more .inner .links :nth-child(2) {
-  transform: translateX(-180px);
-  animation: transX0 ease-in-out 0.75s forwards;
+  transform: translateX(-140px);
+  animation-duration: 1.1s;
+  animation-delay: 0.1s;
 }
 .more .inner .links :nth-child(3) {
-  transform: translateX(-240px);
-  animation: transX0 ease-in-out 0.75s forwards;
+  transform: translateX(-160px);
+  animation-duration: 1.2s;
+  animation-delay: 0.2s;
 }
 .more .inner .icon-links {
   transform: translateX(300px);
@@ -12876,6 +12880,9 @@ body {
   }
 }
 @keyframes transX0 {
+  80% {
+    transform: translateX(50px);
+  }
   100% {
     transform: translateX(0);
   }

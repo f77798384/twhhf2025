@@ -290,52 +290,6 @@
     top: 1px;
 }
 
-// .option2:active:before {
-//     display: block;
-//     top: -75%;
-//     background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, transparent 20%, rgba(98, 157, 203, 0.7) 20%, transparent 30%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
-//     background-size:
-//         10% 10%,
-//         20% 20%,
-//         15% 15%,
-//         20% 20%,
-//         18% 18%,
-//         10% 10%,
-//         15% 15%,
-//         10% 10%,
-//         18% 18%;
-//     animation: anim-top ease-in-out 0.75s forwards;
-// }
-
-// .option2:active:after {
-//     display: block;
-//     bottom: -75%;
-//     background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-//         radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
-//     background-size:
-//         15% 15%,
-//         20% 20%,
-//         18% 18%,
-//         20% 20%,
-//         15% 15%,
-//         10% 10%,
-//         20% 20%;
-//     animation: anim-bottom ease-in-out 0.75s forwards;
-// }
-
 .option3 {
     $fuschia: #ff0081;
     $button-bg: $fuschia;
