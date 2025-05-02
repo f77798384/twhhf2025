@@ -107,6 +107,7 @@
         10% 10%,
         18% 18%;
     animation: anim-top ease-in-out 0.75s forwards;
+    -webkit-animation: anim-top ease-in-out 0.75s forwards;
 }
 
 .option2a:after {
@@ -128,6 +129,7 @@
         10% 10%,
         20% 20%;
     animation: anim-bottom ease-in-out 0.75s forwards;
+    -webkit-animation: anim-bottom ease-in-out 0.75s forwards;
 }
 
 .option2:hover {
