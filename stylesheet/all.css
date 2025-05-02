@@ -13187,16 +13187,30 @@ body {
   background-repeat: no-repeat;
 }
 
-.option2:hover {
+.option2a {
+  transform: translateY(5px) scale(1);
   background-color: rgba(146, 209, 252, 0.7);
+  box-shadow: inset 0px -2px 1px 0px rgb(0, 0, 0);
+}
+.option2a:before {
+  display: block;
+  top: -75%;
+  background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 20%, rgba(98, 157, 203, 0.7) 20%, transparent 30%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+  animation: anim-top ease-in-out 0.75s forwards;
+  -webkit-animation: anim-top ease-in-out 0.75s forwards;
+}
+.option2a:after {
+  display: block;
+  bottom: -75%;
+  background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%), radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+  animation: anim-bottom ease-in-out 0.75s forwards;
+  -webkit-animation: anim-bottom ease-in-out 0.75s forwards;
 }
 
-.option2:active {
-  transform: translateY(5px) scale(1);
-  -webkit-transform: translateY(5px) scale(1);
+.option2:hover {
   background-color: rgba(146, 209, 252, 0.7);
-  box-shadow: inset 0px -2px 1px 0px rgb(0, 0, 0);
-  box-shadow: inset 0px -2px 1px 0px rgb(0, 0, 0);
 }
 
 @keyframes anim-top {
@@ -13334,21 +13348,18 @@ body {
   background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
   background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
 }
-.option3:active {
+.option3.animate {
   transform: scale(0.9);
-  -webkit-transform: scale(0.9);
   background-color: #e60074;
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
 }
 .option3.animate:before {
   display: block;
   animation: topBubbles ease-in-out 0.75s forwards;
-  -webkit-animation: topBubbles ease-in-out 0.75s forwards;
 }
 .option3.animate:after {
   display: block;
   animation: bottomBubbles ease-in-out 0.75s forwards;
-  -webkit-animation: bottomBubbles ease-in-out 0.75s forwards;
 }
 
 @keyframes topBubbles {

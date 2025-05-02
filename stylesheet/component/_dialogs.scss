@@ -84,17 +84,68 @@
     background-repeat: no-repeat;
 }
 
+.option2a {
+    transform: translateY(5px) scale(1);
+    background-color: rgba(146, 209, 252, 0.7);
+    box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
+    &:before {
+        display: block;
+        top: -75%;
+        background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, transparent 20%, rgba(98, 157, 203, 0.7) 20%, transparent 30%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+        background-size:
+            10% 10%,
+            20% 20%,
+            15% 15%,
+            20% 20%,
+            18% 18%,
+            10% 10%,
+            15% 15%,
+            10% 10%,
+            18% 18%;
+        animation: anim-top ease-in-out 0.75s forwards;
+        -webkit-animation: anim-top ease-in-out 0.75s forwards;
+    }
+
+    &:after {
+        display: block;
+        bottom: -75%;
+        background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
+            radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
+        background-size:
+            15% 15%,
+            20% 20%,
+            18% 18%,
+            20% 20%,
+            15% 15%,
+            10% 10%,
+            20% 20%;
+        animation: anim-bottom ease-in-out 0.75s forwards;
+        -webkit-animation: anim-bottom ease-in-out 0.75s forwards;
+    }
+}
+
 .option2:hover {
     background-color: rgba(146, 209, 252, 0.7);
 }
 
-.option2:active {
-    transform: translateY(5px) scale(1);
-    -webkit-transform: translateY(5px) scale(1);
-    background-color: rgba(146, 209, 252, 0.7);
-    box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
-    box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
-}
+// .option2:active {
+//     transform: translateY(5px) scale(1);
+//     background-color: rgba(146, 209, 252, 0.7);
+//     box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
+// }
 
 @keyframes anim-top {
     0% {
@@ -291,13 +342,10 @@
         top: -75%;
         background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
             radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%),
             radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%);
+            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
         background-size:
             10% 10%,
             20% 20%,
@@ -317,10 +365,8 @@
         background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
             radial-gradient(circle, #ff0081 20%, transparent 20%),
             radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%);
+            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
         background-size:
             15% 15%,
             20% 20%,
@@ -332,23 +378,20 @@
         //background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
     }
 
-    &:active {
-        transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        background-color: darken(#ff0081, 5%);
-        box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
-    }
+    // &:active {
+    // }
 
     &.animate {
+        transform: scale(0.9);
+        background-color: darken(#ff0081, 5%);
+        box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
         &:before {
             display: block;
             animation: topBubbles ease-in-out 0.75s forwards;
-            -webkit-animation: topBubbles ease-in-out 0.75s forwards;
         }
         &:after {
             display: block;
             animation: bottomBubbles ease-in-out 0.75s forwards;
-            -webkit-animation: bottomBubbles ease-in-out 0.75s forwards;
         }
     }
 }

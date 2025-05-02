@@ -95,10 +95,12 @@ $('.idcard').on('click', function (e) {
 
 $('.option2').on('click', function (e) {
     e.preventDefault();
+    console.log(0)
     $(this).addClass('option2a');
     setTimeout(() => {
+        console.log(1)
         $(this).removeClass('option2a');
-    }, 500);
+    }, 1);
     $('.bg').click()
 })
 
@@ -206,47 +208,59 @@ function renderNode(nodeKey) {
     }
 }
 
+// $(document).on('click', function (e) {
+//     // console.log($(e.target)[0].nodeName == "A")
+//     // console.log($(e.target).hasClass('option2'))
+//     if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2')) {
+//         if (audio) {
+//             $('#press')[0].play()
+//         }
+//         $('.bg').click()
+//         $(e.target).addClass('option2a');
+
+//         $('#game').removeClass('animate__fadeIn')
+//         $('#game').addClass('animate__fadeOut')
+//         setTimeout(() => {
+//             $('#game').removeClass('animate__fadeOut')
+//             $('#game').addClass('animate__fadeIn')
+//             $(e.target).removeClass('option2a');
+//             console.log($(e.target).data('goto'))
+//             let currentNode = $(e.target).data('goto')
+//             if (currentNode == 'start') {
+//                 flip = false
+//                 $('.lotto .front').removeClass('ryp')
+//                 $('.lotto .back').removeClass('ryn')
+//                 $('.dialog').addClass('d-none')
+//                 $('#stframe').removeClass('animate__fadeOutTopRight')
+//                 $('#stframe').addClass('animate__fadeIn')
+//                 $('.lotto').addClass('animate__fadeIn')
+//                 $('.lotto').removeClass('animate__fadeOut')
+//                 $('#game').addClass('d-none')
+//                 $('#stframe').removeClass('d-none')
+//             } else if ($(e.target).data('goto') != undefined) {
+//                 renderNode(currentNode)
+//             }
+//         }, 2000);
+//     } else if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option3')) {
+//         //reset animation
+//         e.target.classList.remove('animate');
+
+//         e.target.classList.add('animate');
+//         setTimeout(function () {
+//             e.target.classList.remove('animate');
+//         }, 700);
+//     }
+// })
 $(document).on('click', function (e) {
-    // console.log($(e.target)[0].nodeName == "A")
-    // console.log($(e.target).hasClass('option2'))
-    if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option2')) {
-        if (audio) {
-            $('#press')[0].play()
-        }
-        $('.bg').click()
+    e.preventDefault();
+    if($(e.target).hasClass('option2')){
+        console.log($(e.target))
         $(e.target).addClass('option2a');
-
-        $('#game').removeClass('animate__fadeIn')
-        $('#game').addClass('animate__fadeOut')
         setTimeout(() => {
-            $('#game').removeClass('animate__fadeOut')
-            $('#game').addClass('animate__fadeIn')
+            console.log(1)
             $(e.target).removeClass('option2a');
-            console.log($(e.target).data('goto'))
-            let currentNode = $(e.target).data('goto')
-            if (currentNode == 'start') {
-                flip = false
-                $('.lotto .front').removeClass('ryp')
-                $('.lotto .back').removeClass('ryn')
-                $('.dialog').addClass('d-none')
-                $('#stframe').removeClass('animate__fadeOutTopRight')
-                $('#stframe').addClass('animate__fadeIn')
-                $('.lotto').addClass('animate__fadeIn')
-                $('.lotto').removeClass('animate__fadeOut')
-                $('#game').addClass('d-none')
-                $('#stframe').removeClass('d-none')
-            } else if ($(e.target).data('goto') != undefined) {
-                renderNode(currentNode)
-            }
-        }, 2000);
-    } else if ($(e.target)[0].nodeName == "A" && $(e.target).hasClass('option3')) {
-        //reset animation
-        e.target.classList.remove('animate');
-
-        e.target.classList.add('animate');
-        setTimeout(function () {
-            e.target.classList.remove('animate');
-        }, 700);
+        }, 500);
+        $('.bg').click()
     }
 })
 
