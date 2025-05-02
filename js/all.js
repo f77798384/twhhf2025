@@ -6,7 +6,6 @@ function preload() {
         url: folderPath,
         success: function (data) {
             $(data).find("a").attr("href", function (i, val) {
-                
                 try {
                     if (val.match(/\.(jpe?g|png|gif)$/)) {
                         console.log(val)
