@@ -84,61 +84,15 @@
     background-repeat: no-repeat;
 }
 
-.option2a:before {
-    display: block;
-    top: -75%;
-    background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, transparent 20%, rgba(98, 157, 203, 0.7) 20%, transparent 30%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
-    background-size:
-        10% 10%,
-        20% 20%,
-        15% 15%,
-        20% 20%,
-        18% 18%,
-        10% 10%,
-        15% 15%,
-        10% 10%,
-        18% 18%;
-    animation: anim-top ease-in-out 0.75s forwards;
-    -webkit-animation: anim-top ease-in-out 0.75s forwards;
-}
-
-.option2a:after {
-    display: block;
-    bottom: -75%;
-    background-image: radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, transparent 10%, rgba(98, 157, 203, 0.7) 15%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%),
-        radial-gradient(circle, rgba(98, 157, 203, 0.7) 20%, transparent 20%);
-    background-size:
-        15% 15%,
-        20% 20%,
-        18% 18%,
-        20% 20%,
-        15% 15%,
-        10% 10%,
-        20% 20%;
-    animation: anim-bottom ease-in-out 0.75s forwards;
-    -webkit-animation: anim-bottom ease-in-out 0.75s forwards;
-}
-
 .option2:hover {
     background-color: rgba(146, 209, 252, 0.7);
 }
 
 .option2:active {
     transform: translateY(5px) scale(1);
+    -webkit-transform: translateY(5px) scale(1);
     background-color: rgba(146, 209, 252, 0.7);
+    box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
     box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 1);
 }
 
