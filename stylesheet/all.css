@@ -13342,10 +13342,12 @@ body {
 .option3.animate:before {
   display: block;
   animation: topBubbles ease-in-out 0.75s forwards;
+  -webkit-animation: topBubbles ease-in-out 0.75s forwards;
 }
 .option3.animate:after {
   display: block;
   animation: bottomBubbles ease-in-out 0.75s forwards;
+  -webkit-animation: bottomBubbles ease-in-out 0.75s forwards;
 }
 
 @keyframes topBubbles {
