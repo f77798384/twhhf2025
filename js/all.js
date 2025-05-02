@@ -5,12 +5,17 @@ function preload() {
     $.ajax({
         url: folderPath,
         success: function (data) {
+            console.log(data)
             $(data).find("a").attr("href", function (i, val) {
-                if (val.match(/\.(jpe?g|png|gif)$/)) {
-                    console.log(val)
-                    const img = new Image();
-                    img.src = `.${val}`;
-                    imgPreloadArr.push(img);
+                try {
+                    if (val.match(/\.(jpe?g|png|gif)$/)) {
+                        console.log(val)
+                        const img = new Image();
+                        img.src = `.${val}`;
+                        imgPreloadArr.push(img);
+                    }
+                } catch (error) {
+                    console.log(error)
                 }
             });
         }
@@ -18,7 +23,7 @@ function preload() {
 }
 preload()
 
-$('#switch-test').on('click',function(){
+$('#switch-test').on('click', function () {
     $('.stylechoose').removeClass('d-none')
     $('#game-test').removeClass('d-none')
     $('#stframe').addClass('d-none')
