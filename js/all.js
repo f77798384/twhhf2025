@@ -1,7 +1,7 @@
 const imgPreloadArr = [];
 
 function preload() {
-    var folderPath = "../img/";
+    var folderPath = "./img/";
     $.ajax({
         url: folderPath,
         success: function (data) {
