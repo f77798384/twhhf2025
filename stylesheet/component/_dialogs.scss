@@ -291,8 +291,6 @@
 }
 
 .option3 {
-    $fuschia: #ff0081;
-    $button-bg: $fuschia;
     $button-text-color: #fff;
     $baby-blue: #f8faff;
     font-family: "Helvetica", "Arial", sans-serif;
@@ -303,7 +301,7 @@
     margin: 1rem;
     -webkit-appearance: none;
     appearance: none;
-    background-color: $button-bg;
+    background-color: #ff0081;
     color: $button-text-color;
     border-radius: 4px;
     border: none;
@@ -335,15 +333,15 @@
     &:before {
         display: none;
         top: -75%;
-        background-image: radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, transparent 20%, $button-bg 20%, transparent 30%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, transparent 10%, $button-bg 15%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%);
+        background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%);
         background-size:
             10% 10%,
             20% 20%,
@@ -360,13 +358,13 @@
     &:after {
         display: none;
         bottom: -75%;
-        background-image: radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, transparent 10%, $button-bg 15%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%),
-            radial-gradient(circle, $button-bg 20%, transparent 20%);
+        background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%),
+            radial-gradient(circle, #ff0081 20%, transparent 20%);
         background-size:
             15% 15%,
             20% 20%,
@@ -380,7 +378,7 @@
 
     &:active {
         transform: scale(0.9);
-        background-color: darken($button-bg, 5%);
+        background-color: darken(#ff0081, 5%);
         box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
     }
 
