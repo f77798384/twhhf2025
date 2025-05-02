@@ -1,13 +1,12 @@
 const imgPreloadArr = [];
 
-(async function preload() {
+function preload() {
     var folderPath = "../img/";
     $.ajax({
         url: folderPath,
         success: function (data) {
             $(data).find("a").attr("href", function (i, val) {
                 if (val.match(/\.(jpe?g|png|gif)$/)) {
-                    console.log(val);
                     const img = new Image();
                     img.src = `.${val}`;
                     imgPreloadArr.push(img);
@@ -15,7 +14,16 @@ const imgPreloadArr = [];
             });
         }
     });
-});
+}
+preload()
+
+$('#switch-test').on('click',function(){
+    $('.stylechoose').removeClass('d-none')
+    $('#game-test').removeClass('d-none')
+    $('#stframe').addClass('d-none')
+
+})
+
 let currentNode = "";
 let story = "";
 let audio = false;
@@ -302,14 +310,9 @@ $('.stylechoose').on('click', function (e) {
     e.preventDefault();
     let style = $(e.target).attr('id');
     if (style) {
-        $('#game a').each((a, b) => {
-            $(b).removeClass($($('#game a')[a]).attr('class'))
+        $('#game-test a').each((a, b) => {
+            $(b).removeClass($($('#game-test a')[a]).attr('class'))
             $(b).addClass(style)
         })
     }
 })
-
-// $(document).ready(function () {
-
-// });
-

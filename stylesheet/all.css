@@ -13104,23 +13104,23 @@ body {
     transform: scale(1) rotateY(2520deg);
   }
 }
-#game {
+#game, #game-test {
   height: 100%;
   width: 100%;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
 }
-#game h3, #game .h3 {
+#game h3, #game .h3, #game-test h3, #game-test .h3 {
   padding: 1rem;
   text-align: justify;
   transform: translateZ(0);
 }
-#game p {
+#game p, #game-test p {
   text-align: left;
   padding: 0 1rem;
   transform: translateZ(0);
 }
-#game h3.end, #game .end.h3 {
+#game h3.end, #game .end.h3, #game-test h3.end, #game-test .end.h3 {
   font-size: 2rem;
   line-height: 1.5;
   text-align: center;
