@@ -1,3 +1,21 @@
+const imgPreloadArr = [];
+
+(async function preload() {
+    var folderPath = "../img/";
+    $.ajax({
+        url: folderPath,
+        success: function (data) {
+            $(data).find("a").attr("href", function (i, val) {
+                if (val.match(/\.(jpe?g|png|gif)$/)) {
+                    console.log(val);
+                    const img = new Image();
+                    img.src = `.${val}`;
+                    imgPreloadArr.push(img);
+                }
+            });
+        }
+    });
+});
 let currentNode = "";
 let story = "";
 let audio = false;
@@ -294,21 +312,4 @@ $('.stylechoose').on('click', function (e) {
 // $(document).ready(function () {
 
 // });
-const imgPreloadArr = [];
 
-(async function preload() {
-    var folderPath = "../img/";
-    $.ajax({
-        url: folderPath,
-        success: function (data) {
-            $(data).find("a").attr("href", function (i, val) {
-                if (val.match(/\.(jpe?g|png|gif)$/)) {
-                    console.log(val);
-                    const img = new Image();
-                    img.src = `.${val}`;
-                    imgPreloadArr.push(img);
-                }
-            });
-        }
-    });
-})
