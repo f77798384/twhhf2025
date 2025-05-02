@@ -7,6 +7,7 @@ function preload() {
         success: function (data) {
             $(data).find("a").attr("href", function (i, val) {
                 if (val.match(/\.(jpe?g|png|gif)$/)) {
+                    console.log(val)
                     const img = new Image();
                     img.src = `.${val}`;
                     imgPreloadArr.push(img);
