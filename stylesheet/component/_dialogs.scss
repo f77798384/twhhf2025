@@ -334,6 +334,7 @@
 
     &:active {
         transform: scale(0.9);
+        -webkit-transform: scale(0.9);
         background-color: darken(#ff0081, 5%);
         box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
     }

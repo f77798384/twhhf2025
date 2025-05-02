@@ -13336,6 +13336,7 @@ body {
 }
 .option3:active {
   transform: scale(0.9);
+  -webkit-transform: scale(0.9);
   background-color: #e60074;
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
 }
