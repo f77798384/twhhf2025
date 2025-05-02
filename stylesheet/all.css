@@ -12753,10 +12753,10 @@ body {
 }
 @media (min-width: 768px) {
   .main {
-    max-height: 700px;
+    max-height: 800px;
     min-height: 350px;
     height: calc(95vh - 60px);
-    width: min(95vw, 375px);
+    width: min(95vw, 400px);
   }
 }
 
