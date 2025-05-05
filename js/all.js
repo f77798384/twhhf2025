@@ -21,6 +21,7 @@ $('#switch-test').on('click', function () {
     $('.stylechoose').removeClass('d-none')
     $('#game-test').removeClass('d-none')
     $('#stframe').addClass('d-none')
+    $('.lotto').addClass('d-none')
 
 })
 
