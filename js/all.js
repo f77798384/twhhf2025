@@ -14,6 +14,7 @@ function preload() {
                         imgPreloadArr.push(img);
                     }
                 } catch (error) {
+                    console.log('error')
                     console.log(error)
                 }
             });
