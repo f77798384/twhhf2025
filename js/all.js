@@ -1,22 +1,16 @@
-const imgPreloadArr = [];
-
+let imgPreloadArr = [];
 function preload() {
     var folderPath = "./img/";
     $.ajax({
-        url: folderPath,
-        success: function (data) {
-            $(data).find("a").attr("href", function (i, val) {
-                try {
-                    if (val.match(/\.(jpe?g|png|gif)$/)) {
-                        console.log(val)
-                        const img = new Image();
-                        img.src = `.${val}`;
-                        imgPreloadArr.push(img);
-                    }
-                } catch (error) {
-                    console.log('error')
-                    console.log(error)
-                }
+        url: "./text/preload.txt",
+        dataType: "text",
+        success: function (update) {
+            let i = 0;
+            arr = update.toString().replaceAll('\r', '').split('\n')
+            arr.forEach(a => {
+                const img = new Image();
+                img.src = `.${a}`;
+                imgPreloadArr.push(img);
             });
         }
     });
