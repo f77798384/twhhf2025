@@ -180,7 +180,6 @@ for (var i = 0; i < 2001; i++) {
             if (x >= '2000') {
                 $('#intrologo').addClass('animate__animated animate__fadeIn ')
                 setTimeout(() => {
-                    $('.loadframe').addClass('loadover')
                     $('#intrologo').removeClass('animate__fadeIn')
                     $('#intrologo').addClass('animate__fadeOut')
                     $('#introbg').addClass('bgfadeout')
