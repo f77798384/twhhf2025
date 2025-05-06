@@ -173,7 +173,7 @@ let rad;
 for (var i = 0; i < 2001; i++) {
     (function (x) {
         window.setTimeout(function () {
-            $('.second').attr('style', `bottom:${300 * x / 2000}px`)
+            $('.second').attr('style', `bottom:${200 * x / 2000}px`)
             if (x % 20 == 0) {
                 $('.num').text(`${100 * x / 2000}%`)
             }
@@ -312,8 +312,8 @@ if (t > 1 && t < 2) {
 }
 
 $('body').click(function (e) {
-    e.preventDefault();
     if ($(e.target).hasClass('more')) {
+        e.preventDefault();
         amorec.play()
         $('#close-more').click()
     }

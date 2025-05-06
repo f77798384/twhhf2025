@@ -1,6 +1,24 @@
+#introbg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: black;
+
+    .outframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+    }
+}
+
 .loadframe {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    aspect-ratio: 1/1;
     background: #03bafc;
     overflow: hidden;
     border-radius: 50%;
@@ -9,14 +27,14 @@
     position: relative;
 
     .loading {
-        width: 450px;
-        height: 450px;
+        width: 150%;
+        height: 150%;
         background: #52bdff;
         border-radius: 43%;
         animation: spin 5s linear infinite;
         position: absolute;
-        bottom: 100px;
-        left: -75px;
+        bottom: -50px;
+        left: -25%;
     }
 
     .second {
@@ -46,23 +64,23 @@
     }
 }
 
-.loadover {
-    animation: loadover 3s linear forwards;
-}
+// .loadover {
+//     animation: loadover 3s linear forwards;
+// }
 
-@keyframes loadover {
-    0% {
-        transform: rotate(0deg);
-        opacity: 0;
-        scale: 1;
-    }
+// @keyframes loadover {
+//     0% {
+//         transform: rotate(0deg);
+//         opacity: 0;
+//         scale: 1;
+//     }
 
-    100% {
-        transform: rotate(1080deg);
-        opacity: 0;
-        scale: 0.5;
-    }
-}
+//     100% {
+//         transform: rotate(1080deg);
+//         opacity: 0;
+//         scale: 0.5;
+//     }
+// }
 
 .bgfadeout {
     animation: bgfadeout 1.5s linear forwards;
@@ -80,28 +98,10 @@
 #intrologo {
     width: 50%;
     top: 50%;
-    left: 50%;
+    left: 52%;
     position: relative;
     transform: translate(-50%, -50%);
     opacity: 0;
     max-width: 375px;
-}
-
-#introbg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    background-color: black;
-
-    .outframe {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 300px;
-        height: 300px;
-    }
+    width: min(375px,75%);
 }
