@@ -21,6 +21,7 @@ $('#switch-test').on('click', function () {
     $('.stylechoose').removeClass('d-none')
     $('#game-test').removeClass('d-none')
     $('#stframe').addClass('d-none')
+    $('#game').addClass('d-none')
     $('.lotto').addClass('d-none')
 
 })
@@ -32,6 +33,8 @@ let bgm = $('#music')[0];
 let flipme = $('#flipme')[0];
 let cardflip = $('#cardflip')[0];
 let press = $('#press')[0];
+let amore = $('#a-more')[0];
+let amorec = $('#a-more-c')[0];
 let sw = $('#on-off .bi');
 let identity = 'legal'
 let flip = false
@@ -44,6 +47,10 @@ cardflip.volume = 0.3
 cardflip.loop = false
 press.volume = 0.5
 press.loop = false
+amore.volume = 0.5
+amore.loop = false
+amorec.volume = 0.5
+amorec.loop = false
 
 $('#on-off').on('click', function (e) {
     e.preventDefault();
@@ -64,6 +71,7 @@ $('#on-off').on('click', function (e) {
 $('#list').on('click', function (e) {
     e.preventDefault();
     // $('.more').fadeToggle()
+    amore.play()
     $('.more').toggleClass('fadein')
     $('.more').toggleClass('fadeout')
     $('.more').css('display', 'flex')
@@ -72,6 +80,7 @@ $('#close-more').on('click', function (e) {
     e.preventDefault();
     $('.more').toggleClass('fadein')
     $('.more').toggleClass('fadeout')
+    amorec.play()
     setTimeout(() => {
         $('.more').css('display', 'none')
     }, 800);
@@ -79,7 +88,9 @@ $('#close-more').on('click', function (e) {
 
 $('#start').on('click', function (e) {
     e.preventDefault();
-    $('#on-off').click()
+    if(!audio){
+        $('#on-off').click()
+    }
     flipme.play()
     setTimeout(() => {
         $('#stframe').addClass('animate__fadeOutTopRight')
@@ -303,6 +314,7 @@ if (t > 1 && t < 2) {
 $('body').click(function (e) {
     e.preventDefault();
     if ($(e.target).hasClass('more')) {
+        amorec.play()
         $('#close-more').click()
     }
 });
