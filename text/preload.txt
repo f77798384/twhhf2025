@@ -1,8 +1,8 @@
-/introbg.jpg
-/bg-3.png
-/bg-2.png
-/關愛LOGO.png
-/memory.png
-/Love_Logo.png
-/logo.png
-/favicon.png
+/img/introbg.jpg
+/img/bg-3.png
+/img/bg-2.png
+/img/關愛LOGO.png
+/img/memory.png
+/img/Love_Logo.png
+/img/logo.png
+/img/favicon.png

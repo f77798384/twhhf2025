@@ -242,34 +242,14 @@ function renderNode(nodeKey) {
         container.append(`
             <a class="option2" data-goto="${node.goto}" ">${btnText}</a>
             `);
-        console.log(123)
-        // $.ajax({
-        //     url: "https://docs.google.com/forms/d/e/1FAIpQLSd3P_SBq7SF6u2iFrlBpBHnVPcQIbzYOJNYxg_tlzxKh0oCPQ/formResponse",
-        //     data: {
-        //         "entry.59267215": 123,
-        //     },
-        //     type: "POST",
-        //     dataType: "jsonp",
-        //     statusCode: {
-        //         0: function () {
-        //             //Success message
-        //         },
-        //         200: function () {
-        //             //Success Message
-        //         }
-        //     }
-        // });
         $.ajax({
             type: 'POST',
-            url: "https://docs.google.com/forms/d/e/1FAIpQLSd3P_SBq7SF6u2iFrlBpBHnVPcQIbzYOJNYxg_tlzxKh0oCPQ/formResponse",
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSfCjPJJlD0CJ15M6tatxqv1CtUkIVRpY_Coo6Ar8BGgsyZ_9w/formResponse",
             data: {
-                "entry.59267215": 123,
+                "entry.59267215": nodeKey,
             },
             contentType: 'application/json',
             dataType: 'jsonp',
-            complete: function() {
-              alert('資料已送出！');
-            }
           });
     }
 }
