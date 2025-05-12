@@ -12790,15 +12790,25 @@ body {
   background-image: url(../img/bg-3.png);
   background-size: cover;
 }
+.more #memory {
+  position: absolute;
+  left: 50%;
+  top: 8.5%;
+  transform: translate(-50%, -50%);
+}
+.more #memory img {
+  width: 100px;
+}
+.more #memory:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+}
 .more .inner {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
-  width: 80%;
+  width: min(80%, 400px);
   padding-top: 50px;
-  margin: 15% 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 70%;
+  margin: auto;
+  height: 65%;
   position: relative;
   display: flex;
   align-items: center;
@@ -12924,6 +12934,10 @@ body {
   z-index: 3;
 }
 
+#Love_Logo {
+  width: 80%;
+}
+
 #introbg {
   position: absolute;
   top: 0;
@@ -12938,7 +12952,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: min(50%, 200px);
 }
 
 .loadframe {

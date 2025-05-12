@@ -7,3 +7,4 @@
 /img/favicon.png
 /img/introbg.jpg
 /img/logo.png
+/img/Love_logo.png
