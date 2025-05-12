@@ -88,7 +88,7 @@ $('#close-more').on('click', function (e) {
 
 $('#start').on('click', function (e) {
     e.preventDefault();
-    if(!audio){
+    if (!audio) {
         $('#on-off').click()
     }
     flipme.play()
@@ -242,6 +242,35 @@ function renderNode(nodeKey) {
         container.append(`
             <a class="option2" data-goto="${node.goto}" ">${btnText}</a>
             `);
+        console.log(123)
+        // $.ajax({
+        //     url: "https://docs.google.com/forms/d/e/1FAIpQLSd3P_SBq7SF6u2iFrlBpBHnVPcQIbzYOJNYxg_tlzxKh0oCPQ/formResponse",
+        //     data: {
+        //         "entry.59267215": 123,
+        //     },
+        //     type: "POST",
+        //     dataType: "jsonp",
+        //     statusCode: {
+        //         0: function () {
+        //             //Success message
+        //         },
+        //         200: function () {
+        //             //Success Message
+        //         }
+        //     }
+        // });
+        $.ajax({
+            type: 'POST',
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSd3P_SBq7SF6u2iFrlBpBHnVPcQIbzYOJNYxg_tlzxKh0oCPQ/formResponse",
+            data: {
+                "entry.59267215": 123,
+            },
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            complete: function() {
+              alert('資料已送出！');
+            }
+          });
     }
 }
 
