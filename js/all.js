@@ -230,7 +230,7 @@ function renderNode(nodeKey) {
             const opt = options[key];
             if (opt.condition === "none" || opt.condition === identity) {
                 container.append(`
-                    <a class="option2" data-goto="${opt.goto}">
+                    <a class="option3" data-goto="${opt.goto}">
                         ${opt.description.replace(/\n/g, "<br>")}
                     </a>
                 `);

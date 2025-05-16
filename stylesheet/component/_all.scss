@@ -7,8 +7,8 @@
 body {
     background-image: url(../img/bg-2.png);
     background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 1200px;
     overflow: hidden;
     background-color: #e8ddcb;
-    background-position: 30% 50%;
+    background-position: calc(50% - 50px) 50%;
 }

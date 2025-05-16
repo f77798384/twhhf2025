@@ -302,7 +302,8 @@
     margin: 1rem;
     -webkit-appearance: none;
     appearance: none;
-    background-color: #ff0081;
+    // background-color: #ff0081;
+    background-color: #92a5fc;
     color: $button-text-color;
     border-radius: 4px;
     border: none;
@@ -311,7 +312,7 @@
     transition:
         transform ease-in 0.1s,
         box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+    box-shadow: 0 2px 25px rgba(146, 165, 252, 0.5);
     width: 65%;
     text-decoration: none;
     &:focus {
@@ -334,12 +335,12 @@
     &:before {
         display: none;
         top: -75%;
-        background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+        background-image: radial-gradient(circle, #92a5fc 20%, transparent 20%),
+            radial-gradient(circle, transparent 20%, #92a5fc 20%, transparent 30%),
+            radial-gradient(circle, #92a5fc 20%, transparent 20%), radial-gradient(circle, #92a5fc 20%, transparent 20%),
+            radial-gradient(circle, transparent 10%, #92a5fc 15%, transparent 20%),
+            radial-gradient(circle, #92a5fc 20%, transparent 20%), radial-gradient(circle, #92a5fc 20%, transparent 20%),
+            radial-gradient(circle, #92a5fc 20%, transparent 20%), radial-gradient(circle, #92a5fc 20%, transparent 20%);
         background-size:
             10% 10%,
             20% 20%,
@@ -356,11 +357,11 @@
     &:after {
         display: none;
         bottom: -75%;
-        background-image: radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%),
-            radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+        background-image: radial-gradient(circle, #92a5fc 20%, transparent 20%),
+            radial-gradient(circle, #92a5fc 20%, transparent 20%),
+            radial-gradient(circle, transparent 10%, #92a5fc 15%, transparent 20%),
+            radial-gradient(circle, #92a5fc 20%, transparent 20%), radial-gradient(circle, #92a5fc 20%, transparent 20%),
+            radial-gradient(circle, #92a5fc 20%, transparent 20%), radial-gradient(circle, #92a5fc 20%, transparent 20%);
         background-size:
             15% 15%,
             20% 20%,
@@ -377,7 +378,7 @@
 
     &.animate {
         transform: scale(0.9);
-        background-color: darken(#ff0081, 5%);
+        background-color: darken(#92a5fc, 5%);
         box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
         &:before {
             display: block;
