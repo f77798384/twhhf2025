@@ -38,6 +38,7 @@ let amorec = $('#a-more-c')[0];
 let sw = $('#on-off .bi');
 let identity = 'legal'
 let flip = false
+let where = '';
 
 bgm.volume = 0.8
 bgm.loop = true
@@ -155,7 +156,7 @@ $('#checkid').on('click', function (e) {
 })
 
 $.ajax({
-    url: './text/story.json',
+    url: './text/magic_story.json',
     method: 'GET',
     dataType: 'json',
     data: '',
@@ -212,10 +213,9 @@ function renderNode(nodeKey) {
     container.empty();  // 清空舊內容
 
     const dialog = node.dialog;
-
     // 顯示標題
     if (dialog.head) {
-        container.append(`<h3 class="mb-3 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h3>`);
+        container.append(`<h4 class="mb-3 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
     }
 
     // 顯示內容
@@ -229,11 +229,14 @@ function renderNode(nodeKey) {
         for (const key in options) {
             const opt = options[key];
             if (opt.condition === "none" || opt.condition === identity) {
-                container.append(`
-                    <a class="option3" data-goto="${opt.goto}">
-                        ${opt.description.replace(/\n/g, "<br>")}
-                    </a>
-                `);
+                console.log(opt.where)
+                if (opt.where == undefined || opt.where == where) {
+                    container.append(`
+                        <a class="option3" data-note="${opt.note}" data-goto="${opt.goto}">
+                            ${opt.description.replace(/\n/g, "<br>")}
+                        </a>
+                    `);
+                }
             }
         }
     } else {
@@ -250,7 +253,7 @@ function renderNode(nodeKey) {
             },
             contentType: 'application/json',
             dataType: 'jsonp',
-          });
+        });
     }
 }
 
@@ -265,6 +268,7 @@ function reset() {
     $('.lotto').removeClass('animate__fadeOut')
     $('#game').addClass('d-none')
     $('#stframe').removeClass('d-none')
+    where = '';
 }
 
 $(document).on('click', function (e) {
@@ -272,22 +276,21 @@ $(document).on('click', function (e) {
         let option = $(e.target).attr('class');
         switch (option) {
             case 'option1':
-                break;
             case 'option2':
                 $(e.target).addClass('option2a');
                 setTimeout(() => {
                     $(e.target).removeClass('option2a');
                 }, 500);
-                break;
             case 'option3':
                 e.target.classList.remove('animate');
                 e.target.classList.add('animate');
                 setTimeout(function () {
                     e.target.classList.remove('animate');
                 }, 500);
-                break;
-
             default:
+                if ($(e.target).data('note') != 'undefined') {
+                    where = $(e.target).data('note');
+                }
                 break;
         }
         if (audio) {
@@ -336,4 +339,11 @@ $('.stylechoose').on('click', function (e) {
             $(b).addClass(style)
         })
     }
+})
+
+$('#memory-btn').on('click', function (e) {
+    e.preventDefault();
+    console.log(123)
+    $('#memory').removeClass('animate__fadeIn')
+    $('#memory').addClass('animate__fadeOut')
 })

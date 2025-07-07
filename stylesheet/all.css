@@ -12790,18 +12790,6 @@ body {
   background-image: url(../img/bg-3.png);
   background-size: cover;
 }
-.more #memory {
-  position: absolute;
-  left: 50%;
-  top: 8.5%;
-  transform: translate(-50%, -50%);
-}
-.more #memory img {
-  width: 100px;
-}
-.more #memory:hover {
-  transform: translate(-50%, -50%) scale(1.2);
-}
 .more .inner {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
@@ -12817,7 +12805,7 @@ body {
 .more .inner a {
   display: block;
   text-decoration: none;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   color: rgb(70, 70, 70);
 }
 .more .inner #close-more {
@@ -12847,6 +12835,12 @@ body {
   animation-duration: 1075ms;
   animation-delay: 125ms;
 }
+.more .inner .links :nth-child(5) {
+  transform: translateX(-200px);
+  animation-duration: 1100ms;
+  animation-delay: 150ms;
+  color: rgb(170, 45, 45);
+}
 .more .inner .icon-links {
   transform: translateX(300px);
   animation: transX0 ease-in-out 0.75s forwards;
@@ -12860,6 +12854,43 @@ body {
   border: 1px solid rgb(250, 250, 250);
   border-radius: 5px;
   background-color: rgb(250, 250, 250);
+}
+.more .ending.outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(72, 55, 55, 0.7);
+}
+.more .ending.outer .inner {
+  background-color: rgb(255, 255, 255);
+  transform: translateY(-50%);
+  top: 50%;
+  height: 70%;
+  width: 50%;
+  padding: 50px 20px;
+}
+.more .ending.outer .inner #close-memory {
+  position: absolute;
+  top: 1.25%;
+  padding: 0;
+  color: rgb(173, 173, 173);
+  border: 1px solid rgb(250, 250, 250);
+  border-radius: 5px;
+  background-color: rgb(250, 250, 250);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.more .ending.outer .inner .col {
+  height: 14.7vh;
+  background-color: #725555;
+  text-align: center;
+  align-content: center;
+  color: wheat;
+}
+@media (min-width: 768px) {
+  .more .ending.outer .inner .col {
+    height: 29.4vh;
+  }
 }
 
 .business {
@@ -13135,17 +13166,17 @@ body {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
 }
-#game h3, #game .h3, #game-test h3, #game-test .h3 {
+#game h4, #game .h4, #game-test h4, #game-test .h4 {
   padding: 1rem;
-  text-align: justify;
   transform: translateZ(0);
+  line-height: 1.5;
 }
 #game p, #game-test p {
   text-align: left;
   padding: 0 1rem;
   transform: translateZ(0);
 }
-#game h3.end, #game .end.h3, #game-test h3.end, #game-test .end.h3 {
+#game h4.end, #game .end.h4, #game-test h4.end, #game-test .end.h4 {
   font-size: 2rem;
   line-height: 1.5;
   text-align: center;
@@ -13344,7 +13375,7 @@ body {
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
   box-shadow: 0 2px 25px rgba(146, 165, 252, 0.5);
-  width: 65%;
+  width: 70%;
   text-decoration: none;
 }
 .option3:focus {

@@ -1,0 +1,240 @@
+{
+  "birthplace": {
+    "type": "question",
+    "dialog": {
+      "head": "我張開眼睛的那一刻，是在哪裡呢？",
+      "options": {
+        "o1": {
+          "type": "1",
+          "condition": "legal",
+          "description": "有護士阿姨、燈光亮亮的地方，好像叫醫院。",
+          "goto": "newborn_status"
+        },
+        "o2": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "我躺在木頭地上，聽見風聲和狗叫，好像在山上。",
+          "goto": "newborn_status"
+        },
+        "o3": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "有好多姐姐、阿姨說著溫柔的話，這裡像個特別的家。",
+          "goto": "newborn_status"
+        },
+        "o4": {
+          "type": "1",
+          "condition": "legal",
+          "description": "我記得好像是在一個小小、濕濕的地方，媽媽說是廁所。",
+          "goto": "newborn_status"
+        }
+      }
+    }
+  },
+  "newborn_status": {
+    "type": "question",
+    "dialog": {
+      "head": "我剛出生的時候，身體有什麼感覺？",
+      "options": {
+        "o1": {
+          "type": "1",
+          "condition": "none",
+          "description": "我好像哪裡不太舒服，眼睛張不開，手腳也沒力。",
+          "goto": "sick"
+        },
+        "o2": {
+          "type": "1",
+          "condition": "legal",
+          "description": "醫生說我很健康，像個活力十足的小寶寶！",
+          "goto": "growup"
+        },
+        "o3": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "雖然環境很辛苦，但我還是勇敢地哭出來了。",
+          "goto": "growup"
+        }
+      }
+    }
+  },
+  "growup": {
+    "type": "question",
+    "dialog": {
+      "head": "我開始慢慢長大，有一天我生病了，媽媽怎麼做？",
+      "options": {
+        "o1": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "媽媽偷偷帶我去看醫生，她說不能讓人知道。",
+          "goto": "hospitalA"
+        },
+        "o2": {
+          "type": "1",
+          "condition": "legal",
+          "description": "我打過疫苗，這次只是小感冒，沒那麼嚴重。",
+          "goto": "legalgrowup"
+        },
+        "o3": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "媽媽說只能先吃藥看看，不能去醫院。",
+          "goto": "aftermedicine"
+        },
+        "o4": {
+          "type": "1",
+          "condition": "legal",
+          "description": "媽媽帶我去醫院，護士阿姨好溫柔。",
+          "goto": "hospitalA"
+        },
+        "o5": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "媽媽帶我去找楊姐，她總是知道怎麼幫忙。",
+          "goto": "carehomeB"
+        }
+      }
+    }
+  },
+  "aftermedicine": {
+    "type": "question",
+    "dialog": {
+      "head": "吃了藥後，我的身體變得怎麼樣？",
+      "options": {
+        "o1": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "身體好像好一點了，媽媽說我真勇敢。",
+          "goto": "illegal_recovery"
+        },
+        "o2": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "我的頭好痛，媽媽好著急。",
+          "goto": "worsen"
+        }
+      }
+    }
+  },
+  "worsen": {
+    "type": "question",
+    "dialog": {
+      "head": "我開始發高燒，眼前都模糊了，然後呢？",
+      "options": {
+        "o1": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "媽媽帶我去醫院，她說不能再等了。",
+          "goto": "hospitalA"
+        },
+        "o2": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "我們來不及了，我睡著了好久好久……",
+          "goto": "endingA"
+        },
+        "o3": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "媽媽趕快找楊姐幫忙，楊姐說會帶我去看醫生。",
+          "goto": "carehomeB"
+        }
+      }
+    }
+  },
+  "hospitalA": {
+    "type": "question",
+    "dialog": {
+      "head": "我在醫院裡，迷迷糊糊地聽見很多大人說話。",
+      "options": {
+        "o1": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "有人說我們要被送回國了。",
+          "goto": "endingC"
+        },
+        "o2": {
+          "type": "1",
+          "condition": "legal",
+          "description": "媽媽說還好有健保，不然看病好貴。",
+          "goto": "legalgrowup"
+        },
+        "o3": {
+          "type": "1",
+          "condition": "none",
+          "description": "我聽到護士哭了，她說太晚了。",
+          "goto": "endingB"
+        },
+        "o4": {
+          "type": "1",
+          "condition": "illegal",
+          "description": "媽媽不見了，我被送到一個新地方住。",
+          "goto": "endingF"
+        }
+      }
+    }
+  },
+  "endingA": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ａ\n錯過了黃金時間",
+      "description": "我越來越不舒服，最後睡著了就沒再醒來。媽媽哭著抱著我，我聽見她說，如果可以早點帶我去看醫生就好了。"
+    },
+    "goto": "start"
+  },
+  "endingB": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ｂ\n生命停在這一刻",
+      "description": "我沒有撐過來，醫生搖搖頭。媽媽跪在地上一直說對不起，但我知道她真的很努力了。"
+    },
+    "goto": "start"
+  },
+  "endingC": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ｃ\n被送回陌生的地方",
+      "description": "我跟著媽媽坐上了飛機，離開了這裡。我們來到一個陌生的國家，一切都要重新開始。"
+    },
+    "goto": "start"
+  },
+  "endingD": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ｄ\n健康長大，安心返鄉",
+      "description": "我上了幼兒園，交了很多朋友。最後，我和媽媽一起搭飛機回家鄉，開始新的生活。"
+    },
+    "goto": "start"
+  },
+  "endingE": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ｅ\n健康地長大了！",
+      "description": "謝謝疫苗的保護，我幾乎沒怎麼生病，還能快樂地長大。媽媽常說我是她的驕傲。"
+    },
+    "goto": "start"
+  },
+  "endingF": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ｆ\n媽媽離開了我",
+      "description": "媽媽說要去工作，就沒再回來。後來有一個叔叔帶我去新的地方，那裡有人會照顧我。"
+    },
+    "goto": "start"
+  },
+  "endingG": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ｇ\n擁有新身份，重新開始",
+      "description": "媽媽為了我去自首，我們終於拿到身份，可以安心生活了。這裡也變成我們真正的家。"
+    },
+    "goto": "start"
+  },
+  "endingH": {
+    "type": "end",
+    "dialog": {
+      "head": "結局Ｈ\n在邊緣生長",
+      "description": "我們搬來搬去，媽媽總是很忙，我也常常換學校。不過我還是希望有一天能有自己的家。"
+    },
+    "goto": "start"
+  }
+}

@@ -4,10 +4,11 @@
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
 
-    h3 {
+    h4 {
         padding: 1rem;
-        text-align: justify;
+        // text-align: justify;
         transform: translateZ(0);
+        line-height: 1.5;
     }
 
     p {
@@ -16,7 +17,7 @@
         transform: translateZ(0);
     }
 
-    h3.end {
+    h4.end {
         font-size: 2rem;
         line-height: 1.5;
         text-align: center;
@@ -313,7 +314,7 @@
         transform ease-in 0.1s,
         box-shadow ease-in 0.25s;
     box-shadow: 0 2px 25px rgba(146, 165, 252, 0.5);
-    width: 65%;
+    width: 70%;
     text-decoration: none;
     &:focus {
         outline: 0;
