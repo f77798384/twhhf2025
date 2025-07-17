@@ -211,8 +211,13 @@ function renderNode(nodeKey) {
 
     const container = $("#game");
     container.empty();  // 清空舊內容
-
     const dialog = node.dialog;
+
+    //顯示圖片
+    if(node.img){
+        $('.bg').css('background-image',`url("../img/${node.img}.png")`)
+    }
+
     // 顯示標題
     if (dialog.head) {
         container.append(`<h4 class="mb-3 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);

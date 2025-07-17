@@ -67,6 +67,7 @@
 	},
 	"desert": {
 		"type": "question",
+		"img":"desert",
 		"dialog": {
 			"head": "由於水帶得不夠多\n逐漸脫水的你？",
 			"options": {
@@ -105,7 +106,7 @@
 				"o2": {
 					"type": "1",
 					"condition": "none",
-					"description": "精神百倍的你\n繼續前往神廟",
+					"description": "感到精神百倍\n繼續前往神廟",
 					"goto": "overdraft"
 				}
 			}
@@ -113,6 +114,7 @@
 	},
 	"temple": {
 		"type": "question",
+		"img":"desert-temple",
 		"dialog": {
 			"head": "到達神廟以後\n你選擇先前往？",
 			"options": {
@@ -178,7 +180,7 @@
 					"type": "1",
 					"condition": "none",
 					"description": "下一步",
-					"goto": "ending_twhhf-take-care-of"
+					"goto": "ending-twhhf-take-care-of"
 				}
 			}
 		}
@@ -186,13 +188,13 @@
 	"look-around": {
 		"type": "question",
 		"dialog": {
-			"head": "環視的路上你遇到了窩居於此的怪物",
+			"head": "經過拐角處，你遇到了神廟的守衛",
 			"options": {
 				"o1": {
 					"type": "1",
 					"condition": "none",
 					"description": "下一步",
-					"goto": "ending_d-SOB"
+					"goto": "ending-d-SOB"
 				}
 			}
 		}
@@ -200,13 +202,27 @@
 	"illegal-spacious": {
 		"type": "question",
 		"dialog": {
-			"head": "你在誦經台上看到了一顆黑色的水晶球",
+			"head": "主殿的最末端飄著一本和你來時一樣的魔法書，但他發出了紫黑色的光，似乎就是詛咒的來源。",
 			"options": {
 				"o1": {
 					"type": "1",
 					"condition": "none",
 					"description": "下一步",
-					"goto": "ending_illegal-return"
+					"goto": "illegal-return-intro"
+				}
+			}
+		}
+	},
+	"illegal-return-intro": {
+		"type": "question",
+		"dialog": {
+			"head": "你{{帶入職業}}，轟隆的聲音大作，魔法書化成了粉末。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "ending-illegal-return"
 				}
 			}
 		}
@@ -214,13 +230,13 @@
 	"legal-spacious": {
 		"type": "question",
 		"dialog": {
-			"head": "你在誦經台上看到了一顆黑色的水晶球",
+			"head": "到達主殿後，你發現原來詛咒就再帶你來的書身上，於是你將這本書放在了祭壇上進行淨化。",
 			"options": {
 				"o1": {
 					"type": "1",
 					"condition": "none",
 					"description": "下一步",
-					"goto": "ending_legal-return"
+					"goto": "ending-legal-grow-up"
 				}
 			}
 		}
@@ -228,45 +244,20 @@
 	"overdraft": {
 		"type": "question",
 		"dialog": {
-			"head": "你透支了體力\n暈倒在滾滾黃沙之上",
+			"head": "你透支了體力暈倒在滾滾黃沙之上，路過了商隊發現了你將你抬上了馬車，由於目的地不同，你獲得了補給再次踏上旅程。\n\n行走一段時間後你望向遠方，發現了像是綠洲的影子。",
 			"options": {
 				"o1": {
 					"type": "1",
 					"condition": "none",
 					"description": "下一步",
-					"goto": "d-overdraft-nomads"
-				}
-			}
-		}
-	},
-	"d-overdraft-nomads": {
-		"type": "question",
-		"dialog": {
-			"head": "你被路過的遊牧民族發現並將你帶到了綠洲。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
-				},
-				"o2": {
-					"type": "1",
-					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
-				},
-				"o3": {
-					"type": "1",
-					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
+					"goto": "oasis"
 				}
 			}
 		}
 	},
 	"oasis": {
 		"type": "question",
+		"img":"desert-oasis",
 		"dialog": {
 			"head": "你頂著烈日快速移動\n當你走近時發現？",
 			"options": {
@@ -274,7 +265,7 @@
 					"type": "1",
 					"condition": "illegal",
 					"description": "一群沙盜佔領著綠洲\n你完全無法接近",
-					"goto": "d-o-discover"
+					"goto": "d-o-SOB"
 				},
 				"o2": {
 					"type": "1",
@@ -286,65 +277,193 @@
 					"type": "1",
 					"condition": "legal",
 					"description": "補充完飲用水後\n你再次踏上了旅途",
-					"goto": "temple"
+					"goto": "d-o-supply"
 				}
 			}
 		}
 	},
-	"d-o-discover": {
+	"d-o-SOB": {
 		"type": "question",
 		"dialog": {
-			"head": "尚未編寫完成",
+			"head": "沙盜們發現了你，你被他們抓走了。",
 			"options": {
 				"o1": {
 					"type": "1",
 					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
-				},
-				"o2": {
-					"type": "1",
-					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
-				},
-				"o3": {
-					"type": "1",
-					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
+					"description": "下一步",
+					"goto": "ending-d-SOB"
 				}
 			}
 		}
 	},
 	"mirage": {
 		"type": "question",
+		"img":"desert",
 		"dialog": {
-			"head": "尚未編寫完成",
+			"head": "苦惱中你陷入了流沙當中\n穿過沙層後你身處在？",
 			"options": {
 				"o1": {
 					"type": "1",
 					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
+					"description": "陰暗潮濕的洞窟",
+					"goto": "d-o-c-branch"
 				},
 				"o2": {
 					"type": "1",
 					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
+					"description": "廣闊青綠的草原",
+					"goto": "d-o-death"
+				}
+			}
+		}
+	},
+	"d-o-supply": {
+		"type": "question",
+		"img":"desert-oasis",
+		"dialog": {
+			"head": "真的是綠洲\n於是你補充完飲用水再次踏上旅途",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "legal",
+					"description": "繼續朝著神廟前進",
+					"goto": "d-o-m-legal-merchant"
+				}
+			}
+		}
+	},
+	"d-o-m-legal-merchant": {
+		"type": "question",
+		"dialog": {
+			"head": "路上你遇見了旅行商人同行了一段路程，他們與你分享旅行中趣事，也告訴你快速通往神廟的方法。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "繼續朝著神廟前進",
+					"goto": "d-o-keepgoing"
+				}
+			}
+		}
+	},
+	"d-o-keepgoing": {
+		"type": "d-o-m-legal-merchant-cover",
+		"dialog": {
+			"head": "按照旅行商人的引導，你發現神廟出現在了遠方。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "加緊腳步繼續前行",
+					"goto": "d-o-m-legal-merchant-arrive"
+				}
+			}
+		}
+	},
+	"d-o-m-legal-merchant-arrive": {
+		"type": "question",
+		"img":"temple",
+		"dialog": {
+			"head": "到達神廟後，你發現原來詛咒就再帶你來的書身上，於是你將這本書放在了祭壇上進行淨化。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "ending-legal"
+				}
+			}
+		}
+	},
+	"d-o-death": {
+		"type": "question",
+		"img":"grassland",
+		"dialog": {
+			"head": "你發現這僅是一場夢，你回到了現實。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "ending-death"
+				}
+			}
+		}
+	},
+	"d-o-c-branch": {
+		"type": "question",
+		"img":"desert-cave",
+		"dialog": {
+			"head": "你的眼前出現了不同的叉路，你選擇？",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "入口處有人類腳印的方向",
+					"goto": "d-o-c-b-footprint"
+				},
+				"o2": {
+					"type": "1",
+					"condition": "none",
+					"description": "入口處有微弱風動的方向",
+					"goto": "d-o-c-b-wind"
 				},
 				"o3": {
 					"type": "1",
 					"condition": "none",
-					"description": "尚未編寫完成",
-					"goto": "none"
+					"description": "任務太過困難\n選擇回到現實",
+					"goto": "Department-of-Social-Welfare"
+				}
+			}
+		}
+	},
+	"d-o-c-b-footprint": {
+		"type": "question",
+		"img":"desert-cave-temple",
+		"dialog": {
+			"head": "看著前方的亮光，你成功走出了洞窟。\n一旁清澈的水池緩解了脫水狀態。\n繼續往前走你發現了人影。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "peaceful"
+				}
+			}
+		}
+	},
+	"d-o-c-b-wind": {
+		"type": "question",
+		"img":"desert-temple",
+		"dialog": {
+			"head": "你穿越了洞窟，發現最終的目的地是沙漠神廟。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "temple"
+				}
+			}
+		}
+	},
+	"DoSW": {
+		"type": "question",
+		"dialog": {
+			"head": "你回到了現實，但故事書中的世界仍在進行，為了未來，無數的人持續奮鬥努力，終於他們擺脫了宿命。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "ending-DoSW"
 				}
 			}
 		}
 	},
 	"d-nomads": {
 		"type": "question",
+		"img":"desert-nomads",
 		"dialog": {
 			"head": "遊牧民族給了你一些飲用水",
 			"options": {
@@ -352,18 +471,150 @@
 					"type": "1",
 					"condition": "illegal",
 					"description": "任務太過困難\n選擇回到現實",
-					"goto": "none"
+					"goto": "DoSW"
 				},
 				"o2": {
 					"type": "1",
 					"condition": "illegal",
 					"description": "請遊牧民族作為響導\n帶領你前往神殿",
+					"goto": "lost"
+				}
+			}
+		}
+	},
+	"lost": {
+		"type": "question",
+		"img":"desert-sandstorm",
+		"dialog": {
+			"head": "在快到達神廟時你們遇到了沙塵暴，因此走散了",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "d-n-choice"
+				}
+			}
+		}
+	},
+	"d-n-choice": {
+		"type": "question",
+		"img":"desert-temple",
+		"dialog": {
+			"head": "沙塵暴結束後你發現你神廟已在眼前，你選擇？",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "回頭尋找\n遊牧民族",
+					"goto": "d-n-looking-for"
+				},
+				"o2": {
+					"type": "1",
+					"condition": "none",
+					"description": "進入神殿\n解除詛咒",
+					"goto": "d-n-enter"
+				}
+			}
+		}
+	},
+	"d-n-looking-for": {
+		"type": "question",
+		"dialog": {
+			"head": "你們成功匯合\n他們帶著你走小路進到神廟內部",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "尋找詛咒來源",
+					"goto": "d-n-meet"
+				}
+			}
+		}
+	},
+	"d-n-meet": {
+		"type": "question",
+		"dialog": {
+			"head": "主殿的最末端飄著一本和你來時一樣的魔法書，但他發出了紫黑色的光，似乎就是詛咒的來源。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "d-n-ending-intro"
+				}
+			}
+		}
+	},
+	"d-n-ending-intro": {
+		"type": "question",
+		"dialog": {
+			"head": "你{{帶入職業}}，轟隆的聲音大作，魔法書化成了粉末。",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "ending-Mozha"
+				}
+			}
+		}
+	},
+	"d-n-enter": {
+		"type": "question",
+		"dialog": {
+			"head": "神廟的守衛對你展開了攻擊，你選擇？",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "回頭尋找\n遊牧民族",
+					"goto": "d-n-looking-for"
+				},
+				"o2": {
+					"type": "1",
+					"condition": "none",
+					"description": "與其正面交鋒",
+					"goto": "d-n-SOB"
+				}
+			}
+		}
+	},
+	"d-n-SOB": {
+		"type": "question",
+		"dialog": {
+			"head": "守衛太過強大\n你身負重傷\n（要加長敘述）",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "ending-SOB"
+				}
+			}
+		}
+	},
+	"goto": {
+		"type": "question",
+		"dialog": {
+			"head": "head",
+			"options": {
+				"o1": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
+					"goto": "none"
+				},
+				"o2": {
+					"type": "1",
+					"condition": "none",
+					"description": "下一步",
 					"goto": "none"
 				},
 				"o3": {
 					"type": "1",
-					"condition": "legal",
-					"description": "請遊牧民族指引方向",
+					"condition": "none",
+					"description": "下一步",
 					"goto": "none"
 				}
 			}
@@ -371,6 +622,7 @@
 	},
 	"prairie": {
 		"type": "question",
+		"img":"grassland",
 		"dialog": {
 			"head": "朝著遺跡的方向走去\n眺望遠方發現了？",
 			"options": {
@@ -449,6 +701,7 @@
 	},
 	"jungle": {
 		"type": "question",
+		"img":"jungle",
 		"dialog": {
 			"head": "探索中你發現前方有光影\n你遇到了？",
 			"options": {
@@ -473,7 +726,7 @@
 			}
 		}
 	},
-	"ending_twhhf-take-care-of": {
+	"ending-twhhf-take-care-of": {
 		"type": "end",
 		"dialog": {
 			"head": "結局\n關愛之家照顧服務",
@@ -481,7 +734,7 @@
 		},
 		"goto": "start"
 	},
-	"ending_d-SOB": {
+	"ending-d-SOB": {
 		"type": "end",
 		"dialog": {
 			"head": "結局\n被專勤隊抓走",
@@ -489,7 +742,7 @@
 		},
 		"goto": "start"
 	},
-	"ending_illegal-return": {
+	"ending-illegal-return": {
 		"type": "end",
 		"dialog": {
 			"head": "結局\n自主返國",
@@ -497,10 +750,50 @@
 		},
 		"goto": "start"
 	},
-	"ending_legal-return": {
+	"ending-legal-grow-up": {
 		"type": "end",
 		"dialog": {
-			"head": "結局\n自主返國",
+			"head": "結局\n合法長大\n（增加敘述）",
+			"description": "測試"
+		},
+		"goto": "start"
+	},
+	"ending-legal": {
+		"type": "end",
+		"dialog": {
+			"head": "結局\n合法長大\n（關愛協助）",
+			"description": "測試"
+		},
+		"goto": "start"
+	},
+	"ending-death": {
+		"type": "end",
+		"dialog": {
+			"head": "結局\n死亡結局",
+			"description": "測試"
+		},
+		"goto": "start"
+	},
+	"ending-DoSW": {
+		"type": "end",
+		"dialog": {
+			"head": "結局\n社會局結局",
+			"description": "測試"
+		},
+		"goto": "start"
+	},
+	"ending-Mozha": {
+		"type": "end",
+		"dialog": {
+			"head": "結局\nMozha",
+			"description": "測試"
+		},
+		"goto": "start"
+	},
+	"ending-SOB": {
+		"type": "end",
+		"dialog": {
+			"head": "結局\n專勤隊",
 			"description": "測試"
 		},
 		"goto": "start"
