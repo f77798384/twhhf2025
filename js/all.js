@@ -215,7 +215,7 @@ function renderNode(nodeKey) {
 
     //顯示圖片
     if(node.img){
-        $('.bg').css('background-image',`url("../img/${node.img}.png")`)
+        $('.bg').css('background-image',`url("./img/${node.img}.png")`)
     }
 
     // 顯示標題
