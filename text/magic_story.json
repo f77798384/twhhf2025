@@ -26,18 +26,12 @@
 		}
 	},
 	"intro": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "睜開眼，你看到面前站著一位蒼老的魔法師對你說：\n「謝謝你願意來到這裡幫助我們，這個世界的人都被施了詛咒，隨著時間過去會逐漸衰弱，希望你能幫我們找到原因並解開詛咒。」",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "target"
-				}
-			}
-		}
+			"head": "睜開眼，你看到面前站著一位蒼老的魔法師對你說：\n「謝謝你願意來到這裡幫助我們，這個世界的人都被施了詛咒，隨著時間過去會逐漸衰弱，希望你能幫我們找到原因並解開詛咒。」"
+		},
+		"btn": "下一步",
+		"goto": "target"
 	},
 	"target": {
 		"type": "question",
@@ -67,7 +61,7 @@
 	},
 	"desert": {
 		"type": "question",
-		"img":"desert",
+		"img": "desert",
 		"dialog": {
 			"head": "由於水帶得不夠多\n逐漸脫水的你？",
 			"options": {
@@ -114,7 +108,7 @@
 	},
 	"temple": {
 		"type": "question",
-		"img":"desert-temple",
+		"img": "desert-temple",
 		"dialog": {
 			"head": "到達神廟以後\n你選擇先前往？",
 			"options": {
@@ -172,92 +166,56 @@
 		}
 	},
 	"lift-curse": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "他們帶你找到了詛咒來源\n你破除了詛咒回到了現實",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-twhhf-take-care-of"
-				}
-			}
-		}
+			"head": "他們帶你找到了詛咒來源\n你破除了詛咒回到了現實"
+		},
+		"btn": "下一步",
+		"goto": "ending-twhhf-take-care-of"
 	},
 	"look-around": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "經過拐角處，你遇到了神廟的守衛",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-d-SOB"
-				}
-			}
-		}
+			"head": "經過拐角處，你遇到了神廟的守衛"
+		},
+		"btn": "下一步",
+		"goto": "ending-d-SOB"
 	},
 	"illegal-spacious": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "主殿的最末端飄著一本和你來時一樣的魔法書，但他發出了紫黑色的光，似乎就是詛咒的來源。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "illegal-return-intro"
-				}
-			}
-		}
+			"head": "主殿的最末端飄著一本和你來時一樣的魔法書，但他發出了紫黑色的光，似乎就是詛咒的來源。"
+		},
+		"btn": "下一步",
+		"goto": "illegal-return-intro"
 	},
 	"illegal-return-intro": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "你{{帶入職業}}，轟隆的聲音大作，魔法書化成了粉末。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-illegal-return"
-				}
-			}
-		}
+			"head": "你{{帶入職業}}，轟隆的聲音大作，魔法書化成了粉末。"
+		},
+		"btn": "下一步",
+		"goto": "ending-illegal-return"
 	},
 	"legal-spacious": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "到達主殿後，你發現原來詛咒就再帶你來的書身上，於是你將這本書放在了祭壇上進行淨化。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-legal-grow-up"
-				}
-			}
-		}
+			"head": "到達主殿後，你發現原來詛咒就再帶你來的書身上，於是你將這本書放在了祭壇上進行淨化。"
+		},
+		"btn": "下一步",
+		"goto": "ending-legal-grow-up"
 	},
 	"overdraft": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "你透支了體力暈倒在滾滾黃沙之上，路過了商隊發現了你將你抬上了馬車，由於目的地不同，你獲得了補給再次踏上旅程。\n\n行走一段時間後你望向遠方，發現了像是綠洲的影子。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "oasis"
-				}
-			}
-		}
+			"head": "你透支了體力暈倒在滾滾黃沙之上，路過了商隊發現了你將你抬上了馬車，由於目的地不同，你獲得了補給再次踏上旅程。\n\n行走一段時間後你望向遠方，發現了像是綠洲的影子。"
+		},
+		"btn": "下一步",
+		"goto": "oasis"
 	},
 	"oasis": {
 		"type": "question",
-		"img":"desert-oasis",
+		"img": "desert-oasis",
 		"dialog": {
 			"head": "你頂著烈日快速移動\n當你走近時發現？",
 			"options": {
@@ -283,22 +241,16 @@
 		}
 	},
 	"d-o-SOB": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "沙盜們發現了你，你被他們抓走了。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-d-SOB"
-				}
-			}
-		}
+			"head": "沙盜們發現了你，你被他們抓走了。"
+		},
+		"btn": "下一步",
+		"goto": "ending-d-SOB"
 	},
 	"mirage": {
 		"type": "question",
-		"img":"desert",
+		"img": "desert",
 		"dialog": {
 			"head": "苦惱中你陷入了流沙當中\n穿過沙層後你身處在？",
 			"options": {
@@ -318,81 +270,51 @@
 		}
 	},
 	"d-o-supply": {
-		"type": "question",
-		"img":"desert-oasis",
+		"type": "interlude",
+		"img": "desert-oasis",
 		"dialog": {
-			"head": "真的是綠洲\n於是你補充完飲用水再次踏上旅途",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "legal",
-					"description": "繼續朝著神廟前進",
-					"goto": "d-o-m-legal-merchant"
-				}
-			}
-		}
+			"head": "真的是綠洲\n於是你補充完飲用水再次踏上旅途"
+		},
+		"btn": "繼續朝著神廟前進",
+		"goto": "d-o-m-legal-merchant"
 	},
 	"d-o-m-legal-merchant": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "路上你遇見了旅行商人同行了一段路程，他們與你分享旅行中趣事，也告訴你快速通往神廟的方法。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "繼續朝著神廟前進",
-					"goto": "d-o-keepgoing"
-				}
-			}
-		}
+			"head": "路上你遇見了旅行商人同行了一段路程，他們與你分享旅行中趣事，也告訴你快速通往神廟的方法。"
+		},
+		"btn": "繼續朝著神廟前進",
+		"goto": "d-o-keepgoing"
 	},
 	"d-o-keepgoing": {
-		"type": "d-o-m-legal-merchant-cover",
+		"type": "interlude",
 		"dialog": {
-			"head": "按照旅行商人的引導，你發現神廟出現在了遠方。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "加緊腳步繼續前行",
-					"goto": "d-o-m-legal-merchant-arrive"
-				}
-			}
-		}
+			"head": "按照旅行商人的引導，你發現神廟出現在了遠方。"
+		},
+		"btn": "加緊腳步繼續前行",
+		"goto": "d-o-m-legal-merchant-arrive"
 	},
 	"d-o-m-legal-merchant-arrive": {
-		"type": "question",
-		"img":"temple",
+		"type": "interlude",
+		"img": "temple",
 		"dialog": {
-			"head": "到達神廟後，你發現原來詛咒就再帶你來的書身上，於是你將這本書放在了祭壇上進行淨化。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-legal"
-				}
-			}
-		}
+			"head": "到達神廟後，你發現原來詛咒就再帶你來的書身上，於是你將這本書放在了祭壇上進行淨化。"
+		},
+		"btn": "下一步",
+		"goto": "ending-legal"
 	},
 	"d-o-death": {
-		"type": "question",
-		"img":"grassland",
+		"type": "interlude",
+		"img": "grassland",
 		"dialog": {
-			"head": "你發現這僅是一場夢，你回到了現實。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-death"
-				}
-			}
-		}
+			"head": "你發現這僅是一場夢，你回到了現實。"
+		},
+		"btn": "下一步",
+		"goto": "ending-death"
 	},
 	"d-o-c-branch": {
 		"type": "question",
-		"img":"desert-cave",
+		"img": "desert-cave",
 		"dialog": {
 			"head": "你的眼前出現了不同的叉路，你選擇？",
 			"options": {
@@ -418,52 +340,34 @@
 		}
 	},
 	"d-o-c-b-footprint": {
-		"type": "question",
-		"img":"desert-cave-temple",
+		"type": "interlude",
+		"img": "desert-cave-temple",
 		"dialog": {
-			"head": "看著前方的亮光，你成功走出了洞窟。\n一旁清澈的水池緩解了脫水狀態。\n繼續往前走你發現了人影。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "peaceful"
-				}
-			}
-		}
+			"head": "看著前方的亮光，你成功走出了洞窟。\n一旁清澈的水池緩解了脫水狀態。\n繼續往前走你發現了人影。"
+		},
+		"btn": "下一步",
+		"goto": "peaceful"
 	},
 	"d-o-c-b-wind": {
-		"type": "question",
-		"img":"desert-temple",
+		"type": "interlude",
+		"img": "desert-temple",
 		"dialog": {
-			"head": "你穿越了洞窟，發現最終的目的地是沙漠神廟。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "temple"
-				}
-			}
-		}
+			"head": "你穿越了洞窟，發現最終的目的地是沙漠神廟。"
+		},
+		"btn": "下一步",
+		"goto": "temple"
 	},
 	"DoSW": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "你回到了現實，但故事書中的世界仍在進行，為了未來，無數的人持續奮鬥努力，終於他們擺脫了宿命。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-DoSW"
-				}
-			}
-		}
+			"head": "你回到了現實，但故事書中的世界仍在進行，為了未來，無數的人持續奮鬥努力，終於他們擺脫了宿命。"
+		},
+		"btn": "下一步",
+		"goto": "ending-DoSW"
 	},
 	"d-nomads": {
 		"type": "question",
-		"img":"desert-nomads",
+		"img": "desert-nomads",
 		"dialog": {
 			"head": "遊牧民族給了你一些飲用水",
 			"options": {
@@ -483,23 +387,17 @@
 		}
 	},
 	"lost": {
-		"type": "question",
-		"img":"desert-sandstorm",
+		"type": "interlude",
+		"img": "desert-sandstorm",
 		"dialog": {
-			"head": "在快到達神廟時你們遇到了沙塵暴，因此走散了",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "d-n-choice"
-				}
-			}
-		}
+			"head": "在快到達神廟時你們遇到了沙塵暴，因此走散了"
+		},
+		"btn": "下一步",
+		"goto": "d-n-choice"
 	},
 	"d-n-choice": {
 		"type": "question",
-		"img":"desert-temple",
+		"img": "desert-temple",
 		"dialog": {
 			"head": "沙塵暴結束後你發現你神廟已在眼前，你選擇？",
 			"options": {
@@ -519,46 +417,28 @@
 		}
 	},
 	"d-n-looking-for": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "你們成功匯合\n他們帶著你走小路進到神廟內部",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "尋找詛咒來源",
-					"goto": "d-n-meet"
-				}
-			}
-		}
+			"head": "你們成功匯合\n他們帶著你走小路進到神廟內部"
+		},
+		"btn": "尋找詛咒來源",
+		"goto": "d-n-meet"
 	},
 	"d-n-meet": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "主殿的最末端飄著一本和你來時一樣的魔法書，但他發出了紫黑色的光，似乎就是詛咒的來源。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "d-n-ending-intro"
-				}
-			}
-		}
+			"head": "主殿的最末端飄著一本和你來時一樣的魔法書，但他發出了紫黑色光，似乎就是詛咒的來源。"
+		},
+		"btn": "下一步",
+		"goto": "d-n-ending-intro"
 	},
 	"d-n-ending-intro": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "你{{帶入職業}}，轟隆的聲音大作，魔法書化成了粉末。",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-Mozha"
-				}
-			}
-		}
+			"head": "你{{帶入職業}}，轟隆的聲音大作，魔法書化成了粉末。"
+		},
+		"btn": "下一步",
+		"goto": "ending-Mozha"
 	},
 	"d-n-enter": {
 		"type": "question",
@@ -581,18 +461,12 @@
 		}
 	},
 	"d-n-SOB": {
-		"type": "question",
+		"type": "interlude",
 		"dialog": {
-			"head": "守衛太過強大\n你身負重傷\n（要加長敘述）",
-			"options": {
-				"o1": {
-					"type": "1",
-					"condition": "none",
-					"description": "下一步",
-					"goto": "ending-SOB"
-				}
-			}
-		}
+			"head": "守衛太過強大\n你身負重傷\n（要加長敘述）"
+		},
+		"btn": "下一步",
+		"goto": "ending-SOB"
 	},
 	"goto": {
 		"type": "question",
@@ -622,7 +496,7 @@
 	},
 	"prairie": {
 		"type": "question",
-		"img":"grassland",
+		"img": "grassland",
 		"dialog": {
 			"head": "朝著遺跡的方向走去\n眺望遠方發現了？",
 			"options": {
@@ -701,7 +575,7 @@
 	},
 	"jungle": {
 		"type": "question",
-		"img":"jungle",
+		"img": "jungle",
 		"dialog": {
 			"head": "探索中你發現前方有光影\n你遇到了？",
 			"options": {

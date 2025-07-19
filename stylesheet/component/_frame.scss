@@ -20,7 +20,7 @@
     border: black 1px solid;
     position: relative;
     margin: 0 auto;
-    background-color: #725555;
+    // background-color: #725555;
 
     .bg {
         position: absolute;
@@ -63,6 +63,13 @@
         left: -50px;
         background-color: #725555;
     }
+}
+
+.bgfadeIn{
+    animation: bgfadeIn ease-in-out 0.3s forwards;
+}
+.bgfadeOut{
+    animation: bgfadeIn ease-in-out 0.3s forwards;
 }
 
 .more {
@@ -255,4 +262,21 @@
 
 #Love_Logo {
     width: 80%;
+}
+
+@keyframes bgfadeIn {
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+@keyframes bgfadeOut {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.2;
+    }
 }

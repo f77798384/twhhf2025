@@ -3,12 +3,17 @@
     width: 100%;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
     h4 {
         padding: 1rem;
-        // text-align: justify;
         transform: translateZ(0);
         line-height: 1.5;
+        &.interlude{
+            margin-bottom: auto !important;   
+        }
     }
 
     p {
@@ -70,6 +75,9 @@
     width: 65%;
     box-shadow: 0px 3px 1px 1px rgba(0, 0, 0, 1);
     cursor: pointer;
+    &.interlude{
+        margin-bottom: 3rem;
+    }
 }
 
 .option2:before,

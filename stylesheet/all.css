@@ -12701,10 +12701,15 @@ textarea.form-control-lg {
 body {
   background-image: url(../img/bg-2.png);
   background-repeat: no-repeat;
-  background-size: 1200px;
+  background-size: 800px;
   overflow: hidden;
   background-color: #e8ddcb;
   background-position: calc(50% - 50px) 50%;
+}
+@media (min-width: 768px) {
+  body {
+    background-size: 1200px;
+  }
 }
 
 .container {
@@ -12730,7 +12735,6 @@ body {
   border: black 1px solid;
   position: relative;
   margin: 0 auto;
-  background-color: #725555;
 }
 .main .bg {
   position: absolute;
@@ -12778,6 +12782,14 @@ body {
     left: -50px;
     background-color: #725555;
   }
+}
+
+.bgfadeIn {
+  animation: bgfadeIn ease-in-out 0.3s forwards;
+}
+
+.bgfadeOut {
+  animation: bgfadeIn ease-in-out 0.3s forwards;
 }
 
 .more {
@@ -12969,6 +12981,22 @@ body {
   width: 80%;
 }
 
+@keyframes bgfadeIn {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+@keyframes bgfadeOut {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
 #introbg {
   position: absolute;
   top: 0;
@@ -13165,11 +13193,17 @@ body {
   width: 100%;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 #game h4, #game .h4, #game-test h4, #game-test .h4 {
   padding: 1rem;
   transform: translateZ(0);
   line-height: 1.5;
+}
+#game h4.interlude, #game .interlude.h4, #game-test h4.interlude, #game-test .interlude.h4 {
+  margin-bottom: auto !important;
 }
 #game p, #game-test p {
   text-align: left;
@@ -13228,6 +13262,11 @@ body {
   width: 65%;
   box-shadow: 0px 3px 1px 1px rgb(0, 0, 0);
   cursor: pointer;
+}
+.option2.interlude,
+.option2:focus.interlude,
+.option2:hover.interlude {
+  margin-bottom: 3rem;
 }
 
 .option2:before,

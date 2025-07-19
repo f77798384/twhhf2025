@@ -246,9 +246,9 @@ function renderNode(nodeKey) {
         }
     } else {
         // const btnText = dialog.btn || "再次開始新的人生";
-        const btnText = node.type == 'end' ? "再次開始新的人生" : '繼續'
+        const btnText = node.type == 'end' ? "再次開始新的人生" : node.btn
         container.append(`
-            <a class="option2" data-goto="${node.goto}" ">${btnText}</a>
+            <a class="option2 ${node.type}" data-goto="${node.goto}" ">${btnText}</a>
             `);
         $.ajax({
             type: 'POST',
@@ -273,6 +273,7 @@ function reset() {
     $('.lotto').removeClass('animate__fadeOut')
     $('#game').addClass('d-none')
     $('#stframe').removeClass('d-none')
+    $('.bg').css('background-image',``)
     where = '';
 }
 
@@ -282,6 +283,16 @@ $(document).on('click', function (e) {
         switch (option) {
             case 'option1':
             case 'option2':
+                $(e.target).addClass('option2a');
+                setTimeout(() => {
+                    $(e.target).removeClass('option2a');
+                }, 500);
+            case 'option2 interlude':
+                $(e.target).addClass('option2a');
+                setTimeout(() => {
+                    $(e.target).removeClass('option2a');
+                }, 500);
+            case 'option2 end':
                 $(e.target).addClass('option2a');
                 setTimeout(() => {
                     $(e.target).removeClass('option2a');
@@ -301,19 +312,26 @@ $(document).on('click', function (e) {
         if (audio) {
             $('#press')[0].play()
         }
-        $('#game').removeClass('animate__fadeIn')
-        $('#game').addClass('animate__fadeOut')
-        setTimeout(() => {
-            $('#game').removeClass('animate__fadeOut')
-            $('#game').addClass('animate__fadeIn')
-            let currentNode = $(e.target).data('goto')
-            if (currentNode == 'start') {
-                reset()
-            } else if ($(e.target).data('goto') != undefined) {
-                renderNode(currentNode)
-            }
-        }, 2000);
-        $('.bg').click()
+        if($(e.target).data('goto')){
+            $('.bg').removeClass('bgfadeIn')
+            $('.bg').addClass('animate__fadeOut')
+            $('#game').removeClass('animate__fadeIn')
+            $('#game').addClass('animate__fadeOut')
+            setTimeout(() => {
+                $('#game').removeClass('animate__fadeOut')
+                $('#game').addClass('animate__fadeIn')
+                $('.bg').removeClass('animate__fadeOut')
+                $('.bg').addClass('bgfadeIn')
+                let currentNode = $(e.target).data('goto')
+                if (currentNode == 'start') {
+                    reset()
+                } else if ($(e.target).data('goto') != undefined) {
+                    renderNode(currentNode)
+                }
+            }, 2000);
+            $('.bg').click()
+
+        }
     }
 })
 
