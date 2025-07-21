@@ -12701,7 +12701,7 @@ textarea.form-control-lg {
 body {
   background-image: url(../img/bg-2.png);
   background-repeat: no-repeat;
-  background-size: 800px;
+  background-size: 1200px;
   overflow: hidden;
   background-color: #e8ddcb;
   background-position: calc(50% - 50px) 50%;
@@ -12785,11 +12785,11 @@ body {
 }
 
 .bgfadeIn {
-  animation: bgfadeIn ease-in-out 0.3s forwards;
+  animation: bgfadeIn ease-in-out 0.5s forwards;
 }
 
 .bgfadeOut {
-  animation: bgfadeIn ease-in-out 0.3s forwards;
+  animation: bgfadeOut ease-in-out 0.5s forwards;
 }
 
 .more {
@@ -12983,7 +12983,7 @@ body {
 
 @keyframes bgfadeIn {
   0% {
-    opacity: 0.2;
+    opacity: 0.35;
   }
   100% {
     opacity: 0.8;
@@ -12994,7 +12994,7 @@ body {
     opacity: 0.8;
   }
   100% {
-    opacity: 0.2;
+    opacity: 0.35;
   }
 }
 #introbg {
@@ -13188,7 +13188,8 @@ body {
     transform: scale(1) rotateY(2520deg);
   }
 }
-#game, #game-test {
+#game,
+#game-test {
   height: 100%;
   width: 100%;
   text-align: center;
@@ -13197,20 +13198,26 @@ body {
   align-items: center;
   flex-direction: column;
 }
-#game h4, #game .h4, #game-test h4, #game-test .h4 {
+#game h4, #game .h4,
+#game-test h4,
+#game-test .h4 {
   padding: 1rem;
   transform: translateZ(0);
   line-height: 1.5;
 }
-#game h4.interlude, #game .interlude.h4, #game-test h4.interlude, #game-test .interlude.h4 {
-  margin-bottom: auto !important;
-}
-#game p, #game-test p {
+#game p,
+#game-test p {
   text-align: left;
   padding: 0 1rem;
   transform: translateZ(0);
 }
-#game h4.end, #game .end.h4, #game-test h4.end, #game-test .end.h4 {
+#game p.interlude,
+#game-test p.interlude {
+  margin-bottom: auto !important;
+}
+#game h4.end, #game .end.h4,
+#game-test h4.end,
+#game-test .end.h4 {
   font-size: 2rem;
   line-height: 1.5;
   text-align: center;

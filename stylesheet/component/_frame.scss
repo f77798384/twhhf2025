@@ -66,10 +66,10 @@
 }
 
 .bgfadeIn{
-    animation: bgfadeIn ease-in-out 0.3s forwards;
+    animation: bgfadeIn ease-in-out 0.5s forwards;
 }
 .bgfadeOut{
-    animation: bgfadeIn ease-in-out 0.3s forwards;
+    animation: bgfadeOut ease-in-out 0.5s forwards;
 }
 
 .more {
@@ -266,7 +266,7 @@
 
 @keyframes bgfadeIn {
     0% {
-        opacity: 0.2;
+        opacity: 0.35;
     }
     100% {
         opacity: 0.8;
@@ -277,6 +277,6 @@
         opacity: 0.8;
     }
     100% {
-        opacity: 0.2;
+        opacity: 0.35;
     }
 }

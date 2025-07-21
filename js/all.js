@@ -39,6 +39,8 @@ let sw = $('#on-off .bi');
 let identity = 'legal'
 let flip = false
 let where = '';
+let mute = '';
+let st = true;
 
 bgm.volume = 0.8
 bgm.loop = true
@@ -61,10 +63,12 @@ $('#on-off').on('click', function (e) {
     if (audio == false) {
         bgm.play();
         audio = true;
+        mute = false;
         return;
     } else {
         bgm.pause();
         audio = false;
+        mute = true;
         return;
     }
 })
@@ -89,10 +93,10 @@ $('#close-more').on('click', function (e) {
 
 $('#start').on('click', function (e) {
     e.preventDefault();
-    if (!audio) {
+    if (st && !audio) {
         $('#on-off').click()
     }
-    flipme.play()
+    st = false
     setTimeout(() => {
         $('#stframe').addClass('animate__fadeOutTopRight')
     }, 200);
@@ -101,6 +105,8 @@ $('#start').on('click', function (e) {
         $('#stframe').addClass('d-none')
         $('.lotto').removeClass('d-none')
         $('.lotto').addClass('animate__fadeIn')
+        $('.dialog').removeClass('d-none')
+        $('.dialog').addClass('animate__fadeIn')
     }, 2500)
 })
 
@@ -122,6 +128,12 @@ $('.idcard').on('click', function (e) {
             $('.identity').text(`${random < 1 ? '合法移工之子' : '非法移工之子'}`)
             $('.identity').attr('data-id', `${random < 1 ? 'legal' : 'illegal'}`)
             $('.identity').attr('data-id', `${random < 1 ? identity = 'legal' : identity = 'illegal'}`)
+            $('.dialog p').html(`<p class="m-0 pb-3 fs-5">
+                            您的身分為「<span class="identity">${random < 1 ? '合法移工之子' : '非法移工之子'}</span>」
+                            <br>
+                            若想更改身分可以再次點擊畫面
+                            <button id="checkid">確定身分並開始人生</button>
+                        </p>`)
         }, 1)
         setTimeout(() => {
             $('.dialog').removeClass('d-none')
@@ -143,17 +155,7 @@ $('.option2').on('click', function (e) {
     $('.bg').click()
 })
 
-$('#checkid').on('click', function (e) {
-    flip = true
-    $('.lotto').removeClass('animate__fadeIn')
-    $('.lotto').addClass('animate__fadeOut')
-    setTimeout(() => {
-        // $('.lotto').remove()
-        $('.lotto').addClass('d-none')
-        $("#game").removeClass("d-none");  // 顯示遊戲對話區
-        renderNode(currentNode);           // 執行顯示第一節點
-    }, 2000);
-})
+
 
 $.ajax({
     url: './text/magic_story.json',
@@ -165,6 +167,11 @@ $.ajax({
     success: res => {
         story = res;
         currentNode = "where";
+        let arr_chapter = `<option value="" disabled selected>請選擇章節</option>`
+        Object.keys(story).forEach((a, b) => {
+            arr_chapter += `<option value="${a}">${a}</option>`
+        })
+        $('#chapter').html(arr_chapter)
     },
     error: err => {
         console.log(err)
@@ -214,8 +221,8 @@ function renderNode(nodeKey) {
     const dialog = node.dialog;
 
     //顯示圖片
-    if(node.img){
-        $('.bg').css('background-image',`url("./img/${node.img}.png")`)
+    if (node.img) {
+        $('.bg').css('background-image', `url("./img/${node.img}.png")`)
     }
 
     // 顯示標題
@@ -273,7 +280,7 @@ function reset() {
     $('.lotto').removeClass('animate__fadeOut')
     $('#game').addClass('d-none')
     $('#stframe').removeClass('d-none')
-    $('.bg').css('background-image',``)
+    $('.bg').css('background-image', ``)
     where = '';
 }
 
@@ -312,16 +319,16 @@ $(document).on('click', function (e) {
         if (audio) {
             $('#press')[0].play()
         }
-        if($(e.target).data('goto')){
+        if ($(e.target).data('goto')) {
             $('.bg').removeClass('bgfadeIn')
-            $('.bg').addClass('animate__fadeOut')
+            $('.bg').addClass('bgfadeOut')
             $('#game').removeClass('animate__fadeIn')
             $('#game').addClass('animate__fadeOut')
             setTimeout(() => {
+                $('.bg').removeClass('bgfadeOut')
+                $('.bg').addClass('bgfadeIn')
                 $('#game').removeClass('animate__fadeOut')
                 $('#game').addClass('animate__fadeIn')
-                $('.bg').removeClass('animate__fadeOut')
-                $('.bg').addClass('bgfadeIn')
                 let currentNode = $(e.target).data('goto')
                 if (currentNode == 'start') {
                     reset()
@@ -332,8 +339,30 @@ $(document).on('click', function (e) {
             $('.bg').click()
 
         }
+    } else if ($(e.target)[0].nodeName == "BUTTON" && $(e.target)[0].id == 'checkid') {
+        flip = true
+        $('.lotto').removeClass('animate__fadeIn')
+        $('.lotto').addClass('animate__fadeOut')
+        setTimeout(() => {
+            // $('.lotto').remove()
+            $('.lotto').addClass('d-none')
+            $("#game").removeClass("d-none");  // 顯示遊戲對話區
+            renderNode(currentNode);           // 執行顯示第一節點
+        }, 2000);
     }
 })
+
+// $('#checkid').on('click', function (e) {
+//     flip = true
+//     $('.lotto').removeClass('animate__fadeIn')
+//     $('.lotto').addClass('animate__fadeOut')
+//     setTimeout(() => {
+//         // $('.lotto').remove()
+//         $('.lotto').addClass('d-none')
+//         $("#game").removeClass("d-none");  // 顯示遊戲對話區
+//         renderNode(currentNode);           // 執行顯示第一節點
+//     }, 2000);
+// })
 
 let t = window.devicePixelRatio
 let r = window.innerHeight
@@ -369,4 +398,10 @@ $('#memory-btn').on('click', function (e) {
     console.log(123)
     $('#memory').removeClass('animate__fadeIn')
     $('#memory').addClass('animate__fadeOut')
+})
+
+
+$('#chapter').on('change',function(){
+    console.log($('#chapter').val())
+    renderNode($('#chapter').val())
 })

@@ -1,20 +1,16 @@
-/img/introbg.jpg
-/img/bg-3.png
-/img/bg-2.png
-/img/關愛LOGO.png
-/img/memory.png
-/img/Love_Logo.png
-/img/logo.png
-/img/favicon.png
 /img/bg-2.png
 /img/bg-3.png
 /img/desert.png
 /img/desert-cave.png
 /img/desert-cave-temple.png
+/img/desert-drift sand.png
+/img/desert-guard.png
 /img/desert-nomads.png
 /img/desert-oasis.png
+/img/desert-oasis-sand pirate.png
 /img/desert-sandstorm.png
 /img/desert-temple.png
+/img/desert-temple-interior.png
 /img/favicon.png
 /img/grassland.png
 /img/grassland-remains.png
@@ -23,5 +19,9 @@
 /img/jungle-cave.png
 /img/logo.png
 /img/Love_Logo.png
+/img/magic book closed.png
+/img/magic book evil destroyed.png
+/img/magic book evil.png
+/img/magic book open.png
 /img/memory.png
 /img/關愛LOGO.png
