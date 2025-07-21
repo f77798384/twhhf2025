@@ -697,7 +697,7 @@
 		"type": "end",
 		"dialog": {
 			"head": "結局\n專勤隊",
-			"description": "測試0"
+			"description": "測試"
 		},
 		"goto": "start"
 	}
