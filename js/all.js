@@ -41,6 +41,10 @@ let flip = false
 let where = '';
 let mute = '';
 let st = true;
+let career = '';
+let atkarr = ['none','舉起了權杖，對魔法書施展了淨化','拿起了戰錘，狠狠地砸向魔法書','拔出了寶劍，須臾間將魔法書斬為兩半','架起了弓箭，射向半空中的魔法書','舉起重斧奮力跳起，下落的同時將魔法書劈成兩半'];
+let atkstr = 'none';
+
 
 bgm.volume = 0.8
 bgm.loop = true
@@ -122,14 +126,41 @@ $('.idcard').on('click', function (e) {
             cardflip.play()
         }
         setTimeout(function () {
-            let random = Math.floor(Math.random() * 10)
+            let random = Math.floor(Math.random() * 5)
             $('.lotto .front').addClass('ryp')
             $('.lotto .back').addClass('ryn')
-            $('.identity').text(`${random < 1 ? '合法移工之子' : '非法移工之子'}`)
-            $('.identity').attr('data-id', `${random < 1 ? 'legal' : 'illegal'}`)
-            $('.identity').attr('data-id', `${random < 1 ? identity = 'legal' : identity = 'illegal'}`)
+            switch (random) {
+                case 0:
+                    career = '村民A'
+                    identity = 'legal'
+                    break;
+                case 1:
+                    career = '祭司'
+                    identity = 'illegal'
+                    break;
+                case 2:
+                    career = '鐵匠'
+                    identity = 'illegal'
+                    break;
+                case 3:
+                    career = '勇者'
+                    identity = 'illegal'
+                    break;
+                case 4:
+                    career = '獵人'
+                    identity = 'illegal'
+                    break;
+                case 5:
+                    career = '樵夫'
+                    identity = 'illegal'
+                    break;
+            }
+            atkstr = atkarr[random]
+            // $('.identity').text(`${random < 1 ? '合法移工之子' : '非法移工之子'}`)
+            // $('.identity').attr('data-id', `${random < 1 ? 'legal' : 'illegal'}`)
+            // $('.identity').attr('data-id', `${random < 1 ? identity = 'legal' : identity = 'illegal'}`)
             $('.dialog p').html(`<p class="m-0 pb-3 fs-5">
-                            您的身分為「<span class="identity">${random < 1 ? '合法移工之子' : '非法移工之子'}</span>」
+                            您的身分為「<span class="identity">${career}</span>」
                             <br>
                             若想更改身分可以再次點擊畫面
                             <button id="checkid">確定身分並開始人生</button>
@@ -232,7 +263,7 @@ function renderNode(nodeKey) {
 
     // 顯示內容
     if (dialog.description) {
-        container.append(`<p class="mb-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>")}</p>`);
+        container.append(`<p class="mb-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}','<span style="color:red;font-size:1.2rem;">'+atkstr+'</span>')}</p>`);
     }
 
     // 顯示按鈕或選項
@@ -401,7 +432,12 @@ $('#memory-btn').on('click', function (e) {
 })
 
 
-$('#chapter').on('change',function(){
+$('#chapter').on('change', function () {
     console.log($('#chapter').val())
+    renderNode($('#chapter').val())
+})
+$('#career').on('change', function () {
+    console.log($('#career').val())
+    atkstr = atkarr[$('#career').val()]
     renderNode($('#chapter').val())
 })
