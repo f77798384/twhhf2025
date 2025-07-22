@@ -42,7 +42,7 @@ let where = '';
 let mute = '';
 let st = true;
 let career = '';
-let atkarr = ['none','舉起了權杖，對魔法書施展了淨化','拿起了戰錘，狠狠地砸向魔法書','拔出了寶劍，須臾間將魔法書斬為兩半','架起了弓箭，射向半空中的魔法書','舉起重斧奮力跳起，下落的同時將魔法書劈成兩半'];
+let atkarr = ['none', '舉起了權杖，對魔法書施展了淨化', '拿起了戰錘，狠狠地砸向魔法書', '拔出了寶劍，須臾間將魔法書斬為兩半', '架起了弓箭，射向半空中的魔法書', '舉起重斧奮力跳起，下落的同時將魔法書劈成兩半'];
 let atkstr = 'none';
 
 
@@ -263,7 +263,7 @@ function renderNode(nodeKey) {
 
     // 顯示內容
     if (dialog.description) {
-        container.append(`<p class="mb-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}','<span style="color:red;font-size:1.2rem;">'+atkstr+'</span>')}</p>`);
+        container.append(`<p class="mb-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="color:red;font-size:1.2rem;">' + atkstr + '</span>')}</p>`);
     }
 
     // 顯示按鈕或選項
@@ -433,6 +433,14 @@ $('#memory-btn').on('click', function (e) {
 
 
 $('#chapter').on('change', function () {
+    if($('#game').attr('class').search('d-none') > -1){
+        st = false
+        $('#stframe').addClass('d-none')
+        $('.lotto').addClass('d-none')
+        $("#game").removeClass("d-none");  // 顯示遊戲對話區
+        flip = true
+        renderNode(currentNode);           // 執行顯示第一節點
+    }
     console.log($('#chapter').val())
     renderNode($('#chapter').val())
 })
