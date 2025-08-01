@@ -264,6 +264,9 @@ function renderNode(nodeKey) {
     // 顯示內容
     if (dialog.description) {
         container.append(`<p class="mb-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="color:red;font-size:1.2rem;">' + atkstr + '</span>')}</p>`);
+        if(node.type == 'interlude'){
+            container.append(`<i class="bi bi-caret-down-fill"></i>`)
+        }
     }
 
     // 顯示按鈕或選項

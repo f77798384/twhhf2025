@@ -18,8 +18,11 @@
         text-align: left;
         padding: 0 1rem;
         transform: translateZ(0);
-        &.interlude {
+        overflow: auto;
+        &.interlude ,.end{
             margin-bottom: auto !important;
+            // height: calc(var(--vh) * 29);
+            height: 42.8vh;
         }
     }
 
@@ -27,6 +30,9 @@
         font-size: 2rem;
         line-height: 1.5;
         text-align: center;
+    }
+    .bi-caret-down-fill{
+        padding-bottom: 65px !important;
     }
 }
 
@@ -72,7 +78,7 @@
     text-decoration: none;
     text-transform: uppercase;
     transition: transform ease-in 0.1s;
-    margin: 1rem 0;
+    margin: 1rem 0 3rem 0;
     width: 65%;
     box-shadow: 0px 3px 1px 1px rgba(0, 0, 0, 1);
     cursor: pointer;
