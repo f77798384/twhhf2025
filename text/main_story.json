@@ -489,6 +489,7 @@
         "goto": "ending-SOB"
     },
     "j": {
+        "img":"jungle",
         "type": "question",
         "dialog": {
             "head": "你踏入濕熱的叢林，四周鳥鳴不絕。忽然，一條毒蛇竄出，尖牙深深咬入你的手臂，劇痛如火焰般蔓延全身。此時，你必須做出抉擇……",
@@ -544,6 +545,7 @@
         }
     },
     "j-2-1": {
+        "img":"jungle-antidote",
         "type": "question",
         "dialog": {
             "head": "在濃密的樹叢中，你發現了一株泛著淡淡光芒的解毒草。然而不遠處，一位神情嚴肅的精靈正守護著它。這時，你選擇怎麼做？",
@@ -570,6 +572,7 @@
         }
     },
     "j-2-1-1": {
+        "img":"jungle-alert",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -588,6 +591,7 @@
         "goto": "ending-d-SOB"
     },
     "j-2-1-2": {
+        "img":"jungle-coverastion",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -597,6 +601,7 @@
         "goto": "j-2-1-2-1"
     },
     "j-2-1-2-1": {
+        "img":"jungle-cave-branch",
         "type": "question",
         "dialog": {
             "head": "沿著這條捷徑，你很快就抵達洞窟門口。但眼前卻出現兩條通道，通道內陰暗看不清盡頭。你必須做出新的選擇……",
@@ -620,12 +625,22 @@
         "type": "interlude",
         "dialog": {
             "head": "幕間",
+            "description": "你舉起火把，在幽暗的洞窟中小心前行。卻不慎踩空，跌落至洞窟底部。劇烈的疼痛襲來，你的雙腿幾乎無法動彈。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-1-2-1-1-1"
+    },
+    "j-2-1-2-1-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
             "description": "摔傷的疼痛讓你逐漸失去了意識，當再度睜眼時，已被魔法書送回到現實。"
         },
         "btn": "下一步",
         "goto": "ending-d-DD"
     },
     "j-2-1-2-1-2": {
+        "img":"jungle-cave-stone door",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -635,9 +650,10 @@
         "goto": "j-2-1-2-1-2-1"
     },
     "j-2-1-2-1-2-1": {
+        "img":"jungle-cave-chamber",
         "type": "question",
         "dialog": {
-            "head": "head",
+            "head": "石室裡，正中央刻畫著詭異的魔法陣，閃爍著微弱的光芒。空氣中瀰漫著不安的氣息。此刻，你選擇？",
             "options": {
                 "o1": {
                     "type": "1",
@@ -655,6 +671,7 @@
         }
     },
     "j-2-1-2-1-2-1-1": {
+        "img":"jungle-cave-chamber-glow-magic book",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -664,6 +681,7 @@
         "goto": "ending-legal-grow-up"
     },
     "j-2-1-2-1-2-1-2": {
+        "img":"jungle-cave-chamber-glow-gale",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
