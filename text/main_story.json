@@ -1,0 +1,806 @@
+{
+    "where": {
+        "img": "magic book open",
+        "type": "question",
+        "dialog": {
+            "head": "突然一陣怪風將你包圍，再次落地時，你發現自己站在?",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "繁華的王城",
+                    "goto": "intro"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "清幽的農村",
+                    "goto": "intro"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "避世烏托邦",
+                    "goto": "intro"
+                }
+            }
+        }
+    },
+    "intro": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你環顧四周，只見一位蒼老的魔法師緩緩走來。用低沉而顫抖的聲音告訴你：「這個世界的每個人，自出生起便背負著詛咒。若在成年前無法取得解藥，生命將在頃刻間衰老……。旅人啊，你願意替我們解開這個詛咒嗎？」"
+        },
+        "btn": "下一步",
+        "goto": "target"
+    },
+    "target": {
+        "type": "question",
+        "dialog": {
+            "head": "魔法師指著地圖上被圈起來的三個地方，你選擇前往？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "炎熱沙漠中的神廟",
+                    "goto": "d"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "廣袤草原上的遺跡",
+                    "goto": "g"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "茂密叢林裡的洞窟",
+                    "goto": "j"
+                }
+            }
+        }
+    },
+    "d": {
+        "img": "desert",
+        "type": "question",
+        "dialog": {
+            "head": "因為缺乏水源，逐漸感到脫水無力的你會？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "遇到旅行商人\n他送你一瓶魔法藥水",
+                    "goto": "d-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "望向前方\n你發現不遠處有綠洲",
+                    "goto": "d-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "遇到游牧民族\n並尋求他們的協助",
+                    "goto": "d-3"
+                }
+            }
+        }
+    },
+    "d-1": {
+        "type": "question",
+        "dialog": {
+            "head": "喝完藥水的你，繼續踏上前往神廟的路，突然藥效開始發作，此時的你覺得？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "脫水狀態解除",
+                    "goto": "d-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "感到精神百倍",
+                    "goto": "d-1-2"
+                }
+            }
+        }
+    },
+    "d-1-1": {
+        "img": "desert-temple",
+        "type": "question",
+        "dialog": {
+            "head": "順利到達神廟並進入大門後，面前有兩條深不見底的走廊，你選擇先前往哪裡找尋線索？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "通往偏殿寂靜的走道",
+                    "goto": "d-1-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "四處走動環視一圈",
+                    "goto": "d-1-1-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "通往主殿寬敞的走道",
+                    "goto": "d-1-1-3"
+                },
+                "o4": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "通往主殿寬敞的走道",
+                    "goto": "d-1-1-4"
+                }
+            }
+        }
+    },
+    "d-1-1-1": {
+        "type": "question",
+        "dialog": {
+            "head": "你忽然看到遠方有火光，湊近後發現是一群隱居在此避世的居民，你選擇？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "分不清是敵是友\n選擇返回原路，並前往主殿",
+                    "goto": "d-1-1-3"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "分不清是敵是友\n你回過頭前往主殿",
+                    "goto": "d-1-1-4"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "向他們說明來意\n並尋求協助",
+                    "goto": "d-1-1-1-3"
+                }
+            }
+        }
+    },
+    "d-1-1-1-3": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "在他們的指引下，你找到詛咒的源頭並將其破除。黑暗隨之散去，你也被光芒帶回了現實。"
+        },
+        "btn": "下一步",
+        "goto": "ending-twhhf-take-care-of"
+    },
+    "d-1-1-2": {
+        "img": "desert-guard",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "在轉角遇到了神廟守衛，將你五花大綁，送到祭壇上獻祭。"
+        },
+        "btn": "下一步",
+        "goto": "ending-d-SOB"
+    },
+    "d-1-1-4": {
+        "img": "magic book evil",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "當你步入主殿，牆上的古老圖騰忽然泛起微光，訴說著被掩埋的真相——原來詛咒正潛伏在你帶來的那本書裡。你將書放置在祭壇上後，書頁自動翻動，惡靈在黑霧中掙扎怒吼。最後，黑影煙消雲散，詛咒被徹底解除，這個世界也終於迎來久違的安寧。"
+        },
+        "btn": "下一步",
+        "goto": "ending-legal-grow-up"
+    },
+    "d-1-1-3": {
+        "img": "magic book evil destroyed",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你看見祭壇上漂浮著一本散發黑色光芒的魔法書，不斷侵蝕著神殿——正是詛咒的源頭。此刻，你{{帶入職業}}"
+        },
+        "btn": "下一步",
+        "goto": "ending-illegal-return"
+    },
+    "d-1-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "霎那間，雙腳輕盈如風，你一路狂奔。然而藥效一過，力量像潮水般退去，你全身癱軟，重重倒在滾燙的黃沙裡。\n\n即將失去意識之際，一支商隊正巧路過。他們發現了你，將你抬上馬車休息。你慢慢恢復神智。對他們道謝後，再次背起行囊，邁向未知而危險的旅程。"
+        },
+        "btn": "下一步",
+        "goto": "d-2"
+    },
+    "d-2": {
+        "type": "question",
+        "dialog": {
+            "head": "你頂著烈日移動，當你走近時發現？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "一群沙盜佔領著綠洲，你完全無法接近",
+                    "goto": "d-2-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "眼前仍是無盡黃沙，綠洲僅是海市蜃樓。",
+                    "goto": "d-2-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "真的是綠洲，於是你補充完飲用水再次踏上旅途",
+                    "goto": "d-2-3"
+                }
+            }
+        }
+    },
+    "d-2-1": {
+        "img": "desert-oasis-sand pirate",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "沙盜們發現了你，你被他們抓走了。"
+        },
+        "btn": "下一步",
+        "goto": "ending-d-SOB"
+    },
+    "d-2-2": {
+        "img": "desert-drift sand",
+        "type": "question",
+        "dialog": {
+            "head": "正當你徬徨無助時，腳下的沙地猛然塌陷！身體瞬間被吞噬。你赫然發現自己置身於－－？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "陰暗潮濕的洞窟",
+                    "goto": "d-2-2-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "廣闊青綠的草原",
+                    "goto": "d-2-2-2"
+                }
+            }
+        }
+    },
+    "d-2-2-1": {
+        "img": "desert-cave",
+        "type": "question",
+        "dialog": {
+            "head": "站穩後，你發現洞窟前出現了不同的岔路，你選擇往？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "入口處有人類腳印的方向",
+                    "goto": "d-2-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "入口處有微弱風動的方向",
+                    "goto": "d-2-2-1-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "旅途艱險，你決定放棄，返回現實。",
+                    "goto": "d-2-2-1-3"
+                }
+            }
+        }
+    },
+    "d-2-2-2": {
+        "img": "desert-oasis",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你猛然驚醒，意識像潮水般回到身體，四周的景象逐漸清晰，你突然明白，那些驚心動魄的冒險不過是一場夢，此刻的你已回到了現實。"
+        },
+        "btn": "繼續朝著神廟前進",
+        "goto": "ending-death-grapefruit"
+    },
+    "d-2-2-1-1": {
+        "img": "desert-cave-temple",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你小心翼翼地跟隨著腳印前行，你終於走出了幽暗的洞窟，而洞口旁那汪清澈水池，正好解除了你因脫水而感到的虛弱不適。"
+        },
+        "btn": "下一步",
+        "goto": "d-1-1-1"
+    },
+    "d-2-2-1-2": {
+        "img": "desert-temple",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你穿越了洞窟，發現最終的目的地是沙漠神廟。"
+        },
+        "btn": "下一步",
+        "goto": "d-1-1"
+    },
+    "d-2-2-1-3": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你回到了現實，但書中世界的詛咒仍未消失。那裡的人們為了解開詛咒而不斷奮鬥，期望掙脫命運的枷鎖。"
+        },
+        "btn": "下一步",
+        "goto": "ending-DoSW"
+    },
+    "d-2-3": {
+        "img": "desert-oasis",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "真的是綠洲，於是你補充完飲用水再次踏上旅途"
+        },
+        "btn": "下一步",
+        "goto": "d-2-3-1"
+    },
+    "d-2-3-1": {
+        "img": "缺圖",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "路上你遇見了旅行商人同行了一段路程，他們與你分享旅行中趣事，也告訴你快速通往神廟的方法。"
+        },
+        "btn": "下一步",
+        "goto": "d-2-3-1-1"
+    },
+    "d-2-3-1-1": {
+        "img": "desert-temple",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "按照旅行商人的引導，你發現神廟出現在了遠方。"
+        },
+        "btn": "下一步",
+        "goto": "d-2-3-1-1-1"
+    },
+    "d-2-3-1-1-1": {
+        "img": "缺圖",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "到達神廟後，你發現原來詛咒就再帶你來的書身上，於是你將這本書放在了祭壇上進行淨化。"
+        },
+        "btn": "下一步",
+        "goto": "ending-twhhf-take-care-of"
+    },
+    "d-3": {
+        "img": "desert-nomads",
+        "type": "question",
+        "dialog": {
+            "head": "遊牧民族給了你一些飲用水",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "旅途艱險，你決定放棄，返回現實。",
+                    "goto": "DoSW"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "邀請遊牧民族當嚮導，帶你踏上神殿之路。",
+                    "goto": "lost"
+                }
+            }
+        }
+    },
+    "d-3-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你回到了現實，但書中世界的詛咒仍未消失。那裡的人們為了解開詛咒而不斷奮鬥，期望掙脫命運的枷鎖。"
+        },
+        "btn": "下一步",
+        "goto": "ending-DoSW"
+    },
+    "d-3-2": {
+        "img": "desert-sandstorm",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "在接近神殿前，狂烈的沙塵暴席捲而來。混亂中，你與遊牧響導失散，只能孤身踏上未知之路。"
+        },
+        "btn": "下一步",
+        "goto": "d-3-2-1"
+    },
+    "d-3-2-1": {
+        "img": "desert-temple",
+        "type": "question",
+        "dialog": {
+            "head": "沙塵暴結束後你發現你神廟已在眼前，你選擇？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "回頭尋找\n遊牧民族",
+                    "goto": "d-3-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "獨自前行\n進入主殿",
+                    "goto": "d-3-2-1-2"
+                }
+            }
+        }
+    },
+    "d-3-2-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "成功會合。他們熟悉沙漠的秘徑，帶領你走小路潛入神殿深處。"
+        },
+        "btn": "尋找詛咒來源",
+        "goto": "d-3-2-1-1-1"
+    },
+    "d-3-2-1-1-1": {
+        "img": "magic book evil",
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "主殿祭壇上，你翻開的魔法書正懸浮半空，散發著詭異的紫黑光芒——那正是詛咒的源頭。此刻，你{{帶入職業}}"
+        },
+        "btn": "下一步",
+        "goto": "ending-illegal-return"
+    },
+    "d-3-2-1-2": {
+        "img": "desert-guard",
+        "type": "question",
+        "dialog": {
+            "head": "神殿的守護獸甦醒，冷冽的目光鎖定了你。",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "回頭尋找\n遊牧民族",
+                    "goto": "d-3-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "與其正面交鋒",
+                    "goto": "d-3-2-1-2-1"
+                }
+            }
+        }
+    },
+    "d-3-2-1-2-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "力量懸殊，你終究不敵，身負重傷倒下。"
+        },
+        "btn": "下一步",
+        "goto": "ending-SOB"
+    },
+    "j": {
+        "type": "question",
+        "dialog": {
+            "head": "你踏入濕熱的叢林，四周鳥鳴不絕。忽然，一條毒蛇竄出，尖牙深深咬入你的手臂，劇痛如火焰般蔓延全身。此時，你必須做出抉擇……",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "嘗試將蛇毒直接吸出來",
+                    "goto": "j-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "嘗試尋找解藥",
+                    "goto": "j-2"
+                }
+            }
+        }
+    },
+    "j-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你鼓起勇氣，拼命想把毒吸出體外，然而，毒素卻頑固的在血液中流竄。你的四肢漸漸冰冷，力氣一寸寸流失，視線開始模糊，最後，你的身影軟倒在潮濕的土地上......"
+        },
+        "btn": "下一步",
+        "goto": "ending-death-ice"
+    },
+    "j-2": {
+        "type": "question",
+        "dialog": {
+            "head": "你忍著疼痛，四處尋找解藥時，偶然闖入隱匿於樹林深處的薩滿部落。",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "不確定他們是否願意伸出援手。你決定獨自尋找解藥。",
+                    "goto": "j-2-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "進入部落尋求協助",
+                    "goto": "j-2-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "在周圍觀察他們是否具有攻擊性再決定",
+                    "goto": "j-2-3"
+                }
+            }
+        }
+    },
+    "j-2-1": {
+        "type": "question",
+        "dialog": {
+            "head": "在濃密的樹叢中，你發現了一株泛著淡淡光芒的解毒草。然而不遠處，一位神情嚴肅的精靈正守護著它。這時，你選擇怎麼做？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "等待時機，趁精靈不注意時前去取走",
+                    "goto": "j-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "向他表明身分，並詢問是否可以取走解毒草",
+                    "goto": "j-2-1-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "回過頭前往部落尋求協助看看",
+                    "goto": "j-2-2"
+                }
+            }
+        }
+    },
+    "j-2-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你掩藏身影緩緩靠近，當手指即將觸碰到那株草藥時，無情的箭矢忽然襲來。原來精靈早已察覺你的動作，正用冰冷的顏神凝視著你。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-1-1-1"
+    },
+    "j-2-1-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你意識到自己無法與他抗衡。最終，你無奈地放下手，束手就擒。"
+        },
+        "btn": "下一步",
+        "goto": "ending-d-SOB"
+    },
+    "j-2-1-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你鼓起勇氣，將來意如實告知。精靈表情漸漸和緩，願意將解毒草交到你手中，並告訴你一條通往洞窟的捷徑。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-1-2-1"
+    },
+    "j-2-1-2-1": {
+        "type": "question",
+        "dialog": {
+            "head": "沿著這條捷徑，你很快就抵達洞窟門口。但眼前卻出現兩條通道，通道內陰暗看不清盡頭。你必須做出新的選擇……",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "左側的入口",
+                    "goto": "j-2-1-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "右側的入口",
+                    "goto": "j-2-1-2-1-2"
+                }
+            }
+        }
+    },
+    "j-2-1-2-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "摔傷的疼痛讓你逐漸失去了意識，當再度睜眼時，已被魔法書送回到現實。"
+        },
+        "btn": "下一步",
+        "goto": "ending-d-DD"
+    },
+    "j-2-1-2-1-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你點燃火把，萬幸通道筆直且清晰，不至於迷失方向。\n道路盡頭，一道巨大的石門矗立眼前。門後，似乎潛藏著詛咒的根源。你深吸一口氣，推門而入。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-1-2-1-2-1"
+    },
+    "j-2-1-2-1-2-1": {
+        "type": "question",
+        "dialog": {
+            "head": "head",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "直接破除詛咒",
+                    "goto": "j-2-1-2-1-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "四處觀察",
+                    "goto": "j-2-1-2-1-2-1-2"
+                }
+            }
+        }
+    },
+    "j-2-1-2-1-2-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你奮力舉起那本帶你至此的魔法書，衝向魔法陣。在在即將觸碰到一瞬間，魔法書自行飛向中心，書頁自動翻動，突然四周開始晃動，魔法陣在震動與裂痕中瓦解。當一切歸於寂靜時，你已被魔法書帶回了現實。"
+        },
+        "btn": "下一步",
+        "goto": "ending-legal-grow-up"
+    },
+    "j-2-1-2-1-2-1-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "強風將你捲入魔法陣中，你來不及逃離，最終與陣法一同被封印。你的身影消失在石室之中，只能等待下一位勇者的到來……"
+        },
+        "btn": "下一步",
+        "goto": "ending-death-twhhf-take-care-of"
+    },
+    "ggg": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "敘述"
+        },
+        "btn": "下一步",
+        "goto": "none"
+    },
+    "goto": {
+        "type": "question",
+        "dialog": {
+            "head": "head",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "下一步",
+                    "goto": "none"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "下一步",
+                    "goto": "none"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "下一步",
+                    "goto": "none"
+                }
+            }
+        }
+    },
+    "ending-twhhf-take-care-of": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n關愛之家照顧服務",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-d-SOB": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n被專勤隊抓走",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-illegal-return": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n自主返國",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-legal-grow-up": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n合法長大\n（增加敘述）",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-legal": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n合法長大\n（關愛協助）",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-death": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n死亡結局",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-DoSW": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n社會局結局",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-Mozha": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\nMozha",
+            "description": "測試"
+        },
+        "goto": "start"
+    },
+    "ending-SOB": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n專勤隊",
+            "description": "測試0"
+        },
+        "goto": "start"
+    },
+    "ending-death-ice": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n冰冰",
+            "description": "測試0"
+        },
+        "goto": "start"
+    },
+    "ending-d-DD": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n丁丁",
+            "description": "測試0"
+        },
+        "goto": "start"
+    },
+    "ending-death-twhhf-take-care-of": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\nRIP 照顧服務",
+            "description": "測試0"
+        },
+        "goto": "start"
+    }
+}

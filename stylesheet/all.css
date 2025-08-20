@@ -13211,13 +13211,14 @@ body {
   text-align: left;
   padding: 0 1rem;
   transform: translateZ(0);
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 #game p.interlude, #game p .end,
 #game-test p.interlude,
 #game-test p .end {
   margin-bottom: auto !important;
-  height: 42.8vh;
+  height: 39vh;
 }
 #game h4.end, #game .end.h4,
 #game-test h4.end,
@@ -13228,7 +13229,7 @@ body {
 }
 #game .bi-caret-down-fill,
 #game-test .bi-caret-down-fill {
-  padding-bottom: 65px !important;
+  padding-bottom: 75px !important;
 }
 
 .dialog {

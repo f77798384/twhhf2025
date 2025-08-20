@@ -189,7 +189,8 @@ $('.option2').on('click', function (e) {
 
 
 $.ajax({
-    url: './text/magic_story.json',
+    url: './text/main_story.json',
+    // url: './text/careland_story.json',
     method: 'GET',
     dataType: 'json',
     data: '',
@@ -236,6 +237,8 @@ function safariHacks() {
     document.querySelector('.container').style.setProperty('--vh', windowsVH + 'px');
     document.querySelector('.main').style.setProperty('--vh', windowsVH + 'px');
     window.addEventListener('resize', function () {
+        windowsVH = window.innerHeight / 100;
+        console.log('resized')
         document.querySelector('.container').style.setProperty('--vh', windowsVH + 'px');
         document.querySelector('.main').style.setProperty('--vh', windowsVH + 'px');
     });
@@ -258,12 +261,12 @@ function renderNode(nodeKey) {
 
     // 顯示標題
     if (dialog.head) {
-        container.append(`<h4 class="mb-3 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
+        container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
     }
 
     // 顯示內容
     if (dialog.description) {
-        container.append(`<p class="mb-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="color:red;font-size:1.2rem;">' + atkstr + '</span>')}</p>`);
+        container.append(`<p class="mb-4 fs-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + atkstr + '</span>')}</p>`);
         if(node.type == 'interlude'){
             container.append(`<i class="bi bi-caret-down-fill"></i>`)
         }
