@@ -12,7 +12,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: min(50%,200px);
+        width: min(50%, 200px);
     }
 }
 
@@ -83,10 +83,10 @@
     position: relative;
     transform: translate(-50%, -50%);
     opacity: 0;
-    width: min(375px,75%);
+    width: min(375px, 75%);
 }
 
-.intro-business{
+.intro-business {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -96,14 +96,17 @@
     font-size: 3rem;
 }
 
-.intro-business{
-    background-color:rgba(255, 255, 255, 0.7);
+.intro-business {
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px 15px 0 0;
-    div{
+    div {
         max-width: calc(100% / 3);
-        padding: 1rem 2rem;
-        img{
-            max-height: 6vh;
+        padding: 5px 10px;
+        @media (min-width: 768px) {
+            padding: 1rem 2rem;
+        }
+        img {
+            max-height: 5vh;
         }
     }
 }

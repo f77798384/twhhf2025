@@ -13101,10 +13101,15 @@ body {
 }
 .intro-business div {
   max-width: 33.3333333333%;
-  padding: 1rem 2rem;
+  padding: 5px 10px;
+}
+@media (min-width: 768px) {
+  .intro-business div {
+    padding: 1rem 2rem;
+  }
 }
 .intro-business div img {
-  max-height: 6vh;
+  max-height: 5vh;
 }
 
 #stframe h2, #stframe .h2 {
