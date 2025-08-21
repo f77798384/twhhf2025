@@ -500,6 +500,7 @@
         }
     },
     "j-1": {
+        "img": "jungle-blurred vision",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -681,6 +682,7 @@
         "goto": "ending-death-twhhf-take-care-of"
     },
     "j-2-2": {
+        "img": "jungle-shaman-bandage",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -725,6 +727,7 @@
         "goto": "j-2-2-1-1-1"
     },
     "j-2-2-1-1-1": {
+        "img": "jungle-shaman-cave",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -734,6 +737,7 @@
         "goto": "j-2-2-1-1-1-1"
     },
     "j-2-2-1-1-1-1": {
+        "img": "jungle-cave-inside",
         "type": "question",
         "dialog": {
             "head": "你站在洞窟口向內張望，裡頭一片漆黑，視線極差，還夾雜著詭異的低鳴聲。此刻，你決定──",
@@ -769,6 +773,7 @@
         "goto": "ending-DoSW"
     },
     "j-2-2-1-1-1-1-2": {
+        "img": "jungle-shaman-deworming",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -778,6 +783,7 @@
         "goto": "j-2-2-1-1-1-1-2-1"
     },
     "j-2-2-1-1-1-1-3": {
+        "img": "jungle-cave-torch",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -787,6 +793,7 @@
         "goto": "j-2-2-1-1-1-1-2-1"
     },
     "j-2-2-1-1-1-1-2-1": {
+        "img": "jungle-cave-stone door",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -796,6 +803,7 @@
         "goto": "ending-twhhf-take-care-of"
     },
     "j-2-2-1-2": {
+        "img": "jungle-cave",
         "type": "question",
         "dialog": {
             "head": "你順利抵達洞窟，你向內張望，裡頭一片漆黑，視線極差，還夾雜著詭異的低鳴聲。此刻，你決定－－",
@@ -822,6 +830,7 @@
         }
     },
     "j-2-2-1-2-1": {
+        "img": "jungle-cave-branch",
         "type": "question",
         "dialog": {
             "head": "煙霧驅散了蟲鳴與不安。你舉起火把邁入洞窟，卻發現岔路──你將選擇前往哪一邊？",
@@ -842,6 +851,7 @@
         }
     },
     "j-2-2-1-2-1-1": {
+        "img": "jungle-cave-dwarf",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -851,6 +861,7 @@
         "goto": "j-2-2-1-2-1-1-1"
     },
     "j-2-2-1-2-1-1-1": {
+        "img": "jungle-cave-stone door",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -860,6 +871,7 @@
         "goto": "j-2-2-1-2-1-1-1-1"
     },
     "j-2-2-1-2-1-1-1-1": {
+        "img": "jungle-cave-chamber",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -869,6 +881,7 @@
         "goto": "ending-j-Mozha"
     },
     "j-2-2-1-2-1-2-1": {
+        "img":"jungle-cave-vertical shaft",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -878,6 +891,7 @@
         "goto": "j-2-2-1-2-1-2-1-1"
     },
     "j-2-2-1-2-1-2-1-1": {
+        "img":"jungle-cave-torch",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -887,6 +901,7 @@
         "goto": "ending-j-yang"
     },
     "j-2-2-1-2-2": {
+        "img":"jungle-cave-meet-shaman",
         "type": "interlude",
         "dialog": {
             "head": "幕間",

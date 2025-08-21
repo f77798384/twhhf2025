@@ -66,10 +66,10 @@
     }
 }
 
-.bgfadeIn{
+.bgfadeIn {
     animation: bgfadeIn ease-in-out 0.5s forwards;
 }
-.bgfadeOut{
+.bgfadeOut {
     animation: bgfadeOut ease-in-out 0.5s forwards;
 }
 
@@ -88,7 +88,7 @@
         width: min(80%, 400px);
         padding-top: 50px;
         margin: auto;
-        height: 65%;
+        height: 50%;
         position: relative;
         display: flex;
         align-items: center;
@@ -197,6 +197,13 @@
     text-align: center;
     border-radius: 15px 15px 0 0;
     align-content: center;
+    div {
+        width: calc((100% / 3) - 20px);
+        display: inline-block;
+        img{
+            max-height: 8vh !important;   
+        }
+    }
 }
 
 .fadein {

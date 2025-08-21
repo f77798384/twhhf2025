@@ -206,7 +206,9 @@ $('.option2').on('click', function (e) {
     $('.bg').click()
 })
 
-
+// let endarr = [];
+// let endarr2 = [];
+// let endnode;
 
 $.ajax({
     url: './text/main_story.json',
@@ -224,6 +226,14 @@ $.ajax({
             arr_chapter += `<option value="${a}">${a}</option>`
         })
         $('#chapter').html(arr_chapter)
+        // endnode = Object.keys(story);
+        // endnode.forEach(a => {
+        //     console.log(story[a]['goto'])
+        //     if ((story[a]['goto']) && (story[a]['goto'].search('ending') > -1)){
+        //         endarr.push(a)
+        //         endarr2.push(story[a]['goto'])
+        //     }
+        // })
     },
     error: err => {
         console.log(err)
@@ -505,3 +515,8 @@ $('#career').on('change', function () {
     atkstr = atkarr[$('#career').val()]
     renderNode($('#chapter').val())
 })
+
+
+
+
+

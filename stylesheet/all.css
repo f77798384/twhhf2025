@@ -12809,7 +12809,7 @@ body {
   width: min(80%, 400px);
   padding-top: 50px;
   margin: auto;
-  height: 65%;
+  height: 50%;
   position: relative;
   display: flex;
   align-items: center;
@@ -12916,6 +12916,13 @@ body {
   text-align: center;
   border-radius: 15px 15px 0 0;
   align-content: center;
+}
+.business div {
+  width: calc(33.3333333333% - 20px);
+  display: inline-block;
+}
+.business div img {
+  max-height: 8vh !important;
 }
 
 .fadein {
