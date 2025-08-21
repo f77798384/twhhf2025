@@ -95,3 +95,15 @@
     color: #fff;
     font-size: 3rem;
 }
+
+.intro-business{
+    background-color:rgba(255, 255, 255, 0.7);
+    border-radius: 15px 15px 0 0;
+    div{
+        max-width: calc(100% / 3);
+        padding: 1rem 2rem;
+        img{
+            max-height: 6vh;
+        }
+    }
+}

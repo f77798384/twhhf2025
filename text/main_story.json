@@ -184,7 +184,7 @@
             "description": "在轉角遇到了神廟守衛，將你五花大綁，送到祭壇上獻祭。"
         },
         "btn": "下一步",
-        "goto": "ending-d-SOB"
+        "goto": "ending-SOB"
     },
     "d-1-1-4": {
         "img": "magic book evil",
@@ -256,7 +256,7 @@
             "description": "沙盜們發現了你，你被他們抓走了。"
         },
         "btn": "下一步",
-        "goto": "ending-d-SOB"
+        "goto": "ending-SOB"
     },
     "d-2-2": {
         "img": "desert-drift sand",
@@ -366,7 +366,7 @@
         "goto": "d-2-3-1-1"
     },
     "d-2-3-1-1": {
-        "img": "缺圖",
+        "img": "desert-temple-purify",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -593,7 +593,7 @@
             "description": "你意識到自己無法與他抗衡。最終，你無奈地放下手，束手就擒。"
         },
         "btn": "下一步",
-        "goto": "ending-d-SOB"
+        "goto": "ending-SOB"
     },
     "j-2-1-2": {
         "img": "jungle-coverastion",
@@ -899,7 +899,7 @@
             ]
         },
         "btn": "下一步",
-        "goto": "ending-j-Mozha"
+        "goto": "ending-Mozha"
     },
     "j-2-2-1-2-1-2-1": {
         "img": "jungle-cave-vertical shaft",
@@ -967,7 +967,7 @@
         }
     },
     "j-2-2-1-2-3-1": {
-        "img":"jungle-cave-fall",
+        "img": "jungle-cave-fall",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -977,7 +977,7 @@
         "goto": "ending-j-yang"
     },
     "j-2-2-1-2-3-2": {
-        "img":"jungle-cave-stone door",
+        "img": "jungle-cave-stone door",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -987,7 +987,7 @@
         "goto": "ending-j-yang"
     },
     "j-2-2-1-2-3-3": {
-        "img":"jungle-cave-meet-shaman",
+        "img": "jungle-cave-meet-shaman",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -1006,7 +1006,7 @@
         "goto": "j-2-2-1-2-3-3-1-1"
     },
     "j-2-2-1-2-3-3-1-1": {
-        "img":"jungle-cave-chamber-glow",
+        "img": "jungle-cave-chamber-glow",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -1020,7 +1020,7 @@
             ]
         },
         "btn": "下一步",
-        "goto": "ending-j-Mozha"
+        "goto": "ending-Mozha"
     },
     "j-2-2-1-3": {
         "type": "interlude",
@@ -1032,7 +1032,7 @@
         "goto": "ending-DoSW"
     },
     "j-2-3": {
-        "img":"jungle-blurred vision",
+        "img": "jungle-blurred vision",
         "type": "question",
         "dialog": {
             "head": "毒性在身上蔓延，你出現了視線模糊、全身無力的現象，你決定？",
@@ -1100,15 +1100,15 @@
         "type": "end",
         "dialog": {
             "head": "結局\n關愛之家照顧服務",
-            "description": "測試"
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452'>傳送門</a></span>"
         },
         "goto": "start"
     },
-    "ending-d-SOB": {
+    "ending-SOB": {
         "type": "end",
         "dialog": {
-            "head": "結局\n被專勤隊抓走",
-            "description": "測試"
+            "head": "結局\n遣返回國",
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=glad'>傳送門</a></span>"
         },
         "goto": "start"
     },
@@ -1116,31 +1116,15 @@
         "type": "end",
         "dialog": {
             "head": "結局\n自主返國",
-            "description": "測試"
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=O'>傳送門</a></span>"
         },
         "goto": "start"
     },
     "ending-legal-grow-up": {
         "type": "end",
         "dialog": {
-            "head": "結局\n合法長大\n（增加敘述）",
-            "description": "測試"
-        },
-        "goto": "start"
-    },
-    "ending-legal": {
-        "type": "end",
-        "dialog": {
-            "head": "結局\n合法長大\n（關愛協助）",
-            "description": "測試"
-        },
-        "goto": "start"
-    },
-    "ending-death": {
-        "type": "end",
-        "dialog": {
-            "head": "結局\n死亡結局",
-            "description": "測試"
+            "head": "結局\n合法長大",
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=courage'>傳送門</a></span>"
         },
         "goto": "start"
     },
@@ -1148,23 +1132,15 @@
         "type": "end",
         "dialog": {
             "head": "結局\n社會局結局",
-            "description": "測試"
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=DODO'>傳送門</a></span>"
         },
         "goto": "start"
     },
     "ending-Mozha": {
         "type": "end",
         "dialog": {
-            "head": "結局\nMozha",
-            "description": "測試"
-        },
-        "goto": "start"
-    },
-    "ending-SOB": {
-        "type": "end",
-        "dialog": {
-            "head": "結局\n專勤隊",
-            "description": "測試0"
+            "head": "結局\n茵茵",
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=Mozha'>傳送門</a></span>"
         },
         "goto": "start"
     },
@@ -1172,31 +1148,23 @@
         "type": "end",
         "dialog": {
             "head": "結局\n冰冰",
-            "description": "測試0"
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=ice'>傳送門</a></span>"
         },
         "goto": "start"
     },
     "ending-d-DD": {
         "type": "end",
         "dialog": {
-            "head": "結局\n丁丁",
-            "description": "測試0"
+            "head": "結局\nＤＤ",
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=DD'>傳送門</a></span>"
         },
         "goto": "start"
     },
     "ending-death-twhhf-take-care-of": {
         "type": "end",
         "dialog": {
-            "head": "結局\nRIP 照顧服務",
-            "description": "測試0"
-        },
-        "goto": "start"
-    },
-    "ending-j-Mozha": {
-        "type": "end",
-        "dialog": {
-            "head": "結局\nRIP 照顧服務",
-            "description": "測試0"
+            "head": "結局\n死亡結局",
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target='>傳送門</a></span>"
         },
         "goto": "start"
     }

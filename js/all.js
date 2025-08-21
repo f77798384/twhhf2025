@@ -179,7 +179,7 @@ $('.idcard').on('click', function (e) {
             }
             if (random > 5) {
                 num_career = random - 6
-            }else{
+            } else {
                 num_career = random
             }
             $('.dialog p').html(`<p class="m-0 pb-3 fs-5">
@@ -521,7 +521,7 @@ $('#career').on('change', function () {
             identity = 'illegal'
             break;
     }
-    num_career = $('#career').val()-1
+    num_career = $('#career').val() - 1
     renderNode($('#chapter').val())
 })
 

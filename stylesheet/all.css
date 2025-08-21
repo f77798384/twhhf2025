@@ -12922,7 +12922,7 @@ body {
   display: inline-block;
 }
 .business div img {
-  max-height: 8vh !important;
+  max-height: 6vh !important;
 }
 
 .fadein {
@@ -13093,6 +13093,18 @@ body {
   text-align: center;
   color: #fff;
   font-size: 3rem;
+}
+
+.intro-business {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px 15px 0 0;
+}
+.intro-business div {
+  max-width: 33.3333333333%;
+  padding: 1rem 2rem;
+}
+.intro-business div img {
+  max-height: 6vh;
 }
 
 #stframe h2, #stframe .h2 {
