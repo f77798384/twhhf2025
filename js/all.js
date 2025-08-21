@@ -42,9 +42,7 @@ let where = '';
 let mute = '';
 let st = true;
 let career = '';
-let atkarr = ['none', '舉起了權杖，對魔法書施展了淨化', '拿起了戰錘，狠狠地砸向魔法書', '拔出了寶劍，須臾間將魔法書斬為兩半', '架起了弓箭，射向半空中的魔法書', '舉起重斧奮力跳起，下落的同時將魔法書劈成兩半'];
-let atkstr = 'none';
-
+let num_career = '';
 
 bgm.volume = 0.8
 bgm.loop = true
@@ -80,7 +78,9 @@ $('#on-off').on('click', function (e) {
 $('#list').on('click', function (e) {
     e.preventDefault();
     // $('.more').fadeToggle()
-    amore.play()
+    if (mute == false) {
+        amore.play()
+    }
     $('.more').toggleClass('fadein')
     $('.more').toggleClass('fadeout')
     $('.more').css('display', 'flex')
@@ -89,7 +89,9 @@ $('#close-more').on('click', function (e) {
     e.preventDefault();
     $('.more').toggleClass('fadein')
     $('.more').toggleClass('fadeout')
-    amorec.play()
+    if (mute == false) {
+        amorec.play()
+    }
     setTimeout(() => {
         $('.more').css('display', 'none')
     }, 800);
@@ -175,10 +177,11 @@ $('.idcard').on('click', function (e) {
                     identity = 'illegal'
                     break;
             }
-            atkstr = atkarr[random]
-            // $('.identity').text(`${random < 1 ? '合法移工之子' : '非法移工之子'}`)
-            // $('.identity').attr('data-id', `${random < 1 ? 'legal' : 'illegal'}`)
-            // $('.identity').attr('data-id', `${random < 1 ? identity = 'legal' : identity = 'illegal'}`)
+            if (random > 5) {
+                num_career = random - 6
+            }else{
+                num_career = random
+            }
             $('.dialog p').html(`<p class="m-0 pb-3 fs-5">
                             您的身分為「<span class="identity">${career}</span>」
                             <br>
@@ -275,6 +278,7 @@ function safariHacks() {
 }
 safariHacks();
 
+let testa = ''
 
 function renderNode(nodeKey) {
     const node = story[nodeKey];
@@ -299,8 +303,13 @@ function renderNode(nodeKey) {
     }
 
     // 顯示內容
+    let str
+    try {
+        str = dialog.career[num_career]
+    } catch (error) {
+    }
     if (dialog.description) {
-        container.append(`<p class="mb-4 fs-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + atkstr + '</span>')}</p>`);
+        container.append(`<p class="mb-4 fs-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + str + '</span>')}</p>`);
         if (node.type == 'interlude') {
             container.append(`<i class="bi bi-caret-down-fill"></i>`)
         }
@@ -512,7 +521,7 @@ $('#career').on('change', function () {
             identity = 'illegal'
             break;
     }
-    atkstr = atkarr[$('#career').val()]
+    num_career = $('#career').val()-1
     renderNode($('#chapter').val())
 })
 

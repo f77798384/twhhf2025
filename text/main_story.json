@@ -48,7 +48,7 @@
                 },
                 "o2": {
                     "type": "1",
-                    "condition": "none",
+                    "condition": "close",
                     "description": "廣袤草原上的遺跡",
                     "goto": "g"
                 },
@@ -201,7 +201,14 @@
         "type": "interlude",
         "dialog": {
             "head": "幕間",
-            "description": "你看見祭壇上漂浮著一本散發黑色光芒的魔法書，不斷侵蝕著神殿——正是詛咒的源頭。此刻，你{{帶入職業}}"
+            "description": "你看見祭壇上漂浮著一本散發黑色光芒的魔法書，不斷侵蝕著神殿——正是詛咒的源頭。此刻，你{{帶入職業}}",
+            "career": [
+                "高舉權杖，魔法書在聖光中逐漸淨化。",
+                "揮動重錘，用力砸下，魔法書隨之化為塵埃。",
+                "拔出寶劍，劍光閃爍，斬碎魔法書。",
+                "拉開弓弦，箭矢飛射，正中半空的魔法書。",
+                "舉起巨斧，躍身劈下，魔法書被斬成兩半。"
+            ]
         },
         "btn": "下一步",
         "goto": "ending-illegal-return"
@@ -349,7 +356,7 @@
         "goto": "d-2-3-1"
     },
     "d-2-3-1": {
-        "img": "缺圖",
+        "img": "desert-temple",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -359,7 +366,7 @@
         "goto": "d-2-3-1-1"
     },
     "d-2-3-1-1": {
-        "img": "desert-temple",
+        "img": "缺圖",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -443,7 +450,14 @@
         "type": "interlude",
         "dialog": {
             "head": "幕間",
-            "description": "主殿祭壇上，你翻開的魔法書正懸浮半空，散發著詭異的紫黑光芒——那正是詛咒的源頭。此刻，你{{帶入職業}}"
+            "description": "主殿祭壇上，你翻開的魔法書正懸浮半空，散發著詭異的紫黑光芒——那正是詛咒的源頭。此刻，你{{帶入職業}}",
+            "career": [
+                "高舉權杖，魔法書在聖光中逐漸淨化。",
+                "揮動重錘，用力砸下，魔法書隨之顫抖崩裂。",
+                "拔出寶劍，劍光閃爍，魔法書被斬成兩半。",
+                "拉開弓弦，箭矢飛射，正中半空的魔法書。",
+                "舉起巨斧，躍身劈下，魔法書瞬間破裂。"
+            ]
         },
         "btn": "下一步",
         "goto": "ending-illegal-return"
@@ -875,13 +889,20 @@
         "type": "interlude",
         "dialog": {
             "head": "幕間",
-            "description": "你與矮人打開了石門，看著地面上發光的魔法陣你{{帶入職業}}。"
+            "description": "你與矮人打開了石門，看著地面上發光的魔法陣你{{帶入職業}}。",
+            "career": [
+                "站在魔法陣中心舉起了權杖施展了淨化，魔法陣散成數個微小的光點",
+                "拿起了戰錘砸碎了地面，魔法陣也因此被破壞掉",
+                "拔出了寶劍將整個魔法陣劈成兩半",
+                "拿起了小刀朝中心刺去，魔法陣頓時失去了光芒",
+                "舉起重斧奮力跳起，透過下落的重力將魔法陣打散"
+            ]
         },
         "btn": "下一步",
         "goto": "ending-j-Mozha"
     },
     "j-2-2-1-2-1-2-1": {
-        "img":"jungle-cave-vertical shaft",
+        "img": "jungle-cave-vertical shaft",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -891,7 +912,7 @@
         "goto": "j-2-2-1-2-1-2-1-1"
     },
     "j-2-2-1-2-1-2-1-1": {
-        "img":"jungle-cave-torch",
+        "img": "jungle-cave-torch",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -901,7 +922,7 @@
         "goto": "ending-j-yang"
     },
     "j-2-2-1-2-2": {
-        "img":"jungle-cave-meet-shaman",
+        "img": "jungle-cave-meet-shaman",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -946,6 +967,7 @@
         }
     },
     "j-2-2-1-2-3-1": {
+        "img":"jungle-cave-fall",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -955,6 +977,7 @@
         "goto": "ending-j-yang"
     },
     "j-2-2-1-2-3-2": {
+        "img":"jungle-cave-stone door",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -964,6 +987,7 @@
         "goto": "ending-j-yang"
     },
     "j-2-2-1-2-3-3": {
+        "img":"jungle-cave-meet-shaman",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -982,10 +1006,18 @@
         "goto": "j-2-2-1-2-3-3-1-1"
     },
     "j-2-2-1-2-3-3-1-1": {
+        "img":"jungle-cave-chamber-glow",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
-            "description": "你與薩滿打開了石門，看著地面上發光的魔法陣你{{帶入職業}}。"
+            "description": "你與薩滿打開了石門，看著地面上發光的魔法陣你{{帶入職業}}。",
+            "career": [
+                "站在魔法陣中心舉起了權杖施展了淨化，魔法陣散成數個微小的光點",
+                "拿起了戰錘砸碎了地面，魔法陣也因此被破壞掉",
+                "拔出了寶劍將整個魔法陣劈成兩半",
+                "拿起了小刀朝中心刺去，魔法陣頓時失去了光芒",
+                "舉起重斧奮力跳起，透過下落的重力將魔法陣打散"
+            ]
         },
         "btn": "下一步",
         "goto": "ending-j-Mozha"
@@ -1000,6 +1032,7 @@
         "goto": "ending-DoSW"
     },
     "j-2-3": {
+        "img":"jungle-blurred vision",
         "type": "question",
         "dialog": {
             "head": "毒性在身上蔓延，你出現了視線模糊、全身無力的現象，你決定？",
