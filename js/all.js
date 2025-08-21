@@ -126,7 +126,7 @@ $('.idcard').on('click', function (e) {
             cardflip.play()
         }
         setTimeout(function () {
-            let random = Math.floor(Math.random() * 5)
+            let random = Math.floor(Math.random() * 11)
             $('.lotto .front').addClass('ryp')
             $('.lotto .back').addClass('ryn')
             switch (random) {
@@ -151,6 +151,26 @@ $('.idcard').on('click', function (e) {
                     identity = 'illegal'
                     break;
                 case 5:
+                    career = '樵夫'
+                    identity = 'illegal'
+                    break;
+                case 6:
+                    career = '祭司'
+                    identity = 'illegal'
+                    break;
+                case 7:
+                    career = '鐵匠'
+                    identity = 'illegal'
+                    break;
+                case 8:
+                    career = '勇者'
+                    identity = 'illegal'
+                    break;
+                case 9:
+                    career = '獵人'
+                    identity = 'illegal'
+                    break;
+                case 10:
                     career = '樵夫'
                     identity = 'illegal'
                     break;
