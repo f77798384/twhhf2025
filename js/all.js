@@ -36,7 +36,7 @@ let press = $('#press')[0];
 let amore = $('#a-more')[0];
 let amorec = $('#a-more-c')[0];
 let sw = $('#on-off .bi');
-let identity = 'legal'
+let identity = 'illegal'
 let flip = false
 let where = '';
 let mute = '';
@@ -261,13 +261,17 @@ function renderNode(nodeKey) {
 
     // 顯示標題
     if (dialog.head) {
-        container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
+        if (node.type == 'interlude') {
+            container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
+        } else {
+            container.append(`<h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
+        }
     }
 
     // 顯示內容
     if (dialog.description) {
         container.append(`<p class="mb-4 fs-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + atkstr + '</span>')}</p>`);
-        if(node.type == 'interlude'){
+        if (node.type == 'interlude') {
             container.append(`<i class="bi bi-caret-down-fill"></i>`)
         }
     }
@@ -439,7 +443,7 @@ $('#memory-btn').on('click', function (e) {
 
 
 $('#chapter').on('change', function () {
-    if($('#game').attr('class').search('d-none') > -1){
+    if ($('#game').attr('class').search('d-none') > -1) {
         st = false
         $('#stframe').addClass('d-none')
         $('.lotto').addClass('d-none')
@@ -452,6 +456,32 @@ $('#chapter').on('change', function () {
 })
 $('#career').on('change', function () {
     console.log($('#career').val())
+    switch ($('#career').val()) {
+        case 0:
+            career = '村民A'
+            identity = 'legal'
+            break;
+        case 1:
+            career = '祭司'
+            identity = 'illegal'
+            break;
+        case 2:
+            career = '鐵匠'
+            identity = 'illegal'
+            break;
+        case 3:
+            career = '勇者'
+            identity = 'illegal'
+            break;
+        case 4:
+            career = '獵人'
+            identity = 'illegal'
+            break;
+        case 5:
+            career = '樵夫'
+            identity = 'illegal'
+            break;
+    }
     atkstr = atkarr[$('#career').val()]
     renderNode($('#chapter').val())
 })
