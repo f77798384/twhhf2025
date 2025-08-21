@@ -343,7 +343,7 @@
         "type": "interlude",
         "dialog": {
             "head": "幕間",
-            "description": "真的是綠洲，於是你補充完飲用水再次踏上旅途"
+            "description": "路上你遇見了旅行商人同行了一段路程，他們與你分享旅行中趣事，也告訴你快速通往神廟的方法。"
         },
         "btn": "下一步",
         "goto": "d-2-3-1"
@@ -353,23 +353,13 @@
         "type": "interlude",
         "dialog": {
             "head": "幕間",
-            "description": "路上你遇見了旅行商人同行了一段路程，他們與你分享旅行中趣事，也告訴你快速通往神廟的方法。"
+            "description": "按照旅行商人的引導，你發現神廟出現在了遠方。"
         },
         "btn": "下一步",
         "goto": "d-2-3-1-1"
     },
     "d-2-3-1-1": {
         "img": "desert-temple",
-        "type": "interlude",
-        "dialog": {
-            "head": "幕間",
-            "description": "按照旅行商人的引導，你發現神廟出現在了遠方。"
-        },
-        "btn": "下一步",
-        "goto": "d-2-3-1-1-1"
-    },
-    "d-2-3-1-1-1": {
-        "img": "缺圖",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
