@@ -489,7 +489,7 @@
         "goto": "ending-SOB"
     },
     "j": {
-        "img":"jungle",
+        "img": "jungle",
         "type": "question",
         "dialog": {
             "head": "你踏入濕熱的叢林，四周鳥鳴不絕。忽然，一條毒蛇竄出，尖牙深深咬入你的手臂，劇痛如火焰般蔓延全身。此時，你必須做出抉擇……",
@@ -545,7 +545,7 @@
         }
     },
     "j-2-1": {
-        "img":"jungle-antidote",
+        "img": "jungle-antidote",
         "type": "question",
         "dialog": {
             "head": "在濃密的樹叢中，你發現了一株泛著淡淡光芒的解毒草。然而不遠處，一位神情嚴肅的精靈正守護著它。這時，你選擇怎麼做？",
@@ -572,7 +572,7 @@
         }
     },
     "j-2-1-1": {
-        "img":"jungle-alert",
+        "img": "jungle-alert",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -591,7 +591,7 @@
         "goto": "ending-d-SOB"
     },
     "j-2-1-2": {
-        "img":"jungle-coverastion",
+        "img": "jungle-coverastion",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -601,7 +601,7 @@
         "goto": "j-2-1-2-1"
     },
     "j-2-1-2-1": {
-        "img":"jungle-cave-branch",
+        "img": "jungle-cave-branch",
         "type": "question",
         "dialog": {
             "head": "沿著這條捷徑，你很快就抵達洞窟門口。但眼前卻出現兩條通道，通道內陰暗看不清盡頭。你必須做出新的選擇……",
@@ -640,7 +640,7 @@
         "goto": "ending-d-DD"
     },
     "j-2-1-2-1-2": {
-        "img":"jungle-cave-stone door",
+        "img": "jungle-cave-stone door",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -650,7 +650,7 @@
         "goto": "j-2-1-2-1-2-1"
     },
     "j-2-1-2-1-2-1": {
-        "img":"jungle-cave-chamber",
+        "img": "jungle-cave-chamber",
         "type": "question",
         "dialog": {
             "head": "石室裡，正中央刻畫著詭異的魔法陣，閃爍著微弱的光芒。空氣中瀰漫著不安的氣息。此刻，你選擇？",
@@ -671,7 +671,7 @@
         }
     },
     "j-2-1-2-1-2-1-1": {
-        "img":"jungle-cave-chamber-glow-magic book",
+        "img": "jungle-cave-chamber-glow-magic book",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -681,7 +681,7 @@
         "goto": "ending-legal-grow-up"
     },
     "j-2-1-2-1-2-1-2": {
-        "img":"jungle-cave-chamber-glow-gale",
+        "img": "jungle-cave-chamber-glow-gale",
         "type": "interlude",
         "dialog": {
             "head": "幕間",
@@ -689,6 +689,339 @@
         },
         "btn": "下一步",
         "goto": "ending-death-twhhf-take-care-of"
+    },
+    "j-2-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "部落的族人熱情接待你，巫醫仔細檢視你的傷口。雖然沒有解藥，無法徹底治癒，但替你做了緊急處置，並為你塗上能暫時壓制毒性的草藥。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1"
+    },
+    "j-2-2-1": {
+        "type": "question",
+        "dialog": {
+            "head": "經過處置後，你的狀況稍稍好轉，巫醫遞給你一些應急藥物。接下來，你決定－－",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "留在部落養精蓄銳\n休養完再繼續面對未知的挑戰。",
+                    "description": "下一步",
+                    "goto": "j-2-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "詛咒的解除更為重要\n毅然決然前往洞窟",
+                    "goto": "j-2-2-1-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "任務太過困難\n選擇回到現實",
+                    "goto": "j-2-2-1-3"
+                }
+            }
+        }
+    },
+    "j-2-2-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你在部落停留了一些時日，在族人的幫助下備妥行李。臨行前，巫醫擔心你蛇毒復發，便隨你一同前往洞窟。歷經重重波折，你們終於抵達洞窟入口。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-1-1"
+    },
+    "j-2-2-1-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你站在洞窟口向內張望，裡頭一片漆黑，視線極差，還夾雜著詭異的低鳴聲。此刻，你決定──"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-1-1-1"
+    },
+    "j-2-2-1-1-1-1": {
+        "type": "question",
+        "dialog": {
+            "head": "你站在洞窟口向內張望，裡頭一片漆黑，視線極差，還夾雜著詭異的低鳴聲。此刻，你決定──",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "選擇離開\n回到現實",
+                    "goto": "j-2-2-1-1-1-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "點燃驅蟲藥草",
+                    "goto": "j-2-2-1-1-1-1-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "舉起火把\n進入洞窟",
+                    "goto": "j-2-2-1-1-1-1-3"
+                }
+            }
+        }
+    },
+    "j-2-2-1-1-1-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你回到了現實，但書中世界的詛咒仍未消失。那裡的人們為了解開詛咒而不斷奮鬥，期望掙脫命運的枷鎖。"
+        },
+        "btn": "下一步",
+        "goto": "ending-DoSW"
+    },
+    "j-2-2-1-1-1-1-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你在洞口燃起驅蟲藥草，縷縷煙霧驅散了不安。\n等藥草燃盡後，你與巫醫一同踏入幽暗洞窟。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-1-1-1-2-1"
+    },
+    "j-2-2-1-1-1-1-3": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你們發現聲音的來源，是空氣在洞窟空腔內流動所造成的，還好只是虛驚一場。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-1-1-1-2-1"
+    },
+    "j-2-2-1-1-1-1-2-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "一路深入洞窟，最終在盡頭發現一扇巨大的石門。合力推開後，耀眼光芒傾瀉而出，浮現出閃爍符文的魔法陣。\n在巫醫的協助下，魔法陣啟動，詛咒隨之解除。此時，你身上的魔法書緩緩漂浮，光芒將你托起，帶你離開這個世界。"
+        },
+        "btn": "下一步",
+        "goto": "ending-twhhf-take-care-of"
+    },
+    "j-2-2-1-2": {
+        "type": "question",
+        "dialog": {
+            "head": "你順利抵達洞窟，你向內張望，裡頭一片漆黑，視線極差，還夾雜著詭異的低鳴聲。此刻，你決定－－",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "點燃驅蟲藥草",
+                    "goto": "j-2-2-1-2-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "legal",
+                    "description": "一鼓作氣進入洞窟",
+                    "goto": "j-2-2-1-2-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "illegal",
+                    "description": "一鼓作氣進入洞窟",
+                    "goto": "j-2-2-1-2-3"
+                }
+            }
+        }
+    },
+    "j-2-2-1-2-1": {
+        "type": "question",
+        "dialog": {
+            "head": "煙霧驅散了蟲鳴與不安。你舉起火把邁入洞窟，卻發現岔路──你將選擇前往哪一邊？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "左側－光影閃爍不停",
+                    "goto": "j-2-2-1-2-1-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "右側－傳來陣陣風聲",
+                    "goto": "j-2-2-1-2-1-2"
+                }
+            }
+        }
+    },
+    "j-2-2-1-2-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你走進深處，發現這裡住著矮人。\n他們見你臉色發青，立刻辨出蛇毒，並以魔法為你解毒。你幸運地解除蛇毒。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-2-1-1-1"
+    },
+    "j-2-2-1-2-1-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "矮人告訴你，他們在等待勇者來解除詛咒。於是結伴而行，最終抵達一座龐大的石門，合力推開後，地面浮現出一道發光的魔法陣。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-2-1-1-1-1"
+    },
+    "j-2-2-1-2-1-1-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你與矮人打開了石門，看著地面上發光的魔法陣你{{帶入職業}}。"
+        },
+        "btn": "下一步",
+        "goto": "ending-j-Mozha"
+    },
+    "j-2-2-1-2-1-2-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你循著風聲前進，沿途沒再遇見岔路。可惜在洞底，你才發現風聲竟源自一道直通地表的狹窄裂縫。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-2-1-2-1-1"
+    },
+    "j-2-2-1-2-1-2-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你無奈折返，卻發覺蛇毒已全面擴散，四肢逐漸無力、變得僵硬，無法再回到岔路口……"
+        },
+        "btn": "下一步",
+        "goto": "ending-j-yang"
+    },
+    "j-2-2-1-2-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你毫不遲疑踏入洞窟。沒多久，熟悉的聲音響起——，原來薩滿部落的巫醫擔心你的蛇毒未解，特地前來相助。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-2-2-1-1"
+    },
+    "j-2-2-1-2-2-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "一路深入洞窟，最終在盡頭發現一扇巨大的石門。合力推開後，耀眼光芒傾瀉而出，浮現出閃爍符文的魔法陣。\n在巫醫的協助下，魔法陣啟動，詛咒隨之解除。此時，你身上的魔法書緩緩漂浮，光芒將你托起，帶你離開這個世界。"
+        },
+        "btn": "下一步",
+        "goto": "ending-death-twhhf-take-care-of"
+    },
+    "j-2-2-1-2-3": {
+        "type": "question",
+        "dialog": {
+            "head": "你鼓起勇氣直入洞窟，不久後卻感到胸口沉悶、呼吸困難，蛇毒再次發作。身陷險境的你進退兩難，最後決定－－？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "任務太過困難\n選擇回到現實",
+                    "goto": "j-2-2-1-2-3-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "詛咒源頭就在眼前\n咬著牙繼續進行",
+                    "goto": "j-2-2-1-2-3-2"
+                },
+                "o3": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "退出洞窟稍作喘息",
+                    "goto": "j-2-2-1-2-3-3"
+                }
+            }
+        }
+    },
+    "j-2-2-1-2-3-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你拿出了魔法書想要回到現實，但隨著蛇毒的發作，你的四肢開始麻木而失去知覺，你的意識逐漸朦朧倒在了地上。"
+        },
+        "btn": "下一步",
+        "goto": "ending-j-yang"
+    },
+    "j-2-2-1-2-3-2": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你撐著持續衰弱的身軀繼續前進，在洞窟的底部你發現了一道石門，門後似乎就是詛咒的來源。\n但此時的你手腳開始麻木已無力前行。"
+        },
+        "btn": "下一步",
+        "goto": "ending-j-yang"
+    },
+    "j-2-2-1-2-3-3": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你拿出了應急藥物服用了下去，雖然依然難受但至少人還保持著清醒。\n在休整時薩滿部落的人因為擔心你也來到洞窟口，他們決定與你一同進入洞窟。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-2-3-3-1"
+    },
+    "j-2-2-1-2-3-3-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你們點燃了火把往洞窟深處邁進，最終發現了一道巨大的石門，而門後似乎就是詛咒的來源。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1-2-3-3-1-1"
+    },
+    "j-2-2-1-2-3-3-1-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你與薩滿打開了石門，看著地面上發光的魔法陣你{{帶入職業}}。"
+        },
+        "btn": "下一步",
+        "goto": "ending-j-Mozha"
+    },
+    "j-2-2-1-3": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "你回到了現實，但書中世界的詛咒仍未消失。那裡的人們為了解開詛咒而不斷奮鬥，期望掙脫命運的枷鎖。"
+        },
+        "btn": "下一步",
+        "goto": "ending-DoSW"
+    },
+    "j-2-3": {
+        "type": "question",
+        "dialog": {
+            "head": "毒性在身上蔓延，你出現了視線模糊、全身無力的現象，你決定？",
+            "options": {
+                "o1": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "大聲呼救",
+                    "goto": "j-2-3-1"
+                },
+                "o2": {
+                    "type": "1",
+                    "condition": "none",
+                    "description": "任務太過困難\n選擇回到現實",
+                    "goto": "j-2-2-1-3"
+                }
+            }
+        }
+    },
+    "j-2-3-1": {
+        "type": "interlude",
+        "dialog": {
+            "head": "幕間",
+            "description": "他們發現了你的存在並圍了過來。意外的是他們十分友善，為你進行了緊急處置，但很遺憾的是他們也沒有能夠治療你的藥物。"
+        },
+        "btn": "下一步",
+        "goto": "j-2-2-1"
     },
     "ggg": {
         "type": "interlude",
@@ -814,6 +1147,14 @@
         "goto": "start"
     },
     "ending-death-twhhf-take-care-of": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\nRIP 照顧服務",
+            "description": "測試0"
+        },
+        "goto": "start"
+    },
+    "ending-j-Mozha": {
         "type": "end",
         "dialog": {
             "head": "結局\nRIP 照顧服務",
