@@ -12699,7 +12699,7 @@ textarea.form-control-lg {
 }
 
 body {
-  background-image: url(../img/bg-2.png);
+  background-image: url(../img/bg-2.webp);
   background-repeat: no-repeat;
   background-size: 1200px;
   overflow: hidden;
@@ -12738,7 +12738,7 @@ body {
 }
 .main .bg {
   position: absolute;
-  background-image: url(../img/introbg.jpg);
+  background-image: url(../img/introbg.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -12800,7 +12800,7 @@ body {
   bottom: 0;
   right: 0;
   z-index: 3;
-  background-image: url(../img/bg-3.png);
+  background-image: url(../img/bg-3.webp);
   background-size: cover;
 }
 .more .inner {
