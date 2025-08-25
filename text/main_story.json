@@ -1131,7 +1131,7 @@
     "ending-DoSW": {
         "type": "end",
         "dialog": {
-            "head": "結局\n社會局結局",
+            "head": "結局\n安置照顧",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=DODO'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/twhhflove2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1163,7 +1163,7 @@
     "ending-death-twhhf-take-care-of": {
         "type": "end",
         "dialog": {
-            "head": "結局\n死亡結局",
+            "head": "結局\n成為小天使",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target='>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/twhhflove2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
