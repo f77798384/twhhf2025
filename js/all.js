@@ -280,7 +280,7 @@ safariHacks();
 
 let testa = ''
 
-function renderNode(nodeKey) {
+function renderNode(nodeKey,dev) {
     const node = story[nodeKey];
     if (!node) return;
 
@@ -337,7 +337,7 @@ function renderNode(nodeKey) {
         container.append(`
             <a class="option2 ${node.type}" data-goto="${node.goto}" ">${btnText}</a>
             `);
-        if (node.type == 'end') {
+        if (node.type == 'end' && dev != undefined) {
             $.ajax({
                 type: 'POST',
                 url: "https://docs.google.com/forms/d/e/1FAIpQLSfCjPJJlD0CJ15M6tatxqv1CtUkIVRpY_Coo6Ar8BGgsyZ_9w/formResponse",
@@ -524,5 +524,5 @@ $('#career').on('change', function () {
             break;
     }
     num_career = $('#career').val() - 1
-    renderNode($('#chapter').val())
+    renderNode($('#chapter').val(),'dev')
 })
