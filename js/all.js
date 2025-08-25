@@ -182,12 +182,22 @@ $('.idcard').on('click', function (e) {
             } else {
                 num_career = random
             }
-            $('.dialog p').html(`<p class="m-0 pb-3 fs-5">
-                            您的身分為「<span class="identity">${career}</span>」
-                            <br>
-                            若想更改身分可以再次點擊畫面
-                            <button id="checkid">確定身分並開始人生</button>
-                        </p>`)
+            $('#c_lottery').addClass('d-none')
+            $('#c_result').removeClass('d-none').html(
+                `
+                您的身分為「<span class="identity">${career}</span>」
+                <br>
+                若想更改身分可以再次點擊畫面
+                <button id="checkid">確定身分並開始人生</button>
+                `
+            )
+
+            // $('.dialog p').html(`<p class="m-0 pb-3 fs-5">
+            //                 您的身分為「<span class="identity">${career}</span>」
+            //                 <br>
+            //                 若想更改身分可以再次點擊畫面
+            //                 <button id="checkid">確定身分並開始人生</button>
+            //             </p>`)
         }, 1)
         setTimeout(() => {
             $('.dialog').removeClass('d-none')
@@ -280,7 +290,7 @@ safariHacks();
 
 let testa = ''
 
-function renderNode(nodeKey,dev) {
+function renderNode(nodeKey, dev) {
     const node = story[nodeKey];
     if (!node) return;
 
@@ -363,6 +373,8 @@ function reset() {
     $('#game').addClass('d-none')
     $('#stframe').removeClass('d-none')
     $('.bg').css('background-image', ``)
+    $('#c_lottery').removeClass('d-none')
+    $('#c_result').addClass('d-none')
     where = '';
 }
 
@@ -524,5 +536,5 @@ $('#career').on('change', function () {
             break;
     }
     num_career = $('#career').val() - 1
-    renderNode($('#chapter').val(),'dev')
+    renderNode($('#chapter').val(), 'dev')
 })
