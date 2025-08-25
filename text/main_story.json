@@ -38,7 +38,7 @@
     "target": {
         "type": "question",
         "dialog": {
-            "head": "魔法師指著地圖上被圈起來的三個地方，你選擇前往？",
+            "head": "魔法師指著地圖上被圈起來的幾個地方，你選擇前往？",
             "options": {
                 "o1": {
                     "type": "1",
@@ -314,7 +314,7 @@
             "description": "你猛然驚醒，意識像潮水般回到身體，四周的景象逐漸清晰，你突然明白，那些驚心動魄的冒險不過是一場夢，此刻的你已回到了現實。"
         },
         "btn": "繼續朝著神廟前進",
-        "goto": "ending-death-grapefruit"
+        "goto": "ending-death-twhhf-take-care-of"
     },
     "d-2-2-1-1": {
         "img": "desert-cave-temple",
@@ -385,13 +385,13 @@
                     "type": "1",
                     "condition": "illegal",
                     "description": "旅途艱險，你決定放棄，返回現實。",
-                    "goto": "DoSW"
+                    "goto": "ending-DoSW"
                 },
                 "o2": {
                     "type": "1",
                     "condition": "illegal",
                     "description": "邀請遊牧民族當嚮導，帶你踏上神殿之路。",
-                    "goto": "lost"
+                    "goto": "d-3-2"
                 }
             }
         }
@@ -901,7 +901,7 @@
         "btn": "下一步",
         "goto": "ending-Mozha"
     },
-    "j-2-2-1-2-1-2-1": {
+    "j-2-2-1-2-1-2": {
         "img": "jungle-cave-vertical shaft",
         "type": "interlude",
         "dialog": {
@@ -909,9 +909,9 @@
             "description": "你循著風聲前進，沿途沒再遇見岔路。可惜在洞底，你才發現風聲竟源自一道直通地表的狹窄裂縫。"
         },
         "btn": "下一步",
-        "goto": "j-2-2-1-2-1-2-1-1"
+        "goto": "j-2-2-1-2-1-2-1"
     },
-    "j-2-2-1-2-1-2-1-1": {
+    "j-2-2-1-2-1-2-1": {
         "img": "jungle-cave-torch",
         "type": "interlude",
         "dialog": {
@@ -919,7 +919,7 @@
             "description": "你無奈折返，卻發覺蛇毒已全面擴散，四肢逐漸無力、變得僵硬，無法再回到岔路口……"
         },
         "btn": "下一步",
-        "goto": "ending-j-yang"
+        "goto": "ending-yang"
     },
     "j-2-2-1-2-2": {
         "img": "jungle-cave-meet-shaman",
@@ -974,7 +974,7 @@
             "description": "你拿出了魔法書想要回到現實，但隨著蛇毒的發作，你的四肢開始麻木而失去知覺，你的意識逐漸朦朧倒在了地上。"
         },
         "btn": "下一步",
-        "goto": "ending-j-yang"
+        "goto": "ending-yang"
     },
     "j-2-2-1-2-3-2": {
         "img": "jungle-cave-stone door",
@@ -984,7 +984,7 @@
             "description": "你撐著持續衰弱的身軀繼續前進，在洞窟的底部你發現了一道石門，門後似乎就是詛咒的來源。\n但此時的你手腳開始麻木已無力前行。"
         },
         "btn": "下一步",
-        "goto": "ending-j-yang"
+        "goto": "ending-yang"
     },
     "j-2-2-1-2-3-3": {
         "img": "jungle-cave-meet-shaman",
@@ -1165,6 +1165,14 @@
         "dialog": {
             "head": "結局\n成為小天使",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target='>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/twhhflove2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+        },
+        "goto": "start"
+    },
+    "ending-yang": {
+        "type": "end",
+        "dialog": {
+            "head": "結局\n洋洋",
+            "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/node/2452?target=yang'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/twhhflove2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     }

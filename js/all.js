@@ -224,7 +224,7 @@ $('.option2').on('click', function (e) {
 // let endnode;
 
 $.ajax({
-    url: './text/main_story.json',
+    url: './text/main_story.json?_=1.05',
     // url: './text/careland_story.json',
     method: 'GET',
     dataType: 'json',
