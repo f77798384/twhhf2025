@@ -123,6 +123,13 @@ $('.idcard').on('click', function (e) {
         $('.dialog').addClass('d-none')
         $('.lotto .front').removeClass('ryp')
         $('.lotto .back').removeClass('ryn')
+        // $('.back img')[0].height = th
+        // $('.back img')[1].height = 0
+        // $('#light')[0].style.top = '0px'
+        console.log($('.back img')[0].height)
+        $('.lotto')[0].style = `--cardh:${$('.front img')[0].height}px;`
+        $($('.idcard.back img')[0]).removeClass('up')
+        $($('.idcard.back img')[1]).removeClass('down')
         if (audio) {
             cardflip.play()
         }
@@ -130,50 +137,37 @@ $('.idcard').on('click', function (e) {
             let random = Math.floor(Math.random() * 11)
             $('.lotto .front').addClass('ryp')
             $('.lotto .back').addClass('ryn')
+            random > 5 ? random = random - 5 : random
             switch (random) {
                 case 0:
                     career = '村民A'
                     identity = 'legal'
+                    $('#careercard')[0].src = './img/lottery/VILLAGER.webp'
                     break;
                 case 1:
                     career = '祭司'
                     identity = 'illegal'
+                    $('#careercard')[0].src = './img/lottery/PRIEST.webp'
                     break;
                 case 2:
                     career = '鐵匠'
                     identity = 'illegal'
+                    $('#careercard')[0].src = './img/lottery/FORGER.webp'
                     break;
                 case 3:
                     career = '勇者'
                     identity = 'illegal'
+                    $('#careercard')[0].src = './img/lottery/HERO.webp'
                     break;
                 case 4:
                     career = '獵人'
                     identity = 'illegal'
+                    $('#careercard')[0].src = './img/lottery/HUNTER.webp'
                     break;
                 case 5:
                     career = '樵夫'
                     identity = 'illegal'
-                    break;
-                case 6:
-                    career = '祭司'
-                    identity = 'illegal'
-                    break;
-                case 7:
-                    career = '鐵匠'
-                    identity = 'illegal'
-                    break;
-                case 8:
-                    career = '勇者'
-                    identity = 'illegal'
-                    break;
-                case 9:
-                    career = '獵人'
-                    identity = 'illegal'
-                    break;
-                case 10:
-                    career = '樵夫'
-                    identity = 'illegal'
+                    $('#careercard')[0].src = './img/lottery/LOGGER.webp'
                     break;
             }
             if (random > 5) {
@@ -181,6 +175,37 @@ $('.idcard').on('click', function (e) {
             } else {
                 num_career = random
             }
+
+            setTimeout(() => {
+                $('#light').removeClass('d-none')
+                $('#light').addClass('light')
+                $($('.idcard.back img')[0]).addClass('up')
+                $($('.idcard.back img')[1]).addClass('down')
+                setTimeout(() => {
+                    $('#light').addClass('d-none')
+                }, 2000);
+            }, 4000);
+            // setTimeout(() => {
+            //     $('#light').removeClass('d-none')
+            //     $('#light').removeClass('animate__fadeOut')
+            //     $('#light').addClass('animate__fadeIn')
+            //     for (let index = 0; index < th; index++) {
+            //         setTimeout(function () {
+            //             $('.back img')[0].height = th - index - 1
+            //             $('.back img')[1].height = index + 1
+            //             $('#light')[0].style.top = `-%{index}px`
+            //         }, index * 3)
+            //         setTimeout(function () {
+            //             $('.back img')[0].height = th - index - 1
+            //             $('.back img')[1].height = index + 1
+            //             $('#light').addClass('animate__fadeOut')
+            //         }, th * 3.2)
+            //         setTimeout(() => {
+            //             $('#light').addClass('d-none')
+            //             $('#light').removeClass('animate__fadeIn')
+            //         }, th * 3.3);
+            //     }
+            // }, 4000);
             $('#c_lottery').addClass('d-none')
             $('#c_result').removeClass('d-none').html(
                 `
@@ -190,13 +215,6 @@ $('.idcard').on('click', function (e) {
                 <button id="checkid">確定身分並開始人生</button>
                 `
             )
-
-            // $('.dialog p').html(`<p class="m-0 pb-3 fs-5">
-            //                 您的身分為「<span class="identity">${career}</span>」
-            //                 <br>
-            //                 若想更改身分可以再次點擊畫面
-            //                 <button id="checkid">確定身分並開始人生</button>
-            //             </p>`)
         }, 1)
         setTimeout(() => {
             $('.dialog').removeClass('d-none')

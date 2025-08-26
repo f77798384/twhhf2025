@@ -13153,14 +13153,12 @@ body {
   position: relative;
   perspective: 150rem;
   width: 100%;
-  aspect-ratio: 3/5;
   background: transparent;
 }
 
 .front,
 .back {
   width: 100%;
-  height: 100%;
   position: absolute;
   color: #fff;
   box-sizing: border-box;
@@ -13168,10 +13166,39 @@ body {
   backface-visibility: hidden;
   z-index: 2;
 }
+.front #light,
+.back #light {
+  position: relative;
+}
+.front #light::before,
+.back #light::before {
+  content: ""; /*沒有加這段就不會產生偽元素*/
+  width: 110%;
+  height: 30px;
+  background: white;
+  position: absolute;
+  left: -5%;
+  filter: blur(15px);
+  border-radius: 20%;
+  bottom: -15px;
+}
 .front img,
 .back img {
-  aspect-ratio: 3/5;
+  display: block;
   max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.front img:nth-child(2),
+.back img:nth-child(2) {
+  -o-object-position: top;
+     object-position: top;
+}
+.front img:nth-child(3),
+.back img:nth-child(3) {
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 
 .back {
@@ -13211,6 +13238,42 @@ body {
   }
   100% {
     transform: scale(1) rotateY(2520deg);
+  }
+}
+.up {
+  animation: up 2s ease-in-out forwards;
+}
+
+.down {
+  animation: down 2s ease-in-out forwards;
+}
+
+.light {
+  animation: light 2s ease-in-out forwards;
+}
+
+@keyframes light {
+  0% {
+    top: var(--cardh);
+  }
+  100% {
+    top: 0px;
+  }
+}
+@keyframes up {
+  0% {
+    height: var(--cardh);
+  }
+  100% {
+    height: 0px;
+  }
+}
+@keyframes down {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: var(--cardh);
   }
 }
 #game,

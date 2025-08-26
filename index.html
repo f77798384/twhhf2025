@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./stylesheet/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/css-doodle@0.24.0/css-doodle.min.js"></script>
 </head>
 
 <body class="animate__animated animate__slow">
@@ -171,7 +172,8 @@
                 </svg>
             </a>
             <a target="_blank" href="#" id="" class="pe-none translate-middle-x start-50 border-0">
-                <img src="./img/favicon.webp" alt="logo" style="width: min(15vw,60px);filter:drop-shadow(0px 0px 2px white);">
+                <img src="./img/favicon.webp" alt="logo"
+                    style="width: min(15vw,60px);filter:drop-shadow(0px 0px 2px white);">
             </a>
             <!-- music -->
             <a target="_blank" href="#" id="on-off">
@@ -214,18 +216,13 @@
 
                 <!-- lotto -->
                 <div class="lotto animate__animated animate__slow animate__fadeIn d-none">
-                    <div class="idcard front animate__delay-2s">
-                        <img src="./img/lottery/BACK.png">
+                    <div class="idcard front">
+                        <img src="./img/lottery/BACK.webp">
                     </div>
-                    <!-- <div class="idcard back animate__delay-2s">
-                        <img src="./img/lottery/FRONT.png">
-                        <img src="./img/lottery/HERO.png">
-                    </div> -->
-                    <div class="idcard front animate__delay-2s">
-                        <img src="./img/Tarot-front.webp">
-                    </div>
-                    <div class="idcard back animate__delay-2s">
-                        <img src="./img/Tarot-back.webp">
+                    <div class="idcard back">
+                        <div id="light" class="position-relative d-block d-none"></div>
+                        <img src="./img/lottery/FRONT.webp">
+                        <img id="careercard" src="./img/lottery/VILLAGER.webp" height="0">
                     </div>
                     <div class="dialog border-1 rounded-1 animate__animated animate__fadeIn d-none">
                         <p id="c_lottery" class="m-0 pt-2 pb-3 fs-5">
@@ -267,7 +264,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <!-- <script src="https://www.joelambert.co.uk/flux/js/flux.min.js"></script> -->
     <script src="./js/all.js?_=1.05"></script>
