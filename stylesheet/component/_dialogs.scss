@@ -12,6 +12,7 @@
         padding: 1rem;
         transform: translateZ(0);
         line-height: 1.5;
+        text-align: justify;
     }
 
     p {
@@ -22,7 +23,6 @@
         overflow-x: hidden;
         &.interlude ,.end{
             margin-bottom: auto !important;
-            // height: calc(var(--vh) * 29);
             height: 39vh;
         }
     }
