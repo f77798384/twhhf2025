@@ -124,7 +124,6 @@ $('.idcard').on('click', function (e) {
         $('.lotto .front').removeClass('ryp')
         $('.lotto .back').removeClass('ryn')
         if (audio) {
-            console.log(audio)
             cardflip.play()
         }
         setTimeout(function () {
@@ -210,10 +209,8 @@ $('.idcard').on('click', function (e) {
 
 $('.option2').on('click', function (e) {
     e.preventDefault();
-    console.log(0)
     $(this).addClass('option2a');
     setTimeout(() => {
-        console.log(1)
         $(this).removeClass('option2a');
     }, 1);
     $('.bg').click()
@@ -239,14 +236,6 @@ $.ajax({
             arr_chapter += `<option value="${a}">${a}</option>`
         })
         $('#chapter').html(arr_chapter)
-        // endnode = Object.keys(story);
-        // endnode.forEach(a => {
-        //     console.log(story[a]['goto'])
-        //     if ((story[a]['goto']) && (story[a]['goto'].search('ending') > -1)){
-        //         endarr.push(a)
-        //         endarr2.push(story[a]['goto'])
-        //     }
-        // })
     },
     error: err => {
         console.log(err)
@@ -331,7 +320,6 @@ function renderNode(nodeKey, dev) {
         for (const key in options) {
             const opt = options[key];
             if (opt.condition === "none" || opt.condition === identity) {
-                console.log(opt.where)
                 if (opt.where == undefined || opt.where == where) {
                     container.append(`
                         <a class="option3" data-note="${opt.note}" data-goto="${opt.goto}">
@@ -347,7 +335,7 @@ function renderNode(nodeKey, dev) {
         container.append(`
             <a class="option2 ${node.type}" data-goto="${node.goto}" ">${btnText}</a>
             `);
-        if (node.type == 'end' && dev != undefined) {
+        if (node.type == 'end' && dev == undefined) {
             $.ajax({
                 type: 'POST',
                 url: "https://docs.google.com/forms/d/e/1FAIpQLSfCjPJJlD0CJ15M6tatxqv1CtUkIVRpY_Coo6Ar8BGgsyZ_9w/formResponse",
@@ -446,18 +434,6 @@ $(document).on('click', function (e) {
     }
 })
 
-// $('#checkid').on('click', function (e) {
-//     flip = true
-//     $('.lotto').removeClass('animate__fadeIn')
-//     $('.lotto').addClass('animate__fadeOut')
-//     setTimeout(() => {
-//         // $('.lotto').remove()
-//         $('.lotto').addClass('d-none')
-//         $("#game").removeClass("d-none");  // 顯示遊戲對話區
-//         renderNode(currentNode);           // 執行顯示第一節點
-//     }, 2000);
-// })
-
 let t = window.devicePixelRatio
 let r = window.innerHeight
 if (t > 1 && t < 2) {
@@ -489,7 +465,6 @@ $('.stylechoose').on('click', function (e) {
 
 $('#memory-btn').on('click', function (e) {
     e.preventDefault();
-    console.log(123)
     $('#memory').removeClass('animate__fadeIn')
     $('#memory').addClass('animate__fadeOut')
 })
@@ -508,7 +483,6 @@ $('#chapter').on('change', function () {
     renderNode($('#chapter').val())
 })
 $('#career').on('change', function () {
-    console.log($('#career').val())
     switch ($('#career').val()) {
         case 0:
             career = '村民A'
