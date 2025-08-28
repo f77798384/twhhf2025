@@ -185,27 +185,6 @@ $('.idcard').on('click', function (e) {
                     $('#light').addClass('d-none')
                 }, 2000);
             }, 4000);
-            // setTimeout(() => {
-            //     $('#light').removeClass('d-none')
-            //     $('#light').removeClass('animate__fadeOut')
-            //     $('#light').addClass('animate__fadeIn')
-            //     for (let index = 0; index < th; index++) {
-            //         setTimeout(function () {
-            //             $('.back img')[0].height = th - index - 1
-            //             $('.back img')[1].height = index + 1
-            //             $('#light')[0].style.top = `-%{index}px`
-            //         }, index * 3)
-            //         setTimeout(function () {
-            //             $('.back img')[0].height = th - index - 1
-            //             $('.back img')[1].height = index + 1
-            //             $('#light').addClass('animate__fadeOut')
-            //         }, th * 3.2)
-            //         setTimeout(() => {
-            //             $('#light').addClass('d-none')
-            //             $('#light').removeClass('animate__fadeIn')
-            //         }, th * 3.3);
-            //     }
-            // }, 4000);
             $('#c_lottery').addClass('d-none')
             $('#c_result').removeClass('d-none').html(
                 `
@@ -233,10 +212,6 @@ $('.option2').on('click', function (e) {
     }, 1);
     $('.bg').click()
 })
-
-// let endarr = [];
-// let endarr2 = [];
-// let endnode;
 
 $.ajax({
     url: './text/main_story.json?_=1.05',
@@ -353,7 +328,8 @@ function renderNode(nodeKey, dev) {
         container.append(`
             <a class="option2 ${node.type}" data-goto="${node.goto}" ">${btnText}</a>
             `);
-        if (node.type == 'end' && dev == undefined) {
+        if (node.type == 'end' && dev != 'false') {
+            console.log(dev)
             $.ajax({
                 type: 'POST',
                 url: "https://docs.google.com/forms/d/e/1FAIpQLSfCjPJJlD0CJ15M6tatxqv1CtUkIVRpY_Coo6Ar8BGgsyZ_9w/formResponse",
@@ -498,7 +474,7 @@ $('#chapter').on('change', function () {
         renderNode(currentNode);           // 執行顯示第一節點
     }
     console.log($('#chapter').val())
-    renderNode($('#chapter').val())
+    renderNode($('#chapter').val(), 'false')
 })
 $('#career').on('change', function () {
     switch ($('#career').val()) {
@@ -528,5 +504,5 @@ $('#career').on('change', function () {
             break;
     }
     num_career = $('#career').val() - 1
-    renderNode($('#chapter').val(), 'dev')
+    renderNode($('#chapter').val(), 'false')
 })

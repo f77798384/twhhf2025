@@ -12807,9 +12807,8 @@ body {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
   width: min(80%, 400px);
-  padding-top: 50px;
+  padding-top: 15px;
   margin: auto;
-  height: 50%;
   position: relative;
   display: flex;
   align-items: center;
@@ -12860,7 +12859,6 @@ body {
   margin-top: auto;
 }
 .more #close-more {
-  position: absolute;
   top: 5%;
   padding: 0;
   color: rgb(173, 173, 173);
