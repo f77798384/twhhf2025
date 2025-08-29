@@ -506,3 +506,17 @@ $('#career').on('change', function () {
     num_career = $('#career').val() - 1
     renderNode($('#chapter').val(), 'false')
 })
+
+function share() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title, // 共享的標題
+            url: window.location.href, // 共享的URL
+            text: '這是我想分享的內容文字', // 共享的文字內容
+        })
+            .then(() => console.log('分享成功'))
+            .catch((error) => console.error('分享失敗', error));
+    } else {
+        console.log('您的瀏覽器不支援此分享功能');
+    }
+}
