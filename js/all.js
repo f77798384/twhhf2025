@@ -508,6 +508,7 @@ $('#career').on('change', function () {
 })
 
 function share() {
+    e.preventDefault();
     if (navigator.share) {
         navigator.share({
             title: document.title, // 共享的標題

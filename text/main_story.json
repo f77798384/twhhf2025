@@ -929,7 +929,7 @@
             "description": "你毫不遲疑踏入洞窟。沒多久，熟悉的聲音響起——，原來薩滿部落的巫醫擔心你的蛇毒未解，特地前來相助。"
         },
         "btn": "下一步",
-        "goto": "j-2-2-1-2-2-1-1"
+        "goto": "j-2-2-1-2-2-1"
     },
     "j-2-2-1-2-2-1": {
         "type": "interlude",
@@ -1099,7 +1099,7 @@
     "ending-twhhf-take-care-of": {
         "type": "end",
         "dialog": {
-            "head": "結局\n關愛之家照顧服務",
+            "head": "終幕\n關愛之家照顧服務",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=twhhf'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1107,7 +1107,7 @@
     "ending-SOB": {
         "type": "end",
         "dialog": {
-            "head": "結局\n遣返回國",
+            "head": "終幕\n遣返回國",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1115,7 +1115,7 @@
     "ending-illegal-return": {
         "type": "end",
         "dialog": {
-            "head": "結局\n自主返國",
+            "head": "終幕\n返回家園",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=O'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1123,7 +1123,7 @@
     "ending-legal-grow-up": {
         "type": "end",
         "dialog": {
-            "head": "結局\n合法長大",
+            "head": "終幕\n合法長大",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=courage'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1131,7 +1131,7 @@
     "ending-DoSW": {
         "type": "end",
         "dialog": {
-            "head": "結局\n安置照顧",
+            "head": "終幕\n安置照顧",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=DODO'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1139,7 +1139,7 @@
     "ending-Mozha": {
         "type": "end",
         "dialog": {
-            "head": "結局\n茵茵",
+            "head": "終幕\n茵茵",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=Mozha'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1147,7 +1147,7 @@
     "ending-death-ice": {
         "type": "end",
         "dialog": {
-            "head": "結局\n冰冰",
+            "head": "終幕\n冰冰",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=ice'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1155,7 +1155,7 @@
     "ending-d-DD": {
         "type": "end",
         "dialog": {
-            "head": "結局\nＤＤ",
+            "head": "終幕\nＤＤ",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=DD'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1163,7 +1163,7 @@
     "ending-death-twhhf-take-care-of": {
         "type": "end",
         "dialog": {
-            "head": "結局\n成為小天使",
+            "head": "終幕\n成為小天使",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target='>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1171,7 +1171,7 @@
     "ending-yang": {
         "type": "end",
         "dialog": {
-            "head": "結局\n洋洋",
+            "head": "終幕\n洋洋",
             "description": "當故事書闔上，別忘了這並非只存在於童話。\n在台灣，有一群黑戶寶寶，正真實經歷著這些挑戰。不是遊戲，而是他們的日常。\n他們的詛咒來自沒有身分，帶來的是看不見的困境：無法受教育、難以就醫，只能在陰影裡長大。\n現實中的詛咒尚未解除，願你與我們攜手，陪他們找到屬於自己的光。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=yang'>傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
