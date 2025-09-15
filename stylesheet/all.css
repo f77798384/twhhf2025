@@ -13587,7 +13587,7 @@ body {
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
-canvas {
+#endimg {
   width: 100% !important;
   -o-object-fit: contain !important;
      object-fit: contain !important;
@@ -13601,4 +13601,13 @@ canvas {
   top: 0;
   right: 0;
   margin: 2rem 2rem 0 0;
+}
+
+#share-img {
+  height: 150.2222222222vw;
+}
+@media (min-width: 768px) {
+  #share-img {
+    height: 100%;
+  }
 }/*# sourceMappingURL=all.css.map */

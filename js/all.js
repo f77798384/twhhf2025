@@ -357,20 +357,12 @@ function renderNode(nodeKey, dev) {
     }
     if (node.type == 'end') {
         $('#share-img').remove()
-        $('#window').append(`<div id="share-img" class="w-100 h-100">
+        $('#window').append(`<div id="share-img" class="w-100 d-none" style="height:calc(84.5vw / 9 * 16)">
 	<div class="position-absolute w-100 z-3 text-center">
 		<h2 class="mt-4">命運之書<br>未完的童話</h2>
 		<h3 class="mb-3 ${node.type}">${dialog.head.split('\n',)[1]}</h3>
 	<p class="mx-4 fs-5 text-justify" style="text-align: justify;line-height:1.4">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + '' + '</span>').replace('{{出生地}}', owhere).replace('{{現實出生地}}', where).replace('{{環境}}', area).replace('{{問題}}', issue).split(`<br><span class='text-center fs-5 d-block'>看看你的選擇`)[0]}</p></div>
     <img src="./img/ending/${codename}.png" class="w-100 position-absolute">`)
-        // html2canvas(document.querySelector('#share-img'), {
-        //     useCORS: true,
-        //     allowTaint: false,
-        //     scale: 2,           // 較高解析度，視需求
-        //     backgroundColor: null // 若要保留透明背景
-        // }).then(canvas => {
-        //     $('.mb-4.fs-4.end').append(canvas)
-        // });
     }
 }
 
@@ -394,6 +386,9 @@ function reset() {
     issue = '';
     destination = '';
     codename = '';
+    $('#share-img').remove()
+    $('#close-canvas').remove()
+    $('#endimg').remove()
 }
 
 $(document).on('click', function (e) {
@@ -476,7 +471,7 @@ $(document).on('click', function (e) {
             $('.bg').click()
         }
         if ($(e.target).parentsUntil('#close-canvas') == 'close-canvas') {
-            $('canvas').remove()
+            $('#endimg').remove()
             $('#close-canvas').remove()
         }
     } else if ($(e.target)[0].nodeName == "BUTTON" && $(e.target)[0].id == 'checkid') {
@@ -586,46 +581,24 @@ $('#career').on('change', function () {
 // });
 
 function share() {
-    // html2canvas(document.querySelector('#share-img'), {
-    //     useCORS: true,
-    //     allowTaint: false,
-    //     scale: 2,           // 較高解析度，視需求
-    //     backgroundColor: null // 若要保留透明背景
-    // }).then(canvas => {
-    //     const win = window.open('', '_blank')
-    //     canvas.toBlob(blob => {
-    //         const url = URL.createObjectURL(blob);
-    //         // 在新分頁輸出簡單的預覽頁
-    //         win.document.write(`
-    //   <!doctype html>
-    //   <title>預覽圖片</title>
-    //   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    //   <style>
-    //     body{margin:0;display:grid;place-items:center;background:#111}
-    //     img{max-width:100vw;max-height:100vh;object-fit:contain}
-    //   </style>
-    //   <img src="${url}" alt="share image"/>
-    // `);
-    //         // 可延後 revoke，避免圖片還沒載入就釋放
-    //         win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
-    //     });
-    // });
+    $('#share-img').removeClass('d-none')
     html2canvas(document.querySelector('#share-img'), {
         useCORS: true,
         allowTaint: false,
-        scale: 2,           // 較高解析度，視需求
+        scale: 1.5,           // 較高解析度，視需求
         backgroundColor: null // 若要保留透明背景
     }).then(canvas => {
-        $('#window').append(canvas)
+        $('#window').append(`<img id="endimg" src="${canvas.toDataURL('image/png')}">`)
         $('#window').append(`<div id="close-canvas"><a href="#">
-                <svg onclick="closec()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg text-black p-1 border-black" viewBox="0 0 16 16">
-                    <path onclick="closec()" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"></path>
-                </svg>
+            <svg onclick="closec()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg text-black p-1 border-black" viewBox="0 0 16 16">
+            <path onclick="closec()" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"></path>
+            </svg>
             </a></div>`)
     });
+    $('#share-img').addClass('d-none')
 }
 
 function closec() {
-    $('canvas').remove()
+    $('#endimg').remove()
     $('#close-canvas').remove()
 }

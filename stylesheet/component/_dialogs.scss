@@ -497,7 +497,7 @@
     }
 }
 
-canvas{
+#endimg{
     width: 100% !important;
     object-fit: contain !important;
     position: absolute;
@@ -510,5 +510,11 @@ canvas{
     top: 0;
     right: 0;
     margin: 2rem 2rem 0 0;
-    
+}
+
+#share-img{
+    height: calc(84.5vw / 9 * 16);
+    @media (min-width: 768px) {
+        height: 100%;
+    }
 }
