@@ -13305,7 +13305,6 @@ body {
 #game-test p .end {
   margin-bottom: auto !important;
   height: 39vh;
-  box-shadow: 0px -8px 10px -10px black;
 }
 #game h4.end, #game .end.h4,
 #game-test h4.end,
@@ -13587,4 +13586,9 @@ body {
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
     background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
+}
+canvas {
+  width: 100% !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
 }/*# sourceMappingURL=all.css.map */

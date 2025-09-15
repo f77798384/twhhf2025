@@ -24,7 +24,7 @@
         &.interlude ,.end{
             margin-bottom: auto !important;
             height: 39vh;
-            box-shadow:  0px -8px 10px -10px black;
+            // box-shadow:  0px -8px 10px -10px black;
         }
     }
 
@@ -495,4 +495,9 @@
             0% 0%,
             0% 0%;
     }
+}
+
+canvas{
+    width: 100% !important;
+    object-fit: contain !important;
 }

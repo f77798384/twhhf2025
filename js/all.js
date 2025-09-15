@@ -48,6 +48,7 @@ let area = '';
 let issue = '';
 let destination = '';
 let codename = '';
+let canvas = '';
 
 bgm.volume = 0.8
 bgm.loop = true
@@ -362,6 +363,14 @@ function renderNode(nodeKey, dev) {
 		<h3 class="mb-3 ${node.type}">${dialog.head.split('\n',)[1]}</h3>
 	<p class="mx-4 fs-5 text-justify" style="text-align: justify;line-height:1.4">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + '' + '</span>').replace('{{出生地}}', owhere).replace('{{現實出生地}}', where).replace('{{環境}}', area).replace('{{問題}}', issue).split(`<br><span class='text-center fs-5 d-block'>看看你的選擇`)[0]}</p></div>
     <img src="./img/ending/${codename}.png" class="w-100 position-absolute">`)
+        // html2canvas(document.querySelector('#share-img'), {
+        //     useCORS: true,
+        //     allowTaint: false,
+        //     scale: 2,           // 較高解析度，視需求
+        //     backgroundColor: null // 若要保留透明背景
+        // }).then(canvas => {
+        //     $('.mb-4.fs-4.end').append(canvas)
+        // });
     }
 }
 
@@ -562,28 +571,28 @@ $('#career').on('change', function () {
     renderNode($('#chapter').val(), 'false')
 })
 
-function share0() {
+
+
+// html2canvas(document.querySelector('#share-img'), {
+//     useCORS: true,
+//     allowTaint: false,
+//     scale: 2,           // 較高解析度，視需求
+//     backgroundColor: null // 若要保留透明背景
+// }).then(canvas => {
+//     $('.mb-4.fs-4.end').append(canvas)
+// });
+
+function share() {
     html2canvas(document.querySelector('#share-img'), {
         useCORS: true,
         allowTaint: false,
-        scale: 2,
-        backgroundColor: null
+        scale: 2,           // 較高解析度，視需求
+        backgroundColor: null // 若要保留透明背景
     }).then(canvas => {
-        const win = window.open('', '_blank');
-        if (!win) {
-            canvas.toBlob(blob => {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'share.png';
-                a.click();
-                URL.revokeObjectURL(url);
-            });
-            return;
-        }
-
+        const win = window.open('', '_blank')
         canvas.toBlob(blob => {
             const url = URL.createObjectURL(blob);
+            // 在新分頁輸出簡單的預覽頁
             win.document.write(`
       <!doctype html>
       <title>預覽圖片</title>
@@ -594,95 +603,8 @@ function share0() {
       </style>
       <img src="${url}" alt="share image"/>
     `);
+            // 可延後 revoke，避免圖片還沒載入就釋放
             win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
         });
     });
-}
-
-function openCanvasPreview(imgUrlOrBlobUrl) {
-  const win = window.open('', '_blank');
-  if (!win) return null; // 可能被擋
-  // 先同步寫入骨架，避免殭屍分頁
-  win.document.open();
-  win.document.write(`
-    <!doctype html>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>預覽圖片</title>
-    <style>
-      html,body{height:100%;margin:0;background:#111;display:grid;place-items:center}
-      .wrap{max-width:100vw;max-height:100vh}
-      img{max-width:100%;max-height:100%;object-fit:contain}
-      .hint{position:fixed;bottom:12px;left:0;right:0;color:#999;text-align:center;font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto}
-    </style>
-    <div class="wrap"><img id="out" alt="preview"/></div>
-    <div class="hint">若無法顯示請關閉頁面重新嘗試</div>
-  `);
-  win.document.close();
-
-  // 如果已經有 URL，先放
-  if (imgUrlOrBlobUrl) {
-    try {
-      win.document.getElementById('out').src = imgUrlOrBlobUrl;
-    } catch (_) {}
-  }
-  return win;
-}
-
-async function share() {
-  // 同步先開分頁，保住使用者手勢
-  const tempWin = openCanvasPreview(null);
-
-  try {
-    // 等字型/圖片載完會更穩（可視情況保留）
-    if (document.fonts && document.fonts.ready) {
-      await document.fonts.ready;
-    }
-
-    const target = document.querySelector('#share-img');
-    if (!target) throw new Error('#share-img 不存在或尚未渲染');
-
-    const canvas = await html2canvas(target, {
-      useCORS: true,
-      allowTaint: false,
-      scale: window.devicePixelRatio > 1 ? 2 : 1,
-      backgroundColor: null
-    });
-
-    // 盡量用 Blob URL（相容性較好），若無 toBlob 則退回 dataURL
-    const setImg = (url) => {
-      if (tempWin) {
-        try {
-          tempWin.document.getElementById('out').src = url;
-        } catch (_) {}
-      } else {
-        // 被擋的退路：做頁內全螢幕預覽
-        showInPageOverlay(url);
-      }
-    };
-
-    if (canvas.toBlob) {
-      canvas.toBlob(blob => {
-        if (!blob) {
-          // 罕見情況：toBlob 回 null，就退回 dataURL
-          setImg(canvas.toDataURL('image/png'));
-          return;
-        }
-        const blobUrl = URL.createObjectURL(blob);
-        setImg(blobUrl);
-        // 視需求在離開頁面或點擊關閉時 revokeObjectURL
-      });
-    } else {
-      // 某些舊 iOS
-      setImg(canvas.toDataURL('image/png'));
-    }
-
-  } catch (err) {
-    // 若任何步驟出錯，至少讓使用者知道
-    console.error(err);
-    if (tempWin && !tempWin.closed) {
-      tempWin.document.body.innerHTML = `<p style="color:#fff;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto">產生圖片失敗：${String(err)}</p>`;
-    } else {
-      alert('產生圖片失敗，請稍後再試');
-    }
-  }
 }
