@@ -423,7 +423,6 @@ $(document).on('click', function (e) {
                 setTimeout(function () {
                     e.target.classList.remove('animate');
                 }, 500);
-                console.log($(e.target))
                 if ($(e.target).data('note') != 'undefined') {
                     let goto = $(e.target).data('goto');
                     console.log(goto)
