@@ -1,21 +1,21 @@
 let imgPreloadArr = [];
-function preload() {
-    var folderPath = "./img/";
-    $.ajax({
-        url: "./text/preload.txt",
-        dataType: "text",
-        success: function (update) {
-            let i = 0;
-            arr = update.toString().replaceAll('\r', '').split('\n')
-            arr.forEach(a => {
-                const img = new Image();
-                img.src = `.${a}`;
-                imgPreloadArr.push(img);
-            });
-        }
-    });
-}
-preload()
+// function preload() {
+//     var folderPath = "./img/";
+//     $.ajax({
+//         url: "./text/preload.txt",
+//         dataType: "text",
+//         success: function (update) {
+//             let i = 0;
+//             arr = update.toString().replaceAll('\r', '').split('\n')
+//             arr.forEach(a => {
+//                 const img = new Image();
+//                 img.src = `.${a}`;
+//                 imgPreloadArr.push(img);
+//             });
+//         }
+//     });
+// }
+// preload()
 
 $('#switch-test').on('click', function () {
     $('.stylechoose').removeClass('d-none')
