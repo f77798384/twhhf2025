@@ -356,7 +356,7 @@ function renderNode(nodeKey, dev) {
     }
     if (node.type == 'end') {
         $('#share-img').remove()
-        $('#window').append(`<div id="share-img" class="w-100 h-100">
+        $('#window').append(`<div id="share-img" class="w-100 h-100 d-none">
 	<div class="position-absolute w-100 z-3 text-center">
 		<h2 class="mt-4">命運之書<br>未完的童話</h2>
 		<h3 class="mb-3 ${node.type}">${dialog.head.split('\n',)[1]}</h3>
@@ -594,18 +594,3 @@ $('#career').on('change', function () {
     num_career = $('#career').val() - 1
     renderNode($('#chapter').val(), 'false')
 })
-
-function share() {
-    e.preventDefault();
-    if (navigator.share) {
-        navigator.share({
-            title: document.title, // 共享的標題
-            url: window.location.href, // 共享的URL
-            text: '這是我想分享的內容文字', // 共享的文字內容
-        })
-            .then(() => console.log('分享成功'))
-            .catch((error) => console.error('分享失敗', error));
-    } else {
-        console.log('您的瀏覽器不支援此分享功能');
-    }
-}
