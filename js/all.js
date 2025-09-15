@@ -397,6 +397,7 @@ function reset() {
 }
 
 $(document).on('click', function (e) {
+    e.preventDefault();
     if ($(e.target)[0].nodeName == "A") {
         let option = $(e.target).attr('class');
         switch (option) {
@@ -474,7 +475,10 @@ $(document).on('click', function (e) {
                 }
             }, 2000);
             $('.bg').click()
-
+        }
+        if ($(e.target).parentsUntil('#close-canvas') == 'close-canvas') {
+            $('canvas').remove()
+            $('#close-canvas').remove()
         }
     } else if ($(e.target)[0].nodeName == "BUTTON" && $(e.target)[0].id == 'checkid') {
         flip = true
@@ -583,28 +587,46 @@ $('#career').on('change', function () {
 // });
 
 function share() {
+    // html2canvas(document.querySelector('#share-img'), {
+    //     useCORS: true,
+    //     allowTaint: false,
+    //     scale: 2,           // 較高解析度，視需求
+    //     backgroundColor: null // 若要保留透明背景
+    // }).then(canvas => {
+    //     const win = window.open('', '_blank')
+    //     canvas.toBlob(blob => {
+    //         const url = URL.createObjectURL(blob);
+    //         // 在新分頁輸出簡單的預覽頁
+    //         win.document.write(`
+    //   <!doctype html>
+    //   <title>預覽圖片</title>
+    //   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    //   <style>
+    //     body{margin:0;display:grid;place-items:center;background:#111}
+    //     img{max-width:100vw;max-height:100vh;object-fit:contain}
+    //   </style>
+    //   <img src="${url}" alt="share image"/>
+    // `);
+    //         // 可延後 revoke，避免圖片還沒載入就釋放
+    //         win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
+    //     });
+    // });
     html2canvas(document.querySelector('#share-img'), {
         useCORS: true,
         allowTaint: false,
         scale: 2,           // 較高解析度，視需求
         backgroundColor: null // 若要保留透明背景
     }).then(canvas => {
-        const win = window.open('', '_blank')
-        canvas.toBlob(blob => {
-            const url = URL.createObjectURL(blob);
-            // 在新分頁輸出簡單的預覽頁
-            win.document.write(`
-      <!doctype html>
-      <title>預覽圖片</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <style>
-        body{margin:0;display:grid;place-items:center;background:#111}
-        img{max-width:100vw;max-height:100vh;object-fit:contain}
-      </style>
-      <img src="${url}" alt="share image"/>
-    `);
-            // 可延後 revoke，避免圖片還沒載入就釋放
-            win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
-        });
+        $('#window').append(canvas)
+        $('#window').append(`<div id="close-canvas"><a href="#">
+                <svg onclick="closec()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg text-black p-1 border-black" viewBox="0 0 16 16">
+                    <path onclick="closec()" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"></path>
+                </svg>
+            </a></div>`)
     });
+}
+
+function closec() {
+    $('canvas').remove()
+    $('#close-canvas').remove()
 }

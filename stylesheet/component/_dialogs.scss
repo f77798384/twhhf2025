@@ -500,4 +500,15 @@
 canvas{
     width: 100% !important;
     object-fit: contain !important;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+}
+
+#close-canvas{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem 2rem 0 0;
+    
 }
