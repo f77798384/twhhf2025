@@ -36,13 +36,18 @@ let press = $('#press')[0];
 let amore = $('#a-more')[0];
 let amorec = $('#a-more-c')[0];
 let sw = $('#on-off .bi');
-let identity = 'illegal'
-let flip = false
-let where = '';
+let identity = 'illegal';
+let flip = false;
 let mute = '';
 let st = true;
 let career = '';
 let num_career = '';
+let owhere = '';
+let where = '';
+let area = '';
+let issue = '';
+let destination = '';
+let codename = '';
 
 bgm.volume = 0.8
 bgm.loop = true
@@ -289,6 +294,9 @@ function renderNode(nodeKey, dev) {
     if (dialog.head) {
         if (node.type == 'interlude') {
             container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
+        } else if (node.type == 'end' && dev == 'false') {
+
+            container.append(`<a href="#" id="share" class="position-absolute" style="font-size:2rem;right:10%;top:2.5rem;"><i class="bi bi-box-arrow-up"></i></a><h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         } else {
             container.append(`<h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         }
@@ -301,7 +309,7 @@ function renderNode(nodeKey, dev) {
     } catch (error) {
     }
     if (dialog.description) {
-        container.append(`<p class="mb-4 fs-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + str + '</span>')}</p>`);
+        container.append(`<p class="mb-4 fs-4 ${node.type}">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + str + '</span>').replace('{{出生地}}', owhere).replace('{{現實出生地}}', where).replace('{{環境}}', area).replace('{{問題}}', issue)}</p>`);
         if (node.type == 'interlude') {
             container.append(`<i class="bi bi-caret-down-fill"></i>`)
         }
@@ -313,13 +321,18 @@ function renderNode(nodeKey, dev) {
         for (const key in options) {
             const opt = options[key];
             if (opt.condition === "none" || opt.condition === identity) {
-                if (opt.where == undefined || opt.where == where) {
-                    container.append(`
-                        <a class="option3" data-note="${opt.note}" data-goto="${opt.goto}">
-                            ${opt.description.replace(/\n/g, "<br>")}
-                        </a>
-                    `);
-                }
+                // if (opt.where == undefined || opt.where == where) {
+                //     container.append(`
+                //         <a class="option3" data-note="${opt.note}" data-goto="${opt.goto}">
+                //             ${opt.description.replace(/\n/g, "<br>")}
+                //         </a>
+                //     `);
+                // }
+                container.append(`
+                    <a class="option3" data-note="${opt.note}" data-goto="${opt.goto}">
+                        ${opt.description.replace(/\n/g, "<br>")}
+                    </a>
+                `);
             }
         }
     } else {
@@ -341,6 +354,15 @@ function renderNode(nodeKey, dev) {
             });
         }
     }
+    if (node.type == 'end') {
+        $('#share-img').remove()
+        $('#window').append(`<div id="share-img" class="w-100 h-100">
+	<div class="position-absolute w-100 z-3 text-center">
+		<h2 class="mt-4">命運之書<br>未完的童話</h2>
+		<h3 class="mb-3 ${node.type}">${dialog.head.split('\n',)[1]}</h3>
+	<p class="mx-4 fs-5 text-justify" style="text-align: justify;line-height:1.4">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + '' + '</span>').replace('{{出生地}}', owhere).replace('{{現實出生地}}', where).replace('{{環境}}', area).replace('{{問題}}', issue).split(`<br><span class='text-center fs-5 d-block'>看看你的選擇`)[0]}</p></div>
+    <img src="./img/ending/${codename}.png" class="w-100 position-absolute">`)
+    }
 }
 
 function reset() {
@@ -357,7 +379,12 @@ function reset() {
     $('.bg').css('background-image', ``)
     $('#c_lottery').removeClass('d-none')
     $('#c_result').addClass('d-none')
+    owhere = '';
     where = '';
+    area = '';
+    issue = '';
+    destination = '';
+    codename = '';
 }
 
 $(document).on('click', function (e) {
@@ -386,10 +413,35 @@ $(document).on('click', function (e) {
                 setTimeout(function () {
                     e.target.classList.remove('animate');
                 }, 500);
-            default:
+                console.log($(e.target))
                 if ($(e.target).data('note') != 'undefined') {
-                    where = $(e.target).data('note');
+                    let goto = $(e.target).data('goto');
+                    console.log(goto)
+                    switch (goto) {
+                        case 'intro':
+                            owhere = $(e.target).text().trim();
+                            where = $(e.target).data('note')
+                            break;
+                        case 'd':
+                            area = '沙漠';
+                            issue = '出生即不斷高燒';
+                            codename = 'd';
+                            break;
+                        case 'j':
+                            area = '叢林';
+                            issue = '檢查出罕見疾病';
+                            codename = 'j';
+                            break;
+                        case 'g':
+                            area = '草原';
+                            issue = '施打疫苗';
+                            codename = 'g';
+                            break;
+                        default:
+                            break;
+                    }
                 }
+            default:
                 break;
         }
         if (audio) {
@@ -425,6 +477,42 @@ $(document).on('click', function (e) {
             $("#game").removeClass("d-none");  // 顯示遊戲對話區
             renderNode(currentNode);           // 執行顯示第一節點
         }, 2000);
+    }
+    if ($($(e.target)[0]).parent()[0].id == 'share') {
+        html2canvas(document.querySelector('#share-img'), {
+            useCORS: true,
+            allowTaint: false,
+            scale: 2,           
+            backgroundColor: null 
+        }).then(canvas => {
+            const win = window.open('', '_blank');
+            if (!win) {
+                canvas.toBlob(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'share.png';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                });
+                return;
+            }
+
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                win.document.write(`
+      <!doctype html>
+      <title>預覽圖片</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <style>
+        body{margin:0;display:grid;place-items:center;background:#111}
+        img{max-width:100vw;max-height:100vh;object-fit:contain}
+      </style>
+      <img src="${url}" alt="share image"/>
+    `);
+                win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
+            });
+        });
     }
 })
 

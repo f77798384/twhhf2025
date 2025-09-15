@@ -13309,7 +13309,6 @@ body {
 #game h4.end, #game .end.h4,
 #game-test h4.end,
 #game-test .end.h4 {
-  font-size: 2rem;
   line-height: 1.5;
   text-align: center;
 }
@@ -13368,7 +13367,12 @@ body {
 .option2.interlude,
 .option2:focus.interlude,
 .option2:hover.interlude {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+.option2.end,
+.option2:focus.end,
+.option2:hover.end {
+  margin-bottom: 1rem;
 }
 
 .option2:before,
