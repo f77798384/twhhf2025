@@ -615,7 +615,7 @@ function openCanvasPreview(imgUrlOrBlobUrl) {
       .hint{position:fixed;bottom:12px;left:0;right:0;color:#999;text-align:center;font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto}
     </style>
     <div class="wrap"><img id="out" alt="preview"/></div>
-    <div class="hint">長按可儲存圖片（iOS 可能不支援直接下載）</div>
+    <div class="hint">若無法顯示請關閉頁面重新嘗試</div>
   `);
   win.document.close();
 
@@ -685,21 +685,4 @@ async function share() {
       alert('產生圖片失敗，請稍後再試');
     }
   }
-}
-
-// 頁內全螢幕預覽（最後退路：在手機最可靠）
-function showInPageOverlay(url) {
-  const overlay = document.createElement('div');
-  overlay.style.cssText = `
-    position:fixed;inset:0;background:#111;display:grid;place-items:center;
-    z-index:99999;padding:12px;
-  `;
-  overlay.innerHTML = `
-    <div style="position:absolute;top:10px;right:10px;">
-      <button id="closePreview" style="font-size:16px;padding:8px 12px;border-radius:10px;border:none">關閉</button>
-    </div>
-    <img src="${url}" alt="preview" style="max-width:100%;max-height:100%;object-fit:contain" />
-  `;
-  document.body.appendChild(overlay);
-  overlay.querySelector('#closePreview').onclick = () => overlay.remove();
 }
