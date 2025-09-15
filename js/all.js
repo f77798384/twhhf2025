@@ -296,7 +296,7 @@ function renderNode(nodeKey, dev) {
             container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         } else if (node.type == 'end' && dev == 'false') {
 
-            container.append(`<a onclick="share()" href="#" id="share" class="position-absolute" style="font-size:2rem;right:10%;top:2.5rem;"><i onclick="share()" class="bi bi-box-arrow-up"></i></a><h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
+            container.append(`<a id="share" class="position-absolute" style="font-size:2rem;right:10%;top:2.5rem;"><i onclick="share()" class="bi bi-box-arrow-up"></i></a><h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         } else {
             container.append(`<h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         }
@@ -562,7 +562,7 @@ $('#career').on('change', function () {
     renderNode($('#chapter').val(), 'false')
 })
 
-function share() {
+function share0() {
     html2canvas(document.querySelector('#share-img'), {
         useCORS: true,
         allowTaint: false,
@@ -570,17 +570,17 @@ function share() {
         backgroundColor: null
     }).then(canvas => {
         const win = window.open('', '_blank');
-        // if (!win) {
-        //     canvas.toBlob(blob => {
-        //         const url = URL.createObjectURL(blob);
-        //         const a = document.createElement('a');
-        //         a.href = url;
-        //         a.download = 'share.png';
-        //         a.click();
-        //         URL.revokeObjectURL(url);
-        //     });
-        //     return;
-        // }
+        if (!win) {
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'share.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+            return;
+        }
 
         canvas.toBlob(blob => {
             const url = URL.createObjectURL(blob);
@@ -597,4 +597,109 @@ function share() {
             win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
         });
     });
+}
+
+function openCanvasPreview(imgUrlOrBlobUrl) {
+  const win = window.open('', '_blank');
+  if (!win) return null; // 可能被擋
+  // 先同步寫入骨架，避免殭屍分頁
+  win.document.open();
+  win.document.write(`
+    <!doctype html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>預覽圖片</title>
+    <style>
+      html,body{height:100%;margin:0;background:#111;display:grid;place-items:center}
+      .wrap{max-width:100vw;max-height:100vh}
+      img{max-width:100%;max-height:100%;object-fit:contain}
+      .hint{position:fixed;bottom:12px;left:0;right:0;color:#999;text-align:center;font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto}
+    </style>
+    <div class="wrap"><img id="out" alt="preview"/></div>
+    <div class="hint">長按可儲存圖片（iOS 可能不支援直接下載）</div>
+  `);
+  win.document.close();
+
+  // 如果已經有 URL，先放
+  if (imgUrlOrBlobUrl) {
+    try {
+      win.document.getElementById('out').src = imgUrlOrBlobUrl;
+    } catch (_) {}
+  }
+  return win;
+}
+
+async function share() {
+  // 同步先開分頁，保住使用者手勢
+  const tempWin = openCanvasPreview(null);
+
+  try {
+    // 等字型/圖片載完會更穩（可視情況保留）
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
+    const target = document.querySelector('#share-img');
+    if (!target) throw new Error('#share-img 不存在或尚未渲染');
+
+    const canvas = await html2canvas(target, {
+      useCORS: true,
+      allowTaint: false,
+      scale: window.devicePixelRatio > 1 ? 2 : 1,
+      backgroundColor: null
+    });
+
+    // 盡量用 Blob URL（相容性較好），若無 toBlob 則退回 dataURL
+    const setImg = (url) => {
+      if (tempWin) {
+        try {
+          tempWin.document.getElementById('out').src = url;
+        } catch (_) {}
+      } else {
+        // 被擋的退路：做頁內全螢幕預覽
+        showInPageOverlay(url);
+      }
+    };
+
+    if (canvas.toBlob) {
+      canvas.toBlob(blob => {
+        if (!blob) {
+          // 罕見情況：toBlob 回 null，就退回 dataURL
+          setImg(canvas.toDataURL('image/png'));
+          return;
+        }
+        const blobUrl = URL.createObjectURL(blob);
+        setImg(blobUrl);
+        // 視需求在離開頁面或點擊關閉時 revokeObjectURL
+      });
+    } else {
+      // 某些舊 iOS
+      setImg(canvas.toDataURL('image/png'));
+    }
+
+  } catch (err) {
+    // 若任何步驟出錯，至少讓使用者知道
+    console.error(err);
+    if (tempWin && !tempWin.closed) {
+      tempWin.document.body.innerHTML = `<p style="color:#fff;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto">產生圖片失敗：${String(err)}</p>`;
+    } else {
+      alert('產生圖片失敗，請稍後再試');
+    }
+  }
+}
+
+// 頁內全螢幕預覽（最後退路：在手機最可靠）
+function showInPageOverlay(url) {
+  const overlay = document.createElement('div');
+  overlay.style.cssText = `
+    position:fixed;inset:0;background:#111;display:grid;place-items:center;
+    z-index:99999;padding:12px;
+  `;
+  overlay.innerHTML = `
+    <div style="position:absolute;top:10px;right:10px;">
+      <button id="closePreview" style="font-size:16px;padding:8px 12px;border-radius:10px;border:none">關閉</button>
+    </div>
+    <img src="${url}" alt="preview" style="max-width:100%;max-height:100%;object-fit:contain" />
+  `;
+  document.body.appendChild(overlay);
+  overlay.querySelector('#closePreview').onclick = () => overlay.remove();
 }
