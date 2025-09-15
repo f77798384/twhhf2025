@@ -356,7 +356,7 @@ function renderNode(nodeKey, dev) {
     }
     if (node.type == 'end') {
         $('#share-img').remove()
-        $('#window').append(`<div id="share-img" class="w-100 h-100 d-none">
+        $('#window').append(`<div id="share-img" class="w-100 h-100">
 	<div class="position-absolute w-100 z-3 text-center">
 		<h2 class="mt-4">命運之書<br>未完的童話</h2>
 		<h3 class="mb-3 ${node.type}">${dialog.head.split('\n',)[1]}</h3>
