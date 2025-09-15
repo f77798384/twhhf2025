@@ -296,7 +296,7 @@ function renderNode(nodeKey, dev) {
             container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         } else if (node.type == 'end' && dev == 'false') {
 
-            container.append(`<a href="#" id="share" class="position-absolute" style="font-size:2rem;right:10%;top:2.5rem;"><i class="bi bi-box-arrow-up"></i></a><h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
+            container.append(`<a onclick="share()" href="#" id="share" class="position-absolute" style="font-size:2rem;right:10%;top:2.5rem;"><i onclick="share()" class="bi bi-box-arrow-up"></i></a><h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         } else {
             container.append(`<h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         }
@@ -478,42 +478,9 @@ $(document).on('click', function (e) {
             renderNode(currentNode);           // 執行顯示第一節點
         }, 2000);
     }
-    if ($($(e.target)[0]).parent()[0].id == 'share') {
-        html2canvas(document.querySelector('#share-img'), {
-            useCORS: true,
-            allowTaint: false,
-            scale: 2,           
-            backgroundColor: null 
-        }).then(canvas => {
-            const win = window.open('', '_blank');
-            if (!win) {
-                canvas.toBlob(blob => {
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'share.png';
-                    a.click();
-                    URL.revokeObjectURL(url);
-                });
-                return;
-            }
+    // if ($($(e.target)[0]).parent()[0].id == 'share') {
 
-            canvas.toBlob(blob => {
-                const url = URL.createObjectURL(blob);
-                win.document.write(`
-      <!doctype html>
-      <title>預覽圖片</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <style>
-        body{margin:0;display:grid;place-items:center;background:#111}
-        img{max-width:100vw;max-height:100vh;object-fit:contain}
-      </style>
-      <img src="${url}" alt="share image"/>
-    `);
-                win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
-            });
-        });
-    }
+    // }
 })
 
 let t = window.devicePixelRatio
@@ -594,3 +561,40 @@ $('#career').on('change', function () {
     num_career = $('#career').val() - 1
     renderNode($('#chapter').val(), 'false')
 })
+
+function share() {
+    html2canvas(document.querySelector('#share-img'), {
+        useCORS: true,
+        allowTaint: false,
+        scale: 2,
+        backgroundColor: null
+    }).then(canvas => {
+        const win = window.open('', '_blank');
+        // if (!win) {
+        //     canvas.toBlob(blob => {
+        //         const url = URL.createObjectURL(blob);
+        //         const a = document.createElement('a');
+        //         a.href = url;
+        //         a.download = 'share.png';
+        //         a.click();
+        //         URL.revokeObjectURL(url);
+        //     });
+        //     return;
+        // }
+
+        canvas.toBlob(blob => {
+            const url = URL.createObjectURL(blob);
+            win.document.write(`
+      <!doctype html>
+      <title>預覽圖片</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <style>
+        body{margin:0;display:grid;place-items:center;background:#111}
+        img{max-width:100vw;max-height:100vh;object-fit:contain}
+      </style>
+      <img src="${url}" alt="share image"/>
+    `);
+            win.addEventListener('beforeunload', () => URL.revokeObjectURL(url));
+        });
+    });
+}
