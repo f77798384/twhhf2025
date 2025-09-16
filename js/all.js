@@ -1,30 +1,74 @@
-let imgPreloadArr = [];
-function preload() {
-    $.ajax({
-        url: "./text/preload.txt",
-        dataType: "text",
-        success: function (update) {
-            // let i = 0;
-            // arr = update.toString().replaceAll('\r', '').split('\n')
-            // arr.forEach(a => {
-            //     console.log(a)
-            //     const img = new Image();
-            //     img.src = `.${a}`;
-            //     imgPreloadArr.push(img);
-            // });
-            arr = update.toString().replaceAll('\r', '').split('\n')
-            for (let i = 0; i < arr.length; i++) {
-                setTimeout(() => {
-                    let img = new Image();
-                    img.src = `.${arr[i]}`;
-                    imgPreloadArr.push(img)
-                    console.log(`${arr[i]} loaded`)
-                }, i * 200);
-            }
-        }
-    });
+// let imgPreloadArr = [];
+// function preload() {
+//     $.ajax({
+//         url: "./text/preload.txt",
+//         dataType: "text",
+//         success: function (update) {
+//             // let i = 0;
+//             // arr = update.toString().replaceAll('\r', '').split('\n')
+//             // arr.forEach(a => {
+//             //     console.log(a)
+//             //     const img = new Image();
+//             //     img.src = `.${a}`;
+//             //     imgPreloadArr.push(img);
+//             // });
+//             arr = update.toString().replaceAll('\r', '').split('\n')
+//             for (let i = 0; i < arr.length; i++) {
+//                 setTimeout(() => {
+//                     let img = new Image();
+//                     img.src = `.${arr[i]}`;
+//                     imgPreloadArr.push(img)
+//                     console.log(`${arr[i]} loaded`)
+//                 }, i * 200);
+//             }
+//         }
+//     });
+// }
+// preload()
+
+function loadImg(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
 }
-preload()
+
+async function preloadImages(paths, concurrency = 8) {
+  const q = paths.slice(); // 複製一份
+  const results = [];
+  const workers = Array.from({ length: concurrency }, async () => {
+    while (q.length) {
+      const p = q.shift();
+      const img = await loadImg(`.${p}`);
+      results.push(img);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
+$.ajax({
+  url: "./text/preload.txt",
+  dataType: "text",
+  success(update) {
+    const arr = update.toString().replaceAll('\r','').split('\n').filter(Boolean);
+    preloadImages(arr).then(imgs => {
+      imgPreloadArr.push(...imgs);
+      console.log(`Preloaded ${imgs.length} images`);
+    });
+  }
+});
+
+function loadImgWithLog(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => { console.log(src, 'loaded'); resolve(img); }
+    img.onerror = (e) => { console.warn(src, 'failed', e); reject(e); }
+    img.src = src;
+  });
+}
 
 $('#switch-test').on('click', function () {
     $('.stylechoose').removeClass('d-none')
