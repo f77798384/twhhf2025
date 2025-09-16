@@ -410,7 +410,7 @@ function renderNode(nodeKey, dev) {
 		<h2 class="mt-4">命運之書<br>未完的童話</h2>
 		<h3 class="mb-3 ${node.type}">${dialog.head.split('\n',)[1]}</h3>
 	<p class="mx-4 fs-5 text-justify" style="text-align: justify;line-height:1.4">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + '' + '</span>').replace('{{出生地}}', owhere).replace('{{現實出生地}}', where).replace('{{環境}}', area).replace('{{問題}}', issue).split(`<br><span class='text-center fs-5 d-block'>看看你的選擇`)[0]}</p></div>
-    <img src="./img/ending/${codename}.png" class="w-100 position-absolute">`)
+    <img src="./img/ending/${codename}.webp" class="w-100 position-absolute">`)
     }
 }
 
@@ -440,7 +440,7 @@ function reset() {
 }
 
 $(document).on('click', function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     if ($(e.target)[0].nodeName == "A") {
         let option = $(e.target).attr('class');
         switch (option) {
@@ -533,9 +533,6 @@ $(document).on('click', function (e) {
             renderNode(currentNode);           // 執行顯示第一節點
         }, 2000);
     }
-    // if ($($(e.target)[0]).parent()[0].id == 'share') {
-
-    // }
 })
 
 let t = window.devicePixelRatio

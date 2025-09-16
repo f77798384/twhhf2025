@@ -1193,7 +1193,7 @@
     "ending-SOB-dev": {
         "type": "end",
         "dialog": {
-            "head": "終幕\n在愛裡中成長",
+            "head": "終幕\n在愛裡成長",
             "description": "你與 <span class='text-danger fw-bold'>10.14%</span> 的人走向了相同的結局。生命中不會只有困境，還有愛在未來等待著你。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
@@ -1258,7 +1258,7 @@
         "type": "end",
         "dialog": {
             "head": "終幕\n能說出口的愛",
-            "description": "你與 <span class='text-danger fw-bold'>13.04%</span> 的人走向了相同的結局。當故事書闔上，別忘了這並非只存在於童話。\n你與 13.0% 的人走向了相同的結局。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>13.04%</span> 的人走向了相同的結局。你邁向未來的步伐或許較他人緩慢，但別忘了一直有著愛你的人在你的身邊陪伴著你。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     }
