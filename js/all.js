@@ -44,7 +44,7 @@ async function preloadImages(paths, concurrency = 8) {
     const workers = Array.from({ length: concurrency }, async () => {
         while (q.length) {
             const p = q.shift();
-            try { out.push(await loadImgHigh(p)); }
+            try { out.push(await loadImgHigh(`.${p}`)); }
             catch (e) { console.warn('fail:', p, e); }
             await new Promise(r => setTimeout(r, 20)); // 讓出主執行緒，避免解碼卡住
         }
