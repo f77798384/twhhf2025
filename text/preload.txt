@@ -1,5 +1,20 @@
+/img/Sponsor/Kuoyang.webp
+/img/Sponsor/Living Grace Charity Foundation.webp
+/img/Sponsor/Pegaron(1).webp
+/img/Tarot-back.webp
+/img/Tarot-front.webp
+/img/introbg.webp
 /img/bg-2.webp
 /img/bg-3.webp
+/img/lottery/BACK.webp
+/img/lottery/FORGER.webp
+/img/lottery/FRONT.webp
+/img/lottery/HERO.webp
+/img/lottery/HUNTER.webp
+/img/lottery/LOGGER.webp
+/img/lottery/PRIEST.webp
+/img/lottery/RANGER.webp
+/img/lottery/VILLAGER.webp
 /img/desert.webp
 /img/desert-cave.webp
 /img/desert-cave-temple.webp
@@ -15,7 +30,6 @@
 /img/favicon.webp
 /img/grassland.webp
 /img/grassland-remains.webp
-/img/introbg.webp
 /img/jungle.webp
 /img/jungle-alert.webp
 /img/jungle-antidote.webp
@@ -49,5 +63,5 @@
 /img/magic book open.webp
 /img/test.webp
 /img/關愛LOGO.webp
-/img/Tarot-front.webp
-/img/Tarot-back.webp
+/img/ending/d.webp
+/img/ending/j.webp

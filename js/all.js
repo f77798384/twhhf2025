@@ -1,21 +1,21 @@
 let imgPreloadArr = [];
-// function preload() {
-//     var folderPath = "./img/";
-//     $.ajax({
-//         url: "./text/preload.txt",
-//         dataType: "text",
-//         success: function (update) {
-//             let i = 0;
-//             arr = update.toString().replaceAll('\r', '').split('\n')
-//             arr.forEach(a => {
-//                 const img = new Image();
-//                 img.src = `.${a}`;
-//                 imgPreloadArr.push(img);
-//             });
-//         }
-//     });
-// }
-// preload()
+function preload() {
+    var folderPath = "./img/";
+    $.ajax({
+        url: "./text/preload.txt",
+        dataType: "text",
+        success: function (update) {
+            let i = 0;
+            arr = update.toString().replaceAll('\r', '').split('\n')
+            arr.forEach(a => {
+                const img = new Image();
+                img.src = `.${a}`;
+                imgPreloadArr.push(img);
+            });
+        }
+    });
+}
+preload()
 
 $('#switch-test').on('click', function () {
     $('.stylechoose').removeClass('d-none')
@@ -569,23 +569,12 @@ $('#career').on('change', function () {
     renderNode($('#chapter').val(), 'false')
 })
 
-
-
-// html2canvas(document.querySelector('#share-img'), {
-//     useCORS: true,
-//     allowTaint: false,
-//     scale: 2,           // 較高解析度，視需求
-//     backgroundColor: null // 若要保留透明背景
-// }).then(canvas => {
-//     $('.mb-4.fs-4.end').append(canvas)
-// });
-
 function share() {
     $('#share-img').removeClass('d-none')
     html2canvas(document.querySelector('#share-img'), {
         useCORS: true,
         allowTaint: false,
-        scale: 1.5,           // 較高解析度，視需求
+        scale: 1.4,           // 較高解析度，視需求
         backgroundColor: null // 若要保留透明背景
     }).then(canvas => {
         $('#window').append(`<img id="endimg" src="${canvas.toDataURL('image/png')}">`)
