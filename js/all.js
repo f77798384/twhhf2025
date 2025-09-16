@@ -26,49 +26,79 @@
 // }
 // preload()
 
-function loadImg(src) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = reject;
-    img.src = src;
-  });
+function loadImgHigh(src) {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.loading = 'eager';
+        img.decoding = 'async';
+        if ('fetchPriority' in img) img.fetchPriority = 'high'; // 拉高優先
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+    });
 }
 
 async function preloadImages(paths, concurrency = 8) {
-  const q = paths.slice(); // 複製一份
-  const results = [];
-  const workers = Array.from({ length: concurrency }, async () => {
-    while (q.length) {
-      const p = q.shift();
-      const img = await loadImg(`.${p}`);
-      results.push(img);
-    }
-  });
-  await Promise.all(workers);
-  return results;
+    const q = paths.slice();
+    const out = [];
+    const workers = Array.from({ length: concurrency }, async () => {
+        while (q.length) {
+            const p = q.shift();
+            try { out.push(await loadImgHigh(p)); }
+            catch (e) { console.warn('fail:', p, e); }
+            await new Promise(r => setTimeout(r, 20)); // 讓出主執行緒，避免解碼卡住
+        }
+    });
+    await Promise.all(workers);
+    return out;
 }
 
-$.ajax({
-  url: "./text/preload.txt",
-  dataType: "text",
-  success(update) {
-    const arr = update.toString().replaceAll('\r','').split('\n').filter(Boolean);
-    preloadImages(arr).then(imgs => {
-      imgPreloadArr.push(...imgs);
-      console.log(`Preloaded ${imgs.length} images`);
-    });
-  }
+// 讀取 preload.txt
+async function loadPreloadList(url) {
+    const res = await fetch(url, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
+    const txt = await res.text();
+    return txt.replaceAll('\r', '').split('\n').map(s => s.trim()).filter(Boolean);
+}
+
+// 一鍵啟動預載（可傳 concurrency / base / onProgress）
+async function startPreload(opt = {}) {
+    const {
+        listUrl = './text/preload.txt',
+        concurrency = 10,
+        base = '',               // 你的清單是以 /img/ 開頭，這裡留空即可
+        yieldMs = 20,
+        onProgress = (d, t) => {
+            // 更新首頁 loading 百分比
+            const pct = Math.round(d * 100 / t);
+            const el = document.querySelector('#introbg .num');
+            if (el) el.textContent = `${pct}%`;
+            // 全部載完：把 intro 隱藏
+            if (d === t) {
+                const intro = document.getElementById('introbg');
+                if (intro) intro.classList.add('bgfadeout');
+                setTimeout(() => intro?.remove(), 800);
+            }
+        }
+    } = opt;
+
+    const list = await loadPreloadList(listUrl);
+    const imgs = await preloadImages(list.map(p => base ? `${base}${p}` : p), concurrency);
+    // 需要留著可重用就掛到全域
+    window.__preloadedImages = imgs;
+    return imgs;
+}
+
+// DOM Ready 後開始真的預載
+$(function () {
+  startPreload({
+    listUrl: './text/preload.txt',
+    concurrency: 10,   // 視情況 8~12
+    // base: '.',      // 你的清單是 /img/... 根路徑格式，不需要 base
+    yieldMs: 20
+  });
 });
 
-function loadImgWithLog(src) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => { console.log(src, 'loaded'); resolve(img); }
-    img.onerror = (e) => { console.warn(src, 'failed', e); reject(e); }
-    img.src = src;
-  });
-}
 
 $('#switch-test').on('click', function () {
     $('.stylechoose').removeClass('d-none')
