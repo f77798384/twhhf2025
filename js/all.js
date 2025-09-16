@@ -1,17 +1,26 @@
 let imgPreloadArr = [];
 function preload() {
-    var folderPath = "./img/";
     $.ajax({
         url: "./text/preload.txt",
         dataType: "text",
         success: function (update) {
-            let i = 0;
+            // let i = 0;
+            // arr = update.toString().replaceAll('\r', '').split('\n')
+            // arr.forEach(a => {
+            //     console.log(a)
+            //     const img = new Image();
+            //     img.src = `.${a}`;
+            //     imgPreloadArr.push(img);
+            // });
             arr = update.toString().replaceAll('\r', '').split('\n')
-            arr.forEach(a => {
-                const img = new Image();
-                img.src = `.${a}`;
-                imgPreloadArr.push(img);
-            });
+            for (let i = 0; i < arr.length; i++) {
+                setTimeout(() => {
+                    let img = new Image();
+                    img.src = `.${arr[i]}`;
+                    imgPreloadArr.push(img)
+                    console.log(`${arr[i]} loaded`)
+                }, i * 1);
+            }
         }
     });
 }
