@@ -19,7 +19,7 @@ function preload() {
                     img.src = `.${arr[i]}`;
                     imgPreloadArr.push(img)
                     console.log(`${arr[i]} loaded`)
-                }, i * 1);
+                }, i * 200);
             }
         }
     });
