@@ -1,37 +1,9 @@
-// let imgPreloadArr = [];
-// function preload() {
-//     $.ajax({
-//         url: "./text/preload.txt",
-//         dataType: "text",
-//         success: function (update) {
-//             // let i = 0;
-//             // arr = update.toString().replaceAll('\r', '').split('\n')
-//             // arr.forEach(a => {
-//             //     console.log(a)
-//             //     const img = new Image();
-//             //     img.src = `.${a}`;
-//             //     imgPreloadArr.push(img);
-//             // });
-//             arr = update.toString().replaceAll('\r', '').split('\n')
-//             for (let i = 0; i < arr.length; i++) {
-//                 setTimeout(() => {
-//                     let img = new Image();
-//                     img.src = `.${arr[i]}`;
-//                     imgPreloadArr.push(img)
-//                     console.log(`${arr[i]} loaded`)
-//                 }, i * 200);
-//             }
-//         }
-//     });
-// }
-// preload()
-
 function loadImgHigh(src) {
     return new Promise((resolve, reject) => {
         const img = new Image();
         img.loading = 'eager';
         img.decoding = 'async';
-        if ('fetchPriority' in img) img.fetchPriority = 'high'; // 拉高優先
+        if ('fetchPriority' in img) img.fetchPriority = 'high';
         img.onload = () => resolve(img);
         img.onerror = reject;
         img.src = src;
@@ -46,14 +18,13 @@ async function preloadImages(paths, concurrency = 8) {
             const p = q.shift();
             try { out.push(await loadImgHigh(`.${p}`)); }
             catch (e) { console.warn('fail:', p, e); }
-            await new Promise(r => setTimeout(r, 20)); // 讓出主執行緒，避免解碼卡住
+            await new Promise(r => setTimeout(r, 20));
         }
     });
     await Promise.all(workers);
     return out;
 }
 
-// 讀取 preload.txt
 async function loadPreloadList(url) {
     const res = await fetch(url, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
@@ -61,19 +32,16 @@ async function loadPreloadList(url) {
     return txt.replaceAll('\r', '').split('\n').map(s => s.trim()).filter(Boolean);
 }
 
-// 一鍵啟動預載（可傳 concurrency / base / onProgress）
 async function startPreload(opt = {}) {
     const {
         listUrl = './text/preload.txt',
         concurrency = 10,
-        base = '',               // 你的清單是以 /img/ 開頭，這裡留空即可
+        base = '',
         yieldMs = 20,
         onProgress = (d, t) => {
-            // 更新首頁 loading 百分比
             const pct = Math.round(d * 100 / t);
             const el = document.querySelector('#introbg .num');
             if (el) el.textContent = `${pct}%`;
-            // 全部載完：把 intro 隱藏
             if (d === t) {
                 const intro = document.getElementById('introbg');
                 if (intro) intro.classList.add('bgfadeout');
@@ -84,17 +52,14 @@ async function startPreload(opt = {}) {
 
     const list = await loadPreloadList(listUrl);
     const imgs = await preloadImages(list.map(p => base ? `${base}${p}` : p), concurrency);
-    // 需要留著可重用就掛到全域
     window.__preloadedImages = imgs;
     return imgs;
 }
 
-// DOM Ready 後開始真的預載
 $(function () {
   startPreload({
     listUrl: './text/preload.txt',
-    concurrency: 10,   // 視情況 8~12
-    // base: '.',      // 你的清單是 /img/... 根路徑格式，不需要 base
+    concurrency: 10, 
     yieldMs: 20
   });
 });
@@ -657,8 +622,8 @@ function share() {
     html2canvas(document.querySelector('#share-img'), {
         useCORS: true,
         allowTaint: false,
-        scale: 1.4,           // 較高解析度，視需求
-        backgroundColor: null // 若要保留透明背景
+        scale: 1.4,
+        backgroundColor: null
     }).then(canvas => {
         $('#window').append(`<img id="endimg" src="${canvas.toDataURL('image/png')}">`)
         $('#window').append(`<div id="close-canvas"><a href="#">
