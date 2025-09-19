@@ -1102,7 +1102,7 @@
             }
         }
     },
-    "ending-twhhf-take-care-of": {
+    "ending-twhhf-take-care-of-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n關愛之家照顧服務",
@@ -1110,7 +1110,7 @@
         },
         "goto": "start"
     },
-    "ending-SOB": {
+    "ending-SOB-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n遣返回國",
@@ -1118,7 +1118,7 @@
         },
         "goto": "start"
     },
-    "ending-illegal-return": {
+    "ending-illegal-return-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n返回家園",
@@ -1126,7 +1126,7 @@
         },
         "goto": "start"
     },
-    "ending-legal-grow-up": {
+    "ending-legal-grow-up-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n合法長大",
@@ -1134,7 +1134,7 @@
         },
         "goto": "start"
     },
-    "ending-DoSW": {
+    "ending-DoSW-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n安置照顧",
@@ -1142,7 +1142,7 @@
         },
         "goto": "start"
     },
-    "ending-Mozha": {
+    "ending-Mozha-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n茵茵",
@@ -1150,7 +1150,7 @@
         },
         "goto": "start"
     },
-    "ending-death-ice": {
+    "ending-death-ice-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n冰冰",
@@ -1158,7 +1158,7 @@
         },
         "goto": "start"
     },
-    "ending-d-DD": {
+    "ending-d-DD-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\nＤＤ",
@@ -1166,7 +1166,7 @@
         },
         "goto": "start"
     },
-    "ending-death-twhhf-take-care-of": {
+    "ending-death-twhhf-take-care-of-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n成為小天使",
@@ -1174,7 +1174,7 @@
         },
         "goto": "start"
     },
-    "ending-yang": {
+    "ending-yang-origin": {
         "type": "end",
         "dialog": {
             "head": "終幕\n洋洋",
@@ -1182,7 +1182,7 @@
         },
         "goto": "start"
     },
-    "ending-twhhf-take-care-of-dev": {
+    "ending-twhhf-take-care-of": {
         "type": "end",
         "dialog": {
             "head": "終幕\n關愛之家照顧服務",
@@ -1190,7 +1190,7 @@
         },
         "goto": "start"
     },
-    "ending-SOB-dev": {
+    "ending-SOB": {
         "type": "end",
         "dialog": {
             "head": "終幕\n在愛裡成長",
@@ -1198,67 +1198,67 @@
         },
         "goto": "start"
     },
-    "ending-illegal-return-dev": {
+    "ending-illegal-return": {
         "type": "end",
         "dialog": {
             "head": "終幕\n返回家園",
-            "description": "你與 <span class='text-danger fw-bold'>14.49%</span> 的人走向了相同的結局。在歷經重重困難下你和母親主動地回到了原籍國，順利拿到身分的你站在陽光底下長大。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>14.49%</span> 的人走向了相同的結局。在歷經重重困難下你和母親主動地回到了原籍國，順利拿到身分的你站在陽光底下長大。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=O'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     },
-    "ending-legal-grow-up-dev": {
+    "ending-legal-grow-up": {
         "type": "end",
         "dialog": {
             "head": "終幕\n合法長大",
-            "description": "你與 <span class='text-danger fw-bold'>13.04%</span> 的人走向了相同的結局。相較於黑戶寶寶，擁有合法身分的你能順利施打疫苗、就醫與求學。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>13.04%</span> 的人走向了相同的結局。相較於黑戶寶寶，擁有合法身分的你能順利施打疫苗、就醫與求學。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=courage'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     },
-    "ending-DoSW-dev": {
+    "ending-DoSW": {
         "type": "end",
         "dialog": {
             "head": "終幕\n安置照顧",
-            "description": "你與 <span class='text-danger fw-bold'>14.49%</span> 的人走向了相同的結局。在你沒辦法被妥善照顧的當下被即時發現，隨著社工的轉介來到了關愛家園，在這裡老師與保育員給了你無盡的鼓勵與愛。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>14.49%</span> 的人走向了相同的結局。在你沒辦法被妥善照顧的當下被即時發現，隨著社工的轉介來到了關愛家園，在這裡老師與保育員給了你無盡的鼓勵與愛。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=DODO'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     },
-    "ending-Mozha-dev": {
+    "ending-Mozha": {
         "type": "end",
         "dialog": {
             "head": "終幕\n重生的鳳凰",
-            "description": "你與 <span class='text-danger fw-bold'>8.70%</span> 的人走向了相同的結局。命運從不預告它的到來，但在我們手中你能成為那浴火重生的鳳凰。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>8.70%</span> 的人走向了相同的結局。命運從不預告它的到來，但在我們手中你能成為那浴火重生的鳳凰。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=Mozha'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     },
-    "ending-death-ice-dev": {
+    "ending-death-ice": {
         "type": "end",
         "dialog": {
             "head": "終幕\n守護他人的天使",
-            "description": "你與 <span class='text-danger fw-bold'>1.45%</span> 的人走向了相同的結局。這次故事停在最安靜的夜裡，願你在另一個世界輕盈。而我們依然持續努力，讓後來的人不再走到這裡。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>1.45%</span> 的人走向了相同的結局。這次故事停在最安靜的夜裡，願你在另一個世界輕盈。而我們依然持續努力，讓後來的人不再走到這裡。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=ice'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     },
-    "ending-d-DD-dev": {
+    "ending-d-DD": {
         "type": "end",
         "dialog": {
             "head": "終幕\n不對稱的命運",
-            "description": "你與 <span class='text-danger fw-bold'>1.45%</span> 的人走向了相同的結局。人生的意外或許困擾著你，但未來卻擁有著無限光明的可能。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>1.45%</span> 的人走向了相同的結局。人生的意外或許困擾著你，但未來卻擁有著無限光明的可能。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=DD'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     },
-    "ending-death-twhhf-take-care-of-dev": {
+    "ending-death-twhhf-take-care-of": {
         "type": "end",
         "dialog": {
             "head": "終幕\n成為小天使",
-            "description": "你與 <span class='text-danger fw-bold'>4.35%</span> 的人走向了相同的結局。故事中的你迎向了終點，但現實中仍有無數個你正經歷著這一切，謝謝你看見這段故事，也希望你能將這段旅途分享出去。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>4.35%</span> 的人走向了相同的結局。故事中的你迎向了終點，但現實中仍有無數個你正經歷著這一切，謝謝你看見這段故事，也希望你能將這段旅途分享出去。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target='>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     },
-    "ending-yang-dev": {
+    "ending-yang": {
         "type": "end",
         "dialog": {
             "head": "終幕\n能說出口的愛",
-            "description": "你與 <span class='text-danger fw-bold'>13.04%</span> 的人走向了相同的結局。你邁向未來的步伐或許較他人緩慢，但別忘了一直有著愛你的人在你的身邊陪伴著你。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=glad'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
+            "description": "你與 <span class='text-danger fw-bold'>13.04%</span> 的人走向了相同的結局。你邁向未來的步伐或許較他人緩慢，但別忘了一直有著愛你的人在你的身邊陪伴著你。\n\n<span>當故事書闔上，別忘了這並非只存在於童話。你選擇的<span class='text-danger fw-bold'>「{{出生地}}」</span>寓意著他們出生在<span class='text-danger fw-bold'>{{現實出生地}}</span>，而前往的<span class='text-danger fw-bold'>{{環境}}</span>所代表的是<span class='text-danger fw-bold'>{{問題}}</span>，而路途上遇到的事件都隱喻著生活上面臨的問題。\n\n<span class='text-center fs-5 d-block'>看看你的選擇\n👇🏻是哪個寶寶的真實故事👇🏻\n<a target='_blank' class='option1' href='https://www.twhhf.org/ending2025online?target=yang'>故事傳送門</a><a target='_blank' class='option1' href='https://www.twhhf.org/zh-hant/love2025' style='background-color: bisque;color: black;margin-bottom: 2rem;'>九月份實體活動</a></span>"
         },
         "goto": "start"
     }

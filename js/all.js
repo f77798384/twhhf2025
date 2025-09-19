@@ -57,11 +57,11 @@ async function startPreload(opt = {}) {
 }
 
 $(function () {
-  startPreload({
-    listUrl: './text/preload.txt',
-    concurrency: 10, 
-    yieldMs: 20
-  });
+    startPreload({
+        listUrl: './text/preload.txt',
+        concurrency: 10,
+        yieldMs: 20
+    });
 });
 
 
@@ -343,7 +343,8 @@ function renderNode(nodeKey, dev) {
     if (dialog.head) {
         if (node.type == 'interlude') {
             container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
-        } else if (node.type == 'end' && dev == 'false') {
+        // } else if (node.type == 'end' && dev == 'false') {
+        } else if (node.type == 'end') {
 
             container.append(`<a id="share" class="position-absolute" style="font-size:2rem;right:10%;top:2.5rem;"><i onclick="share()" class="bi bi-box-arrow-up"></i></a><h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
         } else {
@@ -407,8 +408,8 @@ function renderNode(nodeKey, dev) {
         $('#share-img').remove()
         $('#window').append(`<div id="share-img" class="w-100 d-none"">
 	<div class="position-absolute w-100 z-3 text-center">
-		<h2 class="mt-4">命運之書<br>未完的童話</h2>
-		<h3 class="mb-3 ${node.type}">${dialog.head.split('\n',)[1]}</h3>
+		<h3 class="mt-4">命運之書<br>未完的童話</h3>
+		<h2 class="mb-3 ${node.type}">《${dialog.head.split('\n',)[1]}》</h2>
 	<p class="mx-4 fs-5 text-justify" style="text-align: justify;line-height:1.4">${dialog.description.replace(/\n/g, "<br>").replace('{{帶入職業}}', '<span style="/*color:red;font-size:1.2rem;*/">' + '' + '</span>').replace('{{出生地}}', owhere).replace('{{現實出生地}}', where).replace('{{環境}}', area).replace('{{問題}}', issue).split(`<br><span class='text-center fs-5 d-block'>看看你的選擇`)[0]}</p></div>
     <img src="./img/ending/${codename}.webp" class="w-100 position-absolute">`)
     }
@@ -622,17 +623,27 @@ function share() {
         scale: 1.4,
         backgroundColor: null
     }).then(canvas => {
-        $('#window').append(`<img id="endimg" src="${canvas.toDataURL('image/png')}">`)
-        $('#window').append(`<div id="close-canvas"><a href="#">
-            <svg onclick="closec()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg text-black p-1 border-black" viewBox="0 0 16 16">
-            <path onclick="closec()" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"></path>
-            </svg>
-            </a></div>`)
+        $('#window').append(
+            `
+            <div id="endimgtest">
+                <img id="endimg" src="${canvas.toDataURL('image/png')}">
+                <div id="close-canvas">
+                    <a href="#">
+                        <svg onclick="closec()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg text-black p-1 border-black" viewBox="0 0 16 16">
+                        <path onclick="closec()" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div id="sign"><p>手機請長按圖片儲存</p></div>
+            </div>
+            `
+        )
     });
     $('#share-img').addClass('d-none')
 }
 
 function closec() {
-    $('#endimg').remove()
-    $('#close-canvas').remove()
+    $('#endimgtest').remove()
 }
+
+
