@@ -6,6 +6,8 @@
 /img/introbg.webp
 /img/bg-2.webp
 /img/bg-3.webp
+/img/ending/d.webp
+/img/ending/j.webp
 /img/lottery/BACK.webp
 /img/lottery/FORGER.webp
 /img/lottery/FRONT.webp
@@ -63,5 +65,3 @@
 /img/magic book open.webp
 /img/test.webp
 /img/關愛LOGO.webp
-/img/ending/d.webp
-/img/ending/j.webp

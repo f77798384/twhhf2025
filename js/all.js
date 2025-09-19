@@ -1,67 +1,108 @@
 function loadImgHigh(src) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.loading = 'eager';
-        img.decoding = 'async';
-        if ('fetchPriority' in img) img.fetchPriority = 'high';
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = src;
-    });
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.loading = 'eager';
+    img.decoding = 'async';
+    if ('fetchPriority' in img) img.fetchPriority = 'high';
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
 }
 
-async function preloadImages(paths, concurrency = 8) {
-    const q = paths.slice();
-    const out = [];
-    const workers = Array.from({ length: concurrency }, async () => {
-        while (q.length) {
-            const p = q.shift();
-            try { out.push(await loadImgHigh(`.${p}`)); }
-            catch (e) { console.warn('fail:', p, e); }
-            await new Promise(r => setTimeout(r, 20));
-        }
-    });
-    await Promise.all(workers);
-    return out;
+/**
+ * 真實預載 + 回報進度
+ * @param {string[]} paths - 圖片路徑（相對/絕對皆可）
+ * @param {object} opt
+ * @param {number} opt.concurrency - 併發數
+ * @param {number} opt.yieldMs - 每次迴圈小休息，避免主執行緒卡死
+ * @param {(done:number,total:number)=>void} opt.onProgress - 每張載完呼叫一次
+ */
+async function preloadImages(paths, { concurrency = 8, yieldMs = 20, onProgress } = {}) {
+  const q = paths.slice();
+  const total = q.length;
+  let done = 0;
+
+  const workers = Array.from({ length: Math.min(concurrency, total || 1) }, async () => {
+    while (q.length) {
+      const p = q.shift();
+      try { await loadImgHigh(p.startsWith('.') ? p : `.${p}`); }
+      catch (e) { console.warn('preload fail:', p, e); }
+      finally {
+        done++;
+        if (typeof onProgress === 'function') onProgress(done, total);
+      }
+      if (yieldMs > 0) await new Promise(r => setTimeout(r, yieldMs));
+    }
+  });
+
+  await Promise.all(workers);
 }
 
+/**
+ * 載入清單檔（逐行路徑）
+ */
 async function loadPreloadList(url) {
-    const res = await fetch(url, { cache: 'no-cache' });
-    if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
-    const txt = await res.text();
-    return txt.replaceAll('\r', '').split('\n').map(s => s.trim()).filter(Boolean);
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
+  const txt = await res.text();
+  return txt.replaceAll('\r', '')
+            .split('\n')
+            .map(s => s.trim())
+            .filter(Boolean);
 }
 
+/**
+ * 啟動預載，並用 onProgress 綁定 UI（百分比/動畫/淡出）
+ */
 async function startPreload(opt = {}) {
-    const {
-        listUrl = './text/preload.txt',
-        concurrency = 10,
-        base = '',
-        yieldMs = 20,
-        onProgress = (d, t) => {
-            const pct = Math.round(d * 100 / t);
-            const el = document.querySelector('#introbg .num');
-            if (el) el.textContent = `${pct}%`;
-            if (d === t) {
-                const intro = document.getElementById('introbg');
-                if (intro) intro.classList.add('bgfadeout');
-                setTimeout(() => intro?.remove(), 800);
-            }
-        }
-    } = opt;
+  const {
+    listUrl = './text/preload.txt',
+    concurrency = 10,
+    base = '',
+    yieldMs = 20,
+    // 預設行為：更新 %、推動 .second、載完淡出 #introbg
+    onProgress = (done, total) => {
+      if (!total) return;
+      const pct = Math.round(done * 100 / total);
 
-    const list = await loadPreloadList(listUrl);
-    const imgs = await preloadImages(list.map(p => base ? `${base}${p}` : p), concurrency);
-    window.__preloadedImages = imgs;
-    return imgs;
+      // 1) 百分比
+      const numEl = document.querySelector('#introbg .num');
+      if (numEl) numEl.textContent = `${pct}%`;
+
+      // 2) 動畫（依進度調整高度/位置，這裡用 200px 當滿格，按需修改）
+      const second = document.querySelector('.second');
+      if (second) {
+        const maxH = 200; // TODO: 換成你實際動畫高度
+        second.style.bottom = `${(done / total) * maxH}px`;
+      }
+
+      // 3) 完成 → 淡出並移除
+      if (done === total) {
+        const intro = document.getElementById('introbg');
+        if (intro) intro.classList.add('bgfadeout');
+        setTimeout(() => intro?.remove(), 800);
+      }
+    }
+  } = opt;
+
+  const list = await loadPreloadList(listUrl);
+  const finalPaths = list.map(p => (base ? `${base}${p}` : p));
+
+  await preloadImages(finalPaths, {
+    concurrency,
+    yieldMs,
+    onProgress
+  });
 }
 
 $(function () {
-    startPreload({
-        listUrl: './text/preload.txt',
-        concurrency: 10,
-        yieldMs: 20
-    });
+  startPreload({
+    listUrl: './text/preload.txt',
+    concurrency: 10,
+    yieldMs: 20
+    // 如需自訂 onProgress，可在這裡覆寫
+  });
 });
 
 
@@ -289,27 +330,27 @@ $.ajax({
     },
 });
 let rad;
-for (var i = 0; i < 2001; i++) {
-    (function (x) {
-        window.setTimeout(function () {
-            $('.second').attr('style', `bottom:${200 * x / 2000}px`)
-            if (x % 20 == 0) {
-                $('.num').text(`${100 * x / 2000}%`)
-            }
-            if (x >= '2000') {
-                $('#intrologo').addClass('animate__animated animate__fadeIn ')
-                setTimeout(() => {
-                    $('#intrologo').removeClass('animate__fadeIn')
-                    $('#intrologo').addClass('animate__fadeOut')
-                    $('#introbg').addClass('bgfadeout')
-                    setTimeout(() => {
-                        $('#introbg').remove()
-                    }, 1500);
-                }, 1000);
-            }
-        }, 1000 + 2 * (x + Math.random() * 10));
-    })(i);
-}
+// for (var i = 0; i < 2001; i++) {
+//     (function (x) {
+//         window.setTimeout(function () {
+//             $('.second').attr('style', `bottom:${200 * x / 2000}px`)
+//             if (x % 20 == 0) {
+//                 $('.num').text(`${100 * x / 2000}%`)
+//             }
+//             if (x >= '2000') {
+//                 $('#intrologo').addClass('animate__animated animate__fadeIn ')
+//                 setTimeout(() => {
+//                     $('#intrologo').removeClass('animate__fadeIn')
+//                     $('#intrologo').addClass('animate__fadeOut')
+//                     $('#introbg').addClass('bgfadeout')
+//                     setTimeout(() => {
+//                         $('#introbg').remove()
+//                     }, 1500);
+//                 }, 1000);
+//             }
+//         }, 1000 + 2 * (x + Math.random() * 10));
+//     })(i);
+// }
 
 function safariHacks() {
     let windowsVH = window.innerHeight / 100;
