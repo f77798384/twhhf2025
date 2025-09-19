@@ -1,128 +1,128 @@
 // 1) 把 loadImgHigh 改成可調優先度（主載用 high、背景用 low）
 function loadImg(src, priority = 'high') {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.loading = 'eager';
-    img.decoding = 'async';
-    if ('fetchPriority' in img) img.fetchPriority = priority; // 'high' | 'low' | 'auto'
-    img.onload = () => resolve(img);
-    img.onerror = reject;
-    img.src = src;
-  });
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.loading = 'eager';
+        img.decoding = 'async';
+        if ('fetchPriority' in img) img.fetchPriority = priority; // 'high' | 'low' | 'auto'
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+    });
 }
 
 // 2) 原本的 preloadImages：再加一個 priority 參數與 silent 模式
 async function preloadImages(paths, {
-  concurrency = 8,
-  yieldMs = 20,
-  onProgress,
-  priority = 'high',   // 新增：預設主載高優先
-  silent = false       // 新增：背景預載不回報進度
+    concurrency = 8,
+    yieldMs = 20,
+    onProgress,
+    priority = 'high',   // 新增：預設主載高優先
+    silent = false       // 新增：背景預載不回報進度
 } = {}) {
-  const q = paths.slice();
-  const total = q.length;
-  let done = 0;
+    const q = paths.slice();
+    const total = q.length;
+    let done = 0;
 
-  const workers = Array.from({ length: Math.min(concurrency, total || 1) }, async () => {
-    while (q.length) {
-      const p = q.shift();
-      try { await loadImg(p.startsWith('.') ? p : `.${p}`, priority); }
-      catch (e) { console.warn('preload fail:', p, e); }
-      finally {
-        done++;
-        if (!silent && typeof onProgress === 'function') onProgress(done, total);
-      }
-      if (yieldMs > 0) await new Promise(r => setTimeout(r, yieldMs));
-    }
-  });
+    const workers = Array.from({ length: Math.min(concurrency, total || 1) }, async () => {
+        while (q.length) {
+            const p = q.shift();
+            try { await loadImg(p.startsWith('.') ? p : `.${p}`, priority); }
+            catch (e) { console.warn('preload fail:', p, e); }
+            finally {
+                done++;
+                if (!silent && typeof onProgress === 'function') onProgress(done, total);
+            }
+            if (yieldMs > 0) await new Promise(r => setTimeout(r, yieldMs));
+        }
+    });
 
-  await Promise.all(workers);
+    await Promise.all(workers);
 }
 
 // 3) 保留你現有的 loadPreloadList & startPreload（主載控制讀取畫面）
 async function loadPreloadList(url) {
-  const res = await fetch(url, { cache: 'no-cache' });
-  if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
-  const txt = await res.text();
-  return txt.replaceAll('\r', '')
-            .split('\n')
-            .map(s => s.trim())
-            .filter(Boolean);
+    const res = await fetch(url, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
+    const txt = await res.text();
+    return txt.replaceAll('\r', '')
+        .split('\n')
+        .map(s => s.trim())
+        .filter(Boolean);
 }
 
 async function startPreload(opt = {}) {
-  const {
-    listUrl = './text/preload.txt',
-    concurrency = 10,
-    base = '',
-    yieldMs = 20,
-    onProgress = (done, total) => {
-      if (!total) return;
-      const pct = Math.round(done * 100 / total);
-      const numEl = document.querySelector('#introbg .num');
-      if (numEl) numEl.textContent = `${pct}%`;
-      const second = document.querySelector('.second');
-      if (second) {
-        const maxH = 200;
-        second.style.bottom = `${(done / total) * maxH}px`;
-      }
-      if (done === total) {
-        const intro = document.getElementById('introbg');
-        if (intro) intro.classList.add('bgfadeout');
-        setTimeout(() => intro?.remove(), 800);
-      }
-    }
-  } = opt;
+    const {
+        listUrl = './text/preload.txt',
+        concurrency = 10,
+        base = '',
+        yieldMs = 20,
+        onProgress = (done, total) => {
+            if (!total) return;
+            const pct = Math.round(done * 100 / total);
+            const numEl = document.querySelector('#introbg .num');
+            if (numEl) numEl.textContent = `${pct}%`;
+            const second = document.querySelector('.second');
+            if (second) {
+                const maxH = 200;
+                second.style.bottom = `${(done / total) * maxH}px`;
+            }
+            if (done === total) {
+                const intro = document.getElementById('introbg');
+                if (intro) intro.classList.add('bgfadeout');
+                setTimeout(() => intro?.remove(), 800);
+            }
+        }
+    } = opt;
 
-  const list = await loadPreloadList(listUrl);
-  const finalPaths = list.map(p => (base ? `${base}${p}` : p));
+    const list = await loadPreloadList(listUrl);
+    const finalPaths = list.map(p => (base ? `${base}${p}` : p));
 
-  await preloadImages(finalPaths, {
-    concurrency,
-    yieldMs,
-    onProgress,
-    priority: 'high',  // 主載：高優先
-    silent: false
-  });
+    await preloadImages(finalPaths, {
+        concurrency,
+        yieldMs,
+        onProgress,
+        priority: 'high',  // 主載：高優先
+        silent: false
+    });
 }
 
 // 4) 新增：背景預載（不控制 UI）
 function startBackgroundPreload(listUrl, { base = '', concurrency = 3, yieldMs = 60 } = {}) {
-  // 用 requestIdleCallback（有 polyfill）把工作排到空檔跑
-  const ric = window.requestIdleCallback || function (cb) { return setTimeout(() => cb({ timeRemaining: () => 0 }), 200); };
-  ric(async () => {
-    try {
-      const list = await loadPreloadList(listUrl);
-      const finalPaths = list.map(p => (base ? `${base}${p}` : p));
-      await preloadImages(finalPaths, {
-        concurrency,       // 降低併發，別卡住主執行緒/網路
-        yieldMs,           // 放慢一點
-        priority: 'low',   // 低優先度下載
-        silent: true       // 🔇 完全不回報 UI
-      });
-      // 可選：把結果掛在全域快取
-      window.__preloadedSecondary = true;
-      console.log('[bg-preload] done:', list.length);
-    } catch (e) {
-      console.warn('[bg-preload] fail:', e);
-    }
-  });
+    // 用 requestIdleCallback（有 polyfill）把工作排到空檔跑
+    const ric = window.requestIdleCallback || function (cb) { return setTimeout(() => cb({ timeRemaining: () => 0 }), 200); };
+    ric(async () => {
+        try {
+            const list = await loadPreloadList(listUrl);
+            const finalPaths = list.map(p => (base ? `${base}${p}` : p));
+            await preloadImages(finalPaths, {
+                concurrency,       // 降低併發，別卡住主執行緒/網路
+                yieldMs,           // 放慢一點
+                priority: 'low',   // 低優先度下載
+                silent: true       // 🔇 完全不回報 UI
+            });
+            // 可選：把結果掛在全域快取
+            window.__preloadedSecondary = true;
+            console.log('[bg-preload] done:', list.length);
+        } catch (e) {
+            console.warn('[bg-preload] fail:', e);
+        }
+    });
 }
 
 // 5) 啟動流程：先做主載（控制讀取畫面），完成後再啟動背景預載
 $(function () {
-  startPreload({
-    listUrl: './text/preload.txt',
-    concurrency: 10,
-    yieldMs: 20
-  }).then(() => {
-    // 主載完成 → 背景載第二批資源（完全不影響讀取畫面）
-    startBackgroundPreload('./text/preload-2.txt', {
-      base: '',       // 若有共用前綴可填
-      concurrency: 3, // 視網路/裝置調整
-      yieldMs: 60
+    startPreload({
+        listUrl: './text/preload.txt',
+        concurrency: 10,
+        yieldMs: 20
+    }).then(() => {
+        // 主載完成 → 背景載第二批資源（完全不影響讀取畫面）
+        startBackgroundPreload('./text/preload-2.txt', {
+            base: '',       // 若有共用前綴可填
+            concurrency: 3, // 視網路/裝置調整
+            yieldMs: 60
+        });
     });
-  });
 });
 
 
@@ -406,7 +406,7 @@ function renderNode(nodeKey, dev) {
     if (dialog.head) {
         if (node.type == 'interlude') {
             container.append(`<h4 class="mb-3 h2 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
-        // } else if (node.type == 'end' && dev == 'false') {
+            // } else if (node.type == 'end' && dev == 'false') {
         } else if (node.type == 'end') {
 
             container.append(`<a id="share" class="position-absolute" style="font-size:2rem;right:10%;top:2.5rem;"><i onclick="share()" class="bi bi-box-arrow-up"></i></a><h4 class="mb-3 fs-4 ${node.type}">${dialog.head.replace(/\n/g, "<br>")}</h4>`);
@@ -678,32 +678,76 @@ $('#career').on('change', function () {
     renderNode($('#chapter').val(), 'false')
 })
 
-function share() {
-    $('#share-img').removeClass('d-none')
-    html2canvas(document.querySelector('#share-img'), {
-        useCORS: true,
-        allowTaint: false,
-        scale: 1.4,
-        backgroundColor: null
-    }).then(canvas => {
-        $('#window').append(
-            `
-            <div id="endimgtest">
-                <img id="endimg" src="${canvas.toDataURL('image/png')}">
-                <div id="close-canvas">
-                    <a href="#">
-                        <svg onclick="closec()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg text-black p-1 border-black" viewBox="0 0 16 16">
-                        <path onclick="closec()" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"></path>
-                        </svg>
-                    </a>
-                </div>
-                <div id="sign"><p>手機請長按圖片儲存</p></div>
-            </div>
-            `
-        )
-    });
-    $('#share-img').addClass('d-none')
+// ======= 工具：顯示/關閉「生成中」遮罩 =======
+function showShareLoading(text = '圖片生成中…') {
+    if (document.getElementById('share-loading')) return;
+    const div = document.createElement('div');
+    div.id = 'share-loading';
+    div.setAttribute('role', 'status');
+    div.setAttribute('aria-live', 'polite');
+    div.innerHTML = `
+    <div class="box">
+      <div class="spin" aria-hidden="true"></div>
+      <div class="msg">${text}</div>
+    </div>
+  `;
+    document.body.appendChild(div);
+    // 鎖住背景互動（選配）
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
 }
+function hideShareLoading() {
+    const m = document.getElementById('share-loading');
+    if (m) m.remove();
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+}
+
+// ======= 取代你現有的 share() 實作 =======
+async function share() {
+    // 1) 顯示遮罩，讓使用者知道正在算圖
+    showShareLoading('圖片生成中…');
+
+    // 2) 確保待截圖的節點是可見的（你原本就有這行，我保留流程一致）
+    $('#share-img').removeClass('d-none');
+
+    // 3) 讓瀏覽器先把遮罩與 #share-img 繪製完再開始重活（避免遮罩晚一步出現）
+    await new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
+
+    try {
+        // 4) 生成 Canvas（沿用你目前的參數）
+        const canvas = await html2canvas(document.querySelector('#share-img'), {
+            useCORS: true,
+            allowTaint: false,
+            scale: 1.4,
+            backgroundColor: null
+        });
+
+        // 5) 輸出結果（沿用你目前的 DOM 結構與關閉邏輯）
+        $('#window').append(`
+      <div id="endimgtest">
+        <img id="endimg" src="${canvas.toDataURL('image/png')}">
+        <div id="close-canvas">
+          <a href="#">
+            <svg onclick="closec()" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg text-black p-1 border-black" viewBox="0 0 16 16">
+              <path onclick="closec()" d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"></path>
+            </svg>
+          </a>
+        </div>
+        <div id="sign"><p>手機請長按圖片儲存</p></div>
+      </div>
+    `);
+    } catch (err) {
+        console.error('生成分享圖片失敗：', err);
+        // 提示一下（你也可以改成 toast）
+        alert('圖片生成失敗，請再試一次 🙏');
+    } finally {
+        // 6) 關閉遮罩 & 還原 #share-img 顯示狀態
+        hideShareLoading();
+        $('#share-img').addClass('d-none');
+    }
+}
+
 
 function closec() {
     $('#endimgtest').remove()
