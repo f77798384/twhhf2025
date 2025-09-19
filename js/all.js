@@ -1,24 +1,24 @@
-function loadImgHigh(src) {
+// 1) 把 loadImgHigh 改成可調優先度（主載用 high、背景用 low）
+function loadImg(src, priority = 'high') {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.loading = 'eager';
     img.decoding = 'async';
-    if ('fetchPriority' in img) img.fetchPriority = 'high';
+    if ('fetchPriority' in img) img.fetchPriority = priority; // 'high' | 'low' | 'auto'
     img.onload = () => resolve(img);
     img.onerror = reject;
     img.src = src;
   });
 }
 
-/**
- * 真實預載 + 回報進度
- * @param {string[]} paths - 圖片路徑（相對/絕對皆可）
- * @param {object} opt
- * @param {number} opt.concurrency - 併發數
- * @param {number} opt.yieldMs - 每次迴圈小休息，避免主執行緒卡死
- * @param {(done:number,total:number)=>void} opt.onProgress - 每張載完呼叫一次
- */
-async function preloadImages(paths, { concurrency = 8, yieldMs = 20, onProgress } = {}) {
+// 2) 原本的 preloadImages：再加一個 priority 參數與 silent 模式
+async function preloadImages(paths, {
+  concurrency = 8,
+  yieldMs = 20,
+  onProgress,
+  priority = 'high',   // 新增：預設主載高優先
+  silent = false       // 新增：背景預載不回報進度
+} = {}) {
   const q = paths.slice();
   const total = q.length;
   let done = 0;
@@ -26,11 +26,11 @@ async function preloadImages(paths, { concurrency = 8, yieldMs = 20, onProgress 
   const workers = Array.from({ length: Math.min(concurrency, total || 1) }, async () => {
     while (q.length) {
       const p = q.shift();
-      try { await loadImgHigh(p.startsWith('.') ? p : `.${p}`); }
+      try { await loadImg(p.startsWith('.') ? p : `.${p}`, priority); }
       catch (e) { console.warn('preload fail:', p, e); }
       finally {
         done++;
-        if (typeof onProgress === 'function') onProgress(done, total);
+        if (!silent && typeof onProgress === 'function') onProgress(done, total);
       }
       if (yieldMs > 0) await new Promise(r => setTimeout(r, yieldMs));
     }
@@ -39,9 +39,7 @@ async function preloadImages(paths, { concurrency = 8, yieldMs = 20, onProgress 
   await Promise.all(workers);
 }
 
-/**
- * 載入清單檔（逐行路徑）
- */
+// 3) 保留你現有的 loadPreloadList & startPreload（主載控制讀取畫面）
 async function loadPreloadList(url) {
   const res = await fetch(url, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`Failed to load ${url}: ${res.status}`);
@@ -52,32 +50,22 @@ async function loadPreloadList(url) {
             .filter(Boolean);
 }
 
-/**
- * 啟動預載，並用 onProgress 綁定 UI（百分比/動畫/淡出）
- */
 async function startPreload(opt = {}) {
   const {
     listUrl = './text/preload.txt',
     concurrency = 10,
     base = '',
     yieldMs = 20,
-    // 預設行為：更新 %、推動 .second、載完淡出 #introbg
     onProgress = (done, total) => {
       if (!total) return;
       const pct = Math.round(done * 100 / total);
-
-      // 1) 百分比
       const numEl = document.querySelector('#introbg .num');
       if (numEl) numEl.textContent = `${pct}%`;
-
-      // 2) 動畫（依進度調整高度/位置，這裡用 200px 當滿格，按需修改）
       const second = document.querySelector('.second');
       if (second) {
-        const maxH = 200; // TODO: 換成你實際動畫高度
+        const maxH = 200;
         second.style.bottom = `${(done / total) * maxH}px`;
       }
-
-      // 3) 完成 → 淡出並移除
       if (done === total) {
         const intro = document.getElementById('introbg');
         if (intro) intro.classList.add('bgfadeout');
@@ -92,18 +80,52 @@ async function startPreload(opt = {}) {
   await preloadImages(finalPaths, {
     concurrency,
     yieldMs,
-    onProgress
+    onProgress,
+    priority: 'high',  // 主載：高優先
+    silent: false
   });
 }
 
+// 4) 新增：背景預載（不控制 UI）
+function startBackgroundPreload(listUrl, { base = '', concurrency = 3, yieldMs = 60 } = {}) {
+  // 用 requestIdleCallback（有 polyfill）把工作排到空檔跑
+  const ric = window.requestIdleCallback || function (cb) { return setTimeout(() => cb({ timeRemaining: () => 0 }), 200); };
+  ric(async () => {
+    try {
+      const list = await loadPreloadList(listUrl);
+      const finalPaths = list.map(p => (base ? `${base}${p}` : p));
+      await preloadImages(finalPaths, {
+        concurrency,       // 降低併發，別卡住主執行緒/網路
+        yieldMs,           // 放慢一點
+        priority: 'low',   // 低優先度下載
+        silent: true       // 🔇 完全不回報 UI
+      });
+      // 可選：把結果掛在全域快取
+      window.__preloadedSecondary = true;
+      console.log('[bg-preload] done:', list.length);
+    } catch (e) {
+      console.warn('[bg-preload] fail:', e);
+    }
+  });
+}
+
+// 5) 啟動流程：先做主載（控制讀取畫面），完成後再啟動背景預載
 $(function () {
   startPreload({
     listUrl: './text/preload.txt',
     concurrency: 10,
     yieldMs: 20
-    // 如需自訂 onProgress，可在這裡覆寫
+  }).then(() => {
+    // 主載完成 → 背景載第二批資源（完全不影響讀取畫面）
+    startBackgroundPreload('./text/preload-2.txt', {
+      base: '',       // 若有共用前綴可填
+      concurrency: 3, // 視網路/裝置調整
+      yieldMs: 60
+    });
   });
 });
+
+
 
 
 $('#switch-test').on('click', function () {

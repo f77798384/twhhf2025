@@ -1,0 +1,67 @@
+/img/Sponsor/Kuoyang.webp
+/img/Sponsor/Living Grace Charity Foundation.webp
+/img/Sponsor/Pegaron(1).webp
+/img/Tarot-back.webp
+/img/Tarot-front.webp
+/img/introbg.webp
+/img/bg-2.webp
+/img/bg-3.webp
+/img/ending/d.webp
+/img/ending/j.webp
+/img/lottery/BACK.webp
+/img/lottery/FORGER.webp
+/img/lottery/FRONT.webp
+/img/lottery/HERO.webp
+/img/lottery/HUNTER.webp
+/img/lottery/LOGGER.webp
+/img/lottery/PRIEST.webp
+/img/lottery/RANGER.webp
+/img/lottery/VILLAGER.webp
+/img/desert.webp
+/img/desert-cave.webp
+/img/desert-cave-temple.webp
+/img/desert-drift sand.webp
+/img/desert-guard.webp
+/img/desert-nomads.webp
+/img/desert-oasis.webp
+/img/desert-oasis-sand pirate.webp
+/img/desert-sandstorm.webp
+/img/desert-temple.webp
+/img/desert-temple-interior.webp
+/img/desert-temple-purify.webp
+/img/favicon.webp
+/img/grassland.webp
+/img/grassland-remains.webp
+/img/jungle.webp
+/img/jungle-alert.webp
+/img/jungle-antidote.webp
+/img/jungle-blurred vision.webp
+/img/jungle-cave.webp
+/img/jungle-cave-branch.webp
+/img/jungle-cave-chamber.webp
+/img/jungle-cave-chamber-closed.webp
+/img/jungle-cave-chamber-glow.webp
+/img/jungle-cave-chamber-glow-gale.webp
+/img/jungle-cave-chamber-glow-magic book.webp
+/img/jungle-cave-dwarf.webp
+/img/jungle-cave-fall.webp
+/img/jungle-cave-inside.webp
+/img/jungle-cave-meet-shaman.webp
+/img/jungle-cave-stone door.webp
+/img/jungle-cave-torch.webp
+/img/jungle-cave-vertical shaft.webp
+/img/jungle-coverastion.webp
+/img/jungle-deworming.webp
+/img/jungle-shaman.webp
+/img/jungle-shaman-bandage.webp
+/img/jungle-shaman-cave.webp
+/img/jungle-shaman-deworming.webp
+/img/jungle-shaman-underbrush.webp
+/img/logo.webp
+/img/Love_Logo.webp
+/img/magic book closed.webp
+/img/magic book evil destroyed.webp
+/img/magic book evil.webp
+/img/magic book open.webp
+/img/test.webp
+/img/關愛LOGO.webp
