@@ -692,7 +692,6 @@ function showShareLoading(text = '圖片生成中…') {
     </div>
   `;
     document.body.appendChild(div);
-    // 鎖住背景互動（選配）
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
 }
@@ -703,19 +702,14 @@ function hideShareLoading() {
     document.body.style.overflow = '';
 }
 
-// ======= 取代你現有的 share() 實作 =======
 async function share() {
-    // 1) 顯示遮罩，讓使用者知道正在算圖
     showShareLoading('圖片生成中…');
 
-    // 2) 確保待截圖的節點是可見的（你原本就有這行，我保留流程一致）
     $('#share-img').removeClass('d-none');
 
-    // 3) 讓瀏覽器先把遮罩與 #share-img 繪製完再開始重活（避免遮罩晚一步出現）
     await new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
 
     try {
-        // 4) 生成 Canvas（沿用你目前的參數）
         const canvas = await html2canvas(document.querySelector('#share-img'), {
             useCORS: true,
             allowTaint: false,
@@ -723,7 +717,6 @@ async function share() {
             backgroundColor: null
         });
 
-        // 5) 輸出結果（沿用你目前的 DOM 結構與關閉邏輯）
         $('#window').append(`
       <div id="endimgtest">
         <img id="endimg" src="${canvas.toDataURL('image/png')}">
@@ -739,10 +732,8 @@ async function share() {
     `);
     } catch (err) {
         console.error('生成分享圖片失敗：', err);
-        // 提示一下（你也可以改成 toast）
         alert('圖片生成失敗，請再試一次 🙏');
     } finally {
-        // 6) 關閉遮罩 & 還原 #share-img 顯示狀態
         hideShareLoading();
         $('#share-img').addClass('d-none');
     }
